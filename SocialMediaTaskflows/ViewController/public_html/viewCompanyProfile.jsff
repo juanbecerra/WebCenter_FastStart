@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+ <af:panelGroupLayout id="pgl1" layout="scroll">
+ 
+ <af:resource type="javascript"
+    source="http://platform.linkedin.com/in.js"/>
+      <af:outputText value="&lt;script type=&quot;IN/CompanyProfile&quot; data-id=&quot;#{pageFlowScope.CompanyID}&quot; data-format=&quot;inline&quot;>&lt;/script> " id="ot2"
+                   escape="false"/>
+
+</af:panelGroupLayout>
+
+</jsp:root>

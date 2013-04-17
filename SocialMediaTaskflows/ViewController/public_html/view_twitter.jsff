@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html">
+<af:panelGroupLayout id="pgl1" layout="scroll">
+
+<af:resource type="css">
+.tweetcontainer { width: 95%; margin: 0 auto;}
+.tweet {
+	padding: 10px 20px;
+	font-size: 11px;
+	position: relative;
+	border-bottom: 1px dashed #CCC;
+	overflow: hidden;
+}
+.tweet img { margin-right: 12px; float: left; }
+.tweet .content { width: 90%; float:  left; }
+.tweet .content a.view { font-size: 10px; }
+</af:resource>
+
+<af:resource type="javascript"
+             source="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"/>
+<af:resource type="javascript"
+             source="http://wcpoc1.oakton.com.au/cs/groups/public/documents/webasset/znvu/y3rp/~edisp/js_okn_wc_functions.js"/>
+             
+<af:resource type="javascript">
+function getTwitter(evt)
+{
+ v_query = evt.getSource().getProperty("vQuery");
+ v_container = evt.getSource().findComponent("pg_mytweets").getClientId(); 
+ getTwitterfeed(v_query,v_container);
+}
+</af:resource>
+
+          
+    
+    <af:outputText value="Refresh Feed (#{pageFlowScope.twitter_query})" id="ot1">
+      <af:clientAttribute name="vQuery" value="#{pageFlowScope.twitter_query}"/>
+      <af:clientListener method="getTwitter" type="click"/>
+    </af:outputText>
+
+  <div class="tweetcontainer">  
+  <af:panelGroupLayout id="pg_mytweets" clientComponent="true" layout="vertical"
+                       rendered="true" >
+            <trh:script id="s2">
+     writeTwitterfeed('<af:outputText value="#{pageFlowScope.twitter_query}"
+                                    id="ot2"/>');
+         
+  </trh:script>
+    </af:panelGroupLayout>
+  </div>
+</af:panelGroupLayout>
+</jsp:root>

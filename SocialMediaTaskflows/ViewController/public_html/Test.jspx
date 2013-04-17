@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelSplitter orientation="vertical" splitterPosition="250"
+                          positionedFromEnd="true" id="ps1">
+          <f:facet name="first">
+            <af:panelDashboard id="pd1" columns="3"
+                               inlineStyle="vertical-align:top;"
+                               rowHeight="220px">
+              <af:panelBox id="pb1" text="LinkedIn">
+                <af:region value="#{bindings.LinkedIn_Profile1.regionModel}"
+                           id="r2"/>
+              </af:panelBox>
+              <af:panelBox id="box1" text="Twitter">
+                <af:region value="#{bindings.Twitter_JSON1.regionModel}"
+                           id="r1"/>
+              </af:panelBox>
+              <af:panelBox id="pb2" text="Youtube"/>
+              <af:panelBox id="pb3" text="Twitter">
+                <af:region value="#{bindings.Twitter_JSON2.regionModel}"
+                           id="r4"/>
+              </af:panelBox>
+              <af:panelBox id="pb4" text="Test">
+                <!--    <af:region value="#{bindings.Facebook_DomainActivity2.regionModel}"
+                         id="r3"/>-->
+                <af:region value="#{bindings.YoutubeVideo2.regionModel}"
+                           id="r3"/>
+              </af:panelBox>
+              <af:panelBox id="pb5" text="sdfsdfy">
+                <af:region value="#{bindings.Facebook_DomainActivity1.regionModel}"
+                           id="r7"/>
+              </af:panelBox>
+            </af:panelDashboard>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelDashboard id="pd2" columns="2"
+                               inlineStyle="vertical-align:top;"
+                               rowHeight="350px">
+              <af:panelBox id="pb8" text="LinkedIn Company">
+                <af:region value="#{bindings.LinkedIn_Company1.regionModel}"
+                           id="r5"/>
+              </af:panelBox>
+              <af:panelBox id="pb6" text="LinkedIn Company Profile">
+                <af:region value="#{bindings.LinkedIn_CompanyProfile1.regionModel}"
+                           id="r6"/>
+              </af:panelBox>
+            </af:panelDashboard>
+          </f:facet>
+        </af:panelSplitter>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

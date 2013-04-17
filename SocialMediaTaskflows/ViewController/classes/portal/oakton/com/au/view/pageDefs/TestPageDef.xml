@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="TestPageDef"
+                Package="portal.oakton.com.au.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="Twitter_JSON1"
+              taskFlowId="/WEB-INF/Twitter_JSON.xml#Twitter_JSON"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="twitter_query" value="Bogota"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="LinkedIn_Profile1"
+              taskFlowId="/WEB-INF/LinkedIn_Plugin.xml#LinkedIn_Profile"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="LinkedIn_Username" value="sambradon"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="Twitter_JSON2"
+              taskFlowId="/WEB-INF/Twitter_JSON.xml#Twitter_JSON"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="twitter_query" value="oakton"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="LinkedIn_Company1"
+              taskFlowId="/WEB-INF/LinkedIn_Company.xml#LinkedIn_Company"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="CompanyID" value="165271"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="LinkedIn_CompanyProfile1"
+              taskFlowId="/WEB-INF/LinkedIn_CompanyProfile.xml#LinkedIn_CompanyProfile"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="CompanyID" value="165271"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="Facebook_DomainActivity1"
+              taskFlowId="/WEB-INF/Facebook_DomainActivity.xml#Facebook_DomainActivity"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="CompanyDomain" value="telstra.com.au"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="Facebook_DomainActivity2"
+              taskFlowId="/WEB-INF/Facebook_DomainActivity.xml#Facebook_DomainActivity"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="CompanyDomain" value="oakton.com.au"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="YoutubeVideo1"
+              taskFlowId="/WEB-INF/YoutubeVideo.xml#YoutubeVideo"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="YoutubeVideo2"
+              taskFlowId="/WEB-INF/YoutubeVideo.xml#YoutubeVideo"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="youtubeVideo"
+                   value="http://www.youtube.com/watch?v=PKVrbdC3YcM"/>
+        <parameter id="width" value="300"/>
+        <parameter id="height" value="300"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>
