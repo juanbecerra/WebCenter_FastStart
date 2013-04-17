@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1">
-<af:outputText value="&lt;object width=&quot;#{pageFlowScope.width}&quot; height=&quot;#{pageFlowScope.height}&quot;&gt;
-&lt;param name=&quot;movie&quot; value=&quot;#{pageFlowScope.youtubeVideo}&quot;&gt;&lt;/param&gt;
-&lt;param name=&quot;wmode&quot; value=&quot;transparent&quot;&gt;&lt;/param&gt;
-&lt;embed src=&quot;http://www.youtube.com/v/PKVrbdC3YcM&quot; type=&quot;application/x-shockwave-flash&quot; wmode=&quot;transparent&quot; width=&quot;#{pageFlowScope.width}&quot; height=&quot;#{pageFlowScope.height}&quot;&gt;&lt;/embed&gt;
-&lt;/object&gt;" id="ot2"
-                   escape="false"/>
-</jsp:root>
