@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="LeightonProfilePageDef"
+                Package="au.com.leighton.profile.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="workhistoryflowdefinition1"
+              taskFlowId="/WEB-INF/workhistory-task-flow-definition.xml#workhistory-flow-definition"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="experienceflowdefinition1"
+              taskFlowId="/WEB-INF/experience-task-flow-definition.xml#experience-flow-definition"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="username" value="superman"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="experienceflowdefinition2"
+              taskFlowId="/WEB-INF/experience-task-flow-definition.xml#experience-flow-definition"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="username" value="#{securityContext.userName}"/>
+        <parameter id="title" value="Exp title stuff"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="workhistoryflowdefinition2"
+              taskFlowId="/WEB-INF/workhistory-task-flow-definition.xml#workhistory-flow-definition"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="username" value="#{securityContext.userName}"/>
+        <parameter id="title" value="Work Hist title stuff"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

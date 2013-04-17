@@ -1,0 +1,40 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/Portal/PhoGetLocationDetail/PhoGetLocationDetail"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.oracle.com/Portal/PhoGetLocationDetail/PhoGetLocationDetail">
+    <xs:element name="process">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="i_location_id" type="xs:decimal" minOccurs="1" nillable="false"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="processResponse" type="PhoGetLocationDetailCollection"/>
+    <xs:complexType name="PhoGetLocationDetailCollection">
+        <xs:sequence>
+            <xs:element name="RESULT" type="xs:string" nillable="true"/>
+            <xs:element name="PhoLocation" type="PhoGetLocationDetailOutput" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PhoGetLocationDetailOutput">
+        <xs:sequence>
+            <xs:element name="LOCATION_ID" type="xs:decimal" nillable="true"/>
+            <xs:element name="LOCN_NAME" type="xs:string" nillable="true"/>
+            <xs:element name="ADDRESS_1" type="xs:string" nillable="true"/>
+            <xs:element name="ADDRESS_2" type="xs:string" nillable="true"/>
+            <xs:element name="SUBURB" type="xs:string" nillable="true"/>
+            <xs:element name="STATE" type="xs:string" nillable="true"/>
+            <xs:element name="POSTCODE" type="xs:string" nillable="true"/>
+            <xs:element name="PUBLISHED_PH" type="xs:string" nillable="true"/>
+            <xs:element name="FAX_NO" type="xs:string" nillable="true"/>
+            <xs:element name="EMAIL" type="xs:string" nillable="true"/>
+            <xs:element name="VPN" type="xs:string" nillable="true"/>
+            <xs:element name="COMPANY_ID" type="xs:string" nillable="true"/>
+            <xs:element name="COMPANY_NAME" type="xs:string" nillable="true"/>
+            <xs:element name="NOTE" type="xs:string" nillable="true"/>
+            <xs:element name="PO_BOX_ADDRESS" type="xs:string" nillable="true"/>
+            <xs:element name="PO_BOX_SUBURB" type="xs:string" nillable="true"/>
+            <xs:element name="PO_BOX_STATE" type="xs:string" nillable="true"/>
+            <xs:element name="PO_BOX_POSTCODE" type="xs:string" nillable="true"/>
+            <xs:element name="ADMIN_EMAIL" type="xs:string" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

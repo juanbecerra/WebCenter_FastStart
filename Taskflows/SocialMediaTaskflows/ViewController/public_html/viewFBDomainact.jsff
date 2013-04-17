@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  
+  <af:inlineFrame id="if1"
+                  source="http://www.facebook.com/plugins/activity.php?header=false&amp;recommendations=true&amp;site=#{pageFlowScope.CompanyDomain}&amp;width=300&amp;height=100"
+                  inlineStyle="border-width:0px; height:100.0px;" sizing="none"/>
+
+</jsp:root>

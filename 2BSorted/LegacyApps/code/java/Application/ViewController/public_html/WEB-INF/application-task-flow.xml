@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="application-task-flow">
+    <default-activity id="__1">applicationView</default-activity>
+    <input-parameter-definition id="__7">
+      <name id="__6">username</name>
+      <value>#{pageFlowScope.username}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__9">
+      <name id="__8">environment</name>
+      <value>#{pageFlowScope.environment}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name id="__2">ApplicationBean</managed-bean-name>
+      <managed-bean-class id="__4">au.com.leighton.portal.application.view.ApplicationBean</managed-bean-class>
+      <managed-bean-scope id="__5">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="applicationView">
+      <page>/applicationView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

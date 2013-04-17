@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="EnterpriseTaskListEditPageDef"
+                Package="au.com.leighton.myfavapp.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EAapplicationEditVO1" RangeSize="25"
+              DataControl="EnterpriseTaskAMDataControl"
+              id="EAapplicationEditVO1Iterator"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="EAapplicationEditVO1Iterator"
+                  id="createSelectedRow" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createSelectedRow"
+                  IsViewObjectMethod="false"
+                  DataControl="EnterpriseTaskAMDataControl"
+                  InstanceName="bindings.EAapplicationEditVO1Iterator.currentRow"
+                  IsLocalObjectReference="true"/>
+    <tree IterBinding="EAapplicationEditVO1Iterator" id="EAapplicationEditVO1">
+      <nodeDefinition DefName="au.com.leighton.model.view.EAapplicationEditVO"
+                      Name="EAapplicationEditVO10">
+        <AttrNames>
+          <Item Value="markfordelete"/>
+          <Item Value="Logo"/>
+          <Item Value="Name"/>
+          <Item Value="AppId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

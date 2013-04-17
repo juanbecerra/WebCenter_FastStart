@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/ModeratedSpaces.xml" id="ModeratedSpaces" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="username"/>
+      <input-parameter name="environment"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/PeopleFinder.xml" id="PeopleFinder" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="username"/>
+      <input-parameter name="searchText"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/Connections.xml" id="Connections" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="username"/>
+      <input-parameter name="environment"/>
+   </task-flow-descriptor>
+</task-flow-registry>

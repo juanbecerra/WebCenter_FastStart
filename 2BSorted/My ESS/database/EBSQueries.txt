@@ -1,0 +1,92 @@
+/* The following SQL query extracts leave balance an employee by passing FND Username as of sysdate*/
+SELECT 
+c.user_name 
+,round(nvl(HR_AU_HOLIDAYS.GET_NET_ACCRUAL
+                                 ( p_assignment_id     =>b.assignment_id
+                                  ,p_payroll_id        => b.payroll_id
+                                  ,p_business_group_id => b.business_group_id
+                                  ,p_plan_id           => 61
+                                  ,p_calculation_date  => trunc(sysdate)
+                                 ),0),2)  Annual_accrual
+FROM apps.per_all_people_f A
+, apps.per_all_assignmentS_f b
+, apps.fnd_user c
+where a.person_id = b.person_id
+and   trunc(sysdate) between a.effective_start_date and a.effective_end_date
+and   trunc(sysdate) between b.effective_start_date and b.effective_end_date 
+AND   A.person_id  = c.employee_id
+AND   c.user_name = :FND_USER;
+
+
+
+
+
+/* The following SQL query extracts latest Payslip date of an employee by passing FND Username as of sysdate*/
+Select max(NVL(PPA.pay_advice_date, PPA.effective_date)) LAST_PAYSLIP_DATE
+FROM    APPS.pay_payroll_actions  PPA
+        ,APPS.pay_payrolls_f          PPF
+WHERE  PPA.action_type in ('P','U') 
+AND        PPA.action_status = 'C' 
+AND        PPF.payroll_id = PPA.payroll_id
+AND        PPA.effective_date BETWEEN
+               PPF.effective_start_date and PPF.effective_end_date
+AND        NVL(PPA.pay_advice_date, PPA.effective_date) >=  to_date('01/01/1997','MM/DD/YYYY') 
+AND EXISTS
+(SELECT 1 
+ FROM APPS.pay_assignment_actions PAA
+           ,APPS.per_all_assignments_f     PAAF
+           ,APPS.PER_ALL_PEOPLE_F PAP
+           ,APPS.fnd_user FU
+ WHERE PAA.payroll_action_id = PPA.payroll_action_id
+ AND       PAA.assignment_id     = PAAF.assignment_id
+ AND       PAA.action_status     = 'C'
+ AND     PAP.person_id = PAAF.person_id
+and   trunc(sysdate) between PAP.effective_start_date and PAP.effective_end_date
+and   trunc(sysdate) between PAAF.effective_start_date and PAAF.effective_end_date 
+AND   PAP.person_id  = FU.employee_id
+AND   FU.user_name = :FND_USER
+AND EXISTS
+  (
+  SELECT 1
+  FROM   APPS.pay_action_interlocks  PAI
+        ,APPS.pay_assignment_actions   PAA_PAY
+        ,APPS.pay_payroll_actions           PPA_PAY
+  WHERE PAI.locked_action_id = PAA.assignment_action_id
+  AND       PAI.locking_action_id = PAA_PAY.assignment_action_id
+  AND       PAA_PAY.payroll_action_id = PPA_PAY.payroll_action_id
+  AND       PPA_PAY.action_status = 'C'
+  AND       PPA_PAY.action_type IN ('E','M','A','H')
+  )
+);
+/
+
+SELECT R.RESPONSIBILITY_NAME
+,R.RESPONSIBILITY_ID
+,R.RESPONSIBILITY_KEY
+,F.USER_FUNCTION_NAME
+,F.FUNCTION_ID
+,M.PROMPT FUNCTION_USER_PROMPT
+,M.MENU_ID
+FROM 
+FND_RESPONSIBILITY_VL R,
+FND_MENU_ENTRIES_VL M,
+FND_FORM_FUNCTIONS_VL F
+WHERE R.MENU_ID=M.MENU_ID
+AND M.FUNCTION_ID=F.FUNCTION_ID
+AND R.RESPONSIBILITY_NAME='LC AU HR Employee Self Service';
+--AND R.RESPONSIBILITY_NAME='LC AU HR VS Employee Self Service';
+
+
+
+SELECT R.USER_ID,
+  R.RESPONSIBILITY_ID,
+  R.RESPONSIBILITY_APPLICATION_ID,
+  R.SECURITY_GROUP_ID,
+  R.START_DATE,
+  R.END_DATE
+FROM APPS.FND_USER_RESP_GROUPS_ALL R,
+  APPS.FND_USER_VIEW U
+WHERE R.USER_ID              =U.USER_ID
+AND upper(U.USER_NAME)       =upper('LOGGEDUSER')
+AND RESPONSIBILITY_ID        =50837
+AND NVL(R.END_DATE,sysdate) >= sysdate;

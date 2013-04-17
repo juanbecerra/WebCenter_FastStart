@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="au.com.leighton.mylinks.am.MyLinks_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="au.com.leighton.mylinks.model.Model" name="MyLinks_AMLocal" ApplicationName="au.com.leighton.mylinks.am.MyLinks_AM">
+         <AM-Pooling jbo.doconnectionpooling="true"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="au.com.leighton.mylinks.am.MyLinks_AM"/>
+         <Custom JDBCDataSource="jdbc/WCS_CUSTOMDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="au.com.leighton.mylinks.model.Model" name="MyLinks_AMShared" ApplicationName="au.com.leighton.mylinks.am.MyLinks_AM">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="au.com.leighton.mylinks.am.MyLinks_AM"/>
+         <Custom JDBCDataSource="jdbc/WCS_CUSTOMDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

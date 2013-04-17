@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.59.23" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.portal.peoplefinder.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/TesterDEV.jspx"
+          usageId="au_com_leighton_portal_peoplefinder_view_TesterDEVPageDef"/>
+    <page path="/PersonDetailView.jsff"
+          usageId="au_com_leighton_portal_peoplefinder_view_PersonDetailViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_portal_peoplefinder_view_TesterDEVPageDef"
+          path="au.com.leighton.portal.peoplefinder.view.pageDefs.TesterDEVPageDef"/>
+    <page id="au_com_leighton_portal_peoplefinder_view_PersonDetailViewPageDef"
+          path="au.com.leighton.portal.peoplefinder.view.pageDefs.PersonDetailViewPageDef"/>
+  </pageDefinitionUsages>
+</Application>

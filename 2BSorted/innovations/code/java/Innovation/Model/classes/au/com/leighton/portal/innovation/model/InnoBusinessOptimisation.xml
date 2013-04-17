@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InnoBusinessOptimisation"
+  Version="11.1.1.59.23"
+  DBObjectType="table"
+  DBObjectName="INNO_BUSINESS_OPTIMISATION"
+  AliasName="InnoBusinessOptimisation"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="BusinessOptimisationName"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="BUSINESS_OPTIMISATION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="INNO_BUSINESS_OPTIMISATION"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="InnoBusinessOptimisatioPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="INNO_BUSINESS_OPTIMISATIO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.innovation.model.InnoBusinessOptimisation.BusinessOptimisationName"/>
+    </AttrArray>
+  </Key>
+</Entity>

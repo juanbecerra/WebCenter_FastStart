@@ -1,0 +1,38 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"
+     xmlns="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="process">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="site" type="xs:string"/>
+                <xs:element name="account_id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="processResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Data" type="DataType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="DataType">
+        <xs:sequence>
+            <xs:element name="Item" type="ItemType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ItemType">
+        <xs:sequence>
+            <xs:element name="id" nillable="true" type="xs:string"/>
+            <xs:element name="fromName" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="fromId" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="title" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="message" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="createdTime" type="xs:dateTime" minOccurs="0" nillable="true"/>
+            <xs:element name="img" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="link" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="commentsCount" type="xs:long" minOccurs="0" nillable="true"/>
+            <xs:element name="likeCount" type="xs:long" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

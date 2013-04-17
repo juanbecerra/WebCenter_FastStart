@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="Socialmediacomposite_client_ep.xml"/>
+      <url path="socialmediacomposite_client_ep.wsdl"/>
+      <url path="SocialMediaComposite.xsd"/>
+      <url path="SocialMediaComposite_ptClient.java"/>
+      <url path="types/package-info.java"/>
+      <url path="SocialMediaComposite.java"/>
+      <url path="types/ProcessResponse.java"/>
+      <url path="types/ItemType.java"/>
+      <url path="Socialmediacomposite_client_ep.java"/>
+      <url path="types/DataType.java"/>
+      <url path="types/ObjectFactory.java"/>
+      <url path="types/Process.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MTOM"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <url n="ORACLE_WEBSERVICES_XML" path="Socialmediacomposite_client_ep.xml"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="au.com.leicon.socialmedia.services"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="au.com.leicon.socialmedia.services.types"/>
+         </hash>
+      </hash>
+      <value n="PROXY_ASYNC_METHODS" v="FOR_NONE"/>
+      <list n="PROXY_CLIENTS">
+         <url path="SocialMediaComposite_ptClient.java"/>
+      </list>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="http" host="lclxsoar1u.lc.local" port="8001" path="/soa-infra/services/default/SocialMediaComposite/socialmediacomposite_client_ep" query="WSDL"/>
+      <hash n="PROXY_PORTS">
+         <hash n="SocialMediaComposite_pt">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="au.com.leicon.socialmedia.services.SocialMediaComposite"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="SocialMediaComposite_pt"/>
+            <hash n="OPERATIONS">
+               <hash n="process">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_CLIENT_POLICY">
+                  <value n="addressing"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security"/>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="lclxsoar1u.lc.local" port="8001" path="/soa-infra/services/default/SocialMediaComposite/socialmediacomposite_client_ep"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="socialmediacomposite_client_ep"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../ViewController.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST">
+         <url path="SocialMediaComposite.xsd"/>
+      </list>
+      <url n="PROXY_WSDL_URL" path="socialmediacomposite_client_ep.wsdl"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BOUND_PORT_TYPE" v="{http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite}SocialMediaComposite"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite}SocialMediaCompositeBinding"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BD_SOAP_ACTION" v="process"/>
+                     <value n="BD_SOAP_INPUT_USE" v="1"/>
+                     <value n="BD_SOAP_OUTPUT_USE" v="1"/>
+                     <value n="BD_SOAP_STYLE" v="1"/>
+                     <value n="BOUND_OPERATION" v="au.com.leicon.socialmedia.services.types.DataType.process.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="5291dfe1-0137-1000-8001-0a5c689e15c8"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="SocialMediaComposite_pt"/>
+               <value n="PORT_BINDING_NAME" v="{http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite}SocialMediaCompositeBinding"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="au.com.leicon.socialmedia.services.types.DataType.process.java.lang.String.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="lclxsoar1u.lc.local" port="8001" path="/soa-infra/services/default/SocialMediaComposite/socialmediacomposite_client_ep"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="au.com.leicon.socialmedia.services"/>
+               <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="au.com.leicon.socialmedia.services.types"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite}SocialMediaComposite"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="au.com.leicon.socialmedia.services.SocialMediaCompositeImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="au.com.leicon.socialmedia.services.SocialMediaComposite"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../../../ViewController.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"/>
+         <value n="WS_URI" v="socialmediacomposite_client_ep"/>
+         <url n="WS_WSDL_FILE" path="socialmediacomposite_client_ep.wsdl"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

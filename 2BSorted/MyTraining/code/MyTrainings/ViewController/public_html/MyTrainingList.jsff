@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MyTrainingList_VO1.collectionModel}" var="row"
+              rows="#{bindings.MyTrainingList_VO1.rangeSize}"
+              emptyText="#{bindings.MyTrainingList_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MyTrainingList_VO1.rangeSize}"
+              rowBandingInterval="0" id="t1" partialTriggers="::t1"
+              verticalGridVisible="false" autoHeightRows="4"
+              shortDesc="My Trainings" columnStretching="last" width="97%"
+              inlineStyle="border:0.0px;">
+      <af:column sortProperty="CourseName" sortable="false" id="c5"
+                 inlineStyle="padding-top: 5px; padding-bottom: 5px; padding-left: 17px; padding-right: 17px;">
+        <af:goLink text="#{row.CourseName}" id="gl1" destination="#{row.Url}"
+                   targetFrame="_blank"/>
+      </af:column>
+    </af:table>
+  
+  <af:spacer width="10" height="10" id="s1"/>
+  <af:panelGroupLayout layout="horizontal" id="footeroptions"
+                       styleClass="AFStretchWidth"
+                       inlineStyle="padding-right:5px;">
+    <!--<af:panelGroupLayout layout="horizontal" id="pgleft"
+                         inlineStyle="padding:10.0px;" halign="left">
+      <af:commandLink id="cb1" text="Add More" styleClass="icon-left add-icon"
+                      action="myCategoryTraining"></af:commandLink>
+    </af:panelGroupLayout>-->
+    <af:panelGroupLayout layout="horizontal" id="pgright" halign="right">
+      <af:goLink text="View My Training" id="gl2" destination="MyTraining.jspx"
+                 styleClass="arrow-right-link"
+                 inlineStyle="white-space:nowrap;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:enterpriseAppBean-->
+</jsp:root>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.mylinks.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/MyLinksListFull.jsff"
+          usageId="au_com_leighton_mylinks_view_MyLinksListPageDef"/>
+    <page path="/MyLinksFullmain.jspx"
+          usageId="au_com_leighton_mylinks_view_MyLinksmainPageDef"/>
+    <page path="/MyLinkAdd.jsff"
+          usageId="au_com_leighton_mylinks_view_MyLinkAddPageDef"/>
+    <page path="/WEB-INF/TaskFlow/viewMyLinksFull-TaskFlow.xml#viewMyLinksFull-TaskFlow@Commit"
+          usageId="au_com_leighton_mylinks_view_viewMyLinksFull_TaskFlow_viewMyLinksFull_TaskFlow_CommitPageDef"/>
+    <page path="/MyLinkListSmall.jsff"
+          usageId="au_com_leighton_mylinks_view_MyLinkListSmallPageDef"/>
+    <page path="/MyLinkSmallMain.jspx"
+          usageId="au_com_leighton_mylinks_view_MyLinkSmallMainPageDef"/>
+    <page path="/WEB-INF/TaskFlow/viewMyLinksSmall-TaskFlow.xml#viewMyLinksSmall-TaskFlow@CreateInsert"
+          usageId="au_com_leighton_mylinks_view_viewMyLinksSmall_TaskFlow_viewMyLinksSmall_TaskFlow_CreateInsertPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_mylinks_view_MyLinksListPageDef"
+          path="au.com.leighton.mylinks.view.pageDefs.MyLinksListPageDef"/>
+    <page id="au_com_leighton_mylinks_view_MyLinksmainPageDef"
+          path="au.com.leighton.mylinks.view.pageDefs.MyLinksmainPageDef"/>
+    <page id="au_com_leighton_mylinks_view_MyLinkAddPageDef"
+          path="au.com.leighton.mylinks.view.pageDefs.MyLinkAddPageDef"/>
+    <page id="au_com_leighton_mylinks_view_viewMyLinksFull_TaskFlow_viewMyLinksFull_TaskFlow_CommitPageDef"
+          path="TaskFlow.viewMyLinksFull_TaskFlow_viewMyLinksFull_TaskFlow_CommitPageDef"/>
+    <page id="au_com_leighton_mylinks_view_MyLinkListSmallPageDef"
+          path="au.com.leighton.mylinks.view.pageDefs.MyLinkListSmallPageDef"/>
+    <page id="au_com_leighton_mylinks_view_MyLinkSmallMainPageDef"
+          path="au.com.leighton.mylinks.view.pageDefs.MyLinkSmallMainPageDef"/>
+    <page id="au_com_leighton_mylinks_view_viewMyLinksSmall_TaskFlow_viewMyLinksSmall_TaskFlow_CreateInsertPageDef"
+          path="TaskFlow.viewMyLinksSmall_TaskFlow_viewMyLinksSmall_TaskFlow_CreateInsertPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="MyLinks_AMDataControl"
+                     Package="au.com.leighton.mylinks.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="MyLinks_AMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

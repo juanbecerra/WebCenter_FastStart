@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<catalogDefinition id="mypage-catalog" visible="${true}"
+                   xmlns="http://xmlns.oracle.com/adf/rcs/catalog">
+  <contents xmlns="http://xmlns.oracle.com/adf/rcs/catalog">
+    <includeCatalog scope="/" id="catalog" visible="#{true}"
+                    catalogId="/oracle/webcenter/portalapp/catalogs/default-catalog.xml">
+      <attributes>
+        <attribute value="catalog" attributeId="Title" isKey="false"/>
+      </attributes>
+    </includeCatalog>
+    <folder visible="#{true}" id="SocialMedia">
+      <attributes>
+        <attribute isKey="false" attributeId="Title" value="Social Media"/>
+      </attributes>
+      <contents/>
+    </folder>
+    <folder visible="#{true}" id="MyComponents">
+      <attributes>
+        <attribute isKey="false" attributeId="Title" value="My Components"/>
+      </attributes>
+      <contents>
+        <url factoryClass="oracle.webcenter.portalframework.sitestructure.rc.TaskFlowResourceFactory"
+             visible="#{true}" id="recommendedconnections"
+             url="taskflow://view/oracle/webcenter/activitygraph/controller/taskflows/recommended-connections.xml#recommended-connections">
+          <attributes>
+            <attribute isKey="false" attributeId="Title"
+                       value="Recommended Connections"/>
+          </attributes>
+        </url>
+      </contents>
+    </folder>
+    <folder visible="#{true}" id="folder">
+      <attributes>
+        <attribute isKey="false" attributeId="Title" value="folder"/>
+      </attributes>
+      <contents/>
+    </folder>
+  </contents>
+  <schema resourceBundle="oracle.adf.rc.attribute.nls.AttributeBundle"
+          xmlns="http://xmlns.oracle.com/adf/rcs/catalog">
+    <descriptor attributeId="Title" shortLabelKey="TITLE.SHORT_PROMPT_KEY"
+                endUserVisible="true" labelKey="TITLE.PROMPT_KEY"
+                searchable="true" multivalue="false"
+                xmlns="http://xmlns.oracle.com/adf/rcs/catalog"/>
+    <descriptor attributeId="Description"
+                shortLabelKey="DESCRIPTION.SHORT_PROMPT_KEY"
+                endUserVisible="true" labelKey="DESCRIPTION.PROMPT_KEY"
+                searchable="true" multivalue="false"
+                xmlns="http://xmlns.oracle.com/adf/rcs/catalog"/>
+    <descriptor attributeId="Subject" shortLabelKey="SUBJECT.SHORT_PROMPT_KEY"
+                endUserVisible="true" labelKey="SUBJECT.PROMPT_KEY"
+                searchable="true" multivalue="false"
+                xmlns="http://xmlns.oracle.com/adf/rcs/catalog"/>
+    <descriptor attributeId="ToolTip" shortLabelKey="TOOL_TIP.SHORT_PROMPT_KEY"
+                endUserVisible="true" labelKey="TOOL_TIP.PROMPT_KEY"
+                searchable="false" multivalue="false"
+                xmlns="http://xmlns.oracle.com/adf/rcs/catalog"/>
+    <descriptor attributeId="IconURI" shortLabelKey="ICON_URI.SHORT_PROMPT_KEY"
+                endUserVisible="false" labelKey="ICON_URI.PROMPT_KEY"
+                searchable="false" multivalue="false"
+                xmlns="http://xmlns.oracle.com/adf/rcs/catalog"/>
+  </schema>
+</catalogDefinition>

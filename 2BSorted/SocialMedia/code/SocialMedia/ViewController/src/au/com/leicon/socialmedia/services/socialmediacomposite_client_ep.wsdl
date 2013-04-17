@@ -1,0 +1,52 @@
+<wsdl:definitions
+     name="SocialMediaComposite"
+     targetNamespace="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://lclxsoar1u.lc.local:8001/soa-infra/services/default/SocialMediaComposite!1.0/SocialMediaComposite.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="SocialMediaComposite">
+        <plnk:role name="SocialMediaCompositeProvider">
+            <plnk:portType name="client:SocialMediaComposite"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"
+                 schemaLocation="SocialMediaComposite.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="SocialMediaCompositeRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="SocialMediaCompositeResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SocialMediaComposite">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:SocialMediaCompositeRequestMessage"/>
+            <wsdl:output message="client:SocialMediaCompositeResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SocialMediaCompositeBinding" type="client:SocialMediaComposite">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/PortalApplication/SocialMediaComposite/SocialMediaComposite"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="socialmediacomposite_client_ep">
+        <wsdl:port name="SocialMediaComposite_pt" binding="client:SocialMediaCompositeBinding">
+            <soap:address location="http://lclxsoar1u.lc.local:8001/soa-infra/services/default/SocialMediaComposite/socialmediacomposite_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

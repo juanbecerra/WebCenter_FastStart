@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="MyConnection-TaskFlow">
+    <default-activity id="__1">MyConnectionList</default-activity>
+    <managed-bean id="__12">
+      <managed-bean-name id="__11">myConnectionmangaeBean</managed-bean-name>
+      <managed-bean-class id="__13">au.com.leighton.myconnections.view.MyConnectionManageBean</managed-bean-class>
+      <managed-bean-scope id="__10">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="MyConnectionList">
+      <page>/MyConnectionList.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

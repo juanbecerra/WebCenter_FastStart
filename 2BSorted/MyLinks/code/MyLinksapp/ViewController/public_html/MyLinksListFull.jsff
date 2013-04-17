@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core" 
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+          >
+  <af:panelGroupLayout layout="horizontal" id="pgleft"
+                       inlineStyle="padding:10.0px;" halign="left">
+    <af:commandLink actionListener="#{bindings.CreateInsert.execute}"
+                    text="Add More" styleClass="icon-left add-icon"
+                    action="addMylink"
+                    disabled="#{!bindings.CreateInsert.enabled}" id="cl2"/>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MyLinkList_VO1.collectionModel}" var="row"
+              rows="#{bindings.MyLinkList_VO1.rangeSize}"
+              emptyText="#{bindings.MyLinkList_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MyLinkList_VO1.rangeSize}"
+              rowBandingInterval="0"
+              selectedRowKeys="#{bindings.MyLinkList_VO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.MyLinkList_VO1.collectionModel.makeCurrent}"
+              verticalGridVisible="false" autoHeightRows="14"
+              shortDesc="My Links" columnStretching="column:c3" width="97%"
+              inlineStyle="border:0.0px;" id="t1"
+              partialTriggers="::cl2 cb1" contentDelivery="lazy">
+      <af:column sortProperty="Displayname" sortable="false" id="c3"
+                 width="200">
+         
+                <c:set var="prefix1" value="#{fn:substring(row.Url,0,4)}"/>
+                <c:set var="prefix2" value="#{fn:substring(row.Url,0,1)}"/>
+                <c:set var="url1" value="#{row.Url}"/>
+                <c:set var="url2" value="/#{row.Url}"/>
+                <c:set var="url3" value="http://#{row.Url}"/>
+                
+         <af:goLink  text="#{row.Displayname}" id="gl1" destination="#{prefix1 eq 'http'? url1 : (prefix2 eq '/' ? url2: url3) }"
+                                targetFrame="#{row.Newpage eq 'Y'? '_blank' : '_top'}"
+                                inlineStyle="font-weight:bold;"/>
+        <af:outputText value="#{prefix1 eq 'http'? url1 : (prefix2 eq '/' ? url2 : url3) }" id="ot1"
+                       inlineStyle="font-style:italic;"/>
+    
+      </af:column>
+       
+      <af:column sortProperty="MylinksId" sortable="false" id="c1">
+        <af:commandLink action="addMylink" text="Edit" id="c7"/>
+      </af:column>
+      <af:column sortProperty="MylinksId" sortable="false" id="c5">
+        <af:commandLink text="Delete" id="c4">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandLink>
+        <af:popup id="p1" contentDelivery="immediate" eventContext="launcher"
+                  partialTriggers="::t1">
+          <af:dialog id="d1" type="none">
+            <div>
+              <af:outputText value="Are you Sure you want to delete" id="ot12"/>
+               
+              <af:separator id="s12"/>
+            </div>
+            <div>
+              <af:spacer width="10" height="10" id="s3"/>
+            </div>
+            <div>
+              <af:spacer width="40" height="10" id="s4"/>
+               
+              <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                text="Yes" action="commitMyLink"
+                                disabled="#{!bindings.Delete.enabled}"
+                                id="cb1"/>
+               
+              <af:commandButton text="No" id="cb6"/>
+            </div>
+          </af:dialog>
+        </af:popup>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

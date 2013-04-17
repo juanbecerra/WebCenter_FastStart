@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="SubmitInnovation">
+    <default-activity id="__1">SubmitInnovationView</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">newIdeaBean</managed-bean-name>
+      <managed-bean-class id="__5">au.com.leighton.portal.innovation.model.IdeaBean</managed-bean-class>
+      <managed-bean-scope id="__3">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__6">
+      <managed-bean-name id="__7">helpTextBean</managed-bean-name>
+      <managed-bean-class id="__9">au.com.leighton.portal.innovation.view.HelpTextBean</managed-bean-class>
+      <managed-bean-scope id="__8">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name id="__11">listHandlerBean</managed-bean-name>
+      <managed-bean-class id="__12">au.com.leighton.portal.innovation.view.ListHandlerBean</managed-bean-class>
+      <managed-bean-scope id="__13">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="SubmitInnovationView">
+      <page>/SubmitInnovationView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

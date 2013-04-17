@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="YouTubeVideo">
+    <default-activity id="__1">viewVideo</default-activity>
+    <input-parameter-definition id="__3">
+      <name id="__2">youtubeVideo</name>
+      <value>#{pageFlowScope.youtubeVideo}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__4">
+      <name id="__5">width</name>
+      <value>#{pageFlowScope.width}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__6">
+      <name id="__7">heigth</name>
+      <value>#{pageFlowScope.heigth}</value>
+      <required/>
+    </input-parameter-definition>
+    <view id="viewVideo">
+      <page>/viewVideo.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

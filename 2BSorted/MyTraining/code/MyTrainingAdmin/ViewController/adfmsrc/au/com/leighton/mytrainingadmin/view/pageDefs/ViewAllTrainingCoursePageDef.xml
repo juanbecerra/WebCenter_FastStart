@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="ViewAllTrainingCoursePageDef"
+                Package="au.com.leighton.mytrainingadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyCourses_VO1" RangeSize="25"
+              DataControl="MyTrainingAdmin_AMDataControl"
+              id="MyCourses_VO1Iterator" CacheResults="true" Refresh="always"/>
+    <searchRegion Binds="MyCourses_VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MyCourses_VO11Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MyCourses_VO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="MyCourses_VO1Iterator" id="MyCourses_VO1">
+      <nodeDefinition DefName="au.com.leighton.mytrainingadmin.model.view.MyCourses_VO"
+                      Name="MyCourses_VO10">
+        <AttrNames>
+          <Item Value="CategoryId"/>
+          <Item Value="CourseId"/>
+          <Item Value="Description"/>
+          <Item Value="Enabled"/>
+          <Item Value="Mandatory"/>
+          <Item Value="ModifiedOn"/>
+          <Item Value="Name"/>
+          <Item Value="Url"/>
+          <Item Value="Name1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MyCourses_VO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

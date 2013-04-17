@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" inlineStyle="height:700px;"
+                       styleClass="AFStretchWidth">
+    <af:decorativeBox id="db1" inlineStyle="height:750.0px;"
+                      styleClass="AFStretchWidth">
+      <f:facet name="center">
+        <af:group id="g1">
+       <af:commandLink text="&lt;&lt; Back to #{pageFlowScope.peopleFinderBean.selectedPerson.fullName}" id="cl1"
+                          action="return"/>
+          <table border="0" cellpadding="2" cellspacing="2" width="95%">
+            <tr>
+              <td valign="middle" width="250px">
+                <!--
+            *******************************************************************************************
+            Photo
+            *******************************************************************************************
+            -->
+                <af:activeImage source="#{pageFlowScope.peopleFinderBean.personalAssistant.photoSource}"
+                                id="ai1"
+                                inlineStyle="height:180px"
+                                rendered="#{pageFlowScope.peopleFinderBean.personalAssistant.photoAvailable}"/>
+                 
+                <af:outputText value="No Photo Available" id="ot20"
+                               rendered="#{not pageFlowScope.peopleFinderBean.personalAssistant.photoAvailable}"
+                               inlineStyle="font-style:italic;"/>
+              </td>
+              <td valign="top">
+                <!--
+            *******************************************************************************************
+            Person details
+            *******************************************************************************************
+            -->
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.fullName}"
+                               id="ot2" styleClass="WCCustomHead1"/>
+                 
+                <br/>
+                 
+                <br/>
+                 
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.title}"
+                               id="ot11" styleClass="WCHead2Bold"/>
+                 
+                <br/>
+                 
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.department}"
+                               id="ot12" styleClass="WCHead2Bold"/>
+                 
+                <br/>
+                 
+                <af:panelLabelAndMessage label="Contact:" id="plam2"
+                                         visible="#{pageFlowScope.peopleFinderBean.personalAssistant.hasPersonalAssistant}">
+                  <af:commandLink text="#{pageFlowScope.peopleFinderBean.personalAssistant.personalAssistantName}"
+                                  id="cl2" action="personalassistant"/>
+                </af:panelLabelAndMessage>
+                 
+                <af:panelLabelAndMessage label="Email:" id="plam5">
+                  <af:goLink text="#{pageFlowScope.peopleFinderBean.personalAssistant.email}"
+                             id="gl4"
+                             destination="mailto:#{pageFlowScope.peopleFinderBean.personalAssistant.email}"/>
+                </af:panelLabelAndMessage>
+                 
+                <af:panelLabelAndMessage label="Desk Phone:" id="plam3">
+                  <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.mainPhone}"
+                                 id="ot14"/>
+                </af:panelLabelAndMessage>
+                 
+                <af:panelLabelAndMessage label="Fax:" id="plam4">
+                  <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.locationFax}"
+                                 id="ot15"/>
+                </af:panelLabelAndMessage>
+                 
+                <af:panelLabelAndMessage label="Mobile:" id="plam6">
+                  <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.mobile}"
+                                 id="ot17"/>
+                </af:panelLabelAndMessage>
+                 
+                <br/>
+                 
+                <af:panelLabelAndMessage label="Username:" id="plam1"
+                                         rendered="#{pageFlowScope.peopleFinderBean.personalAssistant.webcenterUsernameValid}">
+                  <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.webcenterUsername}"
+                                 id="ot13"
+                                 rendered="#{pageFlowScope.peopleFinderBean.personalAssistant.webcenterUsernameValid}"/>
+                </af:panelLabelAndMessage>
+                 
+                <br/>
+                 
+                <af:goLink text="If these details are incorrect click here"
+                           id="gl3"
+                           destination="#{pageFlowScope.peopleFinderBean.personalAssistant.adminEmailUrl}"
+                           visible="#{pageFlowScope.peopleFinderBean.personalAssistant.adminEmailAvailable}"/>
+              </td>
+              <td width="250px" valign="top">
+                <!--
+            *******************************************************************************************
+            Location Details
+            *******************************************************************************************
+            -->
+                <af:outputText value="Location:" id="ot3"
+                               styleClass="WCHead1Bold"/>
+                 
+                <br/>
+                 
+                <af:goLink text="Show map" id="gl1"
+                           destination="#{pageFlowScope.peopleFinderBean.personalAssistant.showMapUrl}"
+                           targetFrame="_blank"/>
+                 
+                <br/>
+                 
+                <br/>
+                 
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.location}"
+                               id="ot32" styleClass="WCHead1Bold"/>
+                 
+                <br/>
+                 
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.locationAddress1}"
+                               id="ot33"/>
+                 
+                <br/>
+                 
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.locationAddress2}"
+                               id="ot16"/>
+                 
+                <br/>
+                 
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.personalAssistant.locationStatePostcode}"
+                               id="ot34"/>
+                 
+                <br/>
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <table border="0" cellpadding="0" cellspacing="0" width="95%">
+            <tr>
+              <td width="270px" height="150px" valign="top">
+                <!--
+            *******************************************************************************************
+            Reporting Line
+            *******************************************************************************************
+            -->
+                <af:outputText value="Reporting Line:" id="ot1"
+                               styleClass="WCHead1Bold"/>
+                 
+                <af:tree id="tree1" var="node"
+                         value="#{pageFlowScope.peopleFinderBean.personalAssistantTreeModel}"
+                         expandAllEnabled="false" contentDelivery="immediate"
+                         initiallyExpanded="true"
+                         inlineStyle="height:80px; width:200px;"
+                         summary="Reporting Line">
+                  <f:facet name="nodeStamp">
+                    <af:group id="g2">
+                      <af:outputText value="#{node.displayName}" id="ot5"/>
+                    </af:group>
+                  </f:facet>
+                </af:tree>
+              </td>
+              <td rowspan="3" valign="top">
+                <!--
+            *******************************************************************************************
+            Experience
+            *******************************************************************************************
+            -->
+                <af:outputText value="Experience" id="ot18"
+                               styleClass="WCHead1Bold"/>
+                 
+                <br/>
+                 
+                <br/>
+                <div style="overflow:auto; height:450px; width:100%;">
+                  <table border="0" cellpadding="0" cellspacing="0"
+                         width="100%">
+                    <af:forEach items="#{pageFlowScope.peopleFinderBean.personalAssistant.experience}"
+                                var="item">
+                      <tr>
+                        <td>
+                          <af:outputText value="#{item.role}" id="ot7"
+                                         styleClass="WCCustomHead5"/>
+                           
+                          <br/>
+                           
+                          <af:outputText value="#{item.company}" id="ot8"
+                                         styleClass="WCCustomHead3"/>
+                           
+                          <br/>
+                           
+                          <af:outputText value="#{item.location}" id="ot9"
+                                         styleClass="WCCustomHead4"/>
+                           
+                          <br/>
+                           
+                          <af:outputText value="#{item.timeframe}" id="ot19"
+                                         styleClass="WCCustomHead4"/>
+                           
+                          <br/>
+                           
+                          <af:outputText value="#{item.description}"
+                                         escape="false" id="ot10"/>
+                           
+                          <br/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">&amp;nbsp;</td>
+                      </tr>
+                    </af:forEach>
+                  </table>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td valign="top">
+                <!--
+            *******************************************************************************************
+            Connection Details
+            *******************************************************************************************
+            -->
+                <af:outputText value="Connections:" id="ot4"
+                               styleClass="WCHead1Bold"/>
+                 
+                <af:region value="#{bindings.Connections1.regionModel}"
+                           id="r1"/>
+                 
+                <!-- <af:region value="#{bindings.Connections1.regionModel}"
+                           id="r1"/> -->
+              </td>
+            </tr>
+             
+            <tr>
+              <td valign="top">
+                <!--
+            *******************************************************************************************
+            Spaces Moderated by You
+            *******************************************************************************************
+            -->
+                <af:outputText value="Spaces Moderated By Me:" id="ot6"
+                               styleClass="WCHead1Bold"/>
+                 
+                <af:region value="#{bindings.ModeratedSpaces1.regionModel}"
+                           id="r2"/>
+                 
+                <!--<af:region value="#{bindings.ModeratedSpaces1.regionModel}"
+                           id="r2"/> -->
+              </td>
+            </tr>
+          </table>
+        </af:group>
+      </f:facet>
+    </af:decorativeBox>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:peopleFinderBean-->
+</jsp:root>

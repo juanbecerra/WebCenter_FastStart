@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Extension-Name: mypage.library.portal.oakton.com.au
+Specification-Version: 11.1.1.6
+Implementation-Title: Oracle WebCeter Myapage Taskflow Libary for My Portal
+Implementation-Version: 11.1.1.6.16
+Implementation-Vendor: Oakton
+Created-By: Juan Becerra

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="viewMyLinksFull-TaskFlow">
+    <default-activity id="__1">MyLinksList</default-activity>
+    <view id="MyLinksList">
+      <page>/MyLinksListFull.jsff</page>
+    </view>
+    <view id="MyLinkAdd">
+      <page>/MyLinkAdd.jsff</page>
+    </view>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome id="__12">
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">MyLinksList</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">addMylink</from-outcome>
+        <to-activity-id id="__5">MyLinkAdd</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__15">commitMyLink</from-outcome>
+        <to-activity-id id="__14">Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">MyLinkAdd</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">listMylink</from-outcome>
+        <to-activity-id id="__9">MyLinksList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

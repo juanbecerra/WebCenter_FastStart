@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  
+  <af:panelStretchLayout>
+    <f:facet name="center">
+      <af:table var="row" value="#{pageFlowScope.dentList.list}"
+                rowBandingInterval="1" id="t1" rowSelection="single"
+                selectionListener="#{pageFlowScope.dentList.select}"
+                columnStretching="last" autoHeightRows="4">
+        <af:column sortable="false" headerText="Incident Number" id="c3">
+          <af:outputText value="#{row.number}" id="ot3"/>
+        </af:column>
+        <af:column sortable="false" headerText="Date Opened">
+          <af:inputDate readOnly="true" value="#{row.openedDate}"/>
+        </af:column>
+        <af:column sortable="false" headerText=" Short Description" id="c1">
+          <af:outputText value="#{row.description}" id="ot2"/>
+        </af:column>
+        <af:column sortable="false" headerText="Status" id="c4">
+          <af:outputText value="Open" id="ot1"/>
+        </af:column>
+        <af:column sortable="false" headerText="Action" id="c2">
+          
+          <af:commandButton id="dob" text="Manage Incident"
+                            actionListener="#{pageFlowScope.dentList.doItNow}"
+                            rendered="#{WCSecurityContext.currentUser['UserName'] eq 'weblogicadmin'}"/>
+          <af:commandButton id="cb1" text="View Progress"
+                            rendered="#{not WCSecurityContext.userInGroup['WC_Admin']}">
+            <af:showPopupBehavior 
+                                  align="afterEnd" popupId="booya"
+                                  alignId="c3"/>
+          </af:commandButton>
+          <af:popup id="booya">
+    <af:panelAccordion discloseMany="true" inlineStyle="width:700.0px;">
+      <af:showDetailItem text="Activity 1" inlineStyle="width:600px" id="sdi1" disclosed="true">
+        <af:inputText rows="4" columns="90" value="2011-06-14 11:24:13  pat  - Changed:  Assigned to, Configuration item, Impact, Incident state, Opened by, Priority
+ Assigned to: Charlie Whitherspoon
+ Configuration item: MailServerUS" id="it1"/>
+      </af:showDetailItem>
+      <af:showDetailItem text="Activity 2" inlineStyle="width:600px"
+                         disclosed="true">
+        <af:inputText rows="4" columns="90" value="2011-06-14 11:24:13  pat  - Changed:  Assigned to, Configuration item, Impact, Incident state, Opened by, Priority
+ Assigned to: Charlie Whitherspoon
+ Configuration item: MailServerUS" id="it2"/>
+      </af:showDetailItem>
+    </af:panelAccordion>
+    <!--af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="width:600px;height:100px">
+      <af:inputText rows="4" columns = "90"
+                    value="#{pageFlowScope.dentList.currentIncident.activityDesc}"
+                    id="it1"/>
+    </af:panelGroupLayout-->
+  </af:popup>
+          
+        </af:column>
+      </af:table>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

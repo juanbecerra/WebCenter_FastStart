@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:pe="http://xmlns.oracle.com/adf/pageeditor"
+          xmlns:cust="http://xmlns.oracle.com/adf/faces/customizable">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document title="My Page" id="d1">
+      <af:form id="f1" usesUpload="true">
+        <af:pageTemplate viewId="/oracle/webcenter/portalapp/pagetemplates/Oakton_Main.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+          <f:facet name="content">
+            <pe:pageCustomizable id="pageCustomizable1" catalog="mypage-catalog" view="design" toolbarLayout="addonpanels stretch statusindicator button">
+              
+                <af:panelGroupLayout id="pglMain" layout="horizontal" valign="top">
+                <af:panelGroupLayout id="pglLeftMain"
+                                     layout="vertical" valign="top"
+                                     inlineStyle="border-top:solid 1px #D8D9DA !important; width:581px;">
+                  <af:panelGroupLayout id="pglLeftMainTop" valign="top">
+                    <af:panelGroupLayout id="pglLeftMainTopProfileSnapshot" layout="horizontal" valign="top">
+
+                    <af:goLink  id="sgl1" destination="//webcenter/faces/oracle/webcenter/page/scopedMD/s8bba98ff_4cbb_40b8_beee_296c916a23ed/businessRolePages/UserProfileMainView.jspx?wc.username=#{pageFlowScope.userId}">
+                  <af:image source="#{webCenterProfile[securityContext.userName].photoURI['MEDIUM']}" id="si1"
+                            inlineStyle="padding:5.0px;"/>
+               </af:goLink>
+                     <af:panelGroupLayout id="pgprofileright" inlineStyle="width:85.0%;"
+                                          valign="top">
+                         <af:spacer width="10" height="10" id="s7"/>
+                         <af:panelGroupLayout id="pgprofileright1" layout="horizontal"
+                                              valign="top">
+                             <af:outputText value="#{not empty webCenterProfile[securityContext.userName].displayName? webCenterProfile[securityContext.userName].displayName: webCenterProfile[securityContext.userName].userName}" id="ot1"
+                                            inlineStyle="font-weight:bold; font-size:large;"/>
+                             <af:spacer width="10" height="10" id="s1"/>
+                             <af:outputText value="#{webCenterProfile[securityContext.userName].personalStatusNote}" id="ot3"/>
+                         </af:panelGroupLayout>
+                        <af:spacer width="10" height="5" id="s2"/>
+                        <af:panelGroupLayout id="pgprofileregion">
+                          <af:region value="#{bindings.publisher1.regionModel}"
+                                     id="r1"/>
+                                 </af:panelGroupLayout>
+                      </af:panelGroupLayout>            
+                    </af:panelGroupLayout>
+                    
+                    <af:panelGroupLayout id="pglLeftMainTopActivity">
+                      
+                             <af:region value="#{bindings.activitystreamingmainview1.regionModel}"
+                                   id="r2" showHeader="always"
+                                   showDisclosure="false"
+                                   text="Portal Activity"
+                                            shortDesc="Activity Stream"/>  <!--    <af:region value="#{bindings.activitystreamingminiview1.regionModel}"
+                               id="r9"  />-->
+                    </af:panelGroupLayout>
+                    
+                    
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pglLeftMainBottom" layout="vertical">
+                  
+                    <cust:panelCustomizable id="pc1LeftMainBottom1"
+                                            showEditAction="false"
+                                            allowAction="#{pageServiceBean.isEditMode? 'all': 'none'}"
+                                            showSplitAction="false"
+                                            inlineStyle="#{pageServiceBean.isEditMode? 'border-color:Green; border-width:3.0px;':''}">
+                      <cust:showDetailFrame id="sdfTasks"
+                                            displayHeader="true"
+                                            text="My Tasks"
+                                            shortDesc="My Tasks"
+                                            showEditAction="false">
+                        <!--<af:region value="#{bindings.worklist1.regionModel}"
+                                   id="r6"/>-->
+                        <af:region value="#{bindings.myTasks1.regionModel}"
+                                   id="r6"/>
+                      </cust:showDetailFrame>
+                    </cust:panelCustomizable>
+                    
+                    <af:panelGroupLayout id="pglLeftMainBottom2"
+                                         layout="horizontal" valign="top">
+                      <af:panelGroupLayout id="pglLeftMainBottom2a">
+                        <cust:panelCustomizable id="pc1LeftMainBottom2a"
+                                                showEditAction="false"
+                                                allowAction="#{pageServiceBean.isEditMode? 'all': 'none'}"
+                                                showSplitAction="false"
+                                                inlineStyle="#{pageServiceBean.isEditMode? 'border-color:Green; border-width:3.0px; width:276px;':'width:276px;'}">
+                          <cust:showDetailFrame id="sdfLeftMainBottom2a"
+                                                displayHeader="true"
+                                                text="My Connections"
+                                                shortDesc="My Connections"
+                                                showEditAction="false">
+                         
+                            <af:region value="#{bindings.connectionsminiviewtaskflow1.regionModel}"
+                                       id="r3"/>
+                          </cust:showDetailFrame>
+                        </cust:panelCustomizable>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="pglLeftMainBottom2b">
+                        <cust:panelCustomizable id="pc1LeftMainBottom2b"
+                                                showEditAction="false"
+                                                allowAction="#{pageServiceBean.isEditMode? 'all': 'none'}"
+                                                showSplitAction="false"
+                                                inlineStyle="#{pageServiceBean.isEditMode? 'border-color:Green; border-width:3.0px; width:276px;':'width:276px;'}">
+                          <cust:showDetailFrame id="sdfLeftMainBottom2b"
+                                                displayHeader="true"
+                                                text="My Spaces"
+                                                shortDesc="My Spaces" 
+                                                showEditAction="false">
+                           
+                           <!-- <af:region value="#{bindings.MySpacesQuickView1.regionModel}"
+                                       id="r34" showDisclosure="false"/>-->
+                           
+                            <af:region value="#{bindings.MySpacesQuickView2.regionModel}"
+                                       id="r7"/>
+                          </cust:showDetailFrame>
+                        </cust:panelCustomizable>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <cust:panelCustomizable id="pc1LeftMainBottom3"
+                                            showEditAction="false"
+                                            showSplitAction="false"
+                                            inlineStyle="#{pageServiceBean.isEditMode? 'padding:0px; border-color:Green; border-width:3.0px;': 'padding:0px;'}"
+                                            allowAction="#{pageServiceBean.isEditMode? 'all': 'none'}">
+                                            
+                    </cust:panelCustomizable>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pglRightMain" layout="vertical"
+                                     inlineStyle="width:383.0px; ">
+                 <!-- <af:region value="#{bindings.pagetreedefinition1.regionModel}"
+                             id="r1" text="Quick Links" shortDesc="Quick Links"
+                             inlineStyle="line-height:25px;"
+                             showDisclosure="false" showHeader="always"
+                             disclosed="false"/>-->
+                  <cust:panelCustomizable id="pc2"
+                                          inlineStyle="#{pageServiceBean.isEditMode? 'padding:0px; border-color:Green; border-width:3.0px;': 'padding:0px;'}"
+                                          showSplitAction="false"
+                                          showEditAction="false"
+                                          allowAction="#{pageServiceBean.isEditMode? 'all': 'none'}">
+                    <cust:showDetailFrame id="sdfMyFavouriteApps"
+                                          shortDesc="My Favourite Applications"
+                                          displayHeader="true"
+                                          text="My Favourite Applications"
+                                          showEditAction="false">
+                      <af:region value="#{bindings.EnterpriseAppTaskListView1.regionModel}"
+                                 id="r5"/>
+                     
+                    </cust:showDetailFrame>
+                                 
+                                 <cust:showDetailFrame id="sdf1"
+                                                displayHeader="true"
+                                                text="Twitter"
+                                                shortDesc="Twitter"
+                                                showEditAction="true">
+                      
+                      <!--  <af:region value="#{bindings.twitter1.regionModel}"
+                                 id="r8"/>-->
+                      <af:region value="#{bindings.Twitter_JSON1.regionModel}"
+                                 id="r4"/>
+                    </cust:showDetailFrame>
+                                 
+                                 
+                       
+                    
+                    <cust:showDetailFrame id="sdfYouTube" text="YouTube Updates" displayHeader="true">
+                    
+                      <af:region value="#{bindings.YouTubeVideo2.regionModel}"
+                                 id="r9"/>
+                    </cust:showDetailFrame>
+                    
+                    <cust:showDetailFrame id="sdf2"
+                                                displayHeader="true"
+                                                text="LinkedIn"
+                                                shortDesc="LinkedIn"
+                                                showEditAction="true">
+                      <af:region value="#{bindings.LinkedIn_Profile1.regionModel}"
+                                 id="r8"/>
+                    </cust:showDetailFrame>
+                   
+                  </cust:panelCustomizable>
+                  
+                 
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              
+              <f:facet name="editor">
+                <pe:pageEditorPanel id="pep1"/>
+              </f:facet>
+            </pe:pageCustomizable>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

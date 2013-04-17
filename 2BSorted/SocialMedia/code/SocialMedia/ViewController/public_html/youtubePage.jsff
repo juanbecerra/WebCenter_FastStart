@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl3" layout="vertical">
+    <af:resource type="css"
+                 source="//cs/groups/webasset/documents/web_asset/css_global.css"></af:resource>
+    <af:resource type="css"
+                 source="//cs/groups/webasset/documents/web_asset/css_new.css"></af:resource>
+    <af:resource type="css"
+                 source="//cs/groups/webasset/documents/web_asset/css_portal.css"></af:resource>
+    <af:switcher id="s3"
+                 facetName="#{pageFlowScope.socialMediaManagedBean.youtube.id ne null? 'HaveData':'NoData'}">
+      <f:facet name="HaveData">
+        <af:panelGroupLayout id="pgl1">
+          <object style="height: 390px; width: 640px">
+            <param name="movie"
+                   value="https://www.youtube.com/v/${pageFlowScope.socialMediaManagedBean.youtube.id} ?version=3&amp;feature=player_embedded&amp;controls=0&amp;rel=0&amp;showinfo=0">
+              <param name="allowFullScreen" value="true">
+                <param name="allowScriptAccess" value="always">
+                  <embed src="https://www.youtube.com/v/${pageFlowScope.socialMediaManagedBean.youtube.id}?version=3&amp;feature=player_embedded&amp;controls=0&amp;rel=0&amp;showinfo=0"
+                         type="application/x-shockwave-flash"
+                         allowfullscreen="true" allowScriptAccess="always"
+                         width="288" height="231"/>
+                </param>
+              </param>
+            </param>
+          </object>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="NoData">
+        <af:group id="g1">
+          <af:panelGroupLayout id="pgl4" layout="vertical">
+            <af:outputText value="Error: Could not get Social Media Updates"
+                           id="ot1"/>
+            <af:spacer width="10" height="10" id="s2"/>
+          </af:panelGroupLayout>
+        </af:group>
+      </f:facet>
+    </af:switcher>
+    <af:spacer width="10" height="5" id="s1"/>
+    <af:panelGroupLayout id="pgl2" styleClass="footer"
+                         inlineStyle="padding:10.0px;">
+      <af:outputText value="YouTube" id="ot2" styleClass="youtube_icon"/>
+      <af:outputText value="Visit" id="ot3" styleClass="join"/>
+      <af:goLink text="Youtube Channel" id="gl1" targetFrame="_blank"
+                 destination="http://www.youtube.com/#{pageFlowScope.socialMediaManagedBean.youtube.fromName}"
+                 inlineStyle="float:left;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

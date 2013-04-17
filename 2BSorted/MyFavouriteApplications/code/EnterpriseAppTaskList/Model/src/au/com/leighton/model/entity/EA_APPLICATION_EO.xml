@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EA_APPLICATION_EO"
+  Version="11.1.1.60.13"
+  DBObjectType="table"
+  DBObjectName="EA_APPLICATIONS"
+  AliasName="EA_APPLICATION"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="AppId"
+    IsNotNull="true"
+    ColumnName="APP_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="EA_APPLICATIONS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    Precision="150"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EA_APPLICATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Url"
+    Precision="300"
+    ColumnName="URL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EA_APPLICATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Logo"
+    Precision="300"
+    ColumnName="LOGO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EA_APPLICATIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="markfordelete"
+    ColumnName="MARKFORDELETE"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="false"/>
+  <Attribute
+    Name="shadow"
+    ColumnName="SHADOW"
+    SQLType="BIT"
+    Type="java.lang.Boolean"
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="false"/>
+  <AccessorAttribute
+    Name="EA_USERAPPLICATIONS_EO"
+    Association="au.com.leighton.model.association.EAappEO_TO_EAuserapp"
+    AssociationEnd="au.com.leighton.model.association.EAappEO_TO_EAuserapp.EA_USERAPPLICATIONS_EO"
+    AssociationOtherEnd="au.com.leighton.model.association.EAappEO_TO_EAuserapp.EA_APPLICATION_EO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC008894">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C008894"/>
+      <Attr Name="_checkCondition" Value='"APP_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.model.entity.EA_APPLICATION_EO.AppId"/>
+    </AttrArray>
+  </Key>
+</Entity>

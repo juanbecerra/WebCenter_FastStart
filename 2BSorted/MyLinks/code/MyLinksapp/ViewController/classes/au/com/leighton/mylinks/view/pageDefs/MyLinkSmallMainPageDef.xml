@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MyLinkSmallMainPageDef"
+                Package="au.com.leighton.mylinks.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="viewMyLinksSmallTaskFlow1"
+              taskFlowId="/WEB-INF/TaskFlow/viewMyLinksSmall-TaskFlow.xml#viewMyLinksSmall-TaskFlow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

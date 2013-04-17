@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.59.23"
+  ClearCacheOnRollback="true"
+  ComponentClass="au.com.leighton.portal.peoplefinder.model.AppModuleImpl"
+  ComponentInterface="au.com.leighton.portal.peoplefinder.model.common.AppModule"
+  ClientProxyName="au.com.leighton.portal.peoplefinder.model.client.AppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="WcAsActorDetailView1"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcAsActorDetailView"/>
+  <ViewUsage
+    Name="WcPeopleConnConnectionView1"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcPeopleConnConnectionView"/>
+  <ViewUsage
+    Name="WcPeopleConnProfilePhotoView1"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcPeopleConnProfilePhotoView"/>
+  <ViewUsage
+    Name="WcSpaceHeaderView1"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderView"/>
+  <ViewUsage
+    Name="WcSpaceUsrDetailView1"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceUsrDetailView"/>
+  <ViewUsage
+    Name="WcSpaceHeaderView2"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderView"/>
+  <ViewUsage
+    Name="WcSpaceHeaderView3"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderView"/>
+  <ViewUsage
+    Name="WcSpaceUsrDetailView2"
+    ViewObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceUsrDetailView"/>
+  <ViewLinkUsage
+    Name="WcSpaceHeaderSecParentFkLink1"
+    ViewLinkObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkLink"
+    SrcViewUsageName="au.com.leighton.portal.peoplefinder.model.AppModule.WcSpaceHeaderView1"
+    DstViewUsageName="au.com.leighton.portal.peoplefinder.model.AppModule.WcSpaceHeaderView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WcSpaceHeaderParentFkLink1"
+    ViewLinkObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkLink"
+    SrcViewUsageName="au.com.leighton.portal.peoplefinder.model.AppModule.WcSpaceHeaderView1"
+    DstViewUsageName="au.com.leighton.portal.peoplefinder.model.AppModule.WcSpaceHeaderView3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WcSpaceUsrDetailFkLink1"
+    ViewLinkObjectName="au.com.leighton.portal.peoplefinder.model.WcSpaceUsrDetailFkLink"
+    SrcViewUsageName="au.com.leighton.portal.peoplefinder.model.AppModule.WcSpaceHeaderView1"
+    DstViewUsageName="au.com.leighton.portal.peoplefinder.model.AppModule.WcSpaceUsrDetailView2"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="getSpacesForUserAndRole">
+      <Return
+        Type="au.com.leighton.portal.peoplefinder.model.Response"/>
+      <Parameter
+        Name="username"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="validRoles"
+        Type="java.lang.String[]"/>
+    </Method>
+    <Method
+      Name="getConnectionsForUser">
+      <Return
+        Type="au.com.leighton.portal.peoplefinder.model.Response"/>
+      <Parameter
+        Name="username"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

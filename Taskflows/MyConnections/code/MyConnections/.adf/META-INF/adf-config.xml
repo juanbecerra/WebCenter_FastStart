@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config"
+            xmlns:config="http://xmlns.oracle.com/bc4j/configuration"
+            xmlns:adf="http://xmlns.oracle.com/adf/config/properties"
+            xmlns:sec="http://xmlns.oracle.com/adf/security/config"
+            xmlns:mdsC="http://xmlns.oracle.com/adf/mds/config"
+            xmlns:collabC="http://xmlns.oracle.com/webcenter/collab/config"
+            xmlns:rcs="http://xmlns.oracle.com/adf/rcs/adf-config"
+            xmlns:rcv="http://xmlns.oracle.com/adf/rcs/viewer/adf-config">
+  <adf-adfm-config xmlns="http://xmlns.oracle.com/adfm/config">
+    <defaults useBindVarsForViewCriteriaLiterals="true"/>
+    <startup>
+      <amconfig-overrides>
+        <config:Database jbo.locking.mode="optimistic"/>
+      </amconfig-overrides>
+    </startup>
+  </adf-adfm-config>
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <adf-property name="adfAppUID"
+                  value="MyConnections.au.com.leighton.myconnections"/>
+  </adf:adf-properties-child>
+  <sec:adf-security-child xmlns="http://xmlns.oracle.com/adf/security/config">
+    <CredentialStoreContext credentialStoreClass="oracle.adf.share.security.providers.jps.CSFCredentialStore"
+                            credentialStoreLocation="../../src/META-INF/jps-config.xml"/>
+    <sec:JaasSecurityContext initialContextFactoryClass="oracle.adf.share.security.JAASInitialContextFactory"
+                             jaasProviderClass="oracle.adf.share.security.providers.jps.JpsSecurityContext"
+                             authorizationEnforce="false"
+                             authenticationRequire="true"/>
+  </sec:adf-security-child>
+  <collabC:adf-collaboration-config>
+    <service-config xmlns="http://xmlns.oracle.com/webcenter/collab/config"
+                    serviceId="oracle.webcenter.collab.rtc">
+      <!-- The currently selected RTC connection -->
+      <!--property name="selected.connection" value=""/-->
+      <property name="auto.login" value="false"/>
+    </service-config>
+  </collabC:adf-collaboration-config>
+  <rcs:adf-rcs-config>
+    <rcs:rcs-config>
+      <rcs:catalog-config default-scope="/"/>
+    </rcs:rcs-config>
+  </rcs:adf-rcs-config>
+  <rcv:rcv-config>
+    <rcv:default-catalog catalog-name="/au/com/leighton/myconnections/view/default-catalog.xml"/>
+  </rcv:rcv-config>
+  <mdsC:adf-mds-config version="11.1.1.000">
+    <mds-config xmlns="http://xmlns.oracle.com/mds/config">
+      <persistence-config>
+        <metadata-namespaces>
+          <namespace path="/oracle/adf/share/prefs"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/oracle/webcenter/lifecycle/importexport"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/oracle/webcenter/lock"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/oracle/webcenter/rc"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/persdef/"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/shared/oracle/wcps"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/oracle/webcenter/people/scopedMD"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+          <namespace path="/xliffBundles/"
+                     metadata-store-usage="WebCenterFileMetadataStore"/>
+        </metadata-namespaces>
+        <metadata-store-usages>
+          <metadata-store-usage id="WebCenterFileMetadataStore"
+                                default-cust-store="true" deploy-target="true">
+            <metadata-store class-name="oracle.mds.dt.persistence.stores.file.SrcControlFileMetadataStore">
+              <property name="metadata-path" value="../../mds"/>
+            </metadata-store>
+          </metadata-store-usage>
+        </metadata-store-usages>
+      </persistence-config>
+      <cust-config>
+        <match>
+          <customization-class name="oracle.adf.share.config.SiteCC"/>
+        </match>
+      </cust-config>
+      <cache-config>
+        <max-size-kb>100000</max-size-kb>
+      </cache-config>
+    </mds-config>
+  </mdsC:adf-mds-config>
+  <adf-faces-config xmlns="http://xmlns.oracle.com/adf/faces/config">
+    <persistent-change-manager>
+      <persistent-change-manager-class>
+        oracle.adf.view.rich.change.MDSDocumentChangeManager
+      </persistent-change-manager-class>
+    </persistent-change-manager>
+  </adf-faces-config>
+  <adf-resourcebundle-config xmlns="http://xmlns.oracle.com/adf/resourcebundle/config">
+    <applicationBundleName>
+      resourcebundles/xliffBundles/MyConnectionsOverrideBundle
+    </applicationBundleName>
+    <bundleList>
+      <bundleId override="true">
+        oracle.adf.view.page.editor.resource.ComposerOverrideBundle
+      </bundleId>
+    </bundleList>
+  </adf-resourcebundle-config>
+</adf-config>

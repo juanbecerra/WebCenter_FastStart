@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://lclxsoar1u.lc.local:8001/soa-infra/services/default/ESSDetailsComposite/myessdetails_client_ep?WSDL"
+          uri="../au/com/leicon/ess/services/myessdetails_client_ep.wsdl"/>
+</catalog>

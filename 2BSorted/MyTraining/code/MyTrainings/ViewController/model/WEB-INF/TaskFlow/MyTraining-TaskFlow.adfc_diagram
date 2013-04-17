@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">MyTrainingList</property>
+      <property
+         name="page">/MyTrainingList.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MyTrainingList&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">183.5459</property>
+      <property
+         name="x">46.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="MethodCall7">
+      <property
+         name="fromOutcome">myCategoryTraining</property>
+      <property
+         name="sdm:polyPoints">R50,87.0,183.19531,246.0,183.74121,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">getCategorybyList</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>getCategorybyList&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">184.0918</property>
+      <property
+         name="x">287.0</property>
+   </MethodCall>
+   <TaskFlowCall
+      id="TaskFlowCall11">
+      <property
+         name="taskFlowId">MyrainingCategoryBy-TaskFlow</property>
+      <property
+         name="activityId">MyrainingCategoryBy-TaskFlow</property>
+      <property
+         name="documentReference">/WEB-INF/TaskFlow/MyrainingCategoryBy-TaskFlow.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MyrainingCategoryBy-TaskFlow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">179.64355</property>
+      <property
+         name="x">623.0254</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="MethodCall7"
+      to="TaskFlowCall11">
+      <property
+         name="fromOutcome">getTainingCategorybyList</property>
+      <property
+         name="sdm:polyPoints">R50,328.0,183.74121,582.0254,179.29297,L50</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.myconnections.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/MyConnectionList.jsff"
+          usageId="au_com_leighton_myconnections_view_MyConnectionListPageDef"/>
+    <page path="/MyConnectionMain.jspx"
+          usageId="au_com_leighton_myconnections_view_MyConnectionMainPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_myconnections_view_MyConnectionListPageDef"
+          path="au.com.leighton.myconnections.view.pageDefs.MyConnectionListPageDef"/>
+    <page id="au_com_leighton_myconnections_view_MyConnectionMainPageDef"
+          path="au.com.leighton.myconnections.view.pageDefs.MyConnectionMainPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ConnectionsNetworkDC"
+        path="oracle.webcenter.peopleconnections.connections.model.ConnectionsNetworkDC"/>
+    <dc id="ConnectionsManagementDC"
+        path="oracle.webcenter.peopleconnections.connections.model.ConnectionsManagementDC"/>
+    <BC4JDataControl id="MyConnectionAMDataControl"
+                     Package="au.com.leighton.myconnections.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="MyConnectionAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

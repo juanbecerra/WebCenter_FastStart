@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="horizontal" id="pgright2"
+                       inlineStyle="padding:10.0px;" halign="left">
+    <af:commandLink text="Add More" styleClass="icon-left add-icon" id="cb2">
+      <af:showPopupBehavior popupId="p2"  triggerType="action" />
+    </af:commandLink>
+  </af:panelGroupLayout>
+  <af:popup  contentDelivery="lazyUncached" id="p2"
+            popupFetchListener="#{backingBeanScope.myManageBean.PageRefresh}">
+    <af:panelWindow id="pw1" modal="true" resize="off">
+      <af:panelBorderLayout id="pbl1" inlineStyle="width:400.0px;">
+        <af:panelGroupLayout layout="horizontal" id="pgright23" halign="right">
+                   <af:commandButton text="Cancel" id="cb6"/>
+        </af:panelGroupLayout>
+        <af:table value="#{bindings.NonMandatoryTraining_VO11.collectionModel}"
+                  var="row"
+                  rows="#{bindings.NonMandatoryTraining_VO11.rangeSize}"
+                  emptyText="#{bindings.NonMandatoryTraining_VO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.NonMandatoryTraining_VO11.rangeSize}"
+                  rowBandingInterval="0"
+                  filterModel="#{bindings.NonMandatoryTraining_VO1Query.queryDescriptor}"
+                  queryListener="#{bindings.NonMandatoryTraining_VO1Query.processQuery}"
+                  filterVisible="true" varStatus="vs" id="t2"
+                  partialTriggers="cb5"
+              
+                  inlineStyle="background-color:White; height:310px;"
+                  verticalGridVisible="false" autoHeightRows="10" width="100%"
+                  columnStretching="column:c7" contentDelivery="lazy">
+          <af:column sortProperty="CategoryName" filterable="true"
+                     sortable="true" headerText="Training Category" id="c10">
+            <af:outputText value="#{row.CategoryName}" id="ot6"/>
+          </af:column>
+          
+           <af:column sortProperty="CourseName" filterable="true" sortable="true"
+                     headerText="Training Title" id="c7">
+           
+            <af:outputText value="#{row.CourseName}" id="ot5"/>
+          </af:column>
+          <af:column sortProperty="Url" filterable="true" sortable="true"
+                     headerText="Action"
+                     id="c8">
+            <af:switcher facetName="#{row.Mandatory == 'N' ? 'add' : 'blank'}"
+                         id="s2">
+              <f:facet name="add">
+                <af:group id="g1">
+                  <af:commandLink text="Add Training" id="cb5"
+                                  styleClass="icon-left add-icon"
+                                  action="createTrainingCourse">
+                    <af:setPropertyListener from="#{row.CourseId}"
+                                            to="#{pageFlowScope.CourseId}"
+                                            type="action"/>
+                  </af:commandLink>
+                  
+                </af:group>
+              </f:facet>
+              <f:facet name="blank">
+              <af:outputText value="Mandatory" id="ot8"/>
+                
+              </f:facet>
+            </af:switcher>
+          </af:column>
+          
+        </af:table>
+      </af:panelBorderLayout>
+      <af:panelGroupLayout layout="horizontal" id="pgright33" halign="right"></af:panelGroupLayout>
+    </af:panelWindow>
+  </af:popup>
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MyTrainingListCategoryVO11.collectionModel}"
+              var="row" rows="#{bindings.MyTrainingListCategoryVO11.rangeSize}"
+              emptyText="#{bindings.MyTrainingListCategoryVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MyTrainingListCategoryVO11.rangeSize}"
+              rowBandingInterval="1" id="t1" partialTriggers="cb7"
+              selectedRowKeys="#{bindings.MyTrainingListCategoryVO11.collectionModel.selectedRow}"
+              selectionListener="#{bindings.MyTrainingListCategoryVO11.collectionModel.makeCurrent}" verticalGridVisible="false"
+              autoHeightRows="10" shortDesc="My Trainings"
+              columnStretching="column:c5" width="97%" inlineStyle="border:0.0px;"
+              immediate="true" contentDelivery="lazy">
+      <af:column sortProperty="CategoryName" sortable="false" id="c3"
+                 headerText="Category">
+        <af:outputText value="#{row.CategoryName}" id="ot4"
+                       inlineStyle="font-weight:bold;"/>
+      </af:column>
+    
+        <af:column sortProperty="CourseName" sortable="false" id="c5"  headerText="Course Name">
+          <af:outputText value="#{row.CourseName}" id="ot7"/>
+        </af:column>
+        <af:column sortProperty="Descp" sortable="false" id="c4"
+                   headerText="Description">
+          <af:outputText value="#{row.Descp}" id="ot1"/>
+        </af:column>
+         <af:column  id="c1" headerText="Launch">
+            <af:goLink text="Launch Training" id="gl1" destination="#{row.Url}"
+                   targetFrame="_blank"/>
+        </af:column>
+        <af:column sortProperty="Mandatory" sortable="false" id="c6"
+                   headerText="Delete">
+        
+        <af:commandButton shortDesc="Delete My Training" id="cb1"
+                                partialTriggers="::t1" icon="/delete1.jpg"
+                                inlineStyle="background-color:White; background-image:none; border: 0px;"
+                                rendered="#{row.Mandatory == 'N'}">
+                <af:showPopupBehavior popupId="p1" triggerType="action"/>
+              </af:commandButton>
+          <af:popup id="p1" contentDelivery="immediate" eventContext="launcher"
+                    partialTriggers="::t1">
+            <af:dialog id="d1" type="none">
+              <div>
+                <af:outputText value="Are you sure you want to delete :#{row.CourseName} ?"
+                               id="ot2"/>
+                 
+                <af:separator id="s12"/>
+              </div>
+              <div>
+                <af:spacer width="10" height="10" id="s3"/>
+              </div>
+              <div>
+                <af:spacer width="40" height="10" id="s4"/>
+                 
+                <af:commandButton actionListener="#{bindings.deleteCourse.execute}"
+                                  text="Yes"
+                                  disabled="#{!bindings.deleteCourse.enabled}"
+                                  id="cb7"/>
+                 
+                <af:commandButton text="No" id="cb3"
+                                  action="#{backingBeanScope.myManageBean.cb3_action}"/>
+              </div>
+            </af:dialog>
+          </af:popup>
+        </af:column>
+       
+    </af:table>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:myManageBean-->
+</jsp:root>

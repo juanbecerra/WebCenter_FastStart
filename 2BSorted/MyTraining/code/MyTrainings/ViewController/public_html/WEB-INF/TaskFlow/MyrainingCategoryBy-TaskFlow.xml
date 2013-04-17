@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="MyrainingCategoryBy-TaskFlow">
+    <default-activity id="__1">MyCategoryTrainingList</default-activity>
+    <managed-bean id="__14">
+      <managed-bean-name id="__13">myManageBean</managed-bean-name>
+      <managed-bean-class id="__15">au.com.leighton.mytrainings.model.view.MyManageBean</managed-bean-class>
+      <managed-bean-scope id="__12">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="MyCategoryTrainingList">
+      <page>/MyCategoryTrainingList.jsff</page>
+    </view>
+    <method-call id="createCourse">
+      <method>#{bindings.createCourse.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>createCourse</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="deleteCourse">
+      <method>#{bindings.deleteCourse.execute}</method>
+      <outcome id="__3">
+        <fixed-outcome>deleteCourse</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">MyCategoryTrainingList</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome id="__8">createTrainingCourse</from-outcome>
+        <to-activity-id id="__6">createCourse</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">deleteRow</from-outcome>
+        <to-activity-id id="__9">deleteCourse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

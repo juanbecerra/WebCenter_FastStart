@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.mytrainings.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/MyTrainingList.jsff"
+          usageId="au_com_leighton_mytrainings_view_MyTrainingListPageDef"/>
+    <page path="/Mymain.jspx"
+          usageId="au_com_leighton_mytrainings_view_MymainPageDef"/>
+    <page path="/MyCategoryTrainingList.jsff"
+          usageId="au_com_leighton_mytrainings_view_MyCategoryTrainingListPageDef"/>
+    <page path="/WEB-INF/TaskFlow/MyTraining-TaskFlow.xml#MyTraining-TaskFlow@getCategorybyList"
+          usageId="au_com_leighton_mytrainings_view_MyTraining_TaskFlow_MyTraining_TaskFlow_methodCall1PageDef"/>
+    <page path="/WEB-INF/TaskFlow/MyrainingCategoryBy-TaskFlow.xml#MyrainingCategoryBy-TaskFlow@createCourse"
+          usageId="au_com_leighton_mytrainings_view_MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_createCoursePageDef"/>
+    <page path="/WEB-INF/TaskFlow/MyrainingCategoryBy-TaskFlow.xml#MyrainingCategoryBy-TaskFlow@deleteCourse"
+          usageId="au_com_leighton_mytrainings_view_MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_deleteCoursePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_mytrainings_view_MyTrainingListPageDef"
+          path="au.com.leighton.mytrainings.view.pageDefs.MyTrainingListPageDef"/>
+    <page id="au_com_leighton_mytrainings_view_MymainPageDef"
+          path="au.com.leighton.mytrainings.view.pageDefs.MymainPageDef"/>
+    <page id="au_com_leighton_mytrainings_view_MyCategoryTrainingListPageDef"
+          path="au.com.leighton.mytrainings.view.pageDefs.MyCategoryTrainingListPageDef"/>
+    <page id="au_com_leighton_mytrainings_view_MyTraining_TaskFlow_MyTraining_TaskFlow_methodCall1PageDef"
+          path="TaskFlow.MyTraining_TaskFlow_MyTraining_TaskFlow_methodCall1PageDef"/>
+    <page id="au_com_leighton_mytrainings_view_MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_createCoursePageDef"
+          path="TaskFlow.MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_createCoursePageDef"/>
+    <page id="au_com_leighton_mytrainings_view_MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_deleteCoursePageDef"
+          path="TaskFlow.MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_deleteCoursePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="MyTainingAppModuleDataControl"
+                     Package="au.com.leighton.mytrainings.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="MyTainingAppModuleLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

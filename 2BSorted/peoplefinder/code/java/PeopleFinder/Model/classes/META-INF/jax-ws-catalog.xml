@@ -1,0 +1,10 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoSearchPeople/phosearchpeople_client_ep?WSDL"
+          uri="../au/com/leighton/portal/peoplefinder/model/peoplesearch/phosearchpeople_client_ep.wsdl"/>
+  <system systemId="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoGetPersonDetail/phogetpersondetail_client_ep?WSDL"
+          uri="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoGetPersonDetail/phogetpersondetail_client_ep?WSDL"/>
+  <system systemId="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoSearchLocations/phosearchlocations_client_ep?WSDL"
+          uri="../au/com/leighton/portal/peoplefinder/model/locationsearch/phosearchlocations_client_ep.wsdl"/>
+  <system systemId="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoGetLocationDetail/phogetlocationdetail_client_ep?WSDL"
+          uri="../au/com/leighton/portal/peoplefinder/model/locationdetail/phogetlocationdetail_client_ep.wsdl"/>
+</catalog>

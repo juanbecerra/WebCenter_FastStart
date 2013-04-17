@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="Tester_ROWILSON_DEVPageDef"
+                Package="au.com.leighton.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="AggregatedTaskList1"
+              taskFlowId="/WEB-INF/taskflows/AggregatedTaskList.xml#AggregatedTaskList"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="Environment" value="DEV"/>
+        <parameter id="Username" value="rowilson"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

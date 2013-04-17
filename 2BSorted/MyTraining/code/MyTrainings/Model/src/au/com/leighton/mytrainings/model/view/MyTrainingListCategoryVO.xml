@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MyTrainingListCategoryVO"
+  Version="11.1.1.60.13"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="au.com.leighton.mytrainings.model.view.MyTrainingListCategoryVORowImpl"
+  ComponentClass="au.com.leighton.mytrainings.model.view.MyTrainingListCategoryVOImpl"
+  RowInterface="au.com.leighton.mytrainings.model.view.common.MyTrainingListCategoryVORow"
+  ClientRowProxyName="au.com.leighton.mytrainings.model.view.client.MyTrainingListCategoryVORowClient"
+  ComponentInterface="au.com.leighton.mytrainings.model.view.common.MyTrainingListCategoryVO"
+  ClientProxyName="au.com.leighton.mytrainings.model.view.client.MyTrainingListCategoryVOClient"
+  OrderBy="CATEGORY_NAME,COURSE_NAME,MANDATORY">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.mytrainings.model.view.MyTrainingListCategoryVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="userName"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.securityContext.userName]]></TransientExpression>
+  </Variable>
+  <ViewAccessor
+    Name="MyTrainingList_VO1"
+    ViewObjectName="au.com.leighton.mytrainings.model.view.MyTrainingList_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MyTrainingListCategoryVO1"
+    ViewObjectName="au.com.leighton.mytrainings.model.view.MyTrainingListCategoryVO"
+    RowLevelBinds="true"/>
+  <SQLQuery>
+    <![CDATA[SELECT T.NAME COURSE_NAME, T.URL URL, T.DESCRIPTION DESCP,T.COURSE_ID COURSE_ID,T.MANDATORY MANDATORY, U.ADDED_ON CURSE_DATE, C.NAME CATEGORY_NAME, C.CATEGORY_ID CATEGORY_ID
+FROM
+MYTRAINING_COURSES T,
+MYTRAINING_USERTRAINING U,
+MYTRAINING_CATEGORIES C
+WHERE
+U.COURSE_ID=T.COURSE_ID and
+U.USERNAME= :userName and
+C.CATEGORY_ID=T.CATEGORY_ID and 
+T.MANDATORY='N'
+UNION 
+SELECT T.NAME COURSE_NAME, T.URL URL, T.DESCRIPTION DESCP,T.COURSE_ID COURSE_ID,T.MANDATORY MANDATORY, T.MODIFIED_ON CURSE_DATE, C.NAME CATEGORY_NAME, C.CATEGORY_ID CATEGORY_ID
+FROM
+MYTRAINING_COURSES T,
+MYTRAINING_CATEGORIES C
+WHERE
+T.MANDATORY='Y' AND
+C.CATEGORY_ID=T.CATEGORY_ID]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="CourseName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COURSE_NAME"
+    Expression="COURSE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Url"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="URL"
+    Expression="URL"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Descp"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCP"
+    Expression="DESCP"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1500"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CourseId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COURSE_ID"
+    Expression="COURSE_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Mandatory"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MANDATORY"
+    Expression="MANDATORY"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurseDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Date"
+    ColumnType="DATE"
+    AliasName="CURSE_DATE"
+    Expression="CURSE_DATE"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CategoryName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="150"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CATEGORY_NAME"
+    Expression="CATEGORY_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CategoryId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CATEGORY_ID"
+    Expression="CATEGORY_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CountCategoryName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COUNT(CATEGORY_NAME)"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.mytrainings.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientRowInterface>
+    <Method
+      Name="deleteCourse">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="curseId"
+        Type="oracle.jbo.domain.Number"/>
+    </Method>
+  </ClientRowInterface>
+  <ClientInterface>
+    <Method
+      Name="getTainingCategorybyList">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</ViewObject>

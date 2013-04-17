@@ -1,0 +1,52 @@
+<wsdl:definitions
+     name="PhoSearchPeople"
+     targetNamespace="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoSearchPeople!1.0/PhoSearchPeople.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="PhoSearchPeople">
+        <plnk:role name="PhoSearchPeopleProvider">
+            <plnk:portType name="client:PhoSearchPeople"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople"
+                 schemaLocation="PhoSearchPeople.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="PhoSearchPeopleRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="PhoSearchPeopleResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="PhoSearchPeople">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:PhoSearchPeopleRequestMessage"/>
+            <wsdl:output message="client:PhoSearchPeopleResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PhoSearchPeopleBinding" type="client:PhoSearchPeople">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="phosearchpeople_client_ep">
+        <wsdl:port name="PhoSearchPeople_pt" binding="client:PhoSearchPeopleBinding">
+            <soap:address location="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoSearchPeople/phosearchpeople_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

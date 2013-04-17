@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:resource type="css"
+               source="//cs/groups/webasset/documents/web_asset/css_global.css"></af:resource>
+  <af:resource type="css"
+               source="//cs/groups/webasset/documents/web_asset/css_new.css"></af:resource>
+  <af:resource type="css"
+               source="//cs/groups/webasset/documents/web_asset/css_portal.css"></af:resource>
+  <af:panelGroupLayout id="pgl2" layout="vertical"
+                       inlineStyle="width:311px; border-width:0.0px;">
+    <af:panelGroupLayout id="pgl3" layout="horizontal">
+      <af:commandLink text="Company" id="company" styleClass="tabtitle2"
+                      actionListener="#{pageFlowScope.socialMediaManagedBean.compaynTwitterClick}"/>
+      <af:commandLink text="Careers" id="career" styleClass="tabtitle2"
+                      actionListener="#{pageFlowScope.socialMediaManagedBean.careerTwitterClick}"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl1">
+      <af:switcher id="s3"
+                   facetName="#{pageFlowScope.socialMediaManagedBean.twitterMessage ne null? 'HaveData':'NoData'}">
+        <f:facet name="HaveData">
+          <af:table value="#{pageFlowScope.socialMediaManagedBean.twitterMessage}"
+                    var="row" rowBandingInterval="0" id="t11" width="321" inlineStyle="border-width:0.0px;>
+        ">
+            <af:column sortable="false" id="c11" noWrap="false" align="left"
+                       width="299" styleClass="tweet_list_item">
+              <af:outputFormatted value="#{row.message}" id="ot11"/>
+              <af:spacer width="10" height="10" id="s11"/>
+              <af:outputFormatted value="#{row.createdTimeText}" id="ot13"
+                                  styleClass="tweet_list_time"/>
+              <af:spacer width="10" height="10" id="s12"/>
+            </af:column>
+          </af:table>
+        </f:facet>
+        <f:facet name="NoData">
+          <af:group id="g1">
+            <af:panelGroupLayout id="pgl4" layout="vertical">
+              <af:outputText value="Error: Could not get Social Media Updates"
+                             id="ot1"/>
+              <af:spacer width="10" height="10" id="s2"/>
+            </af:panelGroupLayout>
+          </af:group>
+        </f:facet>
+      </af:switcher>
+      <af:spacer width="10" height="5" id="s1"/>
+      <af:panelGroupLayout id="pgl5" styleClass="footer"
+                           inlineStyle="padding:10.0px;">
+        <af:outputText value="Twitter" id="ot2" styleClass="twitter_icon"/>
+        <af:outputText value="Join the conversation" id="ot3"
+                       styleClass="join"/>
+        <af:goLink text="@#{pageFlowScope.socialMediaManagedBean.account}"
+                   id="gl1" targetFrame="_blank"
+                   destination="http://www.youtube.com/#{pageFlowScope.socialMediaManagedBean.account}"
+                   inlineStyle="float:left;" partialTriggers="company career"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

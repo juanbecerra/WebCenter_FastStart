@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="horizontal" id="pgl1" styleClass="AFStretchWidth"
+                       inlineStyle="width:425px;">
+    <af:panelGroupLayout layout="horizontal" id="pgleft"
+                         inlineStyle="padding:10px; background-color:Window; width:186px;"
+                         halign="left">
+      <af:commandLink id="cb1" text="Manage Courses" action="viewCourses"
+                      inlineStyle="font-size:small; font-weight:bold;"/>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="horizontal"
+                         inlineStyle="padding:10px; width:192px; background-color:ActiveBorder;"
+                         id="pgright" halign="left">
+      <af:commandLink id="cb2" text="Manage Category" action="viewCategory"
+                      inlineStyle="font-weight:bold; font-size:small;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="horizontal" id="pgleft4"
+                       inlineStyle="padding:10.0px;" halign="left">
+    <af:commandLink actionListener="#{bindings.CreateInsert.execute}"
+                    text="Create" action="addCategory"
+                    styleClass="icon-left add-icon"
+                    disabled="#{!bindings.CreateInsert.enabled}" id="cl1"/>
+    <af:commandLink id="cl2"/>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MyTrainingCategory_VO1.collectionModel}"
+              var="row" rows="#{bindings.MyTrainingCategory_VO1.rangeSize}"
+              emptyText="#{bindings.MyTrainingCategory_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MyTrainingCategory_VO1.rangeSize}"
+              rowBandingInterval="1"
+              selectedRowKeys="#{bindings.MyTrainingCategory_VO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.MyTrainingCategory_VO1.collectionModel.makeCurrent}" verticalGridVisible="false"
+              autoHeightRows="15" shortDesc="My Trainings course"
+              columnStretching="column:c1" width="97%" inlineStyle="border:0.0px;"
+              id="t1" partialTriggers="::cl1 cl3 cb5" rowSelection="single">
+      <af:column sortProperty="Name" sortable="true" headerText="Category Name"
+                 id="c1" filterable="true">
+        <af:outputText value="#{row.Name}" id="ot1"/>
+      </af:column>
+      <af:column id="c2">
+        <af:commandLink action="addCategory" text="Edit" id="cb3"/>
+      </af:column>
+      <af:column id="c4">
+        <af:commandLink text="Delete" id="cl3">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandLink>
+        <af:popup id="p1" contentDelivery="immediate" eventContext="launcher"
+                  partialTriggers="::t1">
+          <af:dialog id="d1" type="none">
+            <div>
+              <af:outputText value="Are you Sure you want to delete" id="ot12"/>
+               
+              <af:separator id="s12"/>
+            </div>
+            <div>
+              <af:spacer width="10" height="10" id="s3"/>
+            </div>
+            <div>
+              <af:spacer width="40" height="10" id="s4"/>
+               
+             <af:commandButton actionListener="#{bindings.deletCategory.execute}"
+                                action="rowCatdeleted" text="Yes"
+                                disabled="#{!bindings.deletCategory.enabled}"
+                                id="cb5"/>
+               
+              <af:commandButton text="No" id="cb6"/>
+               
+             
+            </div>
+          </af:dialog>
+        </af:popup>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

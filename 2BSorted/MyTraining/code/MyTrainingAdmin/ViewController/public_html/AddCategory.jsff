@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="horizontal" id="pgleft4"
+                       inlineStyle="padding:10.0px;" halign="left">
+    <af:outputText id="cl1" inlineStyle="font-weight:bold;"
+                   value="Manage Category > Create"/>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="left">
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.Name.inputValue}" label="Category Title"
+                    required="#{bindings.Name.hints.mandatory}"
+                    maximumLength="#{bindings.Name.hints.precision}"
+                    shortDesc="#{bindings.Name.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.Name.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+    <af:panelGroupLayout layout="horizontal" id="pgright1" halign="left">
+      <af:commandButton actionListener="#{bindings.Commit.execute}"
+                   action="listCategory"     text="Save" 
+                        id="cb1" styleClass="blue-btn"/>
+      <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                        text="Cancel" action="listCategory"
+                        immediate="true" id="cb2" styleClass="blue-btn">
+        <af:resetActionListener/>
+      </af:commandButton>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

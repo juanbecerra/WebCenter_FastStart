@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EAapplicationListVO"
+  Version="11.1.1.60.13"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  ComponentClass="au.com.leighton.model.view.EAapplicationListVOImpl"
+  ComponentInterface="au.com.leighton.model.view.common.EAapplicationListVO"
+  ClientProxyName="au.com.leighton.model.view.client.EAapplicationListVOClient">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.model.view.EAapplicationListVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="userlogin"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[SELECT 
+    EA_APPLICATION.LOGO, 
+    EA_APPLICATION.NAME, 
+    EA_APPLICATION.URL, 
+    EA_USERAPPLICATIONS.USERNAME, 
+    EA_APPLICATION.APP_ID, 
+    EA_USERAPPLICATIONS.ROWID 
+FROM 
+    EA_APPLICATIONS EA_APPLICATION, 
+    EA_USERAPPLICATIONS EA_USERAPPLICATIONS 
+WHERE 
+    EA_APPLICATION.APP_ID = EA_USERAPPLICATIONS.APP_ID AND EA_USERAPPLICATIONS.USERNAME = :userlogin]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="EA_APPLICATION"
+    Entity="au.com.leighton.model.entity.EA_APPLICATION_EO"/>
+  <EntityUsage
+    Name="EA_USERAPPLICATIONS"
+    Entity="au.com.leighton.model.entity.EA_USERAPPLICATIONS_EO"
+    Association="au.com.leighton.model.association.EAappEO_TO_EAuserapp"
+    AssociationEnd="au.com.leighton.model.association.EAappEO_TO_EAuserapp.EA_USERAPPLICATIONS_EO"
+    SourceUsage="au.com.leighton.model.view.EAapplicationListVO.EA_APPLICATION"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="au.com.leighton.model.entity.EA_APPLICATION_EO.AppId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item
+          Value="au.com.leighton.model.entity.EA_USERAPPLICATIONS_EO.AppId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Logo"
+    PrecisionRule="true"
+    EntityAttrName="Logo"
+    EntityUsage="EA_APPLICATION"
+    AliasName="LOGO"/>
+  <ViewAttribute
+    Name="Name"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="EA_APPLICATION"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="Url"
+    PrecisionRule="true"
+    EntityAttrName="Url"
+    EntityUsage="EA_APPLICATION"
+    AliasName="URL"/>
+  <ViewAttribute
+    Name="Username"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="EA_USERAPPLICATIONS"
+    AliasName="USERNAME"/>
+  <ViewAttribute
+    Name="AppId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AppId"
+    EntityUsage="EA_APPLICATION"
+    AliasName="APP_ID"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="EA_USERAPPLICATIONS"
+    AliasName="ROWID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="getenterpiseList">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="username"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</ViewObject>

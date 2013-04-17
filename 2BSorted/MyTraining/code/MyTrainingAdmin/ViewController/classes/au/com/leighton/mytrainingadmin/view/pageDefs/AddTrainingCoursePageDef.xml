@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="AddTrainingCoursePageDef"
+                Package="au.com.leighton.mytrainingadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyCourses_VO1" RangeSize="25"
+              DataControl="MyTrainingAdmin_AMDataControl"
+              id="MyCourses_VO1Iterator" Refresh="always" Sortable="true"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MyCourses_VO1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="MyCourses_VO1Iterator" StaticList="false"
+          Uses="LOV_CategoryId" id="CategoryId" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="MyCourses_VO1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MyCourses_VO1Iterator" id="Url">
+      <AttrNames>
+        <Item Value="Url"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MyCourses_VO1Iterator" id="Mandatory">
+      <AttrNames>
+        <Item Value="Mandatory"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="MyTrainingAdmin_AMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="MyTrainingAdmin_AMDataControl"/>
+  </bindings>
+</pageDefinition>

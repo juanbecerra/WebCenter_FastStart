@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+bpmSpaces-Extension-Name: oracle.bpm.spaces
+Implementation-Vendor: Leighton Contractors Pty Ltd
+Implementation-Title: LC Portal My Favourite Applications
+Implementation-Version: 7
+Specification-Version: 11.1.1
+Extension-Name: com.leighton.myfavapps.custom.webcenter.spaces
+Ant-Version: Apache Ant 1.7.0
+Extension-List: bpmSpaces
+Created-By: Oakton

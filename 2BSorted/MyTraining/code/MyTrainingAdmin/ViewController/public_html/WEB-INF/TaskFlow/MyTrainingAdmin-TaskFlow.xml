@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="MyTrainingAdmin-TaskFlow">
+    <default-activity id="__1">ViewAllTrainingCourse</default-activity>
+    <view id="ViewAllTrainingCourse">
+      <page>/ViewAllTrainingCourse.jsff</page>
+    </view>
+    <view id="AddTrainingCourse">
+      <page>/AddTrainingCourse.jsff</page>
+    </view>
+    <view id="EditTrainingCourse">
+      <page>/EditTrainingCourse.jsff</page>
+    </view>
+    <view id="ViewAllCategory">
+      <page>/ViewAllCategory.jsff</page>
+    </view>
+    <view id="AddCategory">
+      <page>/AddCategory.jsff</page>
+    </view>
+    <method-call id="Execute">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__43">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Execute1">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome id="__36">
+        <fixed-outcome>Execute</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome id="__32">
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">ViewAllTrainingCourse</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">addTraining</from-outcome>
+        <to-activity-id id="__4">AddTrainingCourse</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__14">editTraining</from-outcome>
+        <to-activity-id id="__13">EditTrainingCourse</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__21">
+        <from-outcome id="__22">viewCategory</from-outcome>
+        <to-activity-id id="__20">ViewAllCategory</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__54">
+        <from-outcome id="__55">rowgetDelete</from-outcome>
+        <to-activity-id id="__53">Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id id="__16">EditTrainingCourse</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__19">listTraing</from-outcome>
+        <to-activity-id id="__18">ViewAllTrainingCourse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id id="__24">ViewAllCategory</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome id="__27">addCategory</from-outcome>
+        <to-activity-id id="__26">AddCategory</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">viewCourses</from-outcome>
+        <to-activity-id id="__33">ViewAllTrainingCourse</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome id="__30">rowCatdeleted</from-outcome>
+        <to-activity-id id="__28">Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id id="__45">Execute</from-activity-id>
+      <control-flow-case id="__46">
+        <from-outcome id="__48">Execute</from-outcome>
+        <to-activity-id id="__47">ViewAllTrainingCourse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">AddTrainingCourse</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">listTraining</from-outcome>
+        <to-activity-id id="__9">Execute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id id="__38">AddCategory</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome id="__41">listCategory</from-outcome>
+        <to-activity-id id="__39">Execute1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__42">
+      <from-activity-id id="__49">Execute1</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome id="__50">Execute</from-outcome>
+        <to-activity-id id="__52">ViewAllCategory</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

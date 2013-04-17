@@ -1,0 +1,43 @@
+<xs:schema targetNamespace="http://xmlns.leicon.com.au/GetAppsList" xmlns="http://xmlns.leicon.com.au/GetAppsList"
+     elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="dbGetAppsListInput" type="dbGetAppsListInput"/>
+    <xs:complexType name="dbGetAppsListInput">
+        <xs:sequence>
+            <xs:element name="i_home" type="xs:string" nillable="true"/>
+            <xs:element name="i_user" type="xs:string" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="dbGetAppsListOutputCollection" type="dbGetAppsListOutputCollection"/>
+    <xs:complexType name="dbGetAppsListOutputCollection">
+        <xs:sequence>
+            <xs:element name="dbGetAppsListOutput" type="dbGetAppsListOutput" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dbGetAppsListOutput">
+        <xs:sequence>
+            <xs:element name="grp_id" type="xs:string" nillable="true"/>
+            <xs:element name="grp_title" type="xs:string" nillable="true"/>
+            <xs:element name="grp_rss" type="xs:string" nillable="true"/>
+            <xs:element name="grp_channel" type="xs:string" nillable="true"/>
+            <xs:element name="grp_order" type="xs:decimal" nillable="true"/>
+            <xs:element name="grp_type" type="xs:string" nillable="true"/>
+            <xs:element name="PORTLET_SRC" type="xs:string" nillable="true"/>
+            <xs:element name="PORTLET_HEIGHT" type="xs:decimal" nillable="true"/>
+            <xs:element name="PORTLET_SCROLLING" type="xs:string" nillable="true"/>
+            <xs:element name="PORTLET_BORDER" type="xs:string" nillable="true"/>
+            <xs:element name="APPLIC_GROUP_ID" type="xs:string" nillable="true"/>
+            <xs:element name="PREFIX_ID" type="xs:string" nillable="true"/>
+            <xs:element name="app_order" type="xs:decimal" nillable="true"/>
+            <xs:element name="WHATS_NEW_FLAG" type="xs:string" nillable="true"/>
+            <xs:element name="whats_new_date" type="xs:dateTime" nillable="true"/>
+            <xs:element name="WHATS_NEW_DAYS" type="xs:decimal" nillable="true"/>
+            <xs:element name="AVAILABLE_FLAG" type="xs:string" nillable="true"/>
+            <xs:element name="app_id" type="xs:string" nillable="true"/>
+            <xs:element name="APPLIC_ID" type="xs:string" nillable="true"/>
+            <xs:element name="inst_title" type="xs:string" nillable="true"/>
+            <xs:element name="url" type="xs:string" nillable="true"/>
+            <xs:element name="APPLIC_INST_ID" type="xs:string" nillable="true"/>
+            <xs:element name="icon" type="xs:string" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

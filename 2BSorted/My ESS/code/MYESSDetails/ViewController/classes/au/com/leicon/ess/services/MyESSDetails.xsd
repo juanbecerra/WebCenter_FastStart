@@ -1,0 +1,41 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"
+     xmlns="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="process">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="processResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Data" type="DataType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Data" type="DataType"/>
+    <xs:complexType name="DataType">
+        <xs:sequence>
+            <xs:element name="user_id" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="responsibility_id" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="responsibility_application_id" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="security_group_id" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="start_date" minOccurs="0" nillable="true" type="xs:dateTime"/>
+            <xs:element name="end_date" minOccurs="0" nillable="true" type="xs:dateTime"/>
+            <xs:element name="leave_balance" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="last_payslip_date" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="base_url" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="leave_func" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="payslip_func" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="error" minOccurs="0" nillable="true" type="ErrorType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ErrorType">
+        <xs:sequence>
+            <xs:element name="error_code" minOccurs="0" nillable="true" type="xs:string"/>
+            <xs:element name="error_message" minOccurs="0" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

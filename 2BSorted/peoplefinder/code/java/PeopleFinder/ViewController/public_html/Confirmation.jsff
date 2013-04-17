@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:subform id="s1">
+            
+            
+              <af:panelGroupLayout id="pfl1" halign="center" valign="middle"
+                                   layout="vertical">
+              <af:spacer width="5" height="50" id="s3"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.adminEmailResult}" id="ot1"
+                           inlineStyle="text-align:center;"/> 
+                           
+<!--                           <af:outputText value="Your request was successfully sent to 1300orange@leicon.com.au for processing, a copy was also sent to Juan.Becerra@leicon.com.au" id="ot1"
+                           inlineStyle="text-align:center;"/>-->
+                           
+                           
+              
+              <af:spacer width="5" height="20" id="s113"/>
+                <af:commandButton text="Ok" id="cb1" immediate="true" >
+                <af:returnActionListener/>
+              </af:commandButton>
+      
+              </af:panelGroupLayout>
+              
+              
+              
+
+</af:subform>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

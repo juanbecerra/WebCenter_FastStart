@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.myfavapp.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/EnterpriseTaskListView.jsff"
+          usageId="au_com_leighton_view_EnterpriseTaskListViewPageDef"/>
+    <page path="/MyEnterpriseApp.jspx"
+          usageId="au_com_leighton_view_MyEnterpriseAppPageDef"/>
+    <page path="/EnterpriseTaskListEdit.jsff"
+          usageId="au_com_leighton_view_EnterpriseTaskListEditPageDef"/>
+    <page path="/Main.jspx" usageId="au_com_leighton_view_MainPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_view_EnterpriseTaskListViewPageDef"
+          path="au.com.leighton.myfavapp.view.pageDefs.EnterpriseTaskListViewPageDef"/>
+    <page id="au_com_leighton_view_MyEnterpriseAppPageDef"
+          path="au.com.leighton.view.pageDefs.MyEnterpriseAppPageDef"/>
+    <page id="au_com_leighton_view_EnterpriseTaskListEditPageDef"
+          path="au.com.leighton.myfavapp.view.pageDefs.EnterpriseTaskListEditPageDef"/>
+    <page id="au_com_leighton_view_MainPageDef"
+          path="au.com.leighton.myfavapp.view.pageDefs.MainPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="EnterpriseTaskAMDataControl"
+                     Package="au.com.leighton.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="EnterpriseTaskAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+           xmlns:pe="http://xmlns.oracle.com/adf/pageeditor"
+          xmlns:cust="http://xmlns.oracle.com/adf/faces/customizable">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+       <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>Oakton No Left Navigation</display-name>
+        <facet>
+          <description>Content Area</description>
+          <facet-name>content</facet-name>
+        </facet>
+       <attribute xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+          <attribute-name>
+            editable
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            true
+          </default-value>
+          <required>
+            false
+          </required>
+        </attribute>
+      </component>
+    </af:xmlContent>
+    <af:panelGroupLayout id="pt_root" layout="scroll" halign="center"
+                         inlineStyle="background-color:White;">
+    <af:resource type="css" source="//cs/groups/webasset/documents/webasset/a25f/z2xv/~edisp/css_okn_global.css"></af:resource>
+   <af:panelGroupLayout id="pgMain" layout="vertical" halign="center"
+                           valign="top">
+     
+   
+       <af:region value="#{bindings.doclibcontentpresenter1.regionModel}"
+                   id="pt_r1"/>
+        <af:panelGroupLayout id="pglBreadCrumbButton" layout="horizontal"
+                             styleClass="page_breadcrumb">
+       
+       <af:panelGroupLayout id="pglBreadCrumbtop" layout="horizontal"
+                                 halign="left"
+                                 inlineStyle="width:auto; padding: 2px 0 7px 0; margin-left: 12px;">
+              <af:goLink id="bc1" text="Home" destination="//Intranet"
+                         styleClass="bc_link"/>
+              <af:goLink id="bc2" text="My Page"
+                         destination="//OKTPortal/faces/oracle/webcenter/portalapp/pages/MyPage.jspx"
+                         styleClass="bc_link" inlineStyle=""
+                         rendered='#{pageDocBean.title != "My Page"}'/>
+              <af:outputText value="My Page" id="pt_ot4"
+                             styleClass="bc_current"
+                             rendered='#{pageDocBean.title == "My Page"}'/>
+                             
+              <af:outputText value="#{pageDocBean.title}" id="pt_ot1"
+                             styleClass="bc_current"
+                             rendered='#{pageDocBean.title != "My Page"}'/>
+            </af:panelGroupLayout>
+       <af:panelGroupLayout id="pglBreadCrumb2" layout="horizontal"
+                               halign="right" inlineStyle="margin-right:5.0px;">
+            <af:goLink  id="e3626671055" text="Help" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" targetFrame="_blank" destination="//Intranet/PortalHelp/index.htm"
+                       styleClass="help_icon"/>
+            <af:spacer width="10" height="10" id="pt_s2"/>
+            <af:commandButton text="Personalise" id="bttnPersonalise" rendered="#{attrs.editable}"
+                              actionListener="#{personalisebean.changeMode}"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgContent" layout="vertical"
+                             styleClass="page_content_NoLeftNav">
+          <af:facetRef facetName="content"/>
+        </af:panelGroupLayout>
+                 
+      
+        <af:region value="#{bindings.doclibcontentpresenter2.regionModel}"
+                   id="pt_r2"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+    
+    
+    
+  </af:pageTemplateDef>
+</jsp:root>

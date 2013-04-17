@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MySpacesListViewPageDef"
+                Package="au.com.leighton.myspaces.view.pageDefs"
+                ControllerClass="au.com.leighton.myspaces.view.MySpacesManageBean">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MySpacesListVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="MySpacesListVO1Iterator"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="MySpacesListVO1Iterator" id="getMySpaceLists"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getMySpaceLists" IsViewObjectMethod="true"
+                  DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.MySpacesListVO1">
+      <NamedData NDName="username" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="MySpacesListVO1Iterator" id="MySpacesListVO1">
+      <nodeDefinition DefName="au.com.leighton.myspaces.model.view.MySpacesListVO"
+                      Name="MySpacesListVO10">
+        <AttrNames>
+          <Item Value="Description"/>
+          <Item Value="DisplayName"/>
+          <Item Value="memberCount"/>
+          <Item Value="SpaceLastUpdate"/>
+          <Item Value="SpaceId"/>
+          <Item Value="Logo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

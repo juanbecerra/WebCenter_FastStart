@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="TesterPageDef"
+                Package="au.com.leighton.portal.innovation.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="SubmitInnovation1"
+              taskFlowId="/WEB-INF/SubmitInnovation.xml#SubmitInnovation"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="IdeaRegister1"
+              taskFlowId="/WEB-INF/IdeaRegister.xml#IdeaRegister"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="InnovationRegister1"
+              taskFlowId="/WEB-INF/InnovationRegister.xml#InnovationRegister"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

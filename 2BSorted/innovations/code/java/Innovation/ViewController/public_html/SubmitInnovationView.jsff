@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:commandLink text="Submit Innovation" id="clSubmitInnovation">
+      <af:showPopupBehavior popupId="newIdeaPopup" triggerType="action"/>
+    </af:commandLink>
+    <af:popup id="newIdeaPopup">
+      <af:dialog id="dNewIdea" type="none" title="Submit Innovation">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td align="center">
+              <af:outputText value="New Innovation Idea" id="ot1"/>
+            </td>
+          </tr>
+        </table>
+        <br/>
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td colspan="2">
+              <af:panelFormLayout id="pfl1" labelWidth="150" fieldWidth="300"
+                                  styleClass="AFStretchWidth">
+                <af:inputText value="#{newIdeaBean.originator}"
+                              label="Originator of Idea" required="true"
+                              id="it2" maximumLength="100"/>
+              </af:panelFormLayout>
+            </td>
+            <td></td>
+          </tr>
+           
+          <tr>
+            <td>
+            <div style="overflow:auto;width:500px; height:100.0px;">
+              <af:panelFormLayout id="pfl3" labelWidth="150" fieldWidth="300">
+                <af:inputText value="#{newIdeaBean.idea}" label="Idea"
+                              required="true" rows="5" id="it1"
+                              styleClass="AFStretchWidth"
+                              maximumLength="2000" wrap="off"/>
+              </af:panelFormLayout>
+              </div>
+            </td>
+            <td>
+              <af:commandButton text="?" id="cbHelpIdea" immediate="true">
+                <af:showPopupBehavior popupId="popupHelpIdea"
+                                      triggerType="action"/>
+              </af:commandButton>
+            </td>
+          </tr>
+           
+          <tr>
+            <td colspan="2">
+              <af:panelFormLayout id="pfl5" labelWidth="150" fieldWidth="300">
+                <af:selectOneChoice value="#{newIdeaBean.division}"
+                                    label="Division" required="true" id="soc1">
+                  <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownDivisionsList}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </td>
+            <td></td>
+          </tr>
+           
+          <tr>
+            <td>
+            <div style="overflow:auto;width:500px; height:100.0px;">
+              <af:panelFormLayout id="pfl4" labelWidth="150" fieldWidth="300">
+                <af:inputText value="#{newIdeaBean.businessValue}"
+                              label="Business Value" required="true" rows="5"
+                              styleClass="AFStretchWidth" id="it3"
+                              maximumLength="2000" wrap="off"/>
+              </af:panelFormLayout>
+              </div>
+            </td>
+            <td>
+              <af:commandButton text="?" id="cbHelpBusinessValue" immediate="true">
+                <af:showPopupBehavior popupId="popupHelpBusinessValue"
+                                      triggerType="action"/>
+              </af:commandButton>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+            <div style="overflow:auto;width:500px; height:100.0px;">
+              <af:panelFormLayout id="pfl2" labelWidth="150" fieldWidth="300">
+                <af:inputText value="#{newIdeaBean.contactDetails}"
+                              label="Contact Details" required="true" rows="5"
+                              styleClass="AFStretchWidth" id="it4"
+                              maximumLength="2000" wrap="off"/>
+              </af:panelFormLayout>
+              </div>
+            </td>
+            <td>
+              <af:commandButton text="?" id="cbHelpContactDetails" immediate="true">
+                <af:showPopupBehavior popupId="popupHelpContactDetails"
+                                      triggerType="action"/>
+              </af:commandButton>
+            </td>
+          </tr>
+           
+          <tr>
+            <td colspan="2" align="right">
+              <af:commandButton text="Submit Idea"
+                                id="cb1"
+                                action="#{pageFlowScope.listHandlerBean.saveNewIdea}"/>
+            </td>
+          </tr>
+        </table>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="popupHelpIdea">
+      <af:dialog id="d1" title="Idea Help" type="none">
+        <af:outputText id="ot2"
+                       value="#{pageFlowScope.helpTextBean.helpSubmitInnovationIdea}"
+                       escape="false"/>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="popupHelpBusinessValue">
+      <af:dialog id="d2" title="Business Value Help" type="none">
+        <af:outputText id="ot3"
+                       value="#{pageFlowScope.helpTextBean.helpSubmitInnovationBusinessValue}"
+                       escape="false"/>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="popupHelpContactDetails">
+      <af:dialog id="d3" title="Contact Details Help" type="none">
+        <af:outputText id="ot4"
+                       value="#{pageFlowScope.helpTextBean.helpSubmitInnovationContactDetails}"
+                       escape="false"/>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</jsp:root>

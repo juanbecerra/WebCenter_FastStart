@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<definitions xmlns="http://xmlns.oracle.com/webcenter/framework/service">
+  <service-definition xmlns="http://xmlns.oracle.com/webcenter/framework/service"
+                       id="oracle.webcenter.peopleconnections.profile.custom"
+                       class="oracle.webcenter.peopleconnections.profile.internal.extension.ProfileService"                       
+                       version="11.1.1.0">
+    <name>Extended Profile</name>
+    <description>Manage Custom Profile</description>
+    <category-id> oracle.webcenter.peopleconnections</category-id>
+    <resource-bundle-class>oracle.webcenter.peopleconnections.profile.resource.ProfileMessagesBundle</resource-bundle-class>
+     <resource-view taskFlowId="/oracle/webcenter/peopleconnections/profile/view/jsf/regions/extended/extended-profile#extended-profile">
+      <parameters>
+        <!--
+          - When the viewerTitleKey is provided, the value should point to a
+          - message key into the resource bundle specified above by the
+          - resource-bundle-class. When the viewerTitle is provided, the value
+          - is a String that is taken as is to be the title of the resource
+          - viewer for this service.
+          -->
+        <parameter name="viewerTitleKey" value="LABEL_PROFILE"/>
+      </parameters>
+    </resource-view>
+
+    <search-crawlable-definition id="oracle.webcenter.peopleconnections.profile.custom"
+        xmlns="http://xmlns.oracle.com/webcenter/search"
+        version="11.1.1.0.0"
+        scoped="false">
+      <!--  CUSTOMER: ExtendedProfileAttributesCrawler is the sample crawler
+                      change it with your implementation if you write a new one -->
+      <crawlable-class>custom.webcenter.spaces.ExtendedProfileAttributesCrawler</crawlable-class>
+    </search-crawlable-definition>
+  </service-definition>
+</definitions>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="WCS_CUSTOMDS" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="WCS_CUSTOMDS" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>oraJDBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>WCS_CUSTOM</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="customUrl">
+            <Contents>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=lclxeatdb01-vip.lc.local)(PORT=1524)))(CONNECT_DATA=(SERVICE_NAME=PORDEV)(INSTANCE_NAME=PORDEV1)))</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

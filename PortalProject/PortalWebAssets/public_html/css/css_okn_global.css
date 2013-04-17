@@ -1,0 +1,889 @@
+
+/* ----------------------------------------------------------------------------
+Primary Colours
+---------------------------------------------------------------------------- */
+/*
+
+Primary orange colour for headings and solids                           #ef7e06 cf0303
+Main black colour for all contents and some headings                    #1B1B1B
+Main hyperlink and call to action text colours                          #004497 0b0000
+Main stroke colour for all dividers, border and field outlines          #d4d4d4
+Primary grey colour for secondary text and footer text                  #666666
+Orange backgrouns							# FF6319 cf0303
+
+*/
+
+/* ----------------------------------------------------------------------------
+Global
+---------------------------------------------------------------------------- */
+body { background:#fff; color: #1B1B1B; font: 12px/16px Arial, sans-serif; }
+
+a,
+a:link,
+a:visited
+{ color: #0b0000; text-decoration: none; }
+
+a:focus,
+a:hover
+{ text-decoration: underline; color: #cf0303; }
+
+.outside-container { text-align: center; }
+.width-container { min-width: 800px; width:90%; height: 100%; text-align: left; margin: 0 auto; }
+
+a.text-replaced { text-decoration: none; }
+.text-replaced span { position: absolute; left: -9999px; }
+
+.left { float: left; }
+.right { float: right; }
+
+
+/* ----------------------------------------------------------------------------
+Sprites
+---------------------------------------------------------------------------- */
+.arrow,
+.arrow-right-link,
+.icon,
+.button,
+#header .width-container,
+#header h1 a,
+#nav li .children-container,
+/* Removed Style
+#nav li.children a,
+*/
+.jqTransformSelectWrapper .jqTransformSelectOpen,
+.ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker-header .ui-datepicker-next,
+#content .breadcrumb li a,
+.breadcrumb-new li a,
+#ui-datepicker-tip,
+.col-3 #primary .entries .entry ul li,
+.home #primary .entry ul li,
+.tooltip-top, .tooltip-bottom, .tooltip-icon,
+#helpdesk li.back-to-top a,
+ul.disc li,
+#search li.submit input.button-blue,
+#top-search-filter .jqTransformSelectWrapper > div,
+#content .news .pane-pagination .numbers > a,
+.circle-nav .pane-pagination .icon,
+.widget-block .close,
+.icon-left,
+.vnav_block .vnav_aside .vnav_element .triangle,
+.flash.rotating .pane-pagination .numbers > a
+{ background: transparent url('oakton_sprites.png') 0 0 no-repeat; }
+
+/*Top Nav*/
+a.text-replaced { text-decoration: none; }
+.text-replaced span { position: absolute; left: -9999px; }
+
+
+/* ----------------------------------------------------------------------------
+Sticky Footer
+---------------------------------------------------------------------------- */
+html, body { height: 100%; }
+#wrap { min-height: 100%; 
+
+/a25f/z2xv/~edisp/
+ background:url('oakton-bkgnd.png'); }
+
+#main { overflow: visible; padding-bottom: 84px; 
+} 
+
+#main .width-container {
+	border-left: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+	border-bottom: 1px solid #D4D4D4;
+	padding-left: 12 px;
+        padding: 12px;
+        background-color:white;
+}
+/* padding-bottom = height of footer + 1px for border + 25px extra padding */
+
+#footer { position: relative; margin-top: -66px; height: 65px; clear: both; } /* margin-top: -height of footer + 1px for border */
+
+/* ----------------------------------------------------------------------------
+Footer
+---------------------------------------------------------------------------- */
+#footer { border-top: 1px solid #cf0303; line-height: 65px; font-size: 11px; color: #666; }
+#footer li { float: left; margin: 0 19px 0 0; }
+#footer li .arrow-orange { background-position: -916px -197px; }
+#footer li.current a { color: #cf0303; text-decoration: underline; }
+
+#header {
+	position: relative;
+	z-index: 100;
+}
+#header .width-container {
+	position: relative;
+	
+	height: 105px;
+	padding: 28px 12px 8px 12px;
+	border-left: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+	background-position: 0 -60px;
+	background-repeat:repeat-x;
+}
+
+#header h1 {
+  float: left; margin-left: 14px;
+}
+#header h1 a {
+	background-position: 0 0px;
+}
+#header h1,
+#header h1 a {
+	display: block;
+	width: 200px;
+	height: 84px;
+}
+
+.breadcrumb-container .width-container {
+	overflow: hidden;
+	border-left: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+	padding-left: 12 px;
+        padding: 12px;
+        background-color:white;
+        height:30px;
+}
+
+
+.breadcrumb-new {
+	font-size: 11px;
+	overflow: hidden;	
+	padding: 0 12px 10px 12px;
+}
+.breadcrumb-new li {
+	float: left;
+	margin-right: 7px;
+}
+
+.breadcrumb-new ul {
+	float: left;
+	padding: 0;
+
+  LIST-STYLE-TYPE: none;
+  LIST-STYLE-IMAGE: none
+
+}
+.breadcrumb-new li a {
+	padding-right: 15px;
+	color: #666666;
+	background-position: right -293px;
+}
+.breadcrumb-new .current {
+	font-style: italic;
+	padding-right: 0;
+	margin-right: 0;
+	background: none;
+	color: #808080;
+}
+
+  /* --------------------------------------------------------------------------
+  Greeting - New Module
+  -------------------------------------------------------------------------- */
+  #greeting {
+	float: left;
+	margin-top: 14px;
+	margin-left: 40px;
+  }
+  #greeting .name {
+	font-weight: bold;
+  }
+
+  /* --------------------------------------------------------------------------
+  Shortcuts
+  -------------------------------------------------------------------------- */
+  #shortcuts {
+	float: right;
+	/*margin-top: 14px;*/
+	list-style: none;
+  }
+   #shortcuts ul{
+  LIST-STYLE-TYPE: none;
+  LIST-STYLE-IMAGE: none
+  }
+  #shortcuts li {
+	float: left;
+	margin-left: 14px;
+  }
+  #shortcuts li:first-child {
+	margin-left: 0;
+  }
+  #shortcuts li.current a { color: #cf0303; }
+
+  /* --------------------------------------------------------------------------
+  Search
+  -------------------------------------------------------------------------- */
+  #search {
+	position: absolute;
+	right: 12px;
+	bottom: 48px;
+  }
+  #search li {
+	float: left;
+	list-style: none;
+  }
+  #search li.submit { margin-right: 0; }
+  #search li.submit input.button-blue {
+	width: 27px;
+	height: 27px;
+	text-indent: -9999px;
+	background-position: 3px -105px;
+	background-color: #002147;
+	display: block;
+	border: 1px solid;
+  }
+  #search input {
+	margin: 0;
+  }
+  #keywords {
+	width: 145px;
+	height: 15px;
+	border-right: 0;
+	padding: 5px;
+	border:1px solid;
+	
+  }
+
+  #top-search-filter .jqTransformSelectWrapper {
+	border-right: 0;
+  }
+  #top-search-filter .jqTransformSelectWrapper ul {
+	min-width: 104px;
+  }
+  #top-search-filter select {
+	width: 81px;
+  }
+  #top-search-filter .jqTransformSelectWrapper > div {
+	border-left: 0;
+	background-position: 0 -1340px;
+  }
+
+  /* --------------------------------------------------------------------------
+  Nav
+  -------------------------------------------------------------------------- */
+  #nav {
+	position: absolute;
+	bottom: 54px;
+	left: 150px;
+	float: right;
+	font-size: 16px;
+	font-family: Arial, sans-serif;
+  }
+  #nav li {
+	float: left;
+	position: relative;
+	list-style: none;
+  }
+  #nav li a { text-decoration: none; }
+  #nav li.current a,
+  #nav li:hover a,
+  #nav li.hover a
+  { color: #cf0303; }
+  #nav li.children { padding: 0; }
+  /* Removed Style
+  #nav li.children a { padding: 0 13px 0 0; background-position: right -115px; }
+  */
+  #nav li .children-container { display: none; margin: 0; position: absolute; top: 15px; left: -20px; background-position: -940px 6px; padding: 13px 0 0 0; z-index: 50; } /* difference between background position y and padding-top should be 6px */
+  #nav li ul { background-color: #cf0303; padding: 12px 0; }
+  #nav li li { float: none; margin: 0; text-transform: none; font-size: 12px; font-weight: bold; font-family: Arial, sans-serif; background: #cf0303; padding: 8px 30px 8px 20px; }
+  #nav li:hover .children-container,
+  #nav li .children-container:hover,
+  #nav li.hover .children-container,
+  #nav li .children-container.hover
+  { display: block; }
+  #nav li.children li a { color: #fff; font-weight: bold; display: block; width: 100%; white-space: nowrap; padding: 0 0 0 13px; background-position: -954px -155px; }
+  #nav li.children li a:hover { text-decoration: underline; }
+  #nav > ul > li {
+	margin-left: 40px;
+  }
+  #nav > ul > li:first-child {
+	margin-left: 0;
+  }
+  #nav > ul > li > a {
+	font-weight: bold;
+  }
+  
+  
+      /* ------------------------------------------------------------------------
+    Subnav
+    ------------------------------------------------------------------------ */
+    #content #secondary .subnav {
+		font-size: 14px;
+		font-weight: bold;
+	}
+    #content #secondary .subnav li {
+		padding: 15px 0;
+	}
+	#content #secondary .subnav > li > a {
+		background: url('arrow-right.png') no-repeat right center;
+		padding: 4px 24px 0 0;
+		margin-right: 12px;
+	}
+    #content #secondary .subnav li a {
+		display: block;
+		line-height: 1.5;
+	}
+    #content #secondary .subnav li.current a { color: #FF6319; }
+    #content #secondary .subnav .children { font-size: 12px; }
+    #content #secondary .subnav .children li {
+		border: 0;
+		margin: 5px 0;
+		padding: 0 0 0 12px;
+		font-weight: normal;
+		font-size: 12px;
+	}
+    #content #secondary .subnav .children li a {
+		color: #002147;
+		background: none;
+	}
+    #content #secondary .subnav .children li.current a,
+    #content #secondary .subnav .children li a:hover
+    { color: #FF6319; }
+	#content #secondary .subnav .children .current a {
+		font-weight: bold;
+	}
+  
+  /* --------------------------------------------------------------------------
+  Home
+  -------------------------------------------------------------------------- */
+  #main.home {}
+  
+    /* --------------------------------------------------------------------------
+    Content
+    -------------------------------------------------------------------------- */
+	.home #content {
+		border-top: 0;
+		padding: 0;
+		background: url('home-bg.png') repeat-y;
+	}
+    
+      /* ------------------------------------------------------------------------
+      Widgets
+      ------------------------------------------------------------------------ */
+      .home #content .widget { margin: 0; }
+      .home #content .widget li { margin: 0 0 10px 0; }
+	  .home #content .widget .pane li {
+		border-top: 1px solid #ebeae6;
+		padding-top: 15px;
+		margin-top: 15px;
+		line-height: 1.6;
+	  }
+	  .home #content .widget .pane li:first-child {
+		border-top: 0;
+		padding-top: 0;
+		margin-top: 0;
+	  }
+      .home #content .widget .list-2col { float: left; margin: 0 0 -5px 0; width: 100%; }
+      .home #content .widget .list-2col li { float: left; width: 50%; margin: 0 0 5px 0; }
+      .home #content .widget img { border: 1px solid #d4d4d4; float: right; margin: 0 0 10px 30px; }
+		.home #content .widget.blog img { margin: 0 0 10px 0; }
+	  .home #content .widget.employee-profile img {
+		float: left;
+		margin: 0 30px 10px 0;
+	  }
+      .home #content .widget h3 .icon,
+	  .home #content .widget h4 .icon
+      { float: right; }
+	  .home #content .widget h3 .icon {
+		float: none;
+	  }
+      .home #content .widget p { color:  #666666; }
+
+      /* ------------------------------------------------------------------------
+      News
+      ------------------------------------------------------------------------ */
+      .home #content .news p { color:  #666666; }
+      .home #content .news span { color:  #666; }
+      .home #content .news .panes { height: 92px; overflow: hidden; }
+      .home #content .news .pane { height: 92px; }
+      
+      /* ------------------------------------------------------------------------
+      Employee Profile
+      ------------------------------------------------------------------------ */
+      .home #content .employee-profile .job-title { color: #666; margin: 0 0 10px 0; }
+      .home #content .employee-profile p { color:  #666666; margin: 0 0 10px 0; }
+      .home #content .employee-profile .panes { height: 160px; overflow: hidden; }
+      
+      /* ------------------------------------------------------------------------
+      SHE Alerts
+      ------------------------------------------------------------------------ */
+      .home #content .she-alerts .panes {
+		height: 248px; overflow: hidden;
+	  }
+	
+      /* ------------------------------------------------------------------------
+      IT Alerts
+      ------------------------------------------------------------------------ */
+      .home #content .it-alerts .panes {
+		height: 248px;
+		overflow: hidden;
+	  }
+      
+      /* ------------------------------------------------------------------------
+      Noticeboard
+      ------------------------------------------------------------------------ */
+      .home #content .noticeboard .panes {
+		height: 160px;
+		overflow: hidden;
+	  }
+            
+      /* ------------------------------------------------------------------------
+      Popular Links
+      ------------------------------------------------------------------------ */
+			.home #secondary .popular-links {
+				position: static;
+			}
+      .home #secondary .popular-links li { margin: 0; }
+      .home #secondary .popular-links .jqTransformSelectWrapper { width: 254px !important; }
+      .home #secondary .popular-links .jqTransformSelectWrapper ul { min-width: 254px; }
+	    .home .popular-links .jqTransformSelectOpen {
+		    width: 30px;
+		    background-color: #002147;
+		     background-position: 0 -1455px;
+  	  }
+			
+      /* ------------------------------------------------------------------------
+      Secondary ("Sidebar")
+      ------------------------------------------------------------------------ */
+      .home #secondary {
+		float: right;
+		width: 277px;
+		padding: 0;
+	  }
+      .home #secondary .widget {
+		float: right;
+		width: 254px;
+		border: 0;
+		margin-bottom: 10px;
+		border-top: 1px solid #EBEAE6;
+		padding: 12px;
+	  }
+	  .home #secondary .widget:first-child {
+		border-top: 0;
+	  }
+      .home #secondary .full {
+		border: 0;
+		padding: 12px;
+		width: 254px;
+	  }
+      .home #secondary .last { margin-bottom: 0; }
+      .home #secondary .spacing { padding: 0 0 10px 0; background-repeat: repeat-y; }
+      .home #secondary h4 { margin: 0 0 10px 0; font-size: 14px; }
+      .home #secondary .full select { width: 260px; }
+	  .home #secondary .blog .arrow-orange {
+		padding: 0;
+		background: none;
+	  }
+      
+      /* ------------------------------------------------------------------------
+      Flash Content
+      ------------------------------------------------------------------------ */
+      .home #secondary .flash {
+		clear: right;
+		width: 254px;
+		padding: 12px;
+		border-top: 1px solid #EBEAE6;
+	  }
+      .home #secondary .flash img { border: 0; margin: 0 0 0 2px; }
+
+	  #secondary .flash.rotating .pane-pagination {
+		position: static;
+		margin-top: 6px;
+		text-align: center;
+		margin-left: 100px;
+	   }
+	 .flash.rotating .pane-pagination .icon-arrow-left-orange,
+	 .flash.rotating .pane-pagination .icon-arrow-right-orange {
+		display: none;
+	}
+	 .flash.rotating .pane-pagination .numbers {
+		top: 0;
+		display: block;
+	}
+	 .flash.rotating .pane-pagination .numbers > a {
+	display: block;
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin: 0 8px 0 0;
+	background-position: -30px -1500px;
+	text-indent: -9999px;
+	padding: 0;
+	text-decoration: none;
+	}
+	 .flash.rotating .pane-pagination .numbers > .activeSlide,
+	 .flash.rotating .pane-pagination .numbers > a:hover {
+		background-position: 0 -1500px;
+	}
+
+
+      /* ------------------------------------------------------------------------
+      Primary ("Main Content Area")
+      ------------------------------------------------------------------------ */
+      .home #primary {
+		width: 660px;
+		overflow: hidden;
+	  }
+	  .home #primary .box-title { padding: 11px 0; margin: 0 0 13px 0; border-bottom: 1px solid #d4d4d4; font-size: 16px; }
+      .home #primary .box-title {
+		border-bottom: 0;
+		padding: 0;
+		margin: 5px 0 25px 0;
+	  }
+	  .home #primary .widget { float: left; width: 280px; margin-right: 39px; display: inline-block; vertical-align: top; } /* NOTE: ie6/7 will need hasLayout, and display:inline */
+	  .home #primary .widget {
+		width: 285px;
+		margin-right: 0;
+		border-top: 8px solid #edecea;
+		padding: 12px 40px 12px 12px;
+	  }
+
+	  .home #primary .widget .box-title .icon-rss {
+		margin-left: 6px;
+	  }
+	  .home #primary .right-col {
+		padding-right: 26px;
+	  }
+      .home #primary .full {
+		width: 635px;
+		clear: left;
+		padding: 12px;
+	  }
+      .home #primary .full,
+      .home #primary .right-col
+      { margin-right: 0; }
+      .home #primary .entry { width: 600px; }
+      .home #primary .entry h2 { font-size: 22px; }
+      .home #primary .entry p { margin: 6px 0; }
+      .home #primary .entry ul,
+      .home #primary .entry ol
+      { margin: 10px 0; }
+      .home #primary .entry ul li { margin: 3px 0; background-position: -994px -797px; padding: 0 0 0 10px; }
+      .home #primary .entry .right { margin: 0 0 12px 30px; }
+
+      /* ------------------------------------------------------------------------
+      All Panes
+      ------------------------------------------------------------------------ */
+      .panes { margin-bottom: 25px; }
+	  .home .panes {
+		margin: 0;
+	  }
+ 
+/* ----------------------------------------------------------------------------
+Footer
+---------------------------------------------------------------------------- */
+#footer {
+	font-size: 11px;
+	color: #666;
+}
+#footer > .width-container > ul {
+	margin: 10px 0 0 0;
+}
+#footer li {
+	float: left;
+	margin: 0 16px 0 0;
+}
+#footer li .arrow-orange {
+	background: none;
+	padding: 0;
+}
+#footer li.current a { color: #FF6319; text-decoration: underline; }
+
+#footer .copyright {
+	float: left;
+	margin: 10px 0 0 0;
+}
+#footer .social-links .title {
+	float: left;
+	margin: 10px 5px 0 0;
+}
+#footer .social-links .element {
+	float: left;
+}
+#footer .social-links .icon {
+	width: 28px;
+	height: 30px;
+	text-indent: -9999px;
+	margin-left: 5px;
+	display: block;
+}
+.icon.fb {
+	background-position: 0 -1515px;
+}
+.icon.tw {
+	background-position: -30px -1515px;
+}
+.icon.ln {
+	background-position: -60px -1515px;
+}
+.icon.yt {
+	background-position: -90px -1515px;
+}
+
+/* ----------------------------------------------------------------------------
+Base styles
+---------------------------------------------------------------------------- */
+body {
+	background: #fff;
+	color: #666666;
+	font: 12px/16px Arial, sans-serif;
+}
+
+a,
+a:link,
+a:visited
+{ color: #002147; text-decoration: none; }
+
+a:focus,
+a:hover {
+	color: #FF6319;
+}
+
+.outside-container { text-align: center; }
+.width-container { width: 940px; height: 100%; text-align: left; margin: 0 auto; }
+
+a.text-replaced { text-decoration: none; }
+.text-replaced span { position: absolute; left: -9999px; }
+
+.left { float: left; }
+.right { float: right; }
+
+.clearfix:after,
+.widget:after,
+#content .pane:after,
+#content .breadcrumb:after,
+.col-3 #tertiary .widget li:after,
+.breadcrumb:after,
+.col-3 #primary .photos:after,
+.col-3 #primary dl:after,
+.tabs:after
+{ content: "."; display: block; height: 0; clear: both; visibility: hidden; min-height: 0; } /* min-height for hasLayout for IE */
+
+.col-3 #primary dl:after { clear: left; }
+
+/* ------------------------------------
+	News entries
+------------------------------------ */
+.two-cols-right-main #content .entries {
+	padding: 24px 12px;
+	border-top: 1px solid #edecea;
+	border-bottom: 1px solid #edecea;
+	float: right;
+	width: 696px
+}
+.two-cols-right-main #content .entry {
+	margin-bottom: 12px;
+}
+.two-cols-right-main #content .entries h3 {
+	font-size: 14px;
+	margin-bottom: 6px;
+}
+.two-cols-right-main #content .entries .date {
+	margin-right: 12px;
+}
+.two-cols-right-main #content .entries small {
+	font-style: italic;
+}
+
+
+/* ----------------------------------------------------------------------------
+Arrows
+---------------------------------------------------------------------------- */
+.arrow { padding: 0 0 0 9px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Orange
+  -------------------------------------------------------------------------- */
+  .arrow-orange { background-position: -916px -195px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Left Orange
+  -------------------------------------------------------------------------- */
+  .arrow-left-orange { background-position: -876px -240px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow White
+  -------------------------------------------------------------------------- */
+  .arrow-white { background-position: -954px -160px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Plus Orange
+  -------------------------------------------------------------------------- */
+  .arrow-plus-orange { background-position: -674px -115px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Minus Orange Large
+  -------------------------------------------------------------------------- */
+  .arrow-minus-orange-large { background-position: -631px -154px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Plus Orange Large
+  -------------------------------------------------------------------------- */
+  .arrow-plus-orange-large { background-position: -591px -197px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Up Orange
+  -------------------------------------------------------------------------- */
+  .arrow-up-orange { background-position: -352px -195px; padding-left: 11px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Sort
+  -------------------------------------------------------------------------- */
+  .arrow-sort { padding-left: 0; padding-right: 10px; }
+
+  /* ------------------------------------------------------------------------
+  Arrow Sort Desc
+  ------------------------------------------------------------------------ */
+  .arrow-sort-desc { background-position: right -354px; }
+
+  /* ------------------------------------------------------------------------
+  Arrow Right Link
+  ------------------------------------------------------------------------ */
+  .arrow-right-link {
+	padding-right: 16px;
+	background-position: right -1485px;
+	line-height: 1;
+  }
+
+
+/* ----------------------------------------------------------------------------
+Buttons
+---------------------------------------------------------------------------- */
+.button { cursor: pointer; }
+
+  /* --------------------------------------------------------------------------
+  Button Blue
+  -------------------------------------------------------------------------- */
+  .button-blue { background: #002147; border: 1px solid #002147; font-size: 12px; color: #fff; padding: 2px 11px; }
+  .button-blue:hover { background: #1966c5; color: #fff; }
+  a.button-blue { color: #fff; text-decoration: none; }
+
+
+/* ----------------------------------------------------------------------------
+Icons
+---------------------------------------------------------------------------- */
+.icon,
+.icon span
+{ display: inline-block; text-decoration: none; }
+
+.icon span { float: left; }
+
+.icon:hover,
+.icon span:hover
+{ text-decoration: none; }
+
+  /* --------------------------------------------------------------------------
+  Icon RSS
+  -------------------------------------------------------------------------- */
+  .icon-rss {
+	width: 13px; height: 13px;
+	background-position: left -1370px;
+  }
+
+  /* --------------------------------------------------------------------------
+  Icon Arrow Left Orange
+  -------------------------------------------------------------------------- */
+  .icon-arrow-left-orange { width: 4px; height: 7px; background-position: -876px -240px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Arrow Right Orange
+  -------------------------------------------------------------------------- */
+  .icon-arrow-right-orange { width: 4px; height: 7px; background-position: -916px -200px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Favourite
+  -------------------------------------------------------------------------- */
+  .icon-favourite { width: 16px; height: 16px; background-position: -544px -240px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Print
+  -------------------------------------------------------------------------- */
+  .icon-print { width: 19px; height: 18px; background-position: -502px -280px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Mail
+  -------------------------------------------------------------------------- */
+  .icon-mail { width: 19px; height: 14px; background-position: -461px -320px; }
+
+
+  /* --------------------------------------------------------------------------
+  Col 3 (Three column)
+  -------------------------------------------------------------------------- */
+  #main.col-3 {}
+  
+    /* --------------------------------------------------------------------------
+    Content
+    -------------------------------------------------------------------------- */
+    .col-3 #content {
+		/*background: url('col-3-bg.png') repeat-y;*/
+	}
+	.col-3.col-1-wide #content {
+		/*background: url('right-main-bg.png') repeat-y; */
+	}
+    .col-3 #content h2 {
+		padding: 11px 0 10px 0;
+	}
+    .col-3 #content h2 .icon,
+    .col-3 #content h3 .icon
+    { float: right; }
+
+      /* ------------------------------------------------------------------------
+      Secondary
+      ------------------------------------------------------------------------ */
+      .col-3 #secondary {
+		float: left;
+		width: 192px;
+		padding: 12px;
+		min-height: 120px;
+	  }
+
+        /* ----------------------------------------------------------------------
+        Widgets
+        ---------------------------------------------------------------------- */
+        .col-3 #secondary .widget { position: relative; }
+        .col-3 #secondary .widget h4 { height: 37px; line-height: 37px; margin: 0 0 12px 0; font-weight: normal; }
+        .col-3 #secondary .widget li { margin: 0 0 5px 0; }
+
+      /* ------------------------------------------------------------------------
+      Primary ("Main Content Area")
+      ------------------------------------------------------------------------ */
+      .col-3 #primary {
+		float: left;
+		width: 452px;
+		padding: 0 12px 12px 12px;
+	  }
+
+
+/* --------------------------------------------------------------------
+News
+-------------------------------------------------------------------- */
+.col-3 #primary .news .entry .date { color: #666; }
+.col-3 #primary .single-news .right { float: right; margin: 0 0 12px 30px; }
+.col-3 #primary .news table td.title { color: #666666; }
+.col-3 #primary .news table td .right { margin: 0 0 12px 30px; }
+
+
+  /* --------------------------------------------------------------------------
+  Feature
+  -------------------------------------------------------------------------- */
+  #feature { height: 70px; overflow: hidden; position: relative; }
+  #feature h2,
+  #feature img
+  { float: left; position: absolute; top: 0; left: 0; }
+  #feature h2 { z-index: 2; width: 920px; height: 70px; line-height: 70px; padding: 0 0 0 20px; font-size: 24px; color: #fff; }
+  #feature.long h2 { background-position: -237px -440px; }
+  
+  
+    /* --------------------------------------------------------------------------
+  Pagination
+  -------------------------------------------------------------------------- */
+  .pagination { margin: 5px 0 0 0; height: 18px; vertical-align: middle; }
+  .pagination a { margin: 0 4px 0 0; padding: 0 3px; }
+  .pagination .numbers { position: relative; top: -4px; left: 0; }
+  .pagination .icon { height: 15px; }
+  .pagination .icon-arrow-left-orange { background-position: -873px -236px; }
+  .pagination .icon-arrow-right-orange { background-position: -913px -196px; }
+  .pagination a.activeSlide { color: #FF6319; text-decoration: underline; }
+  
+  

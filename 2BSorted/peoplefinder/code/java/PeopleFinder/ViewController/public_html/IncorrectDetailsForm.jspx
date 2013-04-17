@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+          
+          
+          
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  
+  <f:view>
+    <af:document id="d1">
+    <af:resource type="javascript">
+function isHr(actionEvent)
+{
+actionEvent.cancel();
+var eventSource = actionEvent.getSource();
+var vType = eventSource.findComponent("soc1");
+var vBody = eventSource.findComponent("it1");
+var vHrMsg = eventSource.findComponent("hrmsg");
+var vButton = eventSource.findComponent("cb1");
+
+var vSubmitter = eventSource.findComponent("it2");
+
+  if (vType.getValue()==2)
+  {
+     vBody.setVisible(false);
+     vSubmitter.setVisible(false);
+     vHrMsg.setVisible(true);
+     vButton.setVisible(false);
+    
+  }
+  else
+  {
+    vBody.setVisible(true);
+     vSubmitter.setVisible(true);
+     vHrMsg.setVisible(false);
+     vButton.setVisible(true);
+  }
+}
+</af:resource>
+    
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+          
+            <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage label="User:" id="plam1">
+                <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.fullName}"
+                               id="ot1"/>
+              </af:panelLabelAndMessage>
+              <af:selectOneChoice label="Correction Type" id="soc1"
+                                  value="#{pageFlowScope.peopleFinderBean.adminEmailType}"
+                                  showRequired="true" required="true">
+                <af:selectItem label="Contact Details" value="phone" id="si2"/>
+                <af:selectItem label="Connection, Spaces or Experience" value="wcs" id="si4"/>
+                <af:selectItem label="Reporting Line" value="hr" id="si3"/>
+                <af:clientListener method="isHr" type="valueChange"/>
+              </af:selectOneChoice>
+              
+               <af:outputText  value="Please contact your P&amp;C representative for changes in your reporting line" 
+                               id="hrmsg"  
+                               visible="false"
+                               clientComponent="true"/>
+                               
+                               
+              <af:inputText label="Details" id="it1" rows="10" columns="50"
+                            value="#{pageFlowScope.peopleFinderBean.adminEmailBody}"
+                            showRequired="true"
+                            visible="true"  
+                            clientComponent="true" required="true"/>
+    
+              
+              <af:inputText label="Your Name" id="it2" columns="50"
+                            value="#{pageFlowScope.peopleFinderBean.adminEmailSubmitter}"
+                            showRequired="true" visible="true"
+                             clientComponent="true" required="true"/>
+            </af:panelFormLayout>
+              <br/>
+              <br/>
+              <af:panelGroupLayout layout="horizontal"
+                                   xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                   id="pgl1" halign="center">
+                <af:commandButton text="Send" id="cb1" action="submitEmail" clientComponent="true" />
+                <af:spacer width="5" id="s3"/>
+                <af:commandButton text="Cancel" id="cb2" immediate="true">
+                  <af:returnActionListener/>
+                </af:commandButton>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

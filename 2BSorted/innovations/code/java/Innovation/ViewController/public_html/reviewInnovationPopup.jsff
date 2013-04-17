@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:popup id="reviewInnovation" contentDelivery="lazyUncached">
+      <af:dialog id="d1" title="Edit Innovation from Innovation Register"
+                 type="none">
+        <af:panelBorderLayout id="pbl1"
+                              rendered="#{pageFlowScope.listHandlerBean.selectedInnovation eq null}">
+          <af:outputText value="Please select the Innovation you wish to review"
+                         id="ot1"/>
+        </af:panelBorderLayout>
+        <af:panelBorderLayout rendered="#{not (pageFlowScope.listHandlerBean.selectedInnovation eq null)}"
+                              id="pbl2">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td align="center">
+                <af:outputText value="Edit Innovation" id="ot10"/>
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl2" labelWidth="150" fieldWidth="300">
+                  <af:panelLabelAndMessage label="Ir Number" id="plam1">
+                    <af:outputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.irNumber}"
+                                   id="ot2"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl1" labelWidth="150" fieldWidth="300">
+                  <af:inputDate value="#{pageFlowScope.listHandlerBean.selectedInnovation.dateSubmitted}"
+                                readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                label="Submitted Date" required="true"
+                                id="id1"/>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl3" labelWidth="150" fieldWidth="300">
+                  <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.selectedInnovation.division}"
+                                      readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                      label="Division" required="true"
+                                      id="soc6">
+                    <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownDivisionsList}"
+                                   id="si8"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:50.0px;">
+                  <af:panelFormLayout id="pfl4" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.project}"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  label="BU/Project" required="true" id="it19"
+                                  maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:50.0px;">
+                  <af:panelFormLayout id="pfl5" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.owner}"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  label="Owner" required="true" id="it21"
+                                  maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl6" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.contactDetails}"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  label="Contact Details" required="true"
+                                  rows="5" id="it11" maximumLength="2000"
+                                  wrap="off"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl7" labelWidth="150" fieldWidth="300">
+                  <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.selectedInnovation.category}"
+                                      readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                      label="Category" required="true"
+                                      id="soc7">
+                    <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownCategoriesList}"
+                                   id="si9"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl8" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.initiativeName}"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  label="Initiative Name" required="true"
+                                  id="it10" maximumLength="200"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl9" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.innovationDescription}"
+                                  label="Innovation Description" required="true"
+                                  rows="5"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  id="it16" maximumLength="2000" wrap="off"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl10" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.selectedInnovation.benefit}"
+                                      readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                      label="Benefit" required="true" id="soc8">
+                    <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownBenefitsList}"
+                                   id="si10"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl11" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.businessValue}"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  label="Value to Business" required="true"
+                                  rows="5" id="it1" maximumLength="2000"
+                                  wrap="off"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl12" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.selectedInnovation.status}"
+                                      readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                      label="Status" required="true" id="soc9">
+                    <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownInnovationStatusList}"
+                                   id="si11"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl13" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.selectedInnovation.businessOptimisation}"
+                                      readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                      label="Business Optimisation"
+                                      required="true" id="soc10">
+                    <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownBusinessOptimisationList}"
+                                   id="si12"/>
+                  </af:selectOneChoice>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl14" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.caseStudy}"
+                                readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                label="Case Study" id="it20"
+                                maximumLength="200"/>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl15" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:selectOneRadio label="News Flash"
+                                     readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                     value="#{pageFlowScope.listHandlerBean.selectedInnovation.flashOn}"
+                                     layout="horizontal" id="sor2">
+                    <af:selectItem label="Yes" value="Yes" id="si13"/>
+                    <af:selectItem label="No" value="No" id="si14"/>
+                  </af:selectOneRadio>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl16" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:inputText value="#{pageFlowScope.listHandlerBean.selectedInnovation.additionalComments}"
+                                  readOnly="#{!pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  label="Additional Comments" required="true"
+                                  rows="5" id="it22" maximumLength="2000"
+                                  wrap="off"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td align="right">
+                <af:commandButton text="Submit"
+                                  visible="#{pageFlowScope.listHandlerBean.canEditSelectedInnovation}"
+                                  id="cb1"
+                                  action="#{pageFlowScope.listHandlerBean.updateInnovation}"/>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:listHandlerBean-->
+</jsp:root>

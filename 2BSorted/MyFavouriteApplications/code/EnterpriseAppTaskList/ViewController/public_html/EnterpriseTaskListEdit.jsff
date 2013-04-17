@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1" centerLandmark="contentinfo">
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical"
+                           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                           id="pgl1" inlineStyle="background-color:White;">
+        <af:table value="#{bindings.EAapplicationEditVO1.collectionModel}"
+                  var="row" rows="#{bindings.EAapplicationEditVO1.rangeSize}"
+                  emptyText="#{bindings.EAapplicationEditVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.EAapplicationEditVO1.rangeSize}"
+                  rowBandingInterval="0" id="t1" partialTriggers="::cb1"
+                  width="359"
+                  inlineStyle="height:192px; background-color:White;">
+          <af:column sortProperty="markfordelete" sortable="false" id="c2"
+                     width="52">
+            <af:selectBooleanCheckbox value="#{row.bindings.markfordelete.inputValue}"
+                                      label="#{row.bindings.markfordelete.label}"
+                                      shortDesc="#{bindings.EAapplicationEditVO1.hints.markfordelete.tooltip}"
+                                      id="sbc1"/>
+          </af:column>
+          <af:column sortProperty="Logo" sortable="false" id="c3" width="135">
+            <af:image source="#{row.Logo}" id="i1"
+                      inlineStyle="width:49px; height:50px;"/>
+          </af:column>
+          <af:column sortProperty="Name" sortable="true" id="c1" width="143">
+            <af:outputText value="#{row.Name}" id="ot2"/>
+          </af:column>
+        </af:table>
+        <af:panelGroupLayout id="pgl2" inlineStyle="width:347px;"
+                             layout="horizontal" valign="bottom" halign="left">
+          <af:commandButton text="Cancel" id="cb2"
+          inlineStyle="background-color:White; font-size:small; font-weight:bolder;"
+          action="Taskcancel"/>
+          <af:commandButton actionListener="#{bindings.createSelectedRow.execute}"
+                            text="Save and Exit"
+                            inlineStyle="background-color:White; font-size:small; font-weight:bolder;"
+                            disabled="#{!bindings.createSelectedRow.enabled}"
+                            id="cb1"/>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <!-- id="af_one_column_stretched"   -->
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

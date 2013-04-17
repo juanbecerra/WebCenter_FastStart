@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+           xmlns:c="http://java.sun.com/jsp/jstl/core" 
+          xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+           xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MyLinkList_VO1.collectionModel}" var="row"
+              rows="#{bindings.MyLinkList_VO1.rangeSize}"
+              emptyText="#{bindings.MyLinkList_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MyLinkList_VO1.rangeSize}"
+              rowBandingInterval="0" verticalGridVisible="false"
+              autoHeightRows="4" shortDesc="My Links" columnStretching="last"
+              width="97%" inlineStyle="border:0.0px;" id="t1"
+              partialTriggers="::cl1">
+      <af:column sortProperty="Displayname" sortable="false" id="c3"
+                 inlineStyle="padding-top: 5px; padding-bottom: 5px; padding-left: 17px; padding-right: 17px;">
+      
+         <c:set var="prefix1" value="#{fn:substring(row.Url,0,4)}"/>
+                <c:set var="prefix2" value="#{fn:substring(row.Url,0,1)}"/>
+                <c:set var="url1" value="#{row.Url}"/>
+                <c:set var="url2" value="/#{row.Url}"/>
+                <c:set var="url3" value="http://#{row.Url}"/>
+                
+         <af:goLink  text="#{row.Displayname}" id="gl1" destination="#{prefix1 eq 'http'? url1 : (prefix2 eq '/' ? url2: url3) }"
+                                targetFrame="#{row.Newpage eq 'Y'? '_blank' : '_top'}"/>
+      
+      </af:column>
+    </af:table>
+  
+  
+ <af:spacer width="10" height="10" id="s1"/>
+  
+  <af:panelGroupLayout layout="horizontal" id="footeroptions"
+                       styleClass="AFStretchWidth"
+                       inlineStyle="padding-right:5px;">
+    <af:panelGroupLayout layout="horizontal" id="pgleft"
+                         inlineStyle="padding:10.0px; " halign="left">
+      <af:commandLink actionListener="#{bindings.CreateInsert.execute}"
+                      text="Add New"
+                      disabled="#{!bindings.CreateInsert.enabled}"
+                      styleClass="icon-left add-icon" id="cl1"
+                      inlineStyle="white-space:nowrap;">
+        <af:showPopupBehavior popupId="p1"/>
+      </af:commandLink>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="horizontal" id="pgright" halign="right">
+      <af:goLink text="View My Links" id="gl2" destination="javascript:showLCPopup('/MyLinks/faces/MyLinksFullmain.jspx');"
+                 styleClass="arrow-right-link"
+                 inlineStyle="white-space:nowrap;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  
+  
+    <af:popup id="p1" contentDelivery="lazyUncached"
+              popupFetchListener="#{createInsert.CreateInsertdata}">
+      <af:panelWindow id="pw1" modal="true" resize="off">
+        <af:panelBorderLayout id="pbl1" inlineStyle="width:400.0px;">
+          <f:facet name="bottom">
+            <af:panelGroupLayout layout="horizontal" id="pgright2"
+                                 halign="right">
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                text="Save"
+                                disabled="#{!bindings.Commit.enabled}"
+                                id="cb1"/>
+              <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                                text="Cancel"
+                                disabled="#{!bindings.Rollback.enabled}"
+                                immediate="true" id="cb2">
+                <af:resetActionListener/>
+              </af:commandButton>
+            </af:panelGroupLayout>
+          </f:facet>
+          <af:panelFormLayout id="pfl1">
+            <af:inputText value="#{bindings.Displayname.inputValue}"
+                          label="Display Name"
+                          required="#{bindings.Displayname.hints.mandatory}"
+                          maximumLength="#{bindings.Displayname.hints.precision}"
+                          shortDesc="#{bindings.Displayname.hints.tooltip}"
+                          id="it1">
+              <f:validator binding="#{bindings.Displayname.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Url.inputValue}"
+                          label="Link URL"
+                          required="#{bindings.Url.hints.mandatory}"
+                          maximumLength="#{bindings.Url.hints.precision}"
+                          shortDesc="#{bindings.Url.hints.tooltip}" id="it2">
+              <f:validator binding="#{bindings.Url.validator}"/>
+            </af:inputText>
+          
+            <af:selectOneChoice value="#{bindings.Newpage.inputValue}"
+                                label="Open in NewWindow"
+                                required="#{bindings.Newpage.hints.mandatory}"
+                                shortDesc="#{bindings.Newpage.hints.tooltip}"
+                                id="soc1">
+              <af:selectItem label="Yes" value="Y" id="si1"/>
+              <af:selectItem label="No" value="N" id="si2"/>
+            </af:selectOneChoice>
+          </af:panelFormLayout>
+        </af:panelBorderLayout>
+      </af:panelWindow>
+    </af:popup>
+  </af:panelGroupLayout>
+
+</jsp:root>

@@ -1,0 +1,2643 @@
+/* ============================================================================
+Stylesheet for Leighton Intranet
+Written by Digital Garden (http://digitalgarden.com.au/)
+@author Shawn Murphy
+@version 2
+============================================================================ */
+
+/* ----------------------------------------------------------------------------
+Primary Colours
+---------------------------------------------------------------------------- */
+/*
+
+Primary orange colour for headings and solids                           #FF6319
+Main black colour for all contents and some headings                    #666666
+Main hyperlink and call to action text colours                          #002147
+Main stroke colour for all dividers, border and field outlines          #d4d4d4
+Primary grey colour for secondary text and footer text                  #666666
+
+*/
+
+
+/* ----------------------------------------------------------------------------
+Sprites
+---------------------------------------------------------------------------- */
+body
+{
+  background:none !important;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.arrow,
+.arrow-right-link,
+.icon,
+.button,
+#header .width-container,
+#header h1 a,
+#nav li .children-container,
+/* Removed Style
+#nav li.children a,
+*/
+.jqTransformSelectWrapper .jqTransformSelectOpen,
+.ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker-header .ui-datepicker-next,
+#content .breadcrumb li a,
+.breadcrumb-new li a,
+#ui-datepicker-tip,
+.col-3 #primary .entries .entry ul li,
+.home #primary .entry ul li,
+.tooltip-top, .tooltip-bottom, .tooltip-icon,
+#helpdesk li.back-to-top a,
+ul.disc li,
+#search li.submit input.button-blue,
+#top-search-filter .jqTransformSelectWrapper > div,
+#content .news .pane-pagination .numbers > a,
+.circle-nav .pane-pagination .icon,
+.widget-block .close,
+.icon-left,
+.vnav_block .vnav_aside .vnav_element .triangle,
+.flash.rotating .pane-pagination .numbers > a
+{ background: transparent url(sprites.png) 0 0 no-repeat; }
+
+
+/* ----------------------------------------------------------------------------
+Sprites (Repeating Background)
+---------------------------------------------------------------------------- */
+#content .data-list table th
+{ background: transparent url(sprites-repeating-bg.jpg) 0 0 repeat-x; }
+
+
+/* ----------------------------------------------------------------------------
+Base styles
+---------------------------------------------------------------------------- */
+body {
+	background: #fff;
+	color: #666666;
+	font: 12px/16px Arial, sans-serif;
+}
+
+a,
+a:link,
+a:visited
+{ color: #002147; text-decoration: none; }
+
+a:focus,
+a:hover {
+	color: #FF6319;
+}
+
+.outside-container { text-align: center; }
+.width-container { width: 940px; height: 100%; text-align: left; margin: 0 auto; }
+
+a.text-replaced { text-decoration: none; }
+.text-replaced span { position: absolute; left: -9999px; }
+
+.left { float: left; }
+.right { float: right; }
+
+.clearfix:after,
+.widget:after,
+#content .pane:after,
+#content .breadcrumb:after,
+.col-3 #tertiary .widget li:after,
+.breadcrumb:after,
+.col-3 #primary .photos:after,
+.col-3 #primary dl:after,
+.tabs:after
+{ content: "."; display: block; height: 0; clear: both; visibility: hidden; min-height: 0; } /* min-height for hasLayout for IE */
+
+.col-3 #primary dl:after { clear: left; }
+
+  /* --------------------------------------------------------------------------
+  Forms/Inputs
+  -------------------------------------------------------------------------- */
+  input,
+  textarea,
+  select
+  {
+	color: #666666;
+	font: 12px/16px Arial, sans-serif;
+	border: 1px solid #d9d9d9;
+	color: #666666;
+  }
+
+  input { padding: 3px 8px; }
+  select { padding: 2px 0 3px 0; }
+  
+  label { line-height: 23px; }
+  .hidden-label span { position: absolute; left: -9999px; }
+
+    /* ------------------------------------------------------------------------
+    Customised Inputs
+    ------------------------------------------------------------------------ */
+    .jqTransformHidden { display: none; }
+    
+    .jqTransformSelectWrapper { display: inline-block; position: relative; vertical-align: top; height: 23px; }
+    
+    /* Webkit only */
+    @media screen and ( -webkit-min-device-pixel-ratio:0 )
+    {
+      .jqTransformSelectWrapper { margin-top: 2px; }
+    }
+    
+    .jqTransformSelectWrapper div {
+		height: 21px;
+		line-height: 21px;
+		border: 1px solid #d4d4d4;
+		overflow: hidden;
+	}
+    .jqTransformSelectWrapper span {
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		z-index: 1;
+		display: block;
+		float: none;
+		white-space: nowrap;
+		height: 21px;
+		line-height: 21px;
+		overflow: hidden;
+		cursor: pointer;
+		padding: 0 8px;
+		max-width: 86%;
+		color: #666;
+		width: 85% !important;
+		background: #fff;
+	}
+    .jqTransformSelectWrapper .jqTransformSelectOpen {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		display: block;
+		width: 23px;
+		height: 23px;
+		background-position: right -1280px;
+	}
+    .jqTransformSelectWrapper ul {
+		position: absolute;
+		top: 29px;
+		left: 0;
+		background-color: #FFF;
+		border-bottom: 1px solid #d4d4d4;
+		overflow: visible;
+		z-index: 200;
+		width: auto !important;
+		height: auto !important;
+	}
+    .jqTransformSelectWrapper ul li {
+		float: none !important;
+		margin: 0 !important;
+		border: 1px solid #d4d4d4;
+		border-bottom: 0;
+		height: 28px;
+		white-space: nowrap;
+	}
+    .jqTransformSelectWrapper ul li a {
+		display: block;
+		height: 21px;
+		line-height: 21px;
+		cursor: pointer;
+		text-decoration: none;
+		padding: 4px 8px 3px 8px;
+		white-space: nowrap;
+	}
+    .jqTransformSelectWrapper ul li a.selected { color: #FF6319; }
+    .jqTransformSelectWrapper ul li a:hover { color: #FF6319; }
+
+	.jqTransformSelectWrapper {
+		margin-top: 0;
+		height: 30px;
+	}
+	.jqTransformSelectWrapper > div {
+		height: 28px;
+	}
+	.jqTransformSelectWrapper > div > span {
+		padding: 4px 0 3px 8px;
+	}
+	.jqTransformSelectWrapper .jqTransformSelectOpen {
+		height: 29px;
+	}
+
+/* ----------------------------------------------------------------------------
+Sticky Footer
+---------------------------------------------------------------------------- */
+html, body { height: 100%; }
+#wrap { min-height: 100%; }
+
+#main {
+	overflow: visible;
+	padding-bottom: 82px;
+} /* padding-bottom = height of footer + 1px for border + 25px extra padding */
+
+#footer {
+	position: relative;
+	margin-top: -64px;
+	padding: 13px 0 36px 0;
+	height: 15px;
+	line-height: 1;
+	clear: both;
+} /* margin-top: -height of footer + 1px for border */
+
+/*Opera Fix*/
+/* thanks to Maleika (Kohoutec)*/
+/* thank you Erik J - negate effect of float*/
+body:before { content:""; height:100%; float:left; width:0; margin-top:-32767px; }
+
+
+/* ----------------------------------------------------------------------------
+Repeating Background Images
+---------------------------------------------------------------------------- */
+/* Removed Style
+#secondary .spacing { background: transparent url(bg-secondary.png) 0 0 no-repeat; }
+*/
+
+/* ----------------------------------------------------------------------------
+Arrows
+---------------------------------------------------------------------------- */
+.arrow { padding: 0 0 0 9px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Orange
+  -------------------------------------------------------------------------- */
+  .arrow-orange { background-position: -916px -195px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Left Orange
+  -------------------------------------------------------------------------- */
+  .arrow-left-orange { background-position: -876px -240px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow White
+  -------------------------------------------------------------------------- */
+  .arrow-white { background-position: -954px -160px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Plus Orange
+  -------------------------------------------------------------------------- */
+  .arrow-plus-orange { background-position: -674px -115px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Minus Orange Large
+  -------------------------------------------------------------------------- */
+  .arrow-minus-orange-large { background-position: -631px -154px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Plus Orange Large
+  -------------------------------------------------------------------------- */
+  .arrow-plus-orange-large { background-position: -591px -197px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Up Orange
+  -------------------------------------------------------------------------- */
+  .arrow-up-orange { background-position: -352px -195px; padding-left: 11px; }
+
+  /* --------------------------------------------------------------------------
+  Arrow Sort
+  -------------------------------------------------------------------------- */
+  .arrow-sort { padding-left: 0; padding-right: 10px; }
+
+  /* ------------------------------------------------------------------------
+  Arrow Sort Desc
+  ------------------------------------------------------------------------ */
+  .arrow-sort-desc { background-position: right -354px; }
+
+  /* ------------------------------------------------------------------------
+  Arrow Right Link
+  ------------------------------------------------------------------------ */
+  .arrow-right-link {
+	padding-right: 16px;
+	background-position: right -1485px;
+	line-height: 1;
+  }
+
+
+/* ----------------------------------------------------------------------------
+Buttons
+---------------------------------------------------------------------------- */
+.button { cursor: pointer; }
+
+  /* --------------------------------------------------------------------------
+  Button Blue
+  -------------------------------------------------------------------------- */
+  .button-blue { background: #002147; border: 1px solid #002147; font-size: 12px; color: #fff; padding: 2px 11px; }
+  .button-blue:hover { background: #1966c5; color: #fff; }
+  a.button-blue { color: #fff; text-decoration: none; }
+
+
+/* ----------------------------------------------------------------------------
+Icons
+---------------------------------------------------------------------------- */
+.icon,
+.icon span
+{ display: inline-block; text-decoration: none; }
+
+.icon span { float: left; }
+
+.icon:hover,
+.icon span:hover
+{ text-decoration: none; }
+
+  /* --------------------------------------------------------------------------
+  Icon RSS
+  -------------------------------------------------------------------------- */
+  .icon-rss {
+	width: 13px; height: 13px;
+	background-position: left -1370px;
+  }
+
+  /* --------------------------------------------------------------------------
+  Icon Arrow Left Orange
+  -------------------------------------------------------------------------- */
+  .icon-arrow-left-orange { width: 4px; height: 7px; background-position: -876px -240px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Arrow Right Orange
+  -------------------------------------------------------------------------- */
+  .icon-arrow-right-orange { width: 4px; height: 7px; background-position: -916px -200px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Favourite
+  -------------------------------------------------------------------------- */
+  .icon-favourite { width: 16px; height: 16px; background-position: -544px -240px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Print
+  -------------------------------------------------------------------------- */
+  .icon-print { width: 19px; height: 18px; background-position: -502px -280px; }
+
+  /* --------------------------------------------------------------------------
+  Icon Mail
+  -------------------------------------------------------------------------- */
+  .icon-mail { width: 19px; height: 14px; background-position: -461px -320px; }
+
+/* ----------------------------------------------------------------------------
+Header
+---------------------------------------------------------------------------- */
+#header {
+	position: relative;
+	z-index: 100;
+}
+#header .width-container {
+	position: relative;
+	width: 914px;
+	height: 140px;
+	padding: 28px 12px 8px 12px;
+	border-left: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+	background-position: 0 -1100px;
+}
+
+#header h1 { float: left; }
+#header h1 a {
+	background-position: 0 -1000px;
+}
+#header h1,
+#header h1 a {
+	display: block;
+	width: 70px;
+	height: 100px;
+}
+
+.breadcrumb-container .width-container {
+	overflow: hidden;
+	border-left: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+	width: 938px;
+}
+.breadcrumb-new {
+	font-size: 11px;
+	overflow: hidden;	
+	padding: 0 12px 10px 12px;
+}
+.breadcrumb-new li {
+	float: left;
+	margin-right: 7px;
+}
+.breadcrumb-new li a {
+	padding-right: 9px;
+	color: #666666;
+	background-position: right -1555px;
+}
+.breadcrumb-new .current {
+	font-style: italic;
+	padding-right: 0;
+	margin-right: 0;
+	background: none;
+	color: #808080;
+}
+
+  /* --------------------------------------------------------------------------
+  Greeting - New Module
+  -------------------------------------------------------------------------- */
+  #greeting {
+	float: left;
+	margin-top: 14px;
+	margin-left: 40px;
+  }
+  #greeting .name {
+	font-weight: bold;
+  }
+
+  /* --------------------------------------------------------------------------
+  Shortcuts
+  -------------------------------------------------------------------------- */
+  #shortcuts {
+	float: right;
+	margin-top: 14px;
+  }
+  #shortcuts li {
+	float: left;
+	margin-left: 14px;
+  }
+  #shortcuts li:first-child {
+	margin-left: 0;
+  }
+  #shortcuts li.current a { color: #FF6319; }
+
+  /* --------------------------------------------------------------------------
+  Search
+  -------------------------------------------------------------------------- */
+  #search {
+	position: absolute;
+	right: 12px;
+	bottom: 48px;
+  }
+  #search li {
+	float: left;
+  }
+  #search li.submit { margin-right: 0; }
+  #search li.submit input.button-blue {
+	width: 30px;
+	height: 30px;
+	text-indent: -9999px;
+	background-position: 0 -1310px;
+	background-color: #002147;
+	display: block;
+  }
+  #search input {
+	margin: 0;
+  }
+  #keywords {
+	width: 145px;
+	height: 16px;
+	border-right: 0;
+	padding: 6px 10px;
+  }
+
+  #top-search-filter .jqTransformSelectWrapper {
+	border-right: 0;
+  }
+  #top-search-filter .jqTransformSelectWrapper ul {
+	min-width: 104px;
+  }
+  #top-search-filter select {
+	width: 81px;
+  }
+  #top-search-filter .jqTransformSelectWrapper > div {
+	border-left: 0;
+	background-position: 0 -1340px;
+  }
+
+  /* --------------------------------------------------------------------------
+  Nav
+  -------------------------------------------------------------------------- */
+  #nav {
+	position: absolute;
+	bottom: 54px;
+	left: 122px;
+	float: right;
+	font-size: 16px;
+	font-family: Arial, sans-serif;
+  }
+  #nav li {
+	float: left;
+	position: relative;
+  }
+  #nav li a { text-decoration: none; }
+  #nav li.current a,
+  #nav li:hover a,
+  #nav li.hover a
+  { color: #FF6319; }
+  #nav li.children { padding: 0; }
+  /* Removed Style
+  #nav li.children a { padding: 0 13px 0 0; background-position: right -115px; }
+  */
+  #nav li .children-container { display: none; margin: 0; position: absolute; top: 15px; left: -20px; background-position: -969px 7px; padding: 13px 0 0 0; z-index: 50; } /* difference between background position y and padding-top should be 6px */
+  #nav li ul { background-color: #FF6319; padding: 12px 0; }
+  #nav li li { float: none; margin: 0; text-transform: none; font-size: 12px; font-weight: bold; font-family: Arial, sans-serif; background: #FF6319; padding: 8px 30px 8px 20px; }
+  #nav li:hover .children-container,
+  #nav li .children-container:hover,
+  #nav li.hover .children-container,
+  #nav li .children-container.hover
+  { display: block; }
+  #nav li.children li a { color: #fff; font-weight: bold; display: block; width: 100%; white-space: nowrap; padding: 0 0 0 13px; background-position: -954px -155px; }
+  #nav li.children li a:hover { text-decoration: underline; }
+  #nav > ul > li {
+	margin-left: 40px;
+  }
+  #nav > ul > li:first-child {
+	margin-left: 0;
+  }
+  #nav > ul > li > a {
+	font-weight: bold;
+  }
+
+
+/* ----------------------------------------------------------------------------
+Main
+---------------------------------------------------------------------------- */
+
+  /* --------------------------------------------------------------------------
+  Tables
+  -------------------------------------------------------------------------- */
+  #content table { width: 100%; border-collapse: collapse; margin: 0 0 12px 0; }
+  #content table th { border-top: 1px solid #d4d4d4; border-bottom: 1px solid #d4d4d4; height: 38px; line-height: 38px; background-position: -0px -0px; color: #FF6319; }
+  #content table td { border-bottom: 1px solid #d4d4d4; padding: 10px 0; color: #666; }
+  #content table th,
+  #content table td
+  { text-align: left; }
+  #content table .date { text-align: right; width: 90px; }
+  #content table .datetime { width: 90px; }
+  #content table .region { width: 65px; padding-right: 6px; }
+  #content table .type { width: 75px; padding-right: 6px; }
+  #content table .client { width: 110px; padding-right: 6px; }
+  #content table .location { width: 110px; padding-right: 6px; }
+  #content table .start-finish { width: 110px; padding-right: 6px; }
+  #content table .value { width: 75px; padding-right: 6px; }
+  #content table p { margin: 0 0 5px 0; }
+
+  /* --------------------------------------------------------------------------
+  Feature
+  -------------------------------------------------------------------------- */
+  #feature { height: 70px; overflow: hidden; position: relative; }
+  #feature h2,
+  #feature img
+  { float: left; position: absolute; top: 0; left: 0; }
+  #feature h2 { z-index: 2; width: 920px; height: 70px; line-height: 70px; padding: 0 0 0 20px; font-size: 24px; color: #fff; }
+  #feature.long h2 { background-position: -237px -440px; }
+  
+  /* --------------------------------------------------------------------------
+  Content
+  -------------------------------------------------------------------------- */
+  #content {
+	border: 1px solid #d4d4d4;
+  }
+  #content .page-title {
+	line-height: 1.5;
+  }
+  #content .page-title,
+  #content h1 {
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 18px;
+	color: #666;
+  }
+  #content h2 {
+	font-weight: bold;
+	font-size: 22px;
+	margin-bottom: 18px;
+  }
+  #content h3 {
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 18px;
+  }
+  #content h4 {
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 18px;
+  }
+  #content h5 {
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 18px;
+  }
+  #content h3 .arrow { background-position: -916px -194px; }
+  
+  #content small { font-size: 11px; }
+  #content ol { margin: 10px 0; list-style: decimal inside; }
+
+    /* ------------------------------------------------------------------------
+    Subnav
+    ------------------------------------------------------------------------ */
+    #content #secondary .subnav {
+		font-size: 14px;
+		font-weight: bold;
+	}
+    #content #secondary .subnav li {
+		padding: 15px 0;
+	}
+	#content #secondary .subnav > li > a {
+		background: url('arrow-right.png') no-repeat right center;
+		padding: 4px 24px 0 0;
+		margin-right: 12px;
+	}
+    #content #secondary .subnav li a {
+		display: block;
+		line-height: 1.5;
+	}
+    #content #secondary .subnav li.current a { color: #FF6319; }
+    #content #secondary .subnav .children { font-size: 12px; }
+    #content #secondary .subnav .children li {
+		border: 0;
+		margin: 5px 0;
+		padding: 0 0 0 12px;
+		font-weight: normal;
+		font-size: 12px;
+	}
+    #content #secondary .subnav .children li a {
+		color: #002147;
+		background: none;
+	}
+    #content #secondary .subnav .children li.current a,
+    #content #secondary .subnav .children li a:hover
+    { color: #FF6319; }
+	#content #secondary .subnav .children .current a {
+		font-weight: bold;
+	}
+  
+    /* ------------------------------------------------------------------------
+    Breadcrumb
+    ------------------------------------------------------------------------ */
+    .col-3 #content .breadcrumb {
+		float: left;
+		width: 696px;
+		font-size: 11px;
+	}	
+	#content .breadcrumb {
+		padding: 0 12px;
+	}	
+    #content .breadcrumb li { float: left; height: 39px; line-height: 39px; color: #666; margin: 0 6px 0 0; }
+    #content .breadcrumb li a {
+		background-position: right -1555px;
+		padding: 0 13px 0 0;
+		color: #666666;
+	}
+	#content .breadcrumb .current {
+		font-style: italic;
+		background: none;
+		color: #808080;
+	}
+	
+    /* ------------------------------------------------------------------------
+    Tabs
+    ------------------------------------------------------------------------ */
+    .tabs {
+		float: left;
+		height: 42px;
+		margin: 0 0 18px 0;
+		border-bottom: 1px solid #edecea;
+		border-top: 7px solid #edecea;
+		font-weight: bold;
+	}
+    .col-3 .tabs {
+		width: 720px;
+		margin-bottom: 0;
+	}
+    .col-2b .tabs {
+		float: none;
+		width: 636px;
+	}
+    .col-2b .divisioned-content {
+		width: 938px;
+		margin-bottom: 0;
+	}
+    .tabs ul { }
+    .tabs li {
+		float: left;
+		border-right: 1px solid #edecea;
+		background: #fff;
+	}
+    .tabs li.last { margin: 0; }
+    .tabs li a {
+		display: block;
+		float: left;
+		padding: 12px 8px 14px 8px;
+		text-decoration: none;
+	}
+	.tabs li a:hover,
+    .tabs li.current a {
+		color: #FF6319;
+		padding: 12px 8px 11px 8px;
+		border-bottom: 3px solid #ff6319;
+	}
+
+    /* ------------------------------------------------------------------------
+    Inline Search
+    ------------------------------------------------------------------------ */
+    #content .inline-search { margin: 0 0 12px 0; padding: 0 0 15px 0; border-bottom: 1px solid #d4d4d4; }
+    #content .inline-search .full input { width: 154px; }
+    #content .inline-search p { margin: 0 0 10px 0; color: #666; }
+    #content .inline-search li { margin: 15px 0 0 0; display: inline; }
+    #content .inline-search .submit { width: auto; margin: 0 0 0 7px; }
+    #content .inline-search label span { display: inline-block; width: 80px; text-align: right; padding: 0 10px 0 0; }
+
+    /* ------------------------------------------------------------------------
+    Per Page
+    ------------------------------------------------------------------------ */
+    #content .per-page form li { float: left; margin: 0 10px 0 0; }
+    #content .per-page .jqTransformSelectWrapper { width: 65px !important; }
+    #content .per-page .jqTransformSelectWrapper ul { min-width: 65px; }
+    #content .per-page .jqTransformSelectWrapper ul li { float: none; }
+    
+    /* ------------------------------------------------------------------------
+    Filters
+    ------------------------------------------------------------------------ */
+    #content .filters { margin: 0 0 12px 0; }
+    #content .full .filters { float: left; }
+    #content .open-filters { padding: 0 0 15px 0; border-bottom: 1px solid #d4d4d4; }
+    .col-2b  #content .filters { padding: 0 0 15px 0; border-bottom: 1px solid #d4d4d4; }
+    #content .filters li { margin: 15px 0 0 0; }
+    #content .filters label span { display: inline-block; width: 80px; text-align: right; padding: 0 10px 0 0; }
+    #content .filters .submit { padding: 0 0 0 94px; }
+    #content .filters .full .jqTransformSelectWrapper { width: 172px !important; }
+    #content .filters .full .jqTransformSelectWrapper ul { min-width: 172px; }
+    #content .filters .half .jqTransformSelectWrapper { width: 86px !important; }
+    #content .filters .half .jqTransformSelectWrapper ul { min-width: 86px; }
+    #content .filters .date { vertical-align: middle; height: 23px; }
+    #content .filters .date input { width: 129px; }
+    #content .filters .date img { vertical-align: bottom; cursor: pointer; }
+    #content .filters .jqTransformSelectWrapper span {
+		text-align: left;
+		padding: 4px 7px 3px 8px;
+	}
+
+      /* ----------------------------------------------------------------------
+      Inline Filters
+      ---------------------------------------------------------------------- */
+      #content .filters .inline li { display: inline; }
+      #content .filters .inline .submit { padding: 0 0 0 25px; }
+      #content .filters .inline .full .jqTransformSelectWrapper { width: 202px !important; }
+      #content .filters .inline .full .jqTransformSelectWrapper ul { min-width: 202px }
+      #content .filters .inline .jqTransformSelectWrapper li { display: block; }
+
+      /* ----------------------------------------------------------------------
+      2 Col Filters
+      ---------------------------------------------------------------------- */
+      #content .filters .form-col-2 .full .text { width: 328px; }
+      #content .filters .form-col-2 .date { display: inline-block; width: 218px; }
+      #content .filters .form-col-2 .half { display: inline-block; width: 218px; }
+      #content .filters .form-col-2 .half .jqTransformSelectWrapper { width: 124px !important; }
+      #content .filters .form-col-2 .half .jqTransformSelectWrapper ul { min-width: 124px; }
+      #content .filters .form-col-2 .date input { width: 81px; }
+      
+      /* ----------------------------------------------------------------------
+      3 Col Filters
+      ---------------------------------------------------------------------- */
+      #content .filters .form-col-3 { padding: 5px 0 15px; }
+      #content .filters .form-col-3 label { line-height: 1; }
+      #content .filters .form-col-3 label span { display: inline; vertical-align: top; padding-left: 0; padding-right: 5px; width: auto; line-height: 23px; color: #666666; } 
+      #content .filters .form-col-3 input { width: 110px; margin-right: 5px; } 
+      #content .filters .form-col-3 .jqTransformSelectWrapper { width: 136px !important; margin-right: 5px; }
+      #content .filters .form-col-3 .jqTransformSelectWrapper ul { min-width: 136px }
+      #content .filters .form-col-3 .jqTransformSelectWrapper li { display: block; }
+      #content .filters .form-col-3 .jqTransformSelectWrapper span { padding: 0 8px; }
+      #content .filters .form-col-3 .submit { padding: 0; }
+      #content .filters .form-col-3 .button-go { display: inline; text-align: center; padding-left: 0; padding-right: 0; width: 29px; }
+
+      /* ----------------------------------------------------------------------
+      Filter Toggle
+      ---------------------------------------------------------------------- */
+      #content .filters .toggle a { padding: 0 0 0 15px; }
+      
+      
+  /* --------------------------------------------------------------------------
+  Col 2 (Two column)
+  -------------------------------------------------------------------------- */
+  #main.col-2 {}
+  
+    /* --------------------------------------------------------------------------
+    Content
+    -------------------------------------------------------------------------- */
+    .col-2 #content {	
+			background: url('right-main-bg.png') repeat-y;
+	}
+
+      /* ------------------------------------------------------------------------
+      Filters
+      ------------------------------------------------------------------------ */
+      .col-2 #content .widget .filters li { margin: 10px 0 0 0; }
+      .col-2 #content .widget .filters label span { display: block; width: 100%; padding: 0; text-align: left; }
+      .col-2 #content .widget .filters .submit { padding: 0; }
+      .col-2 #content .widget .filters .full .jqTransformSelectWrapper { width: 180px !important; }
+      .col-2 #content .widget .filters .full .jqTransformSelectWrapper ul { min-width: 180px; }
+      .col-2 #content .widget .filters .half .jqTransformSelectWrapper { width: 90px !important; }
+      .col-2 #content .widget .filters .half .jqTransformSelectWrapper ul { min-width: 90px; }
+      .col-2 #content .widget .filters .date { vertical-align: middle; height: auto; }
+      .col-2 #content .widget .filters .date input { width: 137px; }
+      .col-2 #content .widget .filters .jqTransformSelectWrapper span { padding: 4px 7px 3px 8px; }
+
+      /* ------------------------------------------------------------------------
+      Secondary
+      ------------------------------------------------------------------------ */
+      .col-2 #secondary {		
+			float: left;
+			width: 194px;
+			padding: 12px;
+			min-height: 120px;
+	  }
+      
+        /* ----------------------------------------------------------------------
+        Widgets
+        ---------------------------------------------------------------------- */
+        .col-2 #secondary .widget { position: relative; }
+        .col-2 #secondary .widget h4 { height: 37px; line-height: 37px; border-bottom: 1px solid #d4d4d4; margin: 0 0 12px 0; }
+        .col-2 #secondary .widget li { margin: 0 0 5px 0; }
+        
+          /* --------------------------------------------------------------------
+          Calendar
+          -------------------------------------------------------------------- */
+          .col-2 #secondary .calendar-container { }
+          .col-2 #secondary .ui-datepicker,
+          .col-2 #secondary .ui-datepicker table
+          { width: 180px; }
+          .col-2 #secondary .ui-datepicker table th,
+          .col-2 #secondary .ui-datepicker table td
+          { padding: 6px 2px !important; }
+          .col-2 #secondary .ui-datepicker-prev { top: 3px; left: auto; right: 20px; }
+          .col-2 #secondary .ui-datepicker-next { top: 3px; right: 0; }
+
+      /* ------------------------------------------------------------------------
+      Primary
+      ------------------------------------------------------------------------ */
+      .col-2 #primary {
+		float: left;
+		width: 696px;
+		padding: 12px;
+	  }
+      .col-2 #primary h2 { height: 37px; line-height: 37px; border-bottom: 1px solid #d4d4d4; margin: 0 0 12px 0; }
+      
+        /* ----------------------------------------------------------------------
+        Tables
+        ---------------------------------------------------------------------- */
+        .col-2 #primary table { margin: -12px 0 12px 0; }
+        .col-2 #primary table th { border-top: 0; color: #FF6319; }
+        .col-2 #primary table th,
+        .col-2 #primary table td
+        { padding-right: 20px; color: #666; }
+        .col-2 #primary table .last { padding-right: 0; }
+
+        /* ----------------------------------------------------------------------
+        SiteMap
+        ---------------------------------------------------------------------- */
+        .col-2 #primary .sitemap { display: inline-block; vertical-align: top; width: 200px; margin: 0 36px 35px 0; }
+        .col-2 #primary .sitemap-right-col { margin-right: 0; }
+        .col-2 #primary .sitemap h3 { padding: 11px 0 10px 0; margin: 0 0 12px 0; border-bottom: 1px solid #d4d4d4; font-size: 16px; }
+        .col-2 #primary .sitemap li { margin: 0 0 8px 0; }
+
+        /* ----------------------------------------------------------------------
+        Divisions
+        ---------------------------------------------------------------------- */
+        .col-2 #primary .divisions { }
+        .col-2 #primary .divisions .division { margin: 0 39px 0 0; width: 320px; padding: 12px 0 25px 0; display: inline-block; float: left; vertical-align: top; border-top: 1px solid #d4d4d4; }
+        .col-2 #primary .divisions .top { border: 0; padding-top: 0; }
+        .col-2 #primary .divisions .last-col { margin-right: 0; }
+        .col-2 #primary .divisions .division h3 { font-size: 12px; }
+        .col-2 #primary .divisions .division p { margin: 6px 0 0 0; }
+        .col-2 #primary .divisions .division img { float: right; border: 1px solid #d4d4d4; margin: 0 0 12px 12px; }
+        .col-2 #primary .divisions .division li { margin: 10px 0 0 0; }
+
+        /* ----------------------------------------------------------------------
+        Projects Map
+        ---------------------------------------------------------------------- */
+        .col-2 #primary #projects-map { }
+        .col-2 #primary #projects-map.mapped { width: 679px; height: 400px; }
+
+          /* --------------------------------------------------------------------
+          Marker
+          -------------------------------------------------------------------- */
+          .col-2 #primary #projects-map .marker { display: none; border-top: 1px solid #d4d4d4; padding: 15px 0 0 0; margin: 0 0 15px 0; }
+          .col-2 #primary #projects-map .marker h4 { font-size: 12px; margin: 0 0 10px 0; }
+          .col-2 #primary #projects-map .marker img { float: right; border: 1px solid #d4d4d4; margin: -28px 0 0 0; }
+          .col-2 #primary #projects-map .marker h4 img { vertical-align: middle; margin: 0 5px 0 0; float: none; border: 0; }
+          .col-2 #primary #projects-map .marker ul { margin: 0 0 10px 0; }
+          .col-2 #primary #projects-map .marker span { color: #666; }
+          .col-2 #primary #projects-map .marker dl { display: none; }
+
+            /* ------------------------------------------------------------------
+            Marker (in the popup)
+            ------------------------------------------------------------------ */
+            .col-2 #primary #projects-map.mapped .marker { display: block; border: 0; padding: 0; margin: 0; }
+            .col-2 #primary #projects-map.mapped .marker h4 img { display: none; }
+            .col-2 #primary #projects-map.mapped .marker table { margin: 0; }
+            .col-2 #primary #projects-map.mapped .marker td { border: 0; vertical-align: top; color: #666666; }
+            
+            
+  /* --------------------------------------------------------------------------
+  Col 2b (Two column B)
+  -------------------------------------------------------------------------- */
+  #main.col-2b {}
+  
+    /* --------------------------------------------------------------------------
+    Content
+    -------------------------------------------------------------------------- */
+    .col-2b #content {
+		background: url('home-bg.png') repeat-y;
+	}
+    .col-2b #content h2 { padding: 11px 0 10px 0; margin: 0 0 12px 0; border-bottom: 1px solid #d4d4d4; }
+    .col-2b #content h3 { font-size: 12px; }
+    .col-2b #content h2 .icon,
+    .col-2b #content h3 .icon
+    { float: right; }
+
+      /* ------------------------------------------------------------------------
+      Primary ("Main Content Area")
+      ------------------------------------------------------------------------ */
+      .col-2b #primary {
+		float: left;
+		width: 636px;
+		padding: 12px;
+	  }
+
+        /* ----------------------------------------------------------------------
+        Projects Map
+        ---------------------------------------------------------------------- */
+        .col-2b #primary #projects-map { }
+        .col-2b #primary #projects-map.mapped {
+			width: 636px;
+			height: 400px;
+		}
+		
+		.widget #projects-map.mapped {
+			width: 254px;
+			height: 220px;
+		}
+
+          /* --------------------------------------------------------------------
+          Marker
+          -------------------------------------------------------------------- */
+          .col-2b #primary #projects-map .marker { display: none; border-top: 1px solid #d4d4d4; padding: 15px 0 0 0; margin: 0 0 15px 0; }
+          .col-2b #primary #projects-map .marker h4 { font-size: 12px; margin: 0 0 10px 0; }
+          .col-2b #primary #projects-map .marker img { float: right; border: 1px solid #d4d4d4; margin: -28px 0 0 0; }
+          .col-2b #primary #projects-map .marker h4 img { vertical-align: middle; margin: 0 5px 0 0; float: none; border: 0; }
+          .col-2b #primary #projects-map .marker ul { margin: 0 0 10px 0; }
+          .col-2b #primary #projects-map .marker span { color: #666; }
+          .col-2b #primary #projects-map .marker dl { display: none; }
+
+		.widget #projects-map .marker { display: none; border-top: 1px solid #d4d4d4; padding: 15px 0 0 0; margin: 0 0 15px 0; }
+          .widget #projects-map .marker h4 { font-size: 12px; margin: 0 0 10px 0; }
+          .widget #projects-map .marker img { float: right; border: 1px solid #d4d4d4; margin: -28px 0 0 0; }
+          .widget #projects-map .marker h4 img { vertical-align: middle; margin: 0 5px 0 0; float: none; border: 0; }
+          .widget #projects-map .marker ul { margin: 0 0 10px 0; }
+          .widget #projects-map .marker span { color: #666; }
+          .widget #projects-map .marker dl { display: none; }
+
+            /* ------------------------------------------------------------------
+            Marker (in the popup)
+            ------------------------------------------------------------------ */
+            .col-2b #primary #projects-map.mapped .marker { display: block; border: 0; padding: 0; margin: 0; }
+            .col-2b #primary #projects-map.mapped .marker h4 img { display: none; }
+            .col-2b #primary #projects-map.mapped .marker table { margin: 0; }
+            .col-2b #primary #projects-map.mapped .marker td { border: 0; vertical-align: top; color: #666666; }
+
+      /* ------------------------------------------------------------------------
+      Tertiary ("Supplemental Content")
+      ------------------------------------------------------------------------ */
+      .col-2b #tertiary {
+		float: left;
+		width: 278px;
+		min-height: 40px;
+	  }
+
+        /* ----------------------------------------------------------------------
+        Widgets
+        ---------------------------------------------------------------------- */
+        .col-2b #tertiary .widget {
+			padding: 12px;
+		}
+        .col-2b #tertiary .widget h4 { font-size: 14px; padding: 11px 0 10px 0; margin: 0 0 12px 0; border-bottom: 1px solid #d4d4d4; }
+        .col-2b #tertiary .widget img { float: right; margin: -16px 0 10px 30px; border: 1px solid #d4d4d4; }
+        .col-2b #tertiary .widget li { clear: both; border-bottom: 1px solid #d4d4d4; margin: 0 0 12px 0; padding: 0 0 30px 0; }
+        .col-2b #tertiary .widget li.last { border: 0; }
+        .col-2b #tertiary .widget p span { color: #666; }
+
+          /* --------------------------------------------------------------------
+          Latest Projects (Won)
+          -------------------------------------------------------------------- */
+          .col-2b #tertiary .latest-projects li { padding: 0; border: 0; margin: 0 0 20px 0; }
+          .col-2b #tertiary .latest-projects h5 { font-weight: normal; }
+          .col-2b #tertiary .latest-projects p { color: #666; }
+      
+      
+  /* --------------------------------------------------------------------------
+  Col 3 (Three column)
+  -------------------------------------------------------------------------- */
+  #main.col-3 {}
+  
+    /* --------------------------------------------------------------------------
+    Content
+    -------------------------------------------------------------------------- */
+    .col-3 #content {
+		background: url('col-3-bg.png') repeat-y;
+	}
+	.col-3.col-1-wide #content {
+		background: url('right-main-bg.png') repeat-y;
+	}
+    .col-3 #content h2 {
+		padding: 11px 0 10px 0;
+	}
+    .col-3 #content h2 .icon,
+    .col-3 #content h3 .icon
+    { float: right; }
+
+      /* ------------------------------------------------------------------------
+      Secondary
+      ------------------------------------------------------------------------ */
+      .col-3 #secondary {
+		float: left;
+		width: 194px;
+		padding: 12px;
+		min-height: 120px;
+	  }
+
+        /* ----------------------------------------------------------------------
+        Widgets
+        ---------------------------------------------------------------------- */
+        .col-3 #secondary .widget { position: relative; }
+        .col-3 #secondary .widget h4 { height: 37px; line-height: 37px; margin: 0 0 12px 0; font-weight: normal; }
+        .col-3 #secondary .widget li { margin: 0 0 5px 0; }
+
+      /* ------------------------------------------------------------------------
+      Primary ("Main Content Area")
+      ------------------------------------------------------------------------ */
+      .col-3 #primary {
+		float: left;
+		width: 452px;
+		padding: 0 12px 12px 12px;
+	  }
+
+        /* ----------------------------------------------------------------------
+        Definition Lists
+        ---------------------------------------------------------------------- */
+        .col-3 #primary dl { color: #666; margin: 0 0 16px 0; }
+        .col-3 #primary dl dt { float: left; clear: left; width: 100px; text-align: right; margin: 0 20px 0 0; }
+        .col-3 #primary dl dd { float: left; }
+
+        /* ----------------------------------------------------------------------
+        Actions
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .actions { margin: 10px 0 20px 0; clear: both; }
+        .col-3 #primary .actions .icon { margin: 0 22px 0 0; }
+
+        /* ----------------------------------------------------------------------
+        Attachments
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .attachments li { margin: 5px 0; }
+
+        /* ----------------------------------------------------------------------
+        Tags
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .tags p { color: #666; }
+
+        /* ----------------------------------------------------------------------
+        Back to Button
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .back-to-button { margin: 30px 0 0 0; }
+
+        /* ----------------------------------------------------------------------
+        FAQs
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .faqs {}
+        .col-3 #primary .faqs li { margin: 12px 0; }
+        .col-3 #primary .faqs .faq { border-bottom: 1px solid #d4d4d4; padding: 0 0 12px 0; }
+        .col-3 #primary .faqs .faq h3 { margin: 10px 0 20px 0; }
+        .col-3 #primary .faqs .faq p { margin: 10px 0 0 0; }
+        .col-3 #primary .faqs .first { border-top: 1px solid #d4d4d4; }
+
+        /* ----------------------------------------------------------------------
+        Search Results
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .search-results { border-top: 1px solid #d4d4d4; padding: 12px 0 0 0; }
+        .col-3 #primary .search-results .search-result { border-bottom: 1px solid #d4d4d4; padding: 0 0 12px 0; margin: 0 0 12px 0; }
+        .col-3 #primary .search-results .search-result h5 span { font-weight: normal; }
+        .col-3 #primary .search-results .search-result p { margin: 10px 0 0 0; color: #666; }
+
+        /* ----------------------------------------------------------------------
+        Entries
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .entries {}
+        .col-3 #primary .entries .entry { border-bottom: 1px solid #d4d4d4; padding: 0 0 12px 0; margin: 0 0 12px 0; }
+        .col-3 #primary .entries .single { border-bottom: 0; }
+        .col-3 #primary .entries .entry h2 { padding-bottom: 0; }
+        .col-3 #primary .entries .entry .page-title {
+			font-size: 24px;
+			padding-bottom: 12px;
+		}
+        .col-3 #primary .entries .entry p {
+			margin-bottom: 28px;
+		}
+        .col-3 #primary .entries .entry p span { color: #666; }
+        .col-3 #primary .entries .entry img { border: 1px solid #d4d4d4; }
+        .col-3 #primary .entries .entry .right { margin: 0 0 12px 30px; }
+        
+        .col-3 #primary .entries .entry ul { margin: 10px 0; }
+        .col-3 #primary .entries .entry ul li { margin: 3px 0; background-position: -994px -797px; padding: 0 0 0 10px; }
+
+          /* --------------------------------------------------------------------
+          News
+          -------------------------------------------------------------------- */
+          .col-3 #primary .news .entry .date { color: #666; }
+          .col-3 #primary .single-news .right { float: right; margin: 0 0 12px 30px; }
+          .col-3 #primary .news table td.title { color: #666666; }
+          .col-3 #primary .news table td .right { margin: 0 0 12px 30px; }
+
+          /* --------------------------------------------------------------------
+          MD's Page
+          -------------------------------------------------------------------- */
+          .col-3 #primary .mdspage .entry { padding: 0 0 30px 0; }
+
+        /* ----------------------------------------------------------------------
+        Photos
+        ---------------------------------------------------------------------- */
+        .col-3 #primary .photos { border: 1px solid #d4d4d4; border-width: 1px 0; padding: 12px 0 0 0; margin: 0 0 12px 0; }
+        .col-3 #primary .photos .photo { margin: 0 37px 12px 0; width: 120px; display: inline-block; vertical-align: top; }
+        .col-3 #primary .photos .last-col { margin-right: -1px; }
+        .col-3 #primary .photos .photo p { margin: 6px 0 0 0; color: #666; }
+        .col-3 #primary .photos .photo p a { font-weight: bold; }
+        .col-3 #primary .photos .photo img { border: 1px solid #d4d4d4; }
+
+          /* --------------------------------------------------------------------
+          Photo Popup
+          -------------------------------------------------------------------- */
+          #main.photo-popup { overflow: visible; padding: 0; margin: 0; }
+          #main.photo-popup .width-container { width: auto; }
+          .photo-popup #content { border: 0; text-align: center; width: auto; }
+          .photo-popup #content img { border: 1px solid #d4d4d4; }
+          .photo-popup #content .pagination .icon { height: 12px; }
+
+      /* ------------------------------------------------------------------------
+      Tertiary ("Supplemental Content")
+      ------------------------------------------------------------------------ */
+      .col-3 #tertiary {
+		float: left;
+		width: 244px;
+		min-height: 120px;
+	  }
+
+        /* ----------------------------------------------------------------------
+        Widgets
+        ---------------------------------------------------------------------- */
+        .col-3 #tertiary .widget {
+			padding: 18px 12px;
+			border-top: 1px solid #d8d9da;
+		}
+		.col-3 #tertiary .widget:first-child {
+			border-top: 0;
+		}
+        .col-3 #tertiary .widget h4 {
+			font-size: 18px;
+			padding: 11px 0 10px 0;
+			margin: 0 0 12px 0;
+			font-weight: normal;
+		}
+		.col-3 #tertiary .widget h5 {
+			font-weight: normal;
+		}
+        .col-3 #tertiary .widget img { float: right; margin: 0 0 10px 30px; border: 1px solid #d4d4d4; }
+        .col-3 #tertiary .widget li { clear: both; border-bottom: 1px solid #d4d4d4; margin: 0 0 12px 0; padding: 0 0 30px 0; }
+        .col-3 #tertiary .widget li.last { border: 0; }
+        .col-3 #tertiary .widget p span { color: #666; }
+
+          /* --------------------------------------------------------------------
+          Bio
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .flash { margin: 0 0 5px 0; }
+          .col-3 #tertiary .flash img { border: 0; float: none; }
+
+          /* --------------------------------------------------------------------
+          Bio
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .bio { margin: 0 0 15px 0; }
+          .col-3 #tertiary .bio h4 span { color: #666; }
+          .col-3 #tertiary .bio img { margin: 0; float: none; }
+
+          /* --------------------------------------------------------------------
+          Latest Publications
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .latest-publications p { margin: 5px 0 0 0; }
+          .col-3 #tertiary .latest-publications .panes { margin-bottom: 0; }
+          .col-3 #tertiary .latest-publications li.last { margin-bottom: 15px; padding-bottom: 0; }
+
+          /* --------------------------------------------------------------------
+          Related Links
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .related-links li { padding: 0; border: 0; margin: 0 0 3px 0; }
+
+          /* --------------------------------------------------------------------
+          Related Articles
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .related-articles li { padding: 0; border: 0; margin: 0 0 20px 0; }
+          .col-3 #tertiary .related-articles h5 { font-weight: normal; }
+          .col-3 #tertiary .related-articles p { color: #666; }
+
+          /* --------------------------------------------------------------------
+          Ask Craig
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .ask-craig p { margin: 0 0 5px 0; }
+
+          /* --------------------------------------------------------------------
+          Previous Months
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .previous-months { border: 0; }
+          .col-3 #tertiary .previous-months ul { margin: 12px 0 0 0; }
+          .col-3 #tertiary .previous-months li { padding: 0; border: 0; margin: 0 0 6px 0; }
+
+          /* --------------------------------------------------------------------
+          Related Galleries
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .related-galleries { display: none; }
+
+          /* --------------------------------------------------------------------
+          Latest Galleries
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .latest-galleries { margin: 0 0 15px 0; }
+          .col-3 #tertiary .latest-galleries .photos { overflow: hidden; width: 240px; }
+          .col-3 #tertiary .latest-galleries .photo { float: left; width: 102px; margin: 0 16px 15px 0; }
+          .col-3 #tertiary .latest-galleries .photo img { float: none; margin: 0; }
+          .col-3 #tertiary .latest-galleries .photo p { margin: 6px 0 0 0; color: #666; }
+          .col-3 #tertiary .latest-galleries .photo p a { font-weight: bold; }
+
+          /* --------------------------------------------------------------------
+          SHE alerts
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .she-alerts li { padding: 0; border: 0; margin: 0 0 20px 0; }
+          .col-3 #tertiary .she-alerts h5 { font-weight: normal; }
+          .col-3 #tertiary .she-alerts p { color: #666; }
+
+          /* --------------------------------------------------------------------
+          Important Events
+          -------------------------------------------------------------------- */
+          .col-3 #tertiary .important-events li { padding: 0; border: 0; margin: 0 0 20px 0; }
+          .col-3 #tertiary .important-events li.last { margin-bottom: 0; }
+          .col-3 #tertiary .important-events h5 { font-weight: normal; }
+          .col-3 #tertiary .important-events p { color: #666; }
+      
+  
+  /* --------------------------------------------------------------------------
+  Home
+  -------------------------------------------------------------------------- */
+  #main.home {}
+  
+    /* --------------------------------------------------------------------------
+    Content
+    -------------------------------------------------------------------------- */
+	.home #content {
+		border-top: 0;
+		padding: 0;
+		background: url('home-bg.png') repeat-y;
+	}
+    
+      /* ------------------------------------------------------------------------
+      Widgets
+      ------------------------------------------------------------------------ */
+      .home #content .widget { margin: 0; }
+      .home #content .widget li { margin: 0 0 10px 0; }
+	  .home #content .widget .pane li {
+		border-top: 1px solid #ebeae6;
+		padding-top: 15px;
+		margin-top: 15px;
+		line-height: 1.6;
+	  }
+	  .home #content .widget .pane li:first-child {
+		border-top: 0;
+		padding-top: 0;
+		margin-top: 0;
+	  }
+      .home #content .widget .list-2col { float: left; margin: 0 0 -5px 0; width: 100%; }
+      .home #content .widget .list-2col li { float: left; width: 50%; margin: 0 0 5px 0; }
+      .home #content .widget img { border: 1px solid #d4d4d4; float: right; margin: 0 0 10px 30px; }
+		.home #content .widget.blog img { margin: 0 0 10px 0; }
+	  .home #content .widget.employee-profile img {
+		float: left;
+		margin: 0 30px 10px 0;
+	  }
+      .home #content .widget h3 .icon,
+	  .home #content .widget h4 .icon
+      { float: right; }
+	  .home #content .widget h3 .icon {
+		float: none;
+	  }
+      .home #content .widget p { color:  #666666; }
+
+      /* ------------------------------------------------------------------------
+      News
+      ------------------------------------------------------------------------ */
+      .home #content .news p { color:  #666666; }
+      .home #content .news span { color:  #666; }
+      .home #content .news .panes { height: 92px; overflow: hidden; }
+      .home #content .news .pane { height: 92px; }
+      
+      /* ------------------------------------------------------------------------
+      Employee Profile
+      ------------------------------------------------------------------------ */
+      .home #content .employee-profile .job-title { color: #666; margin: 0 0 10px 0; }
+      .home #content .employee-profile p { color:  #666666; margin: 0 0 10px 0; }
+      .home #content .employee-profile .panes { height: 160px; overflow: hidden; }
+      
+      /* ------------------------------------------------------------------------
+      SHE Alerts
+      ------------------------------------------------------------------------ */
+      .home #content .she-alerts .panes {
+		height: 248px; overflow: hidden;
+	  }
+	
+      /* ------------------------------------------------------------------------
+      IT Alerts
+      ------------------------------------------------------------------------ */
+      .home #content .it-alerts .panes {
+		height: 248px;
+		overflow: hidden;
+	  }
+      
+      /* ------------------------------------------------------------------------
+      Noticeboard
+      ------------------------------------------------------------------------ */
+      .home #content .noticeboard .panes {
+		height: 160px;
+		overflow: hidden;
+	  }
+            
+      /* ------------------------------------------------------------------------
+      Popular Links
+      ------------------------------------------------------------------------ */
+			.home #secondary .popular-links {
+				position: static;
+			}
+      .home #secondary .popular-links li { margin: 0; }
+      .home #secondary .popular-links .jqTransformSelectWrapper { width: 254px !important; }
+      .home #secondary .popular-links .jqTransformSelectWrapper ul { min-width: 254px; }
+	    .home .popular-links .jqTransformSelectOpen {
+		    width: 30px;
+		    background-color: #002147;
+		     background-position: 0 -1455px;
+  	  }
+			
+      /* ------------------------------------------------------------------------
+      Secondary ("Sidebar")
+      ------------------------------------------------------------------------ */
+      .home #secondary {
+		float: right;
+		width: 278px;
+		padding: 0;
+	  }
+      .home #secondary .widget {
+		float: right;
+		width: 254px;
+		border: 0;
+		margin-bottom: 10px;
+		border-top: 1px solid #EBEAE6;
+		padding: 12px;
+	  }
+	  .home #secondary .widget:first-child {
+		border-top: 0;
+	  }
+      .home #secondary .full {
+		border: 0;
+		padding: 12px;
+		width: 254px;
+	  }
+      .home #secondary .last { margin-bottom: 0; }
+      .home #secondary .spacing { padding: 0 0 10px 0; background-repeat: repeat-y; }
+      .home #secondary h4 { margin: 0 0 10px 0; font-size: 14px; }
+      .home #secondary .full select { width: 260px; }
+	  .home #secondary .blog .arrow-orange {
+		padding: 0;
+		background: none;
+	  }
+      
+      /* ------------------------------------------------------------------------
+      Flash Content
+      ------------------------------------------------------------------------ */
+      .home #secondary .flash {
+		clear: right;
+		width: 254px;
+		padding: 12px;
+		border-top: 1px solid #EBEAE6;
+	  }
+      .home #secondary .flash img { border: 0; margin: 0 0 0 2px; }
+
+	  #secondary .flash.rotating .pane-pagination {
+		position: static;
+		margin-top: 6px;
+		text-align: center;
+		margin-left: 100px;
+	   }
+	 .flash.rotating .pane-pagination .icon-arrow-left-orange,
+	 .flash.rotating .pane-pagination .icon-arrow-right-orange {
+		display: none;
+	}
+	 .flash.rotating .pane-pagination .numbers {
+		top: 0;
+		display: block;
+	}
+	 .flash.rotating .pane-pagination .numbers > a {
+	display: block;
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin: 0 8px 0 0;
+	background-position: -30px -1500px;
+	text-indent: -9999px;
+	padding: 0;
+	text-decoration: none;
+	}
+	 .flash.rotating .pane-pagination .numbers > .activeSlide,
+	 .flash.rotating .pane-pagination .numbers > a:hover {
+		background-position: 0 -1500px;
+	}
+
+      /* ------------------------------------------------------------------------
+      Primary ("Main Content Area")
+      ------------------------------------------------------------------------ */
+      .home #primary {
+		width: 660px;
+		overflow: hidden;
+	  }
+	  .home #primary .box-title { padding: 11px 0; margin: 0 0 13px 0; border-bottom: 1px solid #d4d4d4; font-size: 16px; }
+      .home #primary .box-title {
+		border-bottom: 0;
+		padding: 0;
+		margin: 5px 0 25px 0;
+	  }
+	  .home #primary .widget { float: left; width: 280px; margin-right: 39px; display: inline-block; vertical-align: top; } /* NOTE: ie6/7 will need hasLayout, and display:inline */
+	  .home #primary .widget {
+		width: 285px;
+		margin-right: 0;
+		border-top: 8px solid #edecea;
+		padding: 12px 40px 12px 12px;
+	  }
+	  .home #primary .widget:first-child {
+		border-top: 0;
+	  }
+	  .home #primary .widget .box-title .icon-rss {
+		margin-left: 6px;
+	  }
+	  .home #primary .right-col {
+		padding-right: 26px;
+	  }
+      .home #primary .full {
+		width: 635px;
+		clear: left;
+		padding: 12px;
+	  }
+      .home #primary .full,
+      .home #primary .right-col
+      { margin-right: 0; }
+      .home #primary .entry { width: 600px; }
+      .home #primary .entry h2 { font-size: 22px; }
+      .home #primary .entry p { margin: 6px 0; }
+      .home #primary .entry ul,
+      .home #primary .entry ol
+      { margin: 10px 0; }
+      .home #primary .entry ul li { margin: 3px 0; background-position: -994px -797px; padding: 0 0 0 10px; }
+      .home #primary .entry .right { margin: 0 0 12px 30px; }
+
+      /* ------------------------------------------------------------------------
+      All Panes
+      ------------------------------------------------------------------------ */
+      .panes { margin-bottom: 25px; }
+	  .home .panes {
+		margin: 0;
+	  }
+ 
+  /* ------------------------------------------------------------------------
+  Resources
+  ------------------------------------------------------------------------ */
+  .management-system h4 { padding: 0 0 20px 9px; font-size: 12px!important; color: #002147; }
+  .management-system form { padding-bottom: 10px; border-bottom: 1px solid #D4D4D4; }
+  .management-system form input.text { width: 154px; }
+
+  /* ------------------------------------------------------------------------
+  Calendar
+  ------------------------------------------------------------------------ */
+  #content .calendar { }
+  #content .calendar h5 { font-size: 14px; margin: 28px 0 10px 0; }
+  .home #content .calendar h5 {
+	margin-top: 15px;
+  }
+  .home #content .calendar li {
+	border-top: 1px solid #ebeae6;
+	padding-top: 15px;
+	margin-top: 15px;
+	line-height: 1.6;
+  }
+  .home #content .calendar li:first-child {
+	border-top: 0;
+	padding-top: 0;
+	margin-top: 0;
+  }
+  #content .calendar th { color: #666666; }
+
+  #content .calendar-container { position: relative; height: 238px; }
+  
+  .ui-datepicker { position: absolute; left: -9999px; overflow: visible; width: 218px; z-index: 2000 !important; background: #fff; padding: 18px 16px; margin: -56px 0 0 191px; border: 1px solid #d4d4d4; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+  .ui-datepicker iframe { display: none; }
+  
+  .ui-datepicker-inline { margin: 0; padding: 0; border: 0; left: 0; position: relative; top: 0 !important; left: 0 !important; z-index: auto !important; }
+  
+  #ui-datepicker-tip { position: absolute; top: 23px; left: -21px; width: 22px; height: 40px; background-position: -418px -120px; z-index: 2001; }
+  
+  .ui-datepicker-header .ui-datepicker-prev,
+  .ui-datepicker-header .ui-datepicker-next
+  { position: absolute; width: 7px; height: 11px; cursor: pointer; }
+  .ui-datepicker-header .ui-datepicker-prev span,
+  .ui-datepicker-header .ui-datepicker-next span
+  { display: none; }
+  
+  .ui-datepicker-header .ui-datepicker-prev { top: 21px; right: 46px; background-position: -793px -320px; }
+  .ui-datepicker-header .ui-datepicker-next { top: 21px; right: 16px; background-position: -833px -280px; }
+  
+  .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev { top: 109px; left: -13px; background-position: -793px -320px; }
+  .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next { top: 109px; right: -13px; background-position: -833px -280px; }
+  
+  .ui-datepicker-header .ui-datepicker-title { margin: 0 0 10px; font-size: 14px; font-weight: bold; }
+  .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title { margin: 0; padding: 5px 0; border: 1px solid #e9e9e9; border-bottom: 0; font-size: 14px; text-align: center; }
+  .ui-datepicker-calendar { width: 100%; text-align: right; border: 1px solid #d4d4d4; }
+  .ui-datepicker-calendar th { height: auto !important; line-height: 1 !important; }
+  .ui-datepicker-calendar td,
+  .ui-datepicker-calendar th
+  { padding: 6px !important; text-align: right !important; }
+  .ui-datepicker-calendar th { background: #FFF; background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e9e9e9)); background: -moz-linear-gradient(top, #fff, #e9e9e9); background: linear-gradient(#fff, #e9e9e9); }
+  .ui-datepicker-calendar td { border: 1px solid #d4d4d4; cursor: pointer; }
+  .ui-datepicker-calendar .ui-datepicker-other-month a { color: #666; }
+  .ui-datepicker-calendar .ui-datepicker-other-month { background: #f4f4f4; }
+  .ui-datepicker-calendar td:hover a,
+  .ui-datepicker-calendar td a:hover
+  { color: #FF6319; text-decoration: none; }
+  .ui-datepicker-calendar td.ui-datepicker-current-day,
+  .ui-datepicker-calendar td.ui-datepicker-today
+  { background: #FF6319; }
+  .ui-datepicker-calendar td.ui-datepicker-current-day a,
+  .ui-datepicker-calendar td.ui-datepicker-current-day a:hover,
+  .ui-datepicker-calendar td.ui-datepicker-today a,
+  .ui-datepicker-calendar td.ui-datepicker-today a:hover
+  { color: #fff; }
+      
+  /* --------------------------------------------------------------------------
+  Pagination
+  -------------------------------------------------------------------------- */
+  .pagination { margin: 5px 0 0 0; height: 18px; vertical-align: middle; }
+  .pagination a { margin: 0 4px 0 0; padding: 0 3px; }
+  .pagination .numbers { position: relative; top: -4px; left: 0; }
+  .pagination .icon { height: 15px; }
+  .pagination .icon-arrow-left-orange { background-position: -873px -236px; }
+  .pagination .icon-arrow-right-orange { background-position: -913px -196px; }
+  .pagination a.activeSlide { color: #FF6319; text-decoration: underline; }
+
+/* ----------------------------------------------------------------------------
+Footer
+---------------------------------------------------------------------------- */
+#footer {
+	font-size: 11px;
+	color: #666;
+}
+#footer > .width-container > ul {
+	margin: 10px 0 0 0;
+}
+#footer li {
+	float: left;
+	margin: 0 16px 0 0;
+}
+#footer li .arrow-orange {
+	background: none;
+	padding: 0;
+}
+#footer li.current a { color: #FF6319; text-decoration: underline; }
+
+#footer .copyright {
+	float: left;
+	margin: 10px 0 0 0;
+}
+#footer .social-links .title {
+	float: left;
+	margin: 10px 5px 0 0;
+}
+#footer .social-links .element {
+	float: left;
+}
+#footer .social-links .icon {
+	width: 28px;
+	height: 30px;
+	text-indent: -9999px;
+	margin-left: 5px;
+	display: block;
+}
+.icon.fb {
+	background-position: 0 -1515px;
+}
+.icon.tw {
+	background-position: -30px -1515px;
+}
+.icon.ln {
+	background-position: -60px -1515px;
+}
+.icon.yt {
+	background-position: -90px -1515px;
+}
+
+/* ----------------------------------------------------------------------------
+	Group Functions -> I'd like to
+---------------------------------------------------------------------------- */
+.col-1-wide #primary {
+	margin-right: 0;
+	width: 696px;
+	float: right;
+}
+.col-1-wide #primary h2 { padding-bottom: 0; border-bottom: 0; }
+
+/* common styles */
+#helpdesk { border-bottom: 1px solid #d4d4d4; }
+#helpdesk li > a, #helpdesk li > a:focus { display: block;  }
+#helpdesk div a { padding:0!important; }
+
+/* first level */
+#helpdesk > li > a { background: url(sprites.png) no-repeat -311px -837px; border-top: 1px solid #d4d4d4; font-size: 14px; padding: 11px 10px 0 10px; height: 26px;  }
+#helpdesk > li > a, #helpdesk > li > a:focus { color: #002147; text-decoration: none; }
+#helpdesk > li > a:hover { background-color: #f4f4f4; color: #002147; text-decoration: none; }
+#helpdesk > li > a.open { font-weight: bold; background-color: #f4f4f4; background-position: -311px -871px; }
+
+/* second level */
+#helpdesk > li > ul { background-color: #f4f4f4; padding: 0 10px 10px 10px;}
+#helpdesk > li > ul > li a { padding: 7px 0 7px 20px;  }
+#helpdesk > li > ul > li > a.arrow-orange { background-position: -909px -188px; }
+#helpdesk > li > ul > li > a.open { font-weight: bold; background-color: #FFF; background-position: -986px -106px; }
+
+/* third level */
+#helpdesk > li > ul > li > ul, #helpdesk > li > ul > li div { background-color: #FFF; padding-left: 20px; padding-bottom: 20px; }
+#helpdesk > li > ul > li > ul > li > a.arrow-orange { background-position: -909px -188px; }
+#helpdesk > li > ul > li > ul > li > a.open { font-weight: bold; background-position: -986px -106px; }
+
+/* fourth level */
+#helpdesk > li > ul > li > ul > li > ul { padding-left: 20px; padding-right: 10px; }
+#helpdesk > li > ul > li > ul > li > ul > li > a { padding: 11px 0 11px 20px; border-top: 1px solid #e9e9e9; }
+#helpdesk > li > ul > li > ul > li > ul > li > a.last {border-bottom: 1px solid #e9e9e9;}
+#helpdesk > li > ul > li > ul > li > ul > li > a.arrow-orange { background-position: -909px -184px; }
+#helpdesk > li > ul > li > ul > li > ul > li > a.open { font-weight: bold; background-position: -986px -102px; border-top: 1px solid #FF6319; border-bottom: 0; }
+#helpdesk > li > ul > li > ul > li > ul > li div { padding-bottom: 13px; border-bottom: 1px solid #FF6319; }
+
+/* content inside third level */
+#helpdesk li.helpdesk-content { padding-top: 10px!important; line-height: 26px; }
+#helpdesk li.helpdesk-content a { display: inline; padding:0; }
+
+/* back link */
+#helpdesk li.back-to-top { text-align: right; padding-top: 5px!important; }
+#helpdesk li.back-to-top a { background-position: -352px -196px; padding: 0 0 0 15px; font-size: 11px; display:inline!important; }
+
+/* ----------------------------------------------------------------------------
+	Tooltip
+---------------------------------------------------------------------------- */
+.tooltip-icon { float: right; width: 22px; height: 21px; background-position: -958px -977px; margin-top: 6px; position: relative; }
+
+.tooltip {  display: none; width: 176px; position: absolute; right: -13px; top: 22px; }
+.tooltip .tooltip-top { width: 176px; height: 17px; background-position: -805px -950px; }
+.tooltip .tooltip-bottom { width: 176px; height: 4px; background-position: -805px -971px; }
+
+.tooltip-content { border-left: 1px solid #d4d4d4; border-right: 1px solid #d4d4d4; padding: 12px 15px; background-color: #FFF; }
+.tooltip-content p { padding-bottom: 2px; }
+.tooltip-content a.arrow-orange { font-weight: bold; padding-left: 0; background-position: right -917px; padding-right: 30px; }
+
+/* ----------------------------------------------------------------------------
+	People & Capability
+---------------------------------------------------------------------------- */
+/* Safari and Chrome fix */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.chrome-min-height { min-height: 80px; }
+}
+#secondary .placeholder { height: 60px; clear: right; float: right; }
+
+/* ----------------------------------------------------------------------------
+	People & Capability Content
+---------------------------------------------------------------------------- */
+.people-capability-content .widget h4, .people-capability-content .widget p { padding-bottom: 16px; }
+.people-capability-content .widget ul { padding-bottom: 10px; }
+.people-capability-content .widget .filters form ul { padding-bottom: 0; }
+#content .people-capability-content .open-filters, #content .people-capability-content .filters { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+#content h3.normal { font-weight: normal; }
+ul.disc li { background-position: -994px -796px; padding-left: 10px; }
+.people-capability-sidebar .placeholder { height: 650px!important; }
+.people-capability-content .entries {
+	padding: 12px;
+}
+
+/* ----------------------------------------------------------------------------
+	New Layout
+---------------------------------------------------------------------------- */
+/* ------------------------------------
+	Two Column
+------------------------------------ */
+.two-cols-layout #content {
+	background: url('home-bg.png') repeat-y;
+}
+.two-cols-layout .left-main {
+	float: left;
+	width: 660px;
+}
+.two-cols-layout .right-aside {
+	margin-left: 660px;
+}
+.two-cols-layout .right-aside .widget {
+	border-top: 1px solid #EBEAE6;
+	padding: 12px;
+	width: 254px;
+	float: right;
+}
+.two-cols-layout .right-aside .widget:first-child {
+	border-top: 0;
+}
+.two-cols-layout .right-aside .widget.full-width {
+	width: 278px;
+	padding: 0;
+}
+.two-cols-layout .right-aside .widget-block:first-child {
+	border-top: 0;
+}
+
+/* ------------------------------------
+	Two Column - Right Main
+------------------------------------ */
+.two-cols-right-main #secondary {
+	float: left;
+	width: 194px;
+	padding: 12px;
+	min-height: 120px;
+}
+.two-cols-right-main #primary {
+	margin-left: 218px;
+}
+.two-cols-right-main #content {
+	background: url('two-cols-right-main.png') repeat-y;
+}
+
+/* ------------------------------------
+	T Layout
+------------------------------------ */
+.t-layout .block-heading {
+  margin-top: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.t-layout .top {
+	background: url('home-bg.png') repeat-y;
+	overflow: hidden;
+}
+.t-layout .top .left-main {
+	float: left;
+	width: 660px;
+}
+.t-layout .top .right-aside {
+	margin-left: 660px;
+}
+.t-layout .top .right-aside .widget {
+	border-top: 1px solid #EBEAE6;
+	padding: 12px;
+	width: 254px;
+	float: right;
+}
+.t-layout .top .right-aside .widget.full-width {
+	width: 278px;
+	padding: 0;
+}
+.t-layout .top .right-aside .widget:first-child {
+	border-top: 0;
+}
+.t-layout .bottom {
+	border-top: 7px solid #EBEAE6;
+}
+.t-layout .bottom .header {
+	border-bottom: 1px solid #EBEAE6;
+}
+
+
+/* ------------------------------------
+	Two Columns Row
+------------------------------------ */
+.two-cols-table {
+	padding: 24px 12px;
+}
+.two-cols-table .row {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 12px;
+}
+.two-cols-table .cell {
+	float: left;
+	width: 445px;
+	margin-left: 24px;
+}
+.two-cols-table .cell:first-child {
+	margin-left: 0;
+}
+.two-cols-table .cell .thumbnail {
+	float: right;
+	margin-left: 12px;
+}
+
+/* ----------------------------------------------------------------------------
+	New Modules
+---------------------------------------------------------------------------- */
+/* ------------------------------------
+	New Utility
+------------------------------------ */
+.align-right {
+	text-align: right;
+}
+.widget-block.in-left-main.has-border {
+	border-left: 1px solid #D8D9DA;
+	width: 328px;
+}
+.widget .view-all {
+	margin-top: 12px;
+	float: right;
+}
+/* ------------------------------------
+	New Buttons
+------------------------------------ */
+.blue-btn,
+a.blue-btn {
+	background-color: #002147;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 7px 12px;
+	border: 0;
+	cursor: pointer;
+}
+/* ------------------------------------
+	Icon Before
+------------------------------------ */
+.icon-left {
+	padding-left: 15px;
+	line-height: 1;
+}
+.add-icon {
+	background-position: 0 -1618px;
+}
+.list-icon {
+	background-position: -500px -1618px;
+}
+/* ------------------------------------
+	New Date
+------------------------------------ */
+.date {
+	font-size: 11px;
+	font-style: italic;
+	color: #808080;
+}
+/* ------------------------------------
+	No Border Dropdown
+------------------------------------ */
+.no-border-select .jqTransformSelectWrapper {
+	height: 24px;
+}
+.no-border-select .jqTransformSelectWrapper > div {
+	border: 0;
+	height: 24px;
+	line-height: 1;
+}
+.no-border-select .jqTransformSelectWrapper > div > span {
+	color: #002147;
+	height: 16px;
+	padding: 4px 8px 3px 8px;
+	line-height: 1;
+}
+.no-border-select .jqTransformSelectOpen {
+	width: 24px;
+	height: 24px;
+	background-position: right -1570px;
+}
+.no-border-select .jqTransformSelectWrapper ul {
+	border: 0;
+	top: 24px;
+}
+.no-border-select .jqTransformSelectWrapper ul li {
+	border: 0;
+}
+
+/* ------------------------------------
+	Big Image Slides
+------------------------------------ */
+#content .news.big-news-slides {
+	position: relative;
+	width: 100%;
+	height: 366px;
+}
+#content .news.big-news-slides .panes {
+	width: 100%;
+	height: 366px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+#content .news.big-news-slides .pane {
+	display: none;
+}
+#content .news.big-news-slides .text {
+	margin-top: 8px;
+	padding: 12px;
+}
+#content .news.big-news-slides .section-title {
+	font-size: 16px;
+	float: left;
+}
+#content .news.big-news-slides .article-title {
+	margin-left: 145px;
+	height: 42px;
+	margin-bottom: 8px;
+	line-height: 1.56;
+}
+#content .news.big-news-slides .article-title.full-width {
+	margin-left: 0;
+}
+#content .news.big-news-slides .align-right {
+	margin-top: 12px;
+	clear: both;
+}
+
+#content .news.big-news-slides .pane-pagination {
+	position: absolute;
+	left: 12px;
+	bottom: 12px;
+	z-index: 2;
+	background-color: #fff;
+}
+#content .news .pane-pagination .icon-arrow-left-orange,
+#content .news .pane-pagination .icon-arrow-right-orange {
+	display: none;
+}
+#content .news .pane-pagination .numbers {
+	top: 0;
+}
+#content .news .pane-pagination .numbers > a {
+	display: block;
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin: 0 8px 0 0;
+	background-position: -30px -1500px;
+	text-indent: -9999px;
+	padding: 0;
+	text-decoration: none;
+}
+#content .news .pane-pagination .numbers > .activeSlide,
+#content .news .pane-pagination .numbers > a:hover {
+	background-position: 0 -1500px;
+}
+
+.vnav_block .vnav_aside {
+  border-left: 0;
+  width: 161px;
+  margin-right: 12px;
+  float: left;
+}
+.vnav_block .vnav_aside .vnav_element {
+  position: relative;
+}
+.vnav_block .vnav_aside .vnav_element .target_trigger {
+  border-bottom: 1px solid #d8d9da;
+  border-right: 1px solid #d8d9da;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  padding: 25px 12px;
+  background-color: #f5f5f3;
+  color: #002147;
+}
+.vnav_block .vnav_aside .vnav_element .triangle {
+  display: none;
+  width: 8px;
+  height: 16px;
+  background-position: 0 -1638px;
+  position: absolute;
+  top: 27px;
+  right: -7px;
+}
+.vnav_block .vnav_aside .vnav_element.active .target_trigger {
+  border-color: #ff6319;
+  background-color: #ff6319;
+  color: #fff;
+  color: #fff;
+}
+.vnav_block .vnav_aside .vnav_element.active .triangle {
+  display: block;
+}
+.vnav_block .vnav_aside .vnav_element:first-child {
+  border-top: 1px solid #d8d9da;
+}
+.vnav_block .vnav_target_block {
+  padding-right: 12px;
+  height: 268px;
+  border-bottom: 1px solid #d8d9da;
+}
+.vnav_block .vnav_target_block .excerpt {
+  margin-top: 20px;
+}
+
+/* ----------------------------------------------------------------------------
+	My Page
+---------------------------------------------------------------------------- */
+/* ------------------------------------
+	Share Block
+------------------------------------ */
+.share-block {
+    margin: 20px 12px 40px 12px;
+    height: 120px;
+	position: relative;
+}
+.share-block .portrait {
+	float: left;
+	margin-right: 34px;
+}
+.share-block .last-post {
+	font-size: 18px;
+	font-weight: bold;
+}
+.share-block .date {
+	margin-top: 4px;
+}
+.share-block form {
+	position: absolute;
+	left: 150px;
+	bottom: 0;
+}
+.share-block form .legend {
+	float: left;
+	margin: 3px 24px 0 0;
+}
+.share-block form .inputs {
+	clear: both;
+}
+.share-block form .inputs input {
+	float: left;
+	margin: 0;
+}
+.share-block form .message {
+	width: 352px;
+	height: 22px;
+	border-right: 0;
+}
+.share-block form .inputs .submit {
+	width: 116px;
+	height: 30px;
+}
+.share-block .msg-at {
+	width: 60px;
+}
+.share-block .jqTransformSelectWrapper ul {
+	width: 84px !important;
+}
+
+/* ------------------------------------
+	Activity Stream
+------------------------------------ */
+.stream {
+	border-top: 7px solid #edecea;
+}
+.stream .header {
+	padding: 18px 12px;
+	position: relative;
+}
+.stream .header h3 {
+	float: left;
+	margin-right: 40px;
+}
+
+#content .stream .header .filters {
+	float: left;
+	margin-top: 4px;
+}
+
+.stream .header .page-options {	
+	position: absolute;
+	top: 18px;
+	right: 24px;
+}
+
+.stream .header .page-options li {
+	float: left;
+	margin-left: 12px;
+}
+
+.stream .header .page-options .per-page .jqTransformSelectWrapper > ul > li {
+	width: 63px;
+}
+
+.stream .header .page-options .date-range select {
+	width: 67px;
+}
+
+.stream .header .page-options .date-range .jqTransformSelectWrapper > ul {
+	min-width: 90px;
+}
+
+#content .stream .header h3 {
+	margin-bottom: 0;
+}
+.stream .scroll-pane {
+	height: 234px;
+	clear: both;
+	border-top: 1px solid #edecea;
+}
+.stream .content {
+	margin: 12px;
+}
+.stream .content .article {
+	clear: both;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
+.stream .content .article:first-child .text {
+	border-top: 0;
+}
+.stream .content .article .text {
+	padding-top: 12px;
+	margin-left: 67px;
+	border-top: 1px solid #edecea;
+}
+.stream .content .article .portrait {
+	float: left;
+	margin-right: 12px;
+}
+.stream .content .article .meta {
+	margin-top: 6px;
+}
+.stream .content .article .meta .element {
+	margin-right: 12px;
+}
+
+/* ------------------------------------
+	Widget Block
+------------------------------------ */
+.widget-block {
+	overflow: hidden;
+	padding-bottom: 24px;
+	border-top: 1px solid #d8d9da;
+}
+.widget-block .close {
+	float: right;
+	width: 18px;
+	height: 18px;
+	background-color: #ff6319;
+	text-indent: -9999px;
+	background-position: 0 -1600px;
+}
+#content .widget-block .block-title {
+	padding: 18px 12px;
+	background-color: #f6f5f4;
+	border-bottom: 1px solid #edebe9;
+	margin-bottom: 0;
+}
+.widget-block .content {
+	padding: 22px 12px 0 12px;
+}
+.widget-block .full-width {
+	margin-left: -12px;
+	margin-right: -12px;
+	border-top: 1px solid #edecea;
+	border-bottom: 1px solid #edecea;
+}
+.widget-block .widget-block-list {
+	margin: 0 12px;
+}
+.widget-block .widget-block-list li {
+	padding: 10px 0;
+	border-top: 1px solid #edecea;
+}
+.widget-block .widget-block-list li:first-child {
+	border-top: 0;
+}
+.widget-block .widget-block-list .list-cell {
+	display: block;
+	float: left;
+	width: 90px;
+	margin-right: 10px;
+}
+.widget-block.in-left-main .widget-block-list .list-cell {
+	width: 130px;
+}
+.widget-block .footer-links {
+	margin-top: 24px;
+}
+.widget-block .links {
+	margin-bottom: 12px;
+}
+.widget-block .links a {
+	margin-right: 12px;
+}
+.widget-block .entry-list {
+	margin-bottom: 24px;
+}
+.widget-block .single-entry {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 12px;
+}
+.widget-block .single-entry:first-child .text {
+	border-top: 0;
+}
+.widget-block .single-entry .text {
+	padding-top: 12px;
+	margin-left: 67px;
+	border-top: 1px solid #edecea;
+}
+.widget-block.thumbnail-left .portrait {
+	float: left;
+	margin-right: 12px;
+}
+.widget-block.in-left-main {
+	width: 330px;
+	float: left;
+}
+
+.fav-app-block .content {
+	padding: 0;
+}
+
+.fav-app-block .scroll-pane {
+	height: 110px;
+}
+
+/* ----------------------------------------------------------------------------
+	What's on
+---------------------------------------------------------------------------- */
+/* ------------------------------------
+	Video Widget
+------------------------------------ */
+.widget.video .video_block {
+	position: relative;
+	background-color: #080808;
+}
+.widget.video .video_block {
+	width: 254px;
+	height: 182px;
+}
+.widget.video .video_block .screenshot,
+.widget.video .video_block .playbtn {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.widget.video .video_block .screenshot {
+	z-index: 1;
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+	-webkit-opacity: 0.7;
+	opacity: 0.7;
+}
+.widget.video .video_block:hover .screenshot {
+	 -moz-opacity: 1;
+	 -khtml-opacity: 1;
+	 -webkit-opacity: 1;
+	 opacity: 1;
+}
+.widget.video .video_block .playbtn {
+	 display: block;
+	 width: 100%;
+	 height: 100%;
+	 text-indent: -9999px;
+	 background: url('play_btn.png') no-repeat center center;
+	 z-index: 2;
+}
+/* ------------------------------------
+	Social Widget
+------------------------------------ */
+.widget.social .widget-title {
+	float: left;
+	padding: 20px 12px 12px 12px;
+	border-bottom: 1px solid #edecea;
+}
+.widget.social .tabs {
+	width: 193px;
+	height: 48px;
+	border-top: 0;
+}
+.widget.social .tabs li:first-child {
+	border-left: 1px solid #edecea;
+}
+.widget.social .tabs li a {
+	padding: 18px 8px 14px 8px;
+}
+.widget.social .tabs li a:hover,
+.widget.social .tabs li.current a {
+	padding: 18px 8px 11px 8px;
+}
+.widget.social .tab-content {
+	clear: both;
+	padding: 0 12px 12px 12px;
+}
+.widget.social .tweet-list-item {
+	margin-bottom: 12px;
+	border-bottom: 1px solid #edecea;
+	padding-bottom: 12px;
+	list-style: none;
+	line-height: 20px;
+}
+.widget.social .icon.tw {
+	float: left;
+	width: 28px;
+	height: 30px;
+	margin-right: 12px;
+	text-indent: -9999px;
+}
+
+/* ----------------------------------------------------------------------------
+	What's on filter page
+---------------------------------------------------------------------------- */
+.two-cols-right-main #content .page-title {
+	padding: 24px 12px;
+	border-bottom: 0;
+	border-bottom: 7px solid #edecea;
+	font-size: 18px;
+}
+
+/* ------------------------------------
+	Header & Footer
+------------------------------------ */
+.two-cols-right-main #content .footer {	
+	height: 25px;
+}
+.two-cols-right-main #content .header,
+.two-cols-right-main #content .footer {
+	padding: 12px;
+	position: relative;
+}
+.two-cols-right-main #content .footer {
+	clear: both;
+}
+.two-cols-right-main #content .header .filters {
+	float: left;
+	margin: 8px 0 0 0;
+	padding-bottom: 12px;
+}
+.two-cols-right-main #content .per-page {
+	position: absolute;
+	top: 12px;
+	right: 200px;
+}
+
+.whatson-filter #primary .pagination {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+/* ------------------------------------
+	News entries
+------------------------------------ */
+.two-cols-right-main #content .entries {
+	padding: 24px 12px;
+	border-top: 1px solid #edecea;
+	border-bottom: 1px solid #edecea;
+	float: right;
+	width: 696px
+}
+.two-cols-right-main #content .entry {
+	margin-bottom: 12px;
+}
+.two-cols-right-main #content .entries h3 {
+	font-size: 14px;
+	margin-bottom: 6px;
+}
+.two-cols-right-main #content .entries .date {
+	margin-right: 12px;
+}
+.two-cols-right-main #content .entries small {
+	font-style: italic;
+}
+
+/* ----------------------------------------------------------------------------
+	Our Company page
+---------------------------------------------------------------------------- */
+/* ------------------------------------
+	Our Leaders
+------------------------------------ */
+.widget.our-leaders .content {
+	padding: 0 12px 12px 12px;
+}
+.widget.our-leaders .panes {
+	margin: 0;
+	height: 205px;
+}
+.widget.our-leaders .entry {
+	float: left;
+	margin-left: 32px;
+	width: 135px;
+}
+.widget.our-leaders .entry .portrait {
+	border-bottom: 4px solid transparent;
+	width: 135px;
+	height: 127px;
+}
+.widget.our-leaders .entry:hover .portrait {
+	border-color: #ff6319;
+}
+.widget.our-leaders .entry:first-child {
+	margin-left: 0;
+}
+.widget.our-leaders .leader-name {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 6px;
+}
+.widget.our-leaders .job-title {
+	font-style: italic;
+}
+
+/* ------------------------------------
+	Our Projects
+------------------------------------ */
+.widget.project .view-all {
+	margin-top: 26px;
+}
+
+/* ------------------------------------
+	What's On Block
+------------------------------------ */
+.whatson-block .header {
+	border-top: 7px solid #edecea;
+	border-bottom: 1px solid #edecea;
+	overflow: hidden;
+}
+.whatson-block .header .widget-title {
+	padding: 0 12px;
+	margin-top: 18px;
+}
+.whatson-block .header .landing-links {
+	margin: 18px 12px;
+}
+.whatson-block .header .landing-links > a {
+	margin-left: 12px;
+	font-weight: bold;
+}
+.whatson-block .header .landing-links .current {
+	color: #ff6319;
+}
+.whatson-block .header .tabs {
+	border-top: 0;
+	margin-bottom: 0;
+	border-bottom: 0;
+	height: 52px;
+	float: right;
+}
+.whatson-block .header .tabs li:first-child {
+	border-left: 1px solid #edecea;
+}
+.whatson-block .header .tabs li a {
+	padding: 18px;
+}
+.whatson-block .header .tabs li a:hover,
+.whatson-block .header .tabs li.current a {
+	padding: 18px 18px 15px 18px;
+}
+.whatson-block .widget-title {
+}
+.whatson-block .tab-content {
+	clear: both;
+	padding: 24px 12px;
+}
+.whatson-block .tab-content .entry {
+	margin-bottom: 12px;
+}
+.whatson-block .tab-content .entry .author {
+	font-style: italic;
+	margin-right: 6px;
+}
+
+/* ------------------------------------
+	Widget Pagination Override
+------------------------------------ */
+.widget {
+	position: relative;
+}
+.widget .pane-pagination {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	margin: 0;
+	height: auto;
+}
+.widget .pane-pagination .numbers {
+	display: none;
+}
+.widget .pane-pagination .icon-arrow-left-orange,
+.widget .pane-pagination .icon-arrow-right-orange {
+	width: 26px;
+	height: 26px;
+	padding: 0;
+ }
+.widget .pane-pagination .icon-arrow-left-orange {
+	background-position: 0 -1395px;
+}
+.widget .pane-pagination .icon-arrow-left-orange:hover {
+	background-position: 0 -1425px;
+}
+.widget .pane-pagination .icon-arrow-right-orange {
+	background-position: -30px -1395px;
+	margin: 0;
+}
+.widget .pane-pagination .icon-arrow-right-orange:hover {
+	background-position: -30px -1425px;
+}
+
+.home #primary .widget .pane-pagination {
+	right: 40px;
+}
+.widget.our-leaders .pane-pagination {
+	top: 0;
+}
+
+/* ------------------------------------
+	Widget Title Override
+------------------------------------ */
+.widget h3 .arrow-orange,
+.widget h4 .arrow-orange {
+	padding: 0;
+	background: none;
+}
+
+/*Custom LC CSS*/
+/*Edit Area*/
+
+.x19c.p_AFEdit div[id="pt1:pageCustomizable1::c"] {
+    overflow: scroll !important;
+}
+
+.styled-select select {
+ width: 127px !important;
+ padding-left: 5px;
+ height: 28px;
+ background: none transparent scroll repeat 0% 0%;
+ border: 0;
+}
+
+.styled-select {
+	border-left: 0;
+	width: 104px;
+	height: 28px;
+	padding-left: 1px;
+	background: url(sprites.png) 0 0 no-repeat;
+	background-position: 0 -1340px;
+	border-top: 1px solid #D9D9D9;
+	border-bottom: 1px solid #D9D9D9;
+}
+  
+  
+
+.black_overlay{
+	        display: none;
+			background-color: black;
+			z-index:999;
+			-moz-opacity: 0.6;
+			opacity:.60;
+			filter: alpha(opacity=60);
+			position: absolute;
+			width:100%;
+			height:100%;
+			min-height:100%;
+		}
+.white_content {
+			display: none;
+			position: absolute;
+			top: 20%;
+			left: 10%;
+			width: 80%;
+			height: 600px;
+			padding: 16px;
+			border: 1px solid grey;
+			background-color: white;
+			z-index:1002;
+			overflow: auto;
+		}
+.help_icon
+{
+/*display:block;
+height:21px;
+background:transparent url(../../../../css/sprites.png) -957px -977px no-repeat;
+padding-left:25px;*/
+}
+
+.WCIntranetH3
+{
+  color: #1B1B1B;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.WCLink
+{
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #004497;
+}
+
+.WCLink:hover{
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+  color: #F58426;
+}
+
+.myconnections table
+{width:100% !important;}

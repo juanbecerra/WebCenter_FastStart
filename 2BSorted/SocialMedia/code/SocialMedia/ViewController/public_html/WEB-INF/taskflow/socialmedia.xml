@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="socialmedia">
+    <default-activity id="__5">invokeSocialMediaService</default-activity>
+    <input-parameter-definition id="__6">
+      <name id="__7">site</name>
+      <value>#{pageFlowScope.site}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__8">
+      <name id="__9">account</name>
+      <value>#{pageFlowScope.account}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__1">
+      <managed-bean-name id="__3">socialMediaManagedBean</managed-bean-name>
+      <managed-bean-class id="__4">au.com.leicon.socialmedia.view.SocialMediaManagedBean</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="invokeSocialMediaService">
+      <method>#{pageFlowScope.socialMediaManagedBean.invokeSocialMediaService}</method>
+      <parameter>
+        <value>#{pageFlowScope.site}</value>
+      </parameter>
+      <parameter>
+        <value>#{pageFlowScope.account}</value>
+      </parameter>
+      <outcome id="__10">
+        <fixed-outcome>socialmedia</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="socialMediaType">
+      <case>
+        <expression>#{pageFlowScope.site=="twitter"}</expression>
+        <outcome id="__16">twitter</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.site=="youtube"}</expression>
+        <outcome id="__17">youtube</outcome>
+      </case>
+      <default-outcome>twitter</default-outcome>
+    </router>
+    <view id="twitterView">
+      <page>/twitterView.jsff</page>
+    </view>
+    <view id="youTubeView">
+      <page>/youTubeView.jsff</page>
+    </view>
+    <control-flow-rule id="__11">
+      <from-activity-id id="__12">invokeSocialMediaService</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__15">socialmedia</from-outcome>
+        <to-activity-id id="__14">socialMediaType</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id id="__19">socialMediaType</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome id="__20">twitter</from-outcome>
+        <to-activity-id id="__21">twitterView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome id="__25">youtube</from-outcome>
+        <to-activity-id id="__24">youTubeView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+    <visibility id="__26"/>
+  </task-flow-definition>
+</adfc-config>

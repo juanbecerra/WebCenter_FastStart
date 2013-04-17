@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="MySpaces-QuickView">
+    <default-activity id="__1">MySpacesListView</default-activity>
+    <managed-bean id="__6">
+      <managed-bean-name id="__7">mySpacesManageBean</managed-bean-name>
+      <managed-bean-class id="__9">au.com.leighton.myspaces.view.MySpacesManageBean</managed-bean-class>
+      <managed-bean-scope id="__8">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="MySpacesListView">
+      <page>/MySpacesListView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

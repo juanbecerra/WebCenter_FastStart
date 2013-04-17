@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="InnovationRegister">
+    <default-activity id="__1">InnovationRegisterPartial</default-activity>
+    <managed-bean id="__13">
+      <managed-bean-name id="__14">listHandlerBean</managed-bean-name>
+      <managed-bean-class id="__12">au.com.leighton.portal.innovation.view.ListHandlerBean</managed-bean-class>
+      <managed-bean-scope id="__15">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="InnovationRegisterPartial">
+      <page>/InnovationRegisterPartial.jsff</page>
+    </view>
+    <view id="InnovationRegisterFull">
+      <page>/InnovationRegisterFull.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">InnovationRegisterPartial</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">full</from-outcome>
+        <to-activity-id id="__4">InnovationRegisterFull</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">InnovationRegisterFull</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__11">partial</from-outcome>
+        <to-activity-id id="__10">InnovationRegisterPartial</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

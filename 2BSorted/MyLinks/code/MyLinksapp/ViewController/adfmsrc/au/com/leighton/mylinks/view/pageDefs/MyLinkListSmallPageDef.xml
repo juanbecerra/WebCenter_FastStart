@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MyLinkListSmallPageDef"
+                Package="au.com.leighton.mylinks.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyLinkList_VO1" RangeSize="25"
+              DataControl="MyLinks_AMDataControl" id="MyLinkList_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MyLinkList_VO1Iterator" id="MyLinkList_VO1">
+      <nodeDefinition DefName="au.com.leighton.mylinks.model.view.MyLinkList_VO"
+                      Name="MyLinkList_VO10">
+        <AttrNames>
+          <Item Value="Displayname"/>
+          <Item Value="Url"/>
+          <Item Value="Newpage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="MyLinkList_VO1Iterator" id="Displayname">
+      <AttrNames>
+        <Item Value="Displayname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MyLinkList_VO1Iterator" id="Url">
+      <AttrNames>
+        <Item Value="Url"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MyLinkList_VO1Iterator" id="Newpage">
+      <AttrNames>
+        <Item Value="Newpage"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="MyLinks_AMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="MyLinks_AMDataControl"/>
+    <action IterBinding="MyLinkList_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

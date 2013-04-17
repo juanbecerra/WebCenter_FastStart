@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="MyPagePageDef"
+                Package="oracle.webcenter.portalapp.pages">
+  <parameters>
+    <parameter id="page_parent"
+               value="/oracle/webcenter/portalapp/pagehierarchy/pages.xml"/>
+    <parameter id="page_info"
+               value="title=My Page;desc=;keywords=;createdBy=weblogic;createDate=2012-11-27T21:56:06;lastUpdatedBy=weblogic;lastUpdateDate=2012-11-28T23:20:54;permissionClass=oracle.webcenter.security.auth.HierarchicalResourcePermission;target=serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/MyPage.jspx;excluded=false;style="/>
+    <parameter id="page_title" value="My Page"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="oracle.webcenter.portalapp.pagetemplates.portalNoLeftNavPageDef"
+          id="pageTemplateBinding" Refresh="ifNeeded"/>
+    <taskFlow id="pageeditorpanel"
+              taskFlowId="#{pageEditorBean.pageEditorPanel}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="activitystreamingminiview1"
+              taskFlowId="/oracle/webcenter/activitystreaming/controller/taskflows/activity-streaming-miniview.xml#activity-streaming-miniview"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="worklist1"
+              taskFlowId="/oracle/webcenter/worklist/view/jsf/taskFlowDefs/worklist.xml#worklist"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="MySpacesQuickView1"
+              taskFlowId="/WEB-INF/TaskFlow/MySpaces-QuickView.xml#MySpaces-QuickView"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="connectionsminiviewtaskflow1"
+              taskFlowId="/oracle/webcenter/peopleconnections/connections/controller/taskflows/connections-mini-view-taskflow.xml#connections-mini-view-taskflow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="EnterpriseAppTaskListView1"
+              taskFlowId="/WEB-INF/taskflow/EnterpriseAppTaskListView.xml#EnterpriseAppTaskListView"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="publisher1"
+              taskFlowId="/oracle/webcenter/peopleconnections/wall/controller/taskflows/Publisher.xml#publisher"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="userName" value="#{securityContext.userName}"/>
+        <parameter id="isUpdateStatus" value="false"/>
+        <parameter id="keepOpenAfterPublish" value="true"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+  <permission permissionClass="oracle.webcenter.security.auth.HierarchicalResourcePermission"
+              target="serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/MyPage.jspx"
+              xmlns="http://xmlns.oracle.com/adf/security">
+    <privilege-map operation="create" privilege="create"/>
+    <privilege-map operation="delete" privilege="delete"/>
+    <privilege-map operation="edit" privilege="update"/>
+    <privilege-map operation="personalize" privilege="personalize"/>
+    <privilege-map operation="view" privilege="view"/>
+  </permission>
+</pageDefinition>

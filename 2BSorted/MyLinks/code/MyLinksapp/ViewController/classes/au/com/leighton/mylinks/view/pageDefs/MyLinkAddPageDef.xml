@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MyLinkAddPageDef"
+                Package="au.com.leighton.mylinks.view.pageDefs">
+  <parameters>
+    <parameter id="currentPage"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyLinkList_VO1" RangeSize="25"
+              DataControl="MyLinks_AMDataControl" id="MyLinkList_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MyLinkList_VO1Iterator" id="Displayname">
+      <AttrNames>
+        <Item Value="Displayname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MyLinkList_VO1Iterator" id="Url">
+      <AttrNames>
+        <Item Value="Url"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MyLinkList_VO1Iterator" id="Newpage">
+      <AttrNames>
+        <Item Value="Newpage"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="MyLinks_AMDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="MyLinks_AMDataControl"/>
+  </bindings>
+</pageDefinition>

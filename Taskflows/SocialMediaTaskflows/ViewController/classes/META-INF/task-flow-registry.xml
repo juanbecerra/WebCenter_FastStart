@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/LinkedIn_Plugin.xml" id="LinkedIn_Profile" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="LinkedIn_Username"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/Facebook_DomainActivity.xml" id="Facebook_DomainActivity" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="CompanyDomain"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/YouTubeVideo.xml" id="YouTubeVideo" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="heigth"/>
+      <input-parameter name="width"/>
+      <input-parameter name="youtubeVideo"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/LinkedIn_CompanyProfile.xml" id="LinkedIn_CompanyProfile" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="CompanyID"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/Twitter_JSON.xml" id="Twitter_JSON" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="twitter_query"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/LinkedIn_Company.xml" id="LinkedIn_Company" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="CompanyID"/>
+   </task-flow-descriptor>
+</task-flow-registry>

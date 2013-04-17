@@ -1,0 +1,210 @@
+/**Social Media1*/
+.AFDefaultFontFamily:alias {
+    font-family: Arial, sans-serif;
+} 
+
+.AFDefaultFont:alias {
+    font-size: 12px;
+}
+
+.twitter.section_title {
+    margin: 0 0 0 12px;
+}
+
+.twitter.tab_content {
+    padding: 12px;
+}
+
+.twitter.tab_content.tweet_list {
+    margin: 0;
+    list-style: none;
+}
+
+.tweet_list_item {
+    padding-bottom: 15px;
+    padding-top: 15px;
+border-bottom: 1px solid #D8D9DA;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+    
+ color: #1B1B1B;
+
+}
+
+.tweet_list_time {
+    display: block;
+    font-style: italic;
+    font-size: 11px;
+    color: #818081;
+}
+
+.twitter_icon {
+    background: url('../images/new_sprites.png') no-repeat -38px -505px;
+    display: block;
+    width: 28px;
+    height: 30px;
+    text-indent: -9999px;
+    float: left;
+    margin-right: 8px;
+    margin-top: 0px;
+    margin-left: 12.0px;
+}
+
+.youtube_icon {
+    background: url('../images/new_sprites.png') no-repeat -104px -505px;
+    display: block;
+    width: 28px;
+    height: 30px;
+    text-indent: -9999px;
+    float: left;
+    margin-right: 8px;
+    margin-top: 0px;
+    margin-left: 12.0px;
+}
+
+.join {
+    display: block;
+    color: #818081;
+    font-family: Arial, sans-serif;
+}
+
+.footer {
+    
+    text-align: left;
+    display: block;
+}
+
+
+.footer a, .footer a:link, .footer a:visited {
+color: #002147;
+text-decoration: none;
+}
+
+.header1 {
+    border-bottom: 1px solid #EDEBE9;
+    float: left;
+    height: 48px;
+    font: 12px/16px Arial, sans-serif;
+    padding: 0 0 0 12px;
+    font-weight: bold;
+    width: 275px;
+    font-size: 18px;
+    color: #666;
+    float: left;
+    line-height: 47px;
+    text-align: left;
+}
+
+.tabtitle{
+    float: left;
+    border-left: 1px solid #d8d9da;
+    color: #434344;
+    height: 48px;
+    width: 80px;
+    font-weight: bold;
+    line-height: 47px;
+    text-align: center;
+    border-bottom: 1px solid #EDEBE9;
+    vertical-align: middle;
+  font-family: Arial, sans-serif !important;
+font-size: 12px !important;;
+}
+.tabtitle_active{
+      float: left;
+    border-left: 1px solid #d8d9da;
+    color: #FF6319  !important;
+    height: 48px;
+    width: 80px;
+    font-weight: bold;
+    line-height: 47px;
+    text-align: center;
+    border-bottom: 3px solid #FF6319;
+    vertical-align: middle;
+font-family: Arial, sans-serif !important;
+font-size: 12px !important;
+}
+
+
+.tabtitle:hover{
+    float: left;
+    border-left: 1px solid #d8d9da;
+    color: #FF6319;
+    height: 48px;
+    width: 89px;
+    font-weight: bold;
+    line-height: 47px;
+    text-align: center;
+    border-bottom: 1px solid #EDEBE9;
+    vertical-align: middle;
+    text-decoration: none;
+}
+.tabtitle:active{
+    float: left;
+    border-left: 1px solid #d8d9da;
+    color: red;
+    height: 48px;
+    width: 80px;
+    font-weight: bold;
+    line-height: 47px;
+    margin: 0 0 18px 0;
+    text-align: center;
+    border-bottom: 1px solid #EDEBE9;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+
+
+.header2 {
+    border-bottom: 1px solid #EDEBE9;
+    float: left;
+    height: 48px;
+    padding: 0 0 0 12px;
+    font-weight: bold;
+    width: 92px;
+    font-size: 18px;
+    color: #666;
+    line-height: 47px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.tabtitle2 {
+    float: left;
+    border-left: 1px solid #d8d9da;
+    color: #434344;
+    height: 20px;
+    width: 91px;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 0 0 18px 0;
+    text-align: center;
+    border-bottom: 1px solid #EDEBE9;
+    vertical-align: middle;
+}
+
+/*Scrollobars gray*/
+
+/*
+body {
+scrollbar-face-color:gray;
+scrollbar-arrow-color:gray;
+scrollbar-darkshadow-color:gray;
+scrollbar-base-color:gray;
+scrollbar-shadow-color:gray;
+scrollbar-highlight-color:white;
+scrollbar-track-color:#E2E2E2;
+scrollbar-3dlight-color:gray;
+}
+
+::-webkit-scrollbar { height: 12px; width: 12px; background: #E2E2E2; }
+::-webkit-scrollbar-thumb { background: gray;  }
+*/
+
+.AFDefaultFontFamily:alias {
+    font-family: Arial, sans-serif;
+}
+.AFDefaultFont:alias {
+    font-size: 12px;
+}

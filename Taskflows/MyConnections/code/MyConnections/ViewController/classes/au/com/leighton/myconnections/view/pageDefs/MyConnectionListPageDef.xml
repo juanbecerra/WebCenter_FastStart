@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MyConnectionListPageDef"
+                Package="au.com.leighton.myconnections.view.pageDefs"
+                ControllerClass="au.com.leighton.myconnections.view.MyConnectionManageBean">
+  "&gt;
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ConnectionPeopleListVO1" RangeSize="25"
+              DataControl="MyConnectionAMDataControl"
+              id="ConnectionPeopleListVO1Iterator"/>
+    <taskFlow id="tableofconnectionstaskflow1"
+              taskFlowId="/oracle/webcenter/peopleconnections/connections/controller/taskflows/table-of-connections-taskflow.xml#table-of-connections-taskflow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="userId" value="weblogicadmin"/>
+        <parameter id="display_numberOfColumns" value="1"/>
+        <parameter id="display_numberOfRows" value="3"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="ConnectionPeopleListVO1Iterator"
+                  id="getMyConnectionLists" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getMyConnectionLists"
+                  IsViewObjectMethod="true"
+                  DataControl="MyConnectionAMDataControl"
+                  InstanceName="MyConnectionAMDataControl.ConnectionPeopleListVO1"/>
+    <tree IterBinding="ConnectionPeopleListVO1Iterator"
+          id="ConnectionPeopleListVO1">
+      <nodeDefinition DefName="au.com.leighton.myconnections.model.view.ConnectionPeopleListVO"
+                      Name="ConnectionPeopleListVO10">
+        <AttrNames>
+          <Item Value="profileImage"/>
+          <Item Value="ConnectionDisplayName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="ConnectionsManagementDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="ConnectionsManagementDC"
+                  IsViewObjectMethod="false"
+                  DataControl="ConnectionsManagementDC"
+                  ClassName="oracle.webcenter.peopleconnections.connections.model.dc.ConnectionsManagementDC"
+                  ReturnName="data.ConnectionsManagementDC.methodResults.ConnectionsManagementDC_ConnectionsManagementDC_ConnectionsManagementDC_result"/>
+    <methodAction id="ConnectionsNetworkDC" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="ConnectionsNetworkDC"
+                  IsViewObjectMethod="false" DataControl="ConnectionsNetworkDC"
+                  ClassName="oracle.webcenter.peopleconnections.connections.model.dc.ConnectionsNetworkDC"
+                  ReturnName="data.ConnectionsNetworkDC.methodResults.ConnectionsNetworkDC_ConnectionsNetworkDC_ConnectionsNetworkDC_result"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+       <af:resource type="css"
+                   source="http://lclxucmdctb1.lc.local:16200/cs/groups/webasset/documents/web_asset/css_global.css">
+              </af:resource>
+        <af:region value="#{bindings.MyTrainingTaskFlow1.regionModel}" id="r1"/>
+        <af:spacer width="10" height="100" id="s1"/>
+        <af:region value="#{bindings.MyrainingCategoryByTaskFlow1.regionModel}"
+                   id="r2"/>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

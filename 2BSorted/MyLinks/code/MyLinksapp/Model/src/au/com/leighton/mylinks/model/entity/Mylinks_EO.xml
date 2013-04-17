@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Mylinks_EO"
+  Version="11.1.1.60.13"
+  DBObjectType="table"
+  DBObjectName="MYLINKS"
+  AliasName="Mylinks_EO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="au.com.leighton.mylinks.model.entity.Mylinks_EOImpl">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="MylinksId"
+    ColumnName="MYLINKS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MYLINKS"
+    PrimaryKey="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Displayname"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="DISPLAYNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYLINKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Url"
+    IsNotNull="true"
+    Precision="250"
+    ColumnName="URL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYLINKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Username"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="USERNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYLINKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Newpage"
+    Precision="3"
+    ColumnName="NEWPAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYLINKS"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="MylinksNewpageCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MYLINKS_NEWPAGE_CHECK"/>
+      <Attr Name="_checkCondition" Value='"NEWPAGE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.mylinks.model.entity.Mylinks_EO.Newpage"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MylinksPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MYLINKS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.mylinks.model.entity.Mylinks_EO.MylinksId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010534">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010534"/>
+      <Attr Name="_checkCondition" Value='"MYLINKS_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC0010535">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010535"/>
+      <Attr Name="_checkCondition" Value='"DISPLAYNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mylinks.model.entity.Mylinks_EO.Displayname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010536">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010536"/>
+      <Attr Name="_checkCondition" Value='"URL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.mylinks.model.entity.Mylinks_EO.Url"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010537">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010537"/>
+      <Attr Name="_checkCondition" Value='"USERNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.mylinks.model.entity.Mylinks_EO.Username"/>
+    </AttrArray>
+  </Key>
+</Entity>

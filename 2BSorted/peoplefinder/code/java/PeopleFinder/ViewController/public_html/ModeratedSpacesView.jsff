@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+   <af:outputText value="No spaces available" id="ot4" rendered="#{not pageFlowScope.moderatedSpacesBean.spacesOk}"/>
+   <af:table value="#{pageFlowScope.moderatedSpacesBean.moderatedSpaces}" var="row"
+             rowSelection="none" id="tSpaces" summary="Moderated Spaces" rendered="#{pageFlowScope.moderatedSpacesBean.spacesOk}"
+             styleClass="AFStretchWidth" rowBandingInterval="0"
+             inlineStyle="border-width:0.0px;"
+             horizontalGridVisible="false" verticalGridVisible="false"
+             autoHeightRows="10" contentDelivery="immediate">
+      <af:column id="c3" inlineStyle="width:50.0px;">
+         <af:image source="#{row.imageUrl}"
+                   shortDesc="#{row.displayName}" id="i1" 
+                   inlineStyle="width:50.0px; height:50.0px;"/>
+      </af:column>
+      <af:column id="c5" align="left">
+       <af:goLink text="#{row.displayName}" id="gl1"
+            destination="//webcenter/spaces/#{row.spaceName}" styleClass="WCCustomHead6BlueBold"/>
+        
+         <af:outputText value="#{row.memberCount}" id="ot2"/>
+         <af:outputText value="#{row.lastActivityText}" id="ot3"
+                        styleClass="WCCustomHead6Grey"/>
+      </af:column>
+   </af:table>
+</jsp:root>

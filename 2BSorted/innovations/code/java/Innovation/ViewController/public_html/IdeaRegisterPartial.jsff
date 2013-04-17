@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Submitted Ideas List" id="pbIdeaRegisterPartialView"
+               styleClass="WCCustomHead2">
+    <f:facet name="toolbar">
+      <af:group id="g1">
+        <af:commandButton text="Review Selected Idea"
+                          id="cbReviewSelectedIdea">
+                          <af:showPopupBehavior popupId="::reviewIdeaPopup:reviewIdea" triggerType="action"/>
+                          </af:commandButton>
+        <af:commandButton text="View Full List" id="cbFullList" action="full"/>
+      </af:group>
+    </f:facet>
+    <br/>
+    <af:table value="#{pageFlowScope.listHandlerBean.partialIdeaList}" var="row" rows="10" rowSelection="single"
+              id="tIdeas" summary="Partial Idea List" styleClass="AFStretchWidth"
+              selectionListener="#{pageFlowScope.listHandlerBean.selectedListener}"
+              rowBandingInterval="0">
+      <af:column sortProperty="originator" sortable="false"
+                 headerText="Idea Owner"
+                 id="c5">
+        <af:outputText value="#{row.originator}" id="ot1"/>
+      </af:column>
+      <af:column sortProperty="contactDetails" sortable="false"
+                 headerText="Contact Detail"
+                 id="c6">
+        <af:outputText value="#{row.displayContactDetails}" id="ot6" escape="false"/>
+      </af:column>
+      <af:column sortProperty="idea" sortable="false"
+                 headerText="Idea Abstract"
+                 id="c3">
+        <af:outputText value="#{row.displayIdea}" id="ot5" escape="false"/>
+      </af:column>
+      <af:column sortProperty="dateSubmitted" sortable="false"
+                 headerText="Submitted On"
+                 id="c1">
+        <af:outputText value="#{row.dateSubmitted}" id="ot2"/>
+      </af:column>
+      <af:column sortProperty="division" sortable="true"
+                 headerText="Division"
+                 id="c2">
+        <af:outputText value="#{row.division}" id="ot3"/>
+      </af:column>
+    </af:table>
+    <f:subview id="reviewIdeaPopup">
+      <jsp:include page="reviewIdeaPopup.jsff"/>
+    </f:subview>
+  </af:panelBox>
+</jsp:root>

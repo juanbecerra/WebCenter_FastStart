@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.mytrainingadmin.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/ViewAllTrainingCourse.jsff"
+          usageId="au_com_leighton_mytrainingadmin_view_ViewAllTrainingCoursePageDef"/>
+    <page path="/MyTrainingAdmin.jspx"
+          usageId="au_com_leighton_mytrainingadmin_view_MyTrainingAdminPageDef"/>
+    <page path="/AddTrainingCourse.jsff"
+          usageId="au_com_leighton_mytrainingadmin_view_AddTrainingCoursePageDef"/>
+    <page path="/EditTrainingCourse.jsff"
+          usageId="au_com_leighton_mytrainingadmin_view_EditTrainingCoursePageDef"/>
+    <page path="/ViewAllCategory.jsff"
+          usageId="au_com_leighton_mytrainingadmin_view_ViewAllCategoryPageDef"/>
+    <page path="/AddCategory.jsff"
+          usageId="au_com_leighton_mytrainingadmin_view_AddCategoryPageDef"/>
+    <page path="/WEB-INF/TaskFlow/MyTrainingAdmin-TaskFlow.xml#MyTrainingAdmin-TaskFlow@Execute"
+          usageId="au_com_leighton_mytrainingadmin_view_MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_ExecutePageDef"/>
+    <page path="/WEB-INF/TaskFlow/MyTrainingAdmin-TaskFlow.xml#MyTrainingAdmin-TaskFlow@Execute1"
+          usageId="au_com_leighton_mytrainingadmin_view_MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_Execute1PageDef"/>
+    <page path="/WEB-INF/TaskFlow/MyTrainingAdmin-TaskFlow.xml#MyTrainingAdmin-TaskFlow@Commit"
+          usageId="au_com_leighton_mytrainingadmin_view_MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_CommitPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_mytrainingadmin_view_ViewAllTrainingCoursePageDef"
+          path="au.com.leighton.mytrainingadmin.view.pageDefs.ViewAllTrainingCoursePageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_MyTrainingAdminPageDef"
+          path="au.com.leighton.mytrainingadmin.view.pageDefs.MyTrainingAdminPageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_AddTrainingCoursePageDef"
+          path="au.com.leighton.mytrainingadmin.view.pageDefs.AddTrainingCoursePageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_EditTrainingCoursePageDef"
+          path="au.com.leighton.mytrainingadmin.view.pageDefs.EditTrainingCoursePageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_ViewAllCategoryPageDef"
+          path="au.com.leighton.mytrainingadmin.view.pageDefs.ViewAllCategoryPageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_AddCategoryPageDef"
+          path="au.com.leighton.mytrainingadmin.view.pageDefs.AddCategoryPageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_ExecutePageDef"
+          path="TaskFlow.MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_ExecutePageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_Execute1PageDef"
+          path="TaskFlow.MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_Execute1PageDef"/>
+    <page id="au_com_leighton_mytrainingadmin_view_MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_CommitPageDef"
+          path="TaskFlow.MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_CommitPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="MyTrainingAdmin_AMDataControl"
+                     Package="au.com.leighton.mytrainingadmin.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="MyTrainingAdmin_AMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

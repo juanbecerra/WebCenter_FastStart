@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <!--oracle-jdev-comment:preferred-managed-bean-name:myConnectionmangaeBean-->
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.ConnectionPeopleListVO1.collectionModel}"
+              var="row" rows="#{bindings.ConnectionPeopleListVO1.rangeSize}"
+              emptyText="#{bindings.ConnectionPeopleListVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.ConnectionPeopleListVO1.rangeSize}"
+              rowBandingInterval="0" id="t1"
+              
+            verticalGridVisible="false"
+              autoHeightRows="3" 
+              shortDesc="My Favourite Applications"
+              columnStretching="last" width="97%" inlineStyle="border:0.0px;" >
+              
+      <af:column sortProperty="profileImage" inlineStyle="padding: 10px 10px; border-top: 1px solid #EDECEA;" width="102" sortable="false" id="c1">
+        <af:activeImage source="#{row.profileImage}" inlineStyle="width:49px; height:49px; "  id="ai1"/>
+        <af:goLink text="#{row.ConnectionDisplayName}" id="ot1"/>
+      </af:column>
+    
+    </af:table>
+    <af:commandLink actionListener="#{bindings.ConnectionsManagementDC.execute}"
+                    text="ConnectionsManagementDC"
+                    disabled="#{!bindings.ConnectionsManagementDC.enabled}"
+                    id="cl1"/>
+                    
+                      <af:commandLink actionListener="#{bindings.ConnectionsNetworkDC.execute}"
+                  text="ConnectionsNetworkDC"
+                  disabled="#{!bindings.ConnectionsNetworkDC.enabled}"
+                  id="cl2"/>
+    <af:region value="#{bindings.tableofconnectionstaskflow1.regionModel}"
+               id="r1"/>
+  </af:panelGroupLayout>
+
+</jsp:root>

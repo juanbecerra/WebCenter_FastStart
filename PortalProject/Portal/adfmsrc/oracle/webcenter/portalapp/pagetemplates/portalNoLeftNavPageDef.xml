@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="portalNoLeftNavPageDef"
+                Package="oracle.webcenter.portalapp.pagetemplates">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="doclibcontentpresenter1"
+              taskFlowId="/oracle/webcenter/doclib/view/jsf/taskflows/presenter/contentPresenter.xml#doclib-content-presenter"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="taskFlowInstId" value="${'banner'}"/>
+        <parameter id="datasourceType" value="${'dsTypeSingleNode'}"/>
+        <parameter id="datasource"
+                   value="#{'UCM_Conn#dDocName:'}#{'CDF_OKN_HEADER'}"/>
+        <parameter id="templateView" value="${'RT_OKN_GLOBAL_HEADER'}"/>
+        <parameter id="regionTemplate" value="${true}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="doclibcontentpresenter2"
+              taskFlowId="/oracle/webcenter/doclib/view/jsf/taskflows/presenter/contentPresenter.xml#doclib-content-presenter"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="taskFlowInstId" value="${'footer'}"/>
+        <parameter id="datasourceType" value="${'dsTypeSingleNode'}"/>
+        <parameter id="datasource"
+                   value="#{'UCM_Conn#dDocName:'}#{'CDF_OKN_FOOTER'}"/>
+        <parameter id="templateView" value="${'RT_OKN_GLOBAL_FOOTER'}"/>
+        <parameter id="regionTemplate" value="${true}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

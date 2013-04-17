@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">twitterPage</property>
+      <property
+         name="page">/twitterPage.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>twitterPage&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">165.48242</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">544.0</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">invokeTwitterCompanyService</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>invokeTwitterCompanyService&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">164.59082</property>
+      <property
+         name="x">150.0</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall4">
+      <property
+         name="activityId">invokeTwitterCareerService</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>invokeTwitterCareerService&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">164.98828</property>
+      <property
+         name="x">365.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="MethodCall3"
+      to="MethodCall4">
+      <property
+         name="fromOutcome">company</property>
+      <property
+         name="sdm:polyPoints">R50,191.0,164.24023,324.0,164.6377,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="MethodCall4"
+      to="View2">
+      <property
+         name="fromOutcome">career</property>
+      <property
+         name="sdm:polyPoints">R50,406.0,164.6377,503.0,165.13184,L50</property>
+   </ControlFlowCase>
+</SDM>

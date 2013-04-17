@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="twitter">
+    <default-activity id="__1">invokeTwitterCompanyService</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name id="__6">socialMediaManagedBean</managed-bean-name>
+      <managed-bean-class id="__5">au.com.leicon.socialmedia.view.SocialMediaManagedBean</managed-bean-class>
+      <managed-bean-scope id="__3">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="twitterPage">
+      <page>/twitterPage.jsff</page>
+    </view>
+    <method-call id="invokeTwitterCompanyService">
+      <method>#{pageFlowScope.socialMediaManagedBean.invokeTwitterCompany}</method>
+      <outcome id="__7">
+        <fixed-outcome>company</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="invokeTwitterCareerService">
+      <method>#{pageFlowScope.socialMediaManagedBean.invokeTwitterCareers}</method>
+      <outcome id="__8">
+        <fixed-outcome>career</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">invokeTwitterCompanyService</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__12">company</from-outcome>
+        <to-activity-id id="__13">invokeTwitterCareerService</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">invokeTwitterCareerService</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__17">career</from-outcome>
+        <to-activity-id id="__16">twitterPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+    <visibility id="__2"/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl6">
+    <f:subview id="simpleCriteria">
+      <jsp:include page="SimpleCriteria.jsff"/>
+    </f:subview>
+    <f:subview id="advancedCriteria" rendered="#{pageFlowScope.peopleFinderBean.showAdvancedSearchCriteria}">
+      <jsp:include page="AdvancedCriteria.jsff"/>
+    </f:subview>
+    <f:subview id="searchResults" rendered="#{pageFlowScope.peopleFinderBean.showSearchResults}">
+      <jsp:include page="SearchResults.jsff"/>
+    </f:subview>
+  </af:panelGroupLayout>
+</jsp:root>

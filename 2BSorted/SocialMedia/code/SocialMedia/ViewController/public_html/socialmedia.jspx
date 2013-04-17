@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Socail Media">
+      <af:form id="f1">
+        <af:resource type="css"
+                     source="/css/socialmedia.css"></af:resource>
+        <af:panelGroupLayout id="pgmain" layout="vertical"
+                             inlineStyle="width:278px;" halign="center">
+          <af:outputText value="YouTube" id="ot2" styleClass="header1"/>
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:region value="#{bindings.socialmedia3.regionModel}" id="r3"
+                     immediate="true"/>
+          <af:spacer width="10" height="20" id="s2"/>
+          <af:region value="#{bindings.socialmedia1.regionModel}" id="r4"
+                     inlineStyle="border-width:0px;"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

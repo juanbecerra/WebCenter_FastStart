@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:table var="row" rowBandingInterval="0" id="t1" value="#{pageFlowScope.taskList.list}">
+    <af:column sortable="false" headerText="Id" id="c2">
+      <af:outputText value="#{row.id}" id="ot2"/>
+    </af:column>
+    <af:column sortable="false" headerText="Type" id="c3">
+      <af:outputText value="#{row.type}" id="ot3"/>
+    </af:column>
+    <af:column sortable="false" headerText="Description" id="c1" width="250">
+      <af:outputText value="#{row.description}" id="ot1"/>
+    </af:column>
+    <af:column sortable="false" headerText="Description" id="c4">
+      <af:goLink text="View/Action" id="gl1"
+                 destination="//webcenter/faces/oracle/webcenter/page/scopedMD/s673818e8_600c_4afb_9c56_c0acf9f24ba3/Page5.jspx"
+                 targetFrame="_top"/>
+    </af:column>
+  </af:table>
+</jsp:root>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EAapplicationcreateVO"
+  Version="11.1.1.60.13"
+  SelectList="EA_USERAPPLICATIONS.APP_ID, 
+       EA_USERAPPLICATIONS.USERNAME, 
+       EA_USERAPPLICATIONS.ROWID"
+  FromList="EA_USERAPPLICATIONS EA_USERAPPLICATIONS"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="EA_USERAPPLICATIONS.USERNAME = :usernameCheck">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.model.view.EAapplicationcreateVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="usernameCheck"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="EA_USERAPPLICATIONS"
+    Entity="au.com.leighton.model.entity.EA_USERAPPLICATIONS_EO"/>
+  <ViewAttribute
+    Name="AppId"
+    PrecisionRule="true"
+    EntityAttrName="AppId"
+    EntityUsage="EA_USERAPPLICATIONS"
+    AliasName="APP_ID"/>
+  <ViewAttribute
+    Name="Username"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="EA_USERAPPLICATIONS"
+    AliasName="USERNAME"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="EA_USERAPPLICATIONS"
+    AliasName="ROWID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

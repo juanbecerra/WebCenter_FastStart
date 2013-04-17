@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+   <af:outputText value="No connections available" id="pcot4" rendered="#{not pageFlowScope.connectionsBean.connectionsOk}"/>
+   
+<!--    <af:table value="#{pageFlowScope.connectionsBean.connectionRows}" var="row"
+             rowSelection="none" id="tSpaces" summary="Connections"
+             styleClass="AFStretchWidth" rowBandingInterval="0" rendered="#{pageFlowScope.connectionsBean.connectionsOk}"
+             inlineStyle="border-width:0px; height:80px; padding:0.0px;"
+             horizontalGridVisible="false">
+      <af:column id="c5" align="center" width="70" >
+         <af:activeImage source="#{row.connection1.photoSource}" id="ai1"
+                         rendered="#{row.connection1Valid}"/>
+         <af:outputText value="#{row.connection1.displayName}" id="ot1"
+                        styleClass="WCCustomHead7Grey"
+                        rendered="#{row.connection1Valid}"/>
+      </af:column>
+      <af:column id="c1" align="center" width="70" >
+         <af:activeImage source="#{row.connection2.photoSource}" id="ai2"
+                         rendered="#{row.connection2Valid}"/>
+         <af:outputText value="#{row.connection2.displayName}" id="ot2"
+                        styleClass="WCCustomHead7Grey"
+                        rendered="#{row.connection2Valid}"/>
+      </af:column>
+      <af:column id="c2" align="center" width="70">
+         <af:activeImage source="#{row.connection3.photoSource}" id="ai3"
+                         rendered="#{row.connection3Valid}"/>
+         <af:outputText value="#{row.connection3.displayName}" id="ot3"
+                        styleClass="WCCustomHead7Grey"
+                        rendered="#{row.connection3Valid}"/>
+      </af:column>
+   </af:table>-->
+   
+   
+   <af:table value="#{pageFlowScope.connectionsBean.connectionRows}" var="row"
+             rowSelection="none" id="t2ces" summary="Connections"
+             styleClass="AFStretchWidth" rowBandingInterval="0" rendered="#{pageFlowScope.connectionsBean.connectionsOk}"
+             inlineStyle="border-width:0px; height:80px; padding:0.0px;"
+             horizontalGridVisible="false">
+      <af:column id="c225" align="center" width="70" >
+         <af:activeImage source="#{row.connection1.photoSource}" id="a22i1"
+                         rendered="#{row.connection1Valid}"/>
+         <af:outputText value="#{row.connection1.displayName}" id="ot221"
+                        styleClass="WCCustomHead7Grey"
+                        rendered="#{row.connection1Valid}"/>
+      </af:column>
+     
+   </af:table>
+   
+  
+</jsp:root>

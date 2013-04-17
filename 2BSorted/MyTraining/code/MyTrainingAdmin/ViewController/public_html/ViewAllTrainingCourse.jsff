@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="horizontal" id="pgl1" styleClass="AFStretchWidth"
+                       inlineStyle="width:425px;">
+    <af:panelGroupLayout layout="horizontal" id="pgleft"
+                         inlineStyle="padding:10px; background-color:Scrollbar; width:186px;"
+                         halign="left">
+      <af:commandLink id="cb1" text="Manage Courses"
+                      inlineStyle="font-weight:bold; font-size:small;"></af:commandLink>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout layout="horizontal"
+                         inlineStyle="padding:10px; width:192px; background-color:Window;"
+                         id="pgright" halign="left">
+      <af:commandLink id="cb2" text="Manage Category" action="viewCategory"
+                      inlineStyle="font-size:small; font-weight:bold;"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="horizontal" id="pgleft4"
+                       inlineStyle="padding:10.0px;" halign="left">
+    <af:commandLink actionListener="#{bindings.CreateInsert1.execute}"
+                    text="Create New" action="addTraining"
+                    styleClass="icon-left add-icon"
+                    disabled="#{!bindings.CreateInsert1.enabled}" id="cl1"/>
+    <af:commandLink id="cl2"/>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MyCourses_VO1.collectionModel}" var="row"
+              rows="#{bindings.MyCourses_VO1.rangeSize}"
+              emptyText="#{bindings.MyCourses_VO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MyCourses_VO1.rangeSize}"
+              rowBandingInterval="1" id="t1" partialTriggers="::cl1 cb4"
+              filterModel="#{bindings.MyCourses_VO11Query.queryDescriptor}"
+              queryListener="#{bindings.MyCourses_VO11Query.processQuery}"
+              filterVisible="true" rowSelection="single"
+              selectedRowKeys="#{bindings.MyCourses_VO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.MyCourses_VO1.collectionModel.makeCurrent}"
+              verticalGridVisible="false" autoHeightRows="20"
+              shortDesc="My Trainings course" columnStretching="column:c3"
+              width="97%" inlineStyle="border:0.0px;">
+     
+      <af:column sortProperty="Name1" sortable="false"
+                 headerText="Category" id="c2" filterable="false">
+        <af:outputText value="#{row.Name1}" id="ot2"/>
+      </af:column>
+       <af:column sortProperty="Name" sortable="true" headerText="Training Title"
+                 id="c6" filterable="true" width="300">
+        <af:outputText value="#{row.Name}" id="ot1"/>
+        <af:goLink text="#{row.Url}" id="gl1" destination="#{row.Url}"
+                   targetFrame="_blank" shortDesc="#{row.Url}"/>
+      </af:column>
+       <af:column headerText="Description"
+                 id="c3" filterable="true">
+        <af:outputText value="#{row.Description}" id="ot4"/>
+      </af:column>
+      
+      <af:column sortProperty="Mandatory" sortable="false"
+                 headerText="Mandatory" id="c8" filterable="false" width="50">
+        <af:outputText value="#{row.Mandatory}" id="ot3"/>
+      </af:column>
+      <af:column sortProperty="Enabled" sortable="false" headerText="Actions"
+                 id="c7" width="60">
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+        <af:commandLink action="editTraining" text="Edit" id="cb3"/>
+          <af:spacer width="10" height="10" id="s1"/>
+         <af:commandLink text="Delete" id="cb7">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandLink>
+        </af:panelGroupLayout>
+        
+        
+        <af:popup id="p1" contentDelivery="immediate" eventContext="launcher"
+                  partialTriggers="::t1">
+          <af:dialog id="d1" type="none">
+            <div>
+              <af:outputText value="Are you Sure you want to delete #{row.Name}" id="ot12"/>
+               
+              <af:separator id="s12"/>
+            </div>
+            <div>
+              <af:spacer width="10" height="10" id="s3"/>
+            </div>
+            <div>
+              <af:spacer width="40" height="10" id="s4"/>
+               
+              <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                text="Yes" action="rowgetDelete"
+                                disabled="#{!bindings.Delete.enabled}"
+                                id="cb4"/>
+               
+              <af:commandButton text="No" id="cb6"/>
+            </div>
+          </af:dialog>
+        </af:popup>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

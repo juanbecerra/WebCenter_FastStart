@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13"
+                id="MyTrainingAdmin_TaskFlow_MyTrainingAdmin_TaskFlow_Execute1PageDef"
+                Package="TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MyTrainingCategory_VO1" RangeSize="25"
+              DataControl="MyTrainingAdmin_AMDataControl"
+              id="MyTrainingCategory_VO1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MyTrainingCategory_VO1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

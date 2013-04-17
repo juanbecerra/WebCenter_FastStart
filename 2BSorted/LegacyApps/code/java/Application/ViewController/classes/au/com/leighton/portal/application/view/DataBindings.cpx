@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.59.23" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.portal.application.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/Tester.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterPageDef"/>
+    <page path="/TesterDevGNEWTON.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterDevPageDef"/>
+    <page path="/TesterDevLoggedOnUser.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterDevLoggedOnUserPageDef"/>
+    <page path="/TesterSitGNEWTON.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterSitGNEWTONPageDef"/>
+    <page path="/TesterSitLoggedOnUser.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterSitLoggedOnUserPageDef"/>
+    <page path="/TesterDevWEBLOGICADMIN.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterDevWEBLOGICADMINPageDef"/>
+    <page path="/TesterUatWEBLOGICADMIN.jspx"
+          usageId="au_com_leighton_portal_application_view_TesterUatWEBLOGICADMINPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_portal_application_view_TesterPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterPageDef"/>
+    <page id="au_com_leighton_portal_application_view_TesterDevPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterDevPageDef"/>
+    <page id="au_com_leighton_portal_application_view_TesterDevLoggedOnUserPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterDevLoggedOnUserPageDef"/>
+    <page id="au_com_leighton_portal_application_view_TesterSitGNEWTONPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterSitGNEWTONPageDef"/>
+    <page id="au_com_leighton_portal_application_view_TesterSitLoggedOnUserPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterSitLoggedOnUserPageDef"/>
+    <page id="au_com_leighton_portal_application_view_TesterDevWEBLOGICADMINPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterDevWEBLOGICADMINPageDef"/>
+    <page id="au_com_leighton_portal_application_view_TesterUatWEBLOGICADMINPageDef"
+          path="au.com.leighton.portal.application.view.pageDefs.TesterUatWEBLOGICADMINPageDef"/>
+  </pageDefinitionUsages>
+</Application>

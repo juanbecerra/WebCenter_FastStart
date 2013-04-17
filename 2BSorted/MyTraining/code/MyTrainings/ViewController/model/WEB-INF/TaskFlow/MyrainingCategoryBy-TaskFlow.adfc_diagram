@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">MyCategoryTrainingList</property>
+      <property
+         name="page">/MyCategoryTrainingList.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MyCategoryTrainingList&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">221.79883</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">126.35742</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">createCourse</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>createCourse&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">107.0459</property>
+      <property
+         name="x">337.01758</property>
+   </MethodCall>
+   <MethodCall
+      id="MethodCall4">
+      <property
+         name="activityId">deleteCourse</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>deleteCourse&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">374.2412</property>
+      <property
+         name="x">316.68945</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">createTrainingCourse</property>
+      <property
+         name="sdm:polyPoints">R50,167.35742,221.44824,296.01758,106.69531,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="MethodCall4">
+      <property
+         name="fromOutcome">deleteRow</property>
+      <property
+         name="sdm:polyPoints">B50,126.35742,275.44824,275.68945,373.89062,L50</property>
+   </ControlFlowCase>
+</SDM>

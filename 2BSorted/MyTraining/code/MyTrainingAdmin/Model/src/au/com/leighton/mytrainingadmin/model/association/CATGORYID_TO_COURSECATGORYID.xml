@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CATGORYID_TO_COURSECATGORYID"
+  Version="11.1.1.60.13">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="MytrainingCategories_EO"
+    Cardinality="1"
+    Source="true"
+    Owner="au.com.leighton.mytrainingadmin.model.entity.MytrainingCategories_EO"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MytrainingCategories_EO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_foreignKey"
+        Value="au.com.leighton.mytrainingadmin.model.entity.MytrainingCategories_EO.MytrainingCategoriesPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainingadmin.model.entity.MytrainingCategories_EO.CategoryId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="MytrainingCourses_EO"
+    Cardinality="-1"
+    Owner="au.com.leighton.mytrainingadmin.model.entity.MytrainingCourses_EO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MytrainingCourses_EO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_foreignKey"
+        Value="au.com.leighton.mytrainingadmin.model.entity.MytrainingCourses_EO.fk_MytrainingCourses_EO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainingadmin.model.entity.MytrainingCourses_EO.CategoryId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

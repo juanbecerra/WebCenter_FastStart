@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+bpmSpaces-Extension-Name: oracle.bpm.spaces
+Extension-Name: extend.spaces.webapp
+Extension-List: bpmSpaces
+Implementation-Vendor: Oakton
+Implementation-Title: Oracle WebCenter Spaces Application Extension
+Specification-Version: 11.1.1
+Implementation-Version: 11.1.1.6.8
+Created-By: Juan Becerra
+

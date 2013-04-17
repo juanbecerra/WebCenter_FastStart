@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/experience-task-flow-definition.xml" id="experience-flow-definition" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="title"/>
+      <input-parameter name="username"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/workhistory-task-flow-definition.xml" id="workhistory-flow-definition" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="title"/>
+      <input-parameter name="username"/>
+   </task-flow-descriptor>
+</task-flow-registry>

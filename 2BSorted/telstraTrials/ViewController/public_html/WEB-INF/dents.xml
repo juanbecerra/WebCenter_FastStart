@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dents">
+    <default-activity id="__1">dentsDisplay</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__5">dentList</managed-bean-name>
+      <managed-bean-class id="__2">com.abhi.view.DentList</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="dentsDisplay">
+      <page>/dentsDisplay.jsff</page>
+    </view>
+    <url-view id="urlView1">
+      <url>https://demo021.service-now.com/incident.do?sys_id=9c573169c611228700193229fff72400</url>
+    </url-view>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">dentsDisplay</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">dobee</from-outcome>
+        <to-activity-id id="__8">urlView1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

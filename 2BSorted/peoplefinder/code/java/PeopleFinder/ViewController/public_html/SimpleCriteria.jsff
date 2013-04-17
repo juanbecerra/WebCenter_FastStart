@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl2">
+    <af:spacer height="15" id="s1"/>
+    <af:subform id="s7"
+                defaultCommand="cbSearchPeople">
+    <af:panelGroupLayout layout="horizontal"
+                         xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                         id="pgl1">
+     
+      <af:inputText id="itSimpleCriteria" label=" " maximumLength="50"
+                    columns="35"
+                    value="#{pageFlowScope.peopleFinderBean.simpleSearchCriteria}"
+                    styleClass="AFFieldTextMarker"/>
+    
+      <af:spacer width="5" id="s3"/>
+     <!-- <af:commandButton text="Reset" id="cbReset"
+                        action="#{pageFlowScope.peopleFinderBean.resetSimpleSearch}"/>
+      <af:spacer width="5" id="s4"/>-->
+      <af:commandButton text="Search People" id="cbSearchPeople"
+                        action="#{pageFlowScope.peopleFinderBean.simpleSearchPeople}"/>
+      <af:spacer width="5" id="s5"/>
+      <af:commandButton text="Search Location" id="cbSearchLocation"
+                        action="#{pageFlowScope.peopleFinderBean.simpleSearchLocation}"/>
+      <af:spacer width="5" id="s6"/>
+      <af:commandLink text="Advanced Search" id="clAdvancedSearch"
+                      action="#{pageFlowScope.peopleFinderBean.advancedSearchLink}"/>
+                    
+    </af:panelGroupLayout>
+      </af:subform>
+    <af:spacer height="5" id="s2"/>
+  </af:panelGroupLayout>
+</jsp:root>

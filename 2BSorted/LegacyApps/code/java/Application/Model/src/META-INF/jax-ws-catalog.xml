@@ -1,0 +1,18 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://lclxsoad01.lc.local:7777/esb/wsil/ListWebApps/rsListWebApps?wsdl"
+          uri="../au/com/leighton/portal/application/ESB_rsListWebApps_Service.wsdl"/>
+  <system systemId="http://lclxsoatapp1.lc.local:8001/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="../au/com/leighton/portal/application/prod/EAgetAppsList.wsdl"/>
+  <system systemId="http://lclxwcrdapp1.lc.local:7777/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="../au/com/leighton/portal/application/dev/EAgetAppsList.wsdl"/>
+  <system systemId="http://lclxohstweb1.lc.local:7777/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="../au/com/leighton/portal/application/sit/EAgetAppsList.wsdl"/>
+  <system systemId="http://lclxsoasapp1.lc.local:8001/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="http://lclxsoasapp1.lc.local:8001/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"/>
+  <system systemId="http://portalpsup2.lc.local:7777/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="../au/com/leighton/portal/application/uat/EAgetAppsList.wsdl"/>
+  <system systemId="http://portal2.lc.local:7777/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="../au/com/leighton/portal/application/prod/EAgetAppsList.wsdl"/>
+  <system systemId="http://portal.lc.local:7777/soa-infra/services/default/EAgetAppsList/EAgetAppsList_2?WSDL"
+          uri="../au/com/leighton/portal/application/prod/EAgetAppsList.wsdl"/>
+</catalog>

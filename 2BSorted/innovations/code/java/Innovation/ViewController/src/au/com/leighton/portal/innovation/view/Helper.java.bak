@@ -1,0 +1,92 @@
+package au.com.leighton.portal.innovation.view;
+
+import au.com.leighton.portal.innovation.model.IdeaBean;
+
+import au.com.leighton.portal.innovation.model.InnovationBean;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import oracle.jbo.domain.Date;
+
+public class Helper
+{
+    public static List<ViewIdeaBean> convertIdeas(List<IdeaBean> list)
+    {
+        List<ViewIdeaBean> result = new ArrayList<ViewIdeaBean>();
+
+        if (list != null)
+        {
+            for (IdeaBean bean : list)
+            {
+                result.add(convert(bean));
+            }
+        }
+        return result;
+    }
+
+    public static List<ViewInnovationBean> convertInnovations(List<InnovationBean> list)
+    {
+        List<ViewInnovationBean> result = new ArrayList<ViewInnovationBean>();
+
+        if (list != null)
+        {
+            for (InnovationBean bean : list)
+            {
+                result.add(convert(bean));
+            }
+        }
+        return result;
+    }
+
+    public static ViewInnovationBean convert(InnovationBean bean)
+    {
+        ViewInnovationBean result = null;
+
+        if (bean != null)
+        {
+          private String _irNumber;
+          private Date _dateSubmitted;
+          private String _division;
+          private String _project;
+          private String _owner;
+          private String _category;
+          private String _initiativeName;
+          private String _innovationDescription;
+          private String _benefit;
+          private String _businessValue;
+          private String _status;
+          private String _businessOptimisation;
+          private String _contactDetails;
+          private String _caseStudy;
+          private String _flashOn;
+          private String _additionalComments;
+
+        }
+
+        return result;
+    }
+
+    public static ViewIdeaBean convert(IdeaBean bean)
+    {
+        ViewIdeaBean result = null;
+
+        if (bean != null)
+        {
+            result = new ViewIdeaBean();
+
+            result.setBusinessValue(bean.getBusinessValue());
+            result.setContactDetails(bean.getContactDetails());
+            result.setDateSubmitted(bean.getDateSubmitted());
+            result.setDivision(bean.getDivision());
+            result.setIdea(bean.getIdea());
+            result.setOriginator(bean.getOriginator());
+            result.setSource(bean.getSource());
+            result.setStatus(bean.getStatus());
+            result.setSubmittedBy(bean.getSubmittedBy());
+            result.setSubmittedId(bean.getSubmittedId());
+            result.setComments(bean.getComments());
+        }
+        return result;
+    }
+}

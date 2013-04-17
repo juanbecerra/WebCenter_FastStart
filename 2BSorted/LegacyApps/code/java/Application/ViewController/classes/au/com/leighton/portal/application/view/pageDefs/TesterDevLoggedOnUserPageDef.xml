@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="TesterDevLoggedOnUserPageDef"
+                Package="au.com.leighton.portal.application.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="applicationtaskflow1"
+              taskFlowId="/WEB-INF/application-task-flow.xml#application-task-flow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="username" value="#{securityContext.userName}"/>
+        <parameter id="environment" value="DEV"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

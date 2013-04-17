@@ -1,0 +1,54 @@
+<wsdl:definitions
+     name="MyESSDetails"
+     targetNamespace="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://lclxsoar1u.lc.local:8001/soa-infra/services/default/ESSDetailsComposite!1.0/MyESSDetails.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="MyESSDetails">
+        <plnk:role name="MyESSDetailsProvider">
+            <plnk:portType name="client:MyESSDetails"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:client="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <import namespace="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"
+                 schemaLocation="MyESSDetails.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="MyESSDetailsRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="MyESSDetailsResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="MyESSDetails">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:MyESSDetailsRequestMessage"/>
+            <wsdl:output message="client:MyESSDetailsResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MyESSDetailsBinding" type="client:MyESSDetails">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/PortalApplication/ESSDetailsComposite/MyESSDetails"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="myessdetails_client_ep">
+        <wsdl:port name="MyESSDetails_pt" binding="client:MyESSDetailsBinding">
+            <soap:address location="http://lclxsoar1u.lc.local:8001/soa-infra/services/default/ESSDetailsComposite/myessdetails_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

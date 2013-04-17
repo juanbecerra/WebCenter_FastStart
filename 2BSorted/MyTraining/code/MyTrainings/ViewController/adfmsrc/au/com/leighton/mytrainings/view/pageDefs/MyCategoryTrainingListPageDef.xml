@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MyCategoryTrainingListPageDef"
+                Package="au.com.leighton.mytrainings.view.pageDefs"
+               >
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyTrainingListCategoryVO1" RangeSize="25"
+              DataControl="MyTainingAppModuleDataControl"
+              id="MyTrainingListCategoryVO1Iterator" CacheResults="true"
+              Refresh="always"/>
+    <iterator Binds="NonMandatoryTraining_VO1" RangeSize="25"
+              DataControl="MyTainingAppModuleDataControl"
+              id="NonMandatoryTraining_VO1Iterator" Refresh="always"
+              CacheResults="true"/>
+    <searchRegion Binds="NonMandatoryTraining_VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="NonMandatoryTraining_VO1Query"/>
+    <iterator Binds="MyUserTraininglist_VO1" RangeSize="25"
+              DataControl="MyTainingAppModuleDataControl"
+              id="MyUserTraininglist_VO1Iterator" Refresh="always"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="MyTrainingListCategoryVO1Iterator"
+                  id="getTainingCategorybyList" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getTainingCategorybyList"
+                  IsViewObjectMethod="true"
+                  DataControl="MyTainingAppModuleDataControl"
+                  InstanceName="MyTainingAppModuleDataControl.MyTrainingListCategoryVO1"/>
+    <tree IterBinding="MyTrainingListCategoryVO1Iterator"
+          id="MyTrainingListCategoryVO11">
+      <nodeDefinition DefName="au.com.leighton.mytrainings.model.view.MyTrainingListCategoryVO"
+                      Name="MyTrainingListCategoryVO110">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+          <Item Value="CourseName"/>
+          <Item Value="Descp"/>
+          <Item Value="CourseId"/>
+          <Item Value="Mandatory"/>
+          <Item Value="CategoryId"/>
+          <Item Value="Url"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="NonMandatoryTraining_VO1Iterator"
+          id="NonMandatoryTraining_VO11">
+      <nodeDefinition DefName="au.com.leighton.mytrainings.model.view.NonMandatoryTraining_VO"
+                      Name="NonMandatoryTraining_VO110">
+        <AttrNames>
+          <Item Value="CourseId"/>
+          <Item Value="CourseName"/>
+          <Item Value="CategoryName"/>
+          <Item Value="Url"/>
+          <Item Value="Mandatory"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="MyTrainingListCategoryVO1Iterator"
+                  id="deleteCourse" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="deleteCourse"
+                  IsViewObjectMethod="false"
+                  DataControl="MyTainingAppModuleDataControl"
+                  InstanceName="bindings.MyTrainingListCategoryVO1Iterator.currentRow"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="curseId" NDValue="#{row.CourseId}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <attributeValues IterBinding="MyTrainingListCategoryVO1Iterator"
+                     id="CourseId">
+      <AttrNames>
+        <Item Value="CategoryId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="NonMandatoryTraining_VO1Iterator"
+                  id="getNonMandatoryList" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getNonMandatoryList"
+                  IsViewObjectMethod="true"
+                  DataControl="MyTainingAppModuleDataControl"
+                  InstanceName="MyTainingAppModuleDataControl.NonMandatoryTraining_VO1"/>
+    <methodAction IterBinding="NonMandatoryTraining_VO1Iterator"
+                  id="createCourse"
+                  InstanceName="bindings.NonMandatoryTraining_VO1Iterator.currentRow"
+                  DataControl="MyTainingAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createCourse" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="curseId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

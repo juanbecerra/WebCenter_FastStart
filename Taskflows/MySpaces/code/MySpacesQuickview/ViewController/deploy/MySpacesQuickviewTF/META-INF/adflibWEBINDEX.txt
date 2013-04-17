@@ -1,0 +1,3 @@
+MySpace.jspx
+MySpacesListView.jsff
+nophoto.png

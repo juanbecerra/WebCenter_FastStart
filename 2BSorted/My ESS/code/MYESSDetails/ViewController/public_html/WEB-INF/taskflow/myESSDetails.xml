@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="myESSDetails">
+    <default-activity id="__6">myESSDetailsView</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__1">myESSDetailsManagedBean</managed-bean-name>
+      <managed-bean-class id="__4">au.com.leicon.ess.view.MyESSDetailsManagedBean</managed-bean-class>
+      <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="myESSDetailsView">
+      <page>/myESSDetailsView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WcPeopleConnConnectionView"
+  Version="11.1.1.59.23"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="au.com.leighton.portal.peoplefinder.model.WcPeopleConnConnectionViewRowImpl"
+  ComponentClass="au.com.leighton.portal.peoplefinder.model.WcPeopleConnConnectionViewImpl"
+  DefClass="au.com.leighton.portal.peoplefinder.model.WcPeopleConnConnectionViewDefImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="ownerid"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[SELECT WcPeopleConnConnection.CONNECTION_ID,
+       WcPeopleConnConnection.OWNER_ID,
+       WcPeopleConnConnection.CONNECTEE_ID,
+       WcPeopleConnConnection.DELETEABLE,
+       WcPeopleConnConnection.CREATION_DATE,
+       WcPeopleConnConnection.VERSION,
+       WcPeopleConnConnection.APPLICATION_ID,
+       WcPeopleConnConnection.ENTERPRISE_ID
+FROM WC_PEOPLE_CONN_CONNECTION WcPeopleConnConnection
+WHERE 
+WcPeopleConnConnection.OWNER_ID=:ownerid]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="ConnectionId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="63"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CONNECTION_ID"
+    Expression="CONNECTION_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="63"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OwnerId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="63"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="OWNER_ID"
+    Expression="OWNER_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="63"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConnecteeId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="63"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CONNECTEE_ID"
+    Expression="CONNECTEE_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="63"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Deleteable"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="DELETEABLE"
+    Expression="DELETEABLE"
+    SQLType="CHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CreationDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="CREATION_DATE"
+    Expression="CREATION_DATE"
+    SQLType="TIMESTAMP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Version"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VERSION"
+    Expression="VERSION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ApplicationId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="63"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="APPLICATION_ID"
+    Expression="APPLICATION_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="63"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EnterpriseId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ENTERPRISE_ID"
+    Expression="ENTERPRISE_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ConnectionId"/>
+  </AttrArray>
+</ViewObject>

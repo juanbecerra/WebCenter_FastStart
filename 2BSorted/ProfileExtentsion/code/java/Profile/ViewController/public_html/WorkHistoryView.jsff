@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:decorativeBox id="db1" styleClass="AFStretchWidth"
+                      inlineStyle="height:350.0px;">
+      <f:facet name="center">
+        <af:group id="g1">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td>
+                <af:outputText styleClass="WCCustomHead2"
+                               value="#{pageFlowScope.leightonProfileBean.workHistoryBean.sectionTitle}"
+                               id="ot8"/>
+              </td>
+              <td align="right">
+                <af:commandButton text="New" id="cbWorkHistoryItemNew"
+                                  rendered="#{pageFlowScope.username eq securityContext.userName}">
+                  <af:showPopupBehavior popupId="newPopup"/>
+                </af:commandButton>
+                 
+                <af:commandButton text="Delete" id="cbWorkHistoryItemDelete"
+                                  rendered="#{pageFlowScope.username eq securityContext.userName}">
+                  <af:showPopupBehavior popupId="confirmDeletePopup"/>
+                </af:commandButton>
+                 
+                <af:commandButton text="Edit" id="cbWorkHistoryItemEdit"
+                                  rendered="#{pageFlowScope.username eq securityContext.userName}">
+                  <af:showPopupBehavior popupId="editPopup"/>
+                </af:commandButton>
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <div style="overflow:auto; height:300px; width:100%;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <af:forEach items="#{pageFlowScope.leightonProfileBean.workHistoryBean.workHistoryItemBeans}"
+                          var="item">
+                <tr>
+                  <td valign="top" width="30px">
+                    <af:selectBooleanRadio group="WorkHistoryItems" id="sbr1"
+                                           rendered="#{pageFlowScope.username eq securityContext.userName}"
+                                           autoSubmit="true" selected="false"
+                                           label=" " value="#{item.selected}"/>
+                  </td>
+                  <td>
+                    <af:outputText value="#{item.role}" id="ot6"
+                                   styleClass="WCCustomHead5"/>
+                     
+                    <br/>
+                     
+                    <af:outputText value="#{item.company}" id="ot1"
+                                   styleClass="WCCustomHead3"/>
+                     
+                    <br/>
+                     
+                    <af:outputText value="#{item.location}" id="ot2"
+                                   styleClass="WCCustomHead4"/>
+                     
+                    <br/>
+                     
+                    <af:outputText value="#{item.timeframe}" id="ot3"
+                                   styleClass="WCCustomHead4"/>
+                     
+                    <br/>
+                     
+                    <af:outputText value="#{item.viewJobDescription}"
+                                   escape="false" id="ot4"/>
+                     
+                    <br/>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">&amp;nbsp;</td>
+                </tr>
+              </af:forEach>
+            </table>
+          </div>
+        </af:group>
+      </f:facet>
+    </af:decorativeBox>
+    <af:popup id="confirmDeletePopup" contentDelivery="lazyUncached">
+      <af:dialog id="dDeleteConfirmation" title="Delete Work History/Experience"
+                 type="none">
+        <f:facet name="buttonBar">
+          <af:panelGroupLayout layout="horizontal" halign="end"
+                               styleClass="AFStretchWidth" id="pgl3">
+            <af:commandButton text="Yes" id="pbYes"
+                              action="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.delete}"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null)}"/>
+            <af:commandButton text="No" id="pbNo"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null)}"/>
+            <af:commandButton text="Cancel" id="pbCancel"
+                              rendered="#{(pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null)}"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <af:panelBorderLayout id="pbl1"
+                              rendered="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null}">
+          <af:outputText value="Please select the work history/experience item you wish to delete"
+                         id="ot12"/>
+        </af:panelBorderLayout>
+        <af:panelBorderLayout id="pbl2"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null)}">
+          <af:outputLabel value="Are you sure you want to delete work history/experience item?"
+                          id="ol1"/>
+          <br/>
+          <br/>
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pflEdit"
+                                      inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.role}"
+                                   id="ot5"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl2" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.company}"
+                                   id="ot13"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl3" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.location}"
+                                   id="ot7"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl4" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.timeframe}"
+                                   id="ot9"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:100.0px;">
+                  <af:panelFormLayout id="pfl5" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText escape="false"
+                                   value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.viewJobDescription}"
+                                   id="ot10"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <af:panelFormLayout id="pfl1" inlineStyle="text-align:left;">
+            <br/>
+          </af:panelFormLayout>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="editPopup" contentDelivery="lazyUncached">
+      <af:dialog id="dEditWorkHistory" title="Edit Work History/Experience"
+                 type="none">
+        <f:facet name="buttonBar">
+          <af:panelGroupLayout layout="horizontal" halign="end"
+                               styleClass="AFStretchWidth" id="pgl4">
+            <af:commandButton text="Save" id="pbEditSave"
+                              action="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.saveEdit}"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null)}"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <af:panelBorderLayout id="pblEditNoSelection"
+                              rendered="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null}">
+          <af:outputText value="Please select the work history/experience item you wish to edit"
+                         id="ot11"/>
+        </af:panelBorderLayout>
+        <af:panelBorderLayout id="pblEdit"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem eq null)}">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl6" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Role" id="it1Edit"
+                                  value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.role}"
+                                  required="true" maximumLength="50"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl7" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Company" id="it1"
+                                  value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.company}"
+                                  required="true" maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl8" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Location" id="it2"
+                                  value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.location}"
+                                  required="true" maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl9" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputDate label="Date Started" id="id1"
+                                  value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.fromDate}"
+                                  required="true"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl10" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputDate label="Date Finished" id="id2"
+                                  value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.toDate}"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:100.0px;">
+                  <af:panelFormLayout id="pfl11" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText value="#{pageFlowScope.leightonProfileBean.workHistoryBean.selectedWorkHistoryItem.jobDescription}"
+                                  label="Job Description" required="true"
+                                  rows="5" id="it5" styleClass="AFStretchWidth"
+                                  maximumLength="2000"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="newPopup" contentDelivery="lazyUncached">
+      <af:dialog id="dNewExperience" title="New Work History/Experience Item"
+                 type="none">
+        <f:facet name="buttonBar">
+          <af:panelGroupLayout layout="horizontal" halign="end"
+                               styleClass="AFStretchWidth" id="pgl2">
+            <af:commandButton text="Save" id="pbNewSave"
+                              action="#{NewWorkHistoryItemBean.saveNew}"/>
+            <af:commandButton text="Cancel" id="pbNewCancel" immediate="true"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <af:panelBorderLayout id="pblNew">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl12" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Role" id="it1New"
+                                  value="#{NewWorkHistoryItemBean.role}"
+                                  required="true" maximumLength="50"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl13" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Company" id="it3"
+                                  value="#{NewWorkHistoryItemBean.company}"
+                                  required="true" maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl14" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Location" id="it4"
+                                  value="#{NewWorkHistoryItemBean.location}"
+                                  required="true" maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl15" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputDate label="Date Started" id="id3"
+                                  value="#{NewWorkHistoryItemBean.fromDate}"
+                                  required="true"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl16" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputDate label="Date Finished" id="id4"
+                                  value="#{NewWorkHistoryItemBean.toDate}"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:100.0px;">
+                  <af:panelFormLayout id="pfl17" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText value="#{NewWorkHistoryItemBean.jobDescription}"
+                                  label="Job Description" required="true"
+                                  rows="5" id="it6" styleClass="AFStretchWidth"
+                                  maximumLength="2000"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</jsp:root>

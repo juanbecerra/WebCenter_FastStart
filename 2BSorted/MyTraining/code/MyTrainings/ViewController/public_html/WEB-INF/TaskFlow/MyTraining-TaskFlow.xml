@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="MyTraining-TaskFlow">
+    <default-activity id="__1">MyTrainingList</default-activity>
+    <managed-bean id="__25">
+      <managed-bean-name id="__24">enterpriseAppBean</managed-bean-name>
+      <managed-bean-class id="__23">au.com.leighton.mytrainings.view.EnterpriseAppBean</managed-bean-class>
+      <managed-bean-scope id="__26">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__27">
+      <managed-bean-name id="__30">enterpriseCategoryListBean</managed-bean-name>
+      <managed-bean-class id="__28">au.com.leighton.mytrainings.view.EnterpriseCategoryListBean</managed-bean-class>
+      <managed-bean-scope id="__29">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="MyTrainingList">
+      <page>/MyTrainingList.jsff</page>
+    </view>
+    <method-call id="getCategorybyList">
+      <method>#{bindings.getTainingCategorybyList.execute}</method>
+      <outcome id="__13">
+        <fixed-outcome>getTainingCategorybyList</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="MyrainingCategoryBy-TaskFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/TaskFlow/MyrainingCategoryBy-TaskFlow.xml</document>
+        <id>MyrainingCategoryBy-TaskFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">MyTrainingList</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">myCategoryTraining</from-outcome>
+        <to-activity-id id="__4">getCategorybyList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">getCategorybyList</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__9">getTainingCategorybyList</from-outcome>
+        <to-activity-id id="__11">MyrainingCategoryBy-TaskFlow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

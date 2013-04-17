@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13"
+                id="viewMyLinksSmall_TaskFlow_viewMyLinksSmall_TaskFlow_CreateInsertPageDef"
+                Package="TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MyLinkList_VO1" RangeSize="25"
+              DataControl="MyLinks_AMDataControl" id="MyLinkList_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MyLinkList_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

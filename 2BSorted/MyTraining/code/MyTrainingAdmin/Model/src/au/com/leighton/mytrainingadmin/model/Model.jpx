@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="Model"
+   Version="11.1.1.60.13"
+   SeparateXMLFiles="true"
+   PackageName="au.com.leighton.mytrainingadmin.model">
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../../../Model.jpr"/>
+      <Attr Name="_appModuleNames0"
+         Value="au.com.leighton.mytrainingadmin.model.am.MyTrainingAdmin_AM"/>
+      <Attr Name="_NamedConnection" Value="WCS_CUSTOMDS"/>
+      <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
+   </DesignTime>
+   <Containee
+      Name="am"
+      PackageName="au.com.leighton.mytrainingadmin.model.am"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="association"
+      PackageName="au.com.leighton.mytrainingadmin.model.association"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="entity"
+      PackageName="au.com.leighton.mytrainingadmin.model.entity"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="view"
+      PackageName="au.com.leighton.mytrainingadmin.model.view"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+</JboProject>

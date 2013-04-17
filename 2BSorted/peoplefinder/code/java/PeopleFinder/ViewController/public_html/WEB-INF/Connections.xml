@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Connections">
+    <default-activity id="__1">ConnectionsView</default-activity>
+    <input-parameter-definition id="__6">
+      <name id="__7">username</name>
+      <value>#{pageFlowScope.username}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__8">
+      <name id="__9">environment</name>
+      <value>#{pageFlowScope.environment}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name id="__2">connectionsBean</managed-bean-name>
+      <managed-bean-class id="__4">au.com.leighton.portal.peoplefinder.view.ConnectionsBean</managed-bean-class>
+      <managed-bean-scope id="__5">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="ConnectionsView">
+      <page>/ConnectionsView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

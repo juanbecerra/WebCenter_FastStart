@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="ViewAllCategoryPageDef"
+                Package="au.com.leighton.mytrainingadmin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyTrainingCategory_VO1" RangeSize="25"
+              DataControl="MyTrainingAdmin_AMDataControl"
+              id="MyTrainingCategory_VO1Iterator" Sortable="true"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MyTrainingCategory_VO1Iterator"
+          id="MyTrainingCategory_VO1">
+      <nodeDefinition DefName="au.com.leighton.mytrainingadmin.model.view.MyTrainingCategory_VO"
+                      Name="MyTrainingCategory_VO10">
+        <AttrNames>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MyTrainingCategory_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MyTrainingCategory_VO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="MyTrainingCategory_VO1Iterator"
+                     id="CategoryId">
+      <AttrNames>
+        <Item Value="CategoryId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="MyTrainingCategory_VO1Iterator"
+                  id="deletCategory" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="deletCategory"
+                  IsViewObjectMethod="false"
+                  DataControl="MyTrainingAdmin_AMDataControl"
+                  InstanceName="bindings.MyTrainingCategory_VO1Iterator.currentRow"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="CategoryId" NDValue="#{bindings.CategoryId.inputValue}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

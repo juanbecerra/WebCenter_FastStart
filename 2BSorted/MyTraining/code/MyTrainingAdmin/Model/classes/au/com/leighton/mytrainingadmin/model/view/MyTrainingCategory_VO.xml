@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MyTrainingCategory_VO"
+  Version="11.1.1.60.13"
+  SelectList="MytrainingCategories_EO.CATEGORY_ID, 
+       MytrainingCategories_EO.NAME"
+  FromList="MYTRAINING_CATEGORIES MytrainingCategories_EO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy="MytrainingCategories_EO.NAME"
+  RowClass="au.com.leighton.mytrainingadmin.model.view.MyTrainingCategory_VORowImpl"
+  RowInterface="au.com.leighton.mytrainingadmin.model.view.common.MyTrainingCategory_VORow"
+  ClientRowProxyName="au.com.leighton.mytrainingadmin.model.view.client.MyTrainingCategory_VORowClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.mytrainingadmin.model.view.MyTrainingCategory_VO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="MyCourses_VO1"
+    ViewObjectName="au.com.leighton.mytrainingadmin.model.view.MyCourses_VO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MyTrainingCategory_VO1"
+    ViewObjectName="au.com.leighton.mytrainingadmin.model.view.MyTrainingCategory_VO"
+    RowLevelBinds="true"/>
+  <EntityUsage
+    Name="MytrainingCategories_EO"
+    Entity="au.com.leighton.mytrainingadmin.model.entity.MytrainingCategories_EO"/>
+  <ViewAttribute
+    Name="CategoryId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryId"
+    EntityUsage="MytrainingCategories_EO"
+    AliasName="CATEGORY_ID"/>
+  <ViewAttribute
+    Name="Name"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="MytrainingCategories_EO"
+    AliasName="NAME"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.mytrainingadmin.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientRowInterface>
+    <Method
+      Name="deletCategory">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="CategoryId"
+        Type="oracle.jbo.domain.Number"/>
+    </Method>
+  </ClientRowInterface>
+</ViewObject>

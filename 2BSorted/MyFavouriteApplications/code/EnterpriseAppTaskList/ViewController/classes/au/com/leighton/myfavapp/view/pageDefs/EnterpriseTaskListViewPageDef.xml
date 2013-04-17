@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="EnterpriseTaskListViewPageDef"
+                Package="au.com.leighton.myfavapp.view.pageDefs"
+                ControllerClass="au.com.leighton.myfavapp.view.EnterpriseAppBean">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EAapplicationListVO" RangeSize="25"
+              DataControl="EnterpriseTaskAMDataControl"
+              id="EAapplicationListVOIterator"/>
+    <iterator Binds="EAapplicationEditVO1" RangeSize="25"
+              DataControl="EnterpriseTaskAMDataControl"
+              id="EAapplicationEditVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EAapplicationListVOIterator" id="EAapplicationListVO">
+      <nodeDefinition DefName="au.com.leighton.model.view.EAapplicationListVO"
+                      Name="EAapplicationListVO0">
+        <AttrNames>
+          <Item Value="Logo"/>
+          <Item Value="Name"/>
+          <Item Value="Url"/>
+          <Item Value="Username"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getenterpiseList" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getenterpiseList"
+                  IsViewObjectMethod="true"
+                  DataControl="EnterpriseTaskAMDataControl"
+                  InstanceName="EnterpriseTaskAMDataControl.EAapplicationListVO"
+                  IterBinding="EAapplicationListVOIterator">
+      <NamedData NDName="username" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="EAapplicationEditVO1Iterator" id="EAapplicationEditVO1">
+      <nodeDefinition DefName="au.com.leighton.model.view.EAapplicationEditVO"
+                      Name="EAapplicationEditVO10">
+        <AttrNames>
+          <Item Value="markfordelete"/>
+          <Item Value="AppId"/>
+          <Item Value="Logo"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction IterBinding="EAapplicationEditVO1Iterator"
+                  id="createSelectedRow" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createSelectedRow"
+                  IsViewObjectMethod="false"
+                  DataControl="EnterpriseTaskAMDataControl"
+                  InstanceName="bindings.EAapplicationEditVO1Iterator.currentRow"
+                  IsLocalObjectReference="true"/>
+  </bindings>
+</pageDefinition>

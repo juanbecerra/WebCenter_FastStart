@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13"
+                id="MyTraining_TaskFlow_MyTraining_TaskFlow_createCoursePageDef"
+                Package="TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="NonMandatoryTraining_VO1" RangeSize="25"
+              DataControl="MyTainingAppModuleDataControl"
+              id="NonMandatoryTraining_VO1Iterator"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="NonMandatoryTraining_VO1Iterator"
+                  id="createCourse" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createCourse"
+                  IsViewObjectMethod="false"
+                  DataControl="MyTainingAppModuleDataControl"
+                  InstanceName="bindings.NonMandatoryTraining_VO1Iterator.currentRow"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="curseId" NDValue="#{pageFlowScope.CourseId}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

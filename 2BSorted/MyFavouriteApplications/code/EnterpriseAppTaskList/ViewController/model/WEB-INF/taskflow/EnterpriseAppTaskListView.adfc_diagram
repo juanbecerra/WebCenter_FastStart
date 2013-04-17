@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">EnterpriseTaskListView</property>
+      <property
+         name="page">/EnterpriseTaskListView.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EnterpriseTaskListView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">156.58594</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">120.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">EnterpriseTaskListEdit</property>
+      <property
+         name="page">/EnterpriseTaskListEdit.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EnterpriseTaskListEdit&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">154.51074</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">342.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">TaskListEdit</property>
+      <property
+         name="sdm:polyPoints">R46,161.0,152.73535,300.94812,150.66016,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">Taskcancel</property>
+      <property
+         name="sdm:polyPoints">L54,301.0,157.66016,161.05188,159.73535,R54</property>
+   </ControlFlowCase>
+</SDM>

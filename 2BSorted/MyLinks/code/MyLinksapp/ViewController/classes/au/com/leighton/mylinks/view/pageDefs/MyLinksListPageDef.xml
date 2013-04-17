@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MyLinksListPageDef"
+                Package="au.com.leighton.mylinks.view.pageDefs">
+  <parameters>
+    <parameter id="CurrentPage"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MyLinkList_VO1" RangeSize="25"
+              DataControl="MyLinks_AMDataControl" id="MyLinkList_VO1Iterator"
+              Refresh="always">
+      <sortCriteria>
+        <sort attribute="Displayname" ascending="true"/>
+      </sortCriteria>
+    </iterator>
+  </executables>
+  <bindings>
+    <tree IterBinding="MyLinkList_VO1Iterator" id="MyLinkList_VO1">
+      <nodeDefinition DefName="au.com.leighton.mylinks.model.view.MyLinkList_VO"
+                      Name="MyLinkList_VO10">
+        <AttrNames>
+          <Item Value="Displayname"/>
+          <Item Value="Url"/>
+          <Item Value="MylinksId"/>
+          <Item Value="Newpage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MyLinkList_VO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MyLinkList_VO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

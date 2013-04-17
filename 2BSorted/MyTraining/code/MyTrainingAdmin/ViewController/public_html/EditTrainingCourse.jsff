@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="horizontal" id="pgleft4"
+                       inlineStyle="padding:10.0px;" halign="left">
+    <af:outputText id="cl1"
+                   inlineStyle="font-weight:bold;"
+                   value="Manage Course > Edit"/>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="left">
+    <af:panelFormLayout id="pfl1">
+      <af:inputText value="#{bindings.Name.inputValue}"
+                    label="#{bindings.Name.hints.label}"
+                    required="#{bindings.Name.hints.mandatory}"
+                    maximumLength="#{bindings.Name.hints.precision}"
+                    shortDesc="#{bindings.Name.hints.tooltip}" id="it4">
+        <f:validator binding="#{bindings.Name.validator}"/>
+      </af:inputText>
+      <af:selectOneChoice value="#{bindings.CategoryId.inputValue}"
+                          label="Category"
+                          required="#{bindings.CategoryId.hints.mandatory}"
+                          shortDesc="#{bindings.CategoryId.hints.tooltip}"
+                          id="soc1">
+        <f:selectItems value="#{bindings.CategoryId.items}" id="si1"/>
+      </af:selectOneChoice>
+      <af:inputText value="#{bindings.Url.inputValue}"
+                    label="URL"
+                    required="#{bindings.Url.hints.mandatory}"
+                    maximumLength="#{bindings.Url.hints.precision}"
+                    shortDesc="#{bindings.Url.hints.tooltip}" id="it3">
+        <f:validator binding="#{bindings.Url.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Description.inputValue}"
+                    label="#{bindings.Description.hints.label}"
+                    required="#{bindings.Description.hints.mandatory}"
+                    maximumLength="#{bindings.Description.hints.precision}"
+                    shortDesc="#{bindings.Description.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.Description.validator}"/>
+      </af:inputText>
+      <af:selectOneChoice value="#{bindings.Mandatory.inputValue}"
+                          label="Mandatory" id="sor1" showRequired="true"
+                           required="true">
+        <af:selectItem label="Yes" value="Y" id="si2"/>
+        <af:selectItem label="No" value="N" id="si3"/>
+      </af:selectOneChoice>
+    </af:panelFormLayout>
+    <af:panelGroupLayout layout="horizontal" id="pgright1" halign="left">
+      <af:commandButton actionListener="#{bindings.Commit.execute}"
+                        text="Update" action="listTraing"
+                        id="cb1" styleClass="blue-btn"/>
+      <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                      action="listTraing" text="Cancel" immediate="true"
+                      id="cb2" styleClass="blue-btn">
+      <af:resetActionListener/>
+      
+    </af:commandButton>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

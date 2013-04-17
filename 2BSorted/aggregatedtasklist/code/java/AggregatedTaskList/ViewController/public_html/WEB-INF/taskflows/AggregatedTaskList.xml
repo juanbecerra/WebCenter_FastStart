@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="AggregatedTaskList">
+    <default-activity id="__3">AggregratedTaskListView</default-activity>
+    <input-parameter-definition id="__1">
+      <name id="__2">Environment</name>
+      <value>#{pageFlowScope.Environment}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__14">
+      <name id="__15">Username</name>
+      <value>#{pageFlowScope.Username}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name id="__4">taskListManagedBean</managed-bean-name>
+      <managed-bean-class id="__5">au.com.leighton.portal.aggregatedtasklist.view.managed.TaskListManagedBean</managed-bean-class>
+      <managed-bean-scope id="__7">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="AggregratedTaskListView">
+      <page>/AggregatedTaskListView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

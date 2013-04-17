@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leicon.socialmedia.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/socialmedia.jspx"
+          usageId="au_com_leicon_socialmedia_view_socialmediaPageDef11"/>
+    <page path="/testPage.jspx"
+          usageId="au_com_leicon_socialmedia_view_testPagePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+     <page id="au_com_leicon_socialmedia_view_socialmediaPageDef11"
+          path="au.com.leicon.socialmedia.view.pageDefs.socialmediaPageDef11"/>
+    <page id="au_com_leicon_socialmedia_view_testPagePageDef"
+          path="au.com.leicon.socialmedia.view.pageDefs.testPagePageDef"/>
+  </pageDefinitionUsages>
+</Application>

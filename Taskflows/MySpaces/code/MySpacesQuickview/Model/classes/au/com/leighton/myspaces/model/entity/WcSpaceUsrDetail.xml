@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WcSpaceUsrDetail"
+  Version="11.1.1.60.13"
+  DBObjectType="table"
+  DBObjectName="WC_SPACE_USR_DETAIL"
+  AliasName="WcSpaceUsrDetail"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="ApplicationId"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="APPLICATION_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserGuid"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="USER_GUID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpaceId"
+    IsNotNull="true"
+    Precision="2000"
+    ColumnName="SPACE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="USER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsGroup"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_GROUP"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_USR_DETAIL"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpaceGuid"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="SPACE_GUID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpaceRole"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="SPACE_ROLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PermissionAction"
+    Precision="200"
+    ColumnName="PERMISSION_ACTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Version"
+    ColumnName="VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="200"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreateDate"
+    ColumnName="CREATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UpdatedBy"
+    Precision="200"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GroupSpaceType"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="GROUP_SPACE_TYPE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_USR_DETAIL"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PermissionName"
+    Precision="200"
+    ColumnName="PERMISSION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_USR_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="memberCount"
+    ColumnName="MEMBERCOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <AccessorAttribute
+    Name="WcSpaceHeader"
+    Association="au.com.leighton.myspaces.model.association.association.SpaceGUID_User_TO_SpaceGUID_Header"
+    AssociationEnd="au.com.leighton.myspaces.model.association.association.SpaceGUID_User_TO_SpaceGUID_Header.WcSpaceHeader"
+    AssociationOtherEnd="au.com.leighton.myspaces.model.association.association.SpaceGUID_User_TO_SpaceGUID_Header.WcSpaceUsrDetail"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC0010157">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010157"/>
+      <Attr Name="_checkCondition" Value='"GROUP_SPACE_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.GroupSpaceType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009852">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009852"/>
+      <Attr Name="_checkCondition" Value='"APPLICATION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.ApplicationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009853">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009853"/>
+      <Attr Name="_checkCondition" Value='"USER_GUID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.UserGuid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009854">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009854"/>
+      <Attr Name="_checkCondition" Value='"SPACE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.SpaceId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009855">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009855"/>
+      <Attr Name="_checkCondition" Value='"USER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009856">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009856"/>
+      <Attr Name="_checkCondition" Value='"IS_GROUP" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.IsGroup"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009857">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009857"/>
+      <Attr Name="_checkCondition" Value='"SPACE_GUID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.SpaceGuid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC009858">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C009858"/>
+      <Attr Name="_checkCondition" Value='"SPACE_ROLE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.SpaceRole"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WcSpaceUsrDetailPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="WC_SPACE_USR_DETAIL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.SpaceGuid"/>
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.UserGuid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WcSpaceUsrDetailFk">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="WC_SPACE_HEADER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WC_SPACE_USR_DETAIL_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail.SpaceGuid"/>
+    </AttrArray>
+  </Key>
+</Entity>

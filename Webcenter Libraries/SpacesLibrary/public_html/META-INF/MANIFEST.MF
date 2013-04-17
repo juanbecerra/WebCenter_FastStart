@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Extension-Name: spaces.lclibrary.portal.leighton.lc.local
+Specification-Version: 11.1.1.6
+Implementation-Title: Oracle WebCenter Spaces Taskflow Libary for LC Portal
+Implementation-Version: 11.1.1.6.13
+Implementation-Vendor: Oakton (Leighton Contractors Pty Ltd)
+Created-By: Juan Becerra

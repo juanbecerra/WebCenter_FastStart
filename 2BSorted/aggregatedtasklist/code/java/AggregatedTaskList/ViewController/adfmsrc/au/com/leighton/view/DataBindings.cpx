@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.59.23" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leighton.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/TaskTester.jspx"
+          usageId="au_com_leighton_view_TaskTesterPageDef"/>
+    <page path="/TesterDEV.jspx"
+          usageId="au_com_leighton_view_TesterDEVPageDef"/>
+    <page path="/TesterSIT.jspx"
+          usageId="au_com_leighton_view_TesterSITPageDef"/>
+    <page path="/Tester_ROWILSON_DEV.jspx"
+          usageId="au_com_leighton_view_Tester_ROWILSON_DEVPageDef"/>
+    <page path="/Tester_LoggedOnUser_DEV.jspx"
+          usageId="au_com_leighton_view_Tester_LoggedOnUser_DEVPageDef"/>
+    <page path="/Tester_LoggedOnUser_SIT.jspx"
+          usageId="au_com_leighton_view_Tester_LoggedOnUser_SITPageDef"/>
+    <page path="/Tester_LoggedOnUser_UAT.jspx"
+          usageId="au_com_leighton_view_Tester_LoggedOnUser_UATPageDef"/>
+    <page path="/Tester_LoggedOnUser_Prod.jspx"
+          usageId="au_com_leighton_view_Tester_LoggedOnUser_ProdPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leighton_view_TaskTesterPageDef"
+          path="au.com.leighton.view.pageDefs.TaskTesterPageDef"/>
+    <page id="au_com_leighton_view_TesterDEVPageDef"
+          path="au.com.leighton.view.pageDefs.TesterDEVPageDef"/>
+    <page id="au_com_leighton_view_TesterSITPageDef"
+          path="au.com.leighton.view.pageDefs.TesterSITPageDef"/>
+    <page id="au_com_leighton_view_Tester_ROWILSON_DEVPageDef"
+          path="au.com.leighton.view.pageDefs.Tester_ROWILSON_DEVPageDef"/>
+    <page id="au_com_leighton_view_Tester_LoggedOnUser_DEVPageDef"
+          path="au.com.leighton.view.pageDefs.Tester_LoggedOnUser_DEVPageDef"/>
+    <page id="au_com_leighton_view_Tester_LoggedOnUser_SITPageDef"
+          path="au.com.leighton.view.pageDefs.Tester_LoggedOnUser_SITPageDef"/>
+    <page id="au_com_leighton_view_Tester_LoggedOnUser_UATPageDef"
+          path="au.com.leighton.view.pageDefs.Tester_LoggedOnUser_UATPageDef"/>
+    <page id="au_com_leighton_view_Tester_LoggedOnUser_ProdPageDef"
+          path="au.com.leighton.view.pageDefs.Tester_LoggedOnUser_ProdPageDef"/>
+  </pageDefinitionUsages>
+</Application>

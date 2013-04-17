@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">InnovationRegisterPartial</property>
+      <property
+         name="page">/InnovationRegisterPartial.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>InnovationRegisterPartial&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">204.49414</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">126.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">InnovationRegisterFull</property>
+      <property
+         name="page">/InnovationRegisterFull.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>InnovationRegisterFull&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">175.14355</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">376.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">full</property>
+      <property
+         name="sdm:polyPoints">R46,167.0,200.64355,334.39203,171.29297,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">partial</property>
+      <property
+         name="sdm:polyPoints">L54,335.0,178.29297,167.60687,207.64355,R54</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProfExperience"
+  Version="11.1.1.59.23"
+  DBObjectType="table"
+  DBObjectName="PROF_EXPERIENCE"
+  AliasName="ProfExperience"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="Id"
+    IsNotNull="true"
+    ColumnName="ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PROF_EXPERIENCE"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Username"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="USERNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PROF_EXPERIENCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Displayorder"
+    Precision="2"
+    Scale="0"
+    ColumnName="DISPLAYORDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PROF_EXPERIENCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PROF_EXPERIENCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Experiencedescription"
+    IsNotNull="true"
+    Precision="2000"
+    ColumnName="EXPERIENCEDESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PROF_EXPERIENCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Deleted"
+    IsNotNull="true"
+    ColumnName="DELETED"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="PROF_EXPERIENCE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="ExperiencePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="EXPERIENCE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.portal.profile.model.ProfExperience.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012430">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012430"/>
+      <Attr Name="_checkCondition" Value='"ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.portal.profile.model.ProfExperience.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012431">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012431"/>
+      <Attr Name="_checkCondition" Value='"USERNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.profile.model.ProfExperience.Username"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012432">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012432"/>
+      <Attr Name="_checkCondition" Value='"TITLE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="au.com.leighton.portal.profile.model.ProfExperience.Title"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012433">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012433"/>
+      <Attr Name="_checkCondition" Value='"EXPERIENCEDESCRIPTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.profile.model.ProfExperience.Experiencedescription"/>
+    </AttrArray>
+  </Key>
+</Entity>

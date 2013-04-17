@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="MymainPageDef"
+                Package="au.com.leighton.mytrainings.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="MyTrainingTaskFlow1"
+              taskFlowId="/WEB-INF/TaskFlow/MyTraining-TaskFlow.xml#MyTraining-TaskFlow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="MyrainingCategoryByTaskFlow1"
+              taskFlowId="/WEB-INF/TaskFlow/MyrainingCategoryBy-TaskFlow.xml#MyrainingCategoryBy-TaskFlow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

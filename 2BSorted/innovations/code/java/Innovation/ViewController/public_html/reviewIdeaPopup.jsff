@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:popup id="reviewIdea" contentDelivery="lazyUncached">
+      <af:dialog id="d1" title="Review Idea" type="none">
+        <af:panelBorderLayout id="pbl1"
+                              rendered="#{pageFlowScope.listHandlerBean.selected eq null}">
+          <af:outputText value="Please select the Idea you wish to review"
+                         id="ot1"/>
+        </af:panelBorderLayout>
+        <af:panelBorderLayout rendered="#{not (pageFlowScope.listHandlerBean.selected eq null)}"
+                              id="pbl2">
+          <table border="0" cellpadding="0" cellspacing="0" width="500px">
+            <tr>
+              <td align="center">
+                <af:outputText value="New Innovative Idea" id="ot15"/>
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <table border="0" cellpadding="0" cellspacing="0" width="500px">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl1" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:panelLabelAndMessage label="Idea Abstract" id="plam3"
+                                             inlineStyle="vertical-align:top;">
+                      <af:outputText value="#{pageFlowScope.listHandlerBean.selected.displayIdea}"
+                                     id="ot12" escape="false"
+                                     inlineStyle="width:300.0px;"
+                                     truncateAt="0"/>
+                    </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl16" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:panelLabelAndMessage label="Business Value" id="plam2"
+                                             inlineStyle="vertical-align:top;">
+                      <af:outputText value="#{pageFlowScope.listHandlerBean.selected.displayBusinessValue}"
+                                     id="ot10" escape="false"
+                                     inlineStyle="width:300.0px;"/>
+                    </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl17" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:panelLabelAndMessage label="Division" id="plam7"
+                                           inlineStyle="vertical-align:top;">
+                    <af:outputText value="#{pageFlowScope.listHandlerBean.selected.division}"
+                                   id="ot7" inlineStyle="width:300.0px;"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl18" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:panelLabelAndMessage label="Submitted By" id="plam6"
+                                           inlineStyle="vertical-align:top;">
+                    <af:outputText value="#{pageFlowScope.listHandlerBean.selected.submittedBy}"
+                                   id="ot9" inlineStyle="width:300.0px;"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelFormLayout id="pfl19" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:panelLabelAndMessage label="Idea Owner" id="plam4"
+                                           inlineStyle="vertical-align:top;">
+                    <af:outputText value="#{pageFlowScope.listHandlerBean.selected.originator}"
+                                   id="ot11" inlineStyle="width:300.0px;"/>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:500px; height:100.0px;">
+                  <af:panelFormLayout id="pfl20" labelWidth="150"
+                                      fieldWidth="300">
+                    <af:panelLabelAndMessage label="Contact Details" id="plam5"
+                                             inlineStyle="vertical-align:top;">
+                      <af:outputText value="#{pageFlowScope.listHandlerBean.selected.displayContactDetails}"
+                                     id="ot8" escape="false"
+                                     inlineStyle="width:300.0px;"/>
+                    </af:panelLabelAndMessage>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <af:panelGroupLayout id="pgl2">
+                  <af:commandButton text="Accept" id="cb1"
+                                    rendered="#{pageFlowScope.listHandlerBean.selected.canProcess}">
+                    <af:showPopupBehavior popupId="accepted"
+                                          triggerType="action"/>
+                  </af:commandButton>
+                  <af:commandButton text="Not Adopted" id="cb2"
+                                    rendered="#{pageFlowScope.listHandlerBean.selected.canProcess}">
+                    <af:showPopupBehavior popupId="notAdopted"
+                                          triggerType="action"/>
+                  </af:commandButton>
+                </af:panelGroupLayout>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="accepted" contentDelivery="lazyUncached">
+      <af:dialog id="d2" title="Register Idea" type="none">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td align="center">
+              <af:outputText value="Enter Innovation" id="ot16"/>
+            </td>
+          </tr>
+        </table>
+        <br/>
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl3" labelWidth="150" fieldWidth="300">
+                <af:inputDate value="#{pageFlowScope.listHandlerBean.newInnovation.dateSubmitted}"
+                              label="Submitted Date" required="true" id="id1"/>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl4" labelWidth="150" fieldWidth="300">
+                <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.project}"
+                              label="BU/Project" required="true" id="it9"
+                              maximumLength="100"/>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl5" labelWidth="150" fieldWidth="300">
+                <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.owner}"
+                              label="Owner" required="true" id="it1"
+                              maximumLength="100"/>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl6" labelWidth="150" fieldWidth="300">
+                <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.newInnovation.division}"
+                                    label="Division" valuePassThru="true"
+                                    required="true" id="soc1">
+                  <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownDivisionsList}"
+                                 id="si3"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <div style="overflow:auto;width:500px; height:100.0px;">
+                <af:panelFormLayout id="pfl7" labelWidth="150" fieldWidth="300">
+                  <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.contactDetails}"
+                                label="Contact Details" required="true" rows="5"
+                                id="it4" styleClass="AFStretchWidth"
+                                maximumLength="2000"/>
+                </af:panelFormLayout>
+              </div>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl8" labelWidth="150" fieldWidth="300">
+                <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.newInnovation.category}"
+                                    label="Category" required="true" id="soc2">
+                  <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownCategoriesList}"
+                                 id="si4"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl9" labelWidth="150" fieldWidth="300">
+                <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.initiativeName}"
+                              label="Initiative Name" required="true" id="it7"
+                              maximumLength="200"/>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <div style="overflow:auto;width:500px; height:100.0px;">
+                <af:panelFormLayout id="pfl10" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.innovationDescription}"
+                                label="Innovation Description" required="true"
+                                rows="5" id="it6" styleClass="AFStretchWidth"
+                                maximumLength="2000"/>
+                </af:panelFormLayout>
+              </div>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl11" labelWidth="150" fieldWidth="300">
+                <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.newInnovation.benefit}"
+                                    label="Benefit" required="true" id="soc3">
+                  <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownBenefitsList}"
+                                 id="si5"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <div style="overflow:auto;width:500px; height:100.0px;">
+                <af:panelFormLayout id="pfl12" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.businessValue}"
+                                label="Value to Business" required="true"
+                                rows="5" id="it8" styleClass="AFStretchWidth"
+                                maximumLength="2000"/>
+                </af:panelFormLayout>
+              </div>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl13" labelWidth="150" fieldWidth="300">
+                <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.newInnovation.status}"
+                                    label="Status" required="true" id="soc4">
+                  <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownInnovationStatusList}"
+                                 id="si6"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:panelFormLayout id="pfl14" labelWidth="150" fieldWidth="300">
+                <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.newInnovation.businessOptimisation}"
+                                    label="Business Optimisation"
+                                    required="true" id="soc5">
+                  <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownBusinessOptimisationList}"
+                                 id="si7"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <div style="overflow:auto;width:500px; height:100.0px;">
+                <af:panelFormLayout id="pfl15" labelWidth="150"
+                                    fieldWidth="300">
+                  <af:inputText value="#{pageFlowScope.listHandlerBean.newInnovation.additionalComments}"
+                                label="Additional Comments" required="true"
+                                rows="5" id="it5" styleClass="AFStretchWidth"
+                                maximumLength="2000"/>
+                </af:panelFormLayout>
+              </div>
+            </td>
+          </tr>
+           
+          <tr>
+            <td>
+              <af:commandButton text="Submit" id="cb4"
+                                action="#{pageFlowScope.listHandlerBean.saveNewInnovation}"/>
+            </td>
+          </tr>
+        </table>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="notAdopted" contentDelivery="lazyUncached">
+      <af:dialog id="d3" title="Idea Not Adopted" type="none">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td align="center">
+              <af:outputText value="Innovation Feedback" id="ot13"/>
+            </td>
+          </tr>
+        </table>
+        <br/>
+        <div style="overflow:auto;width:500px; height:100.0px;">
+          <af:panelFormLayout id="pfl2" labelWidth="150" fieldWidth="300">
+            <af:panelLabelAndMessage label="Idea Abstract" id="plam1"
+                                     inlineStyle="vertical-align:top;">
+              <af:outputText value="#{pageFlowScope.listHandlerBean.selected.displayIdea}"
+                             id="ot21" escape="false"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </div>
+        <br/>
+        <af:selectOneRadio label="Idea Status" id="sor1"
+                           value="#{pageFlowScope.listHandlerBean.selected.status}"
+                           layout="horizontal" showRequired="true">
+          <af:selectItem label="Not Adopted" value="Not Adopted" id="si2"/>
+          <af:selectItem label="Refine" value="Refine" id="si1"/>
+        </af:selectOneRadio>
+        <br/>
+        <div style="overflow:auto;width:500px; height:100.0px;">
+          <af:inputText value="#{pageFlowScope.listHandlerBean.selected.comments}"
+                        label="Comments" required="true" id="it2" rows="5"
+                        styleClass="AFStretchWidth" maximumLength="2000"/>
+        </div>
+        <af:commandButton text="Update and Notify User" id="cb3"
+                          action="#{pageFlowScope.listHandlerBean.saveNotAdoptedIdea}"/>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:listHandlerBean-->
+</jsp:root>

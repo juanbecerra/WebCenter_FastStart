@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="socialmediaPageDef11"
+                Package="au.com.leicon.socialmedia.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="socialmedia1"
+              taskFlowId="/WEB-INF/taskflow/socialmedia.xml#socialmedia"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="site"
+                   value="twitter"/>
+        <parameter id="account"
+                   value="LeightonContrac"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="socialmedia2"
+              taskFlowId="/WEB-INF/taskflow/socialmedia.xml#socialmedia"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="site" value="#{backingBeanScope.socialMediaManagedBean.site}"/>
+        <parameter id="account" value="#{backingBeanScope.socialMediaManagedBean.account}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="socialmedia3"
+              taskFlowId="/WEB-INF/taskflow/socialmedia.xml#socialmedia"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="site" value="youtube"/>
+        <parameter id="account" value="LeightonContractors"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

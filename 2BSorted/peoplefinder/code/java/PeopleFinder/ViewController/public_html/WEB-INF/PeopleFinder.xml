@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="PeopleFinder">
+    <default-activity id="__59">CheckSearchText</default-activity>
+    <input-parameter-definition id="__14">
+      <name id="__13">searchText</name>
+      <value>#{pageFlowScope.peopleFinderBean.simpleSearchCriteria}</value>
+    </input-parameter-definition>
+    <input-parameter-definition id="__20">
+      <name id="__1">username</name>
+      <value>#{pageFlowScope.peopleFinderBean.userNameParam}</value>
+    </input-parameter-definition>
+    <managed-bean id="__15">
+      <managed-bean-name id="__18">peopleFinderBean</managed-bean-name>
+      <managed-bean-class id="__17">au.com.leighton.portal.peoplefinder.view.PeopleFinderBean</managed-bean-class>
+      <managed-bean-scope id="__16">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="PeopleFinderView">
+      <page>/PeopleFinderView.jsff</page>
+    </view>
+    <view id="PersonDetailView">
+      <page>/PersonDetailView.jsff</page>
+    </view>
+    <method-call id="ClickGetDetails">
+      <method>#{pageFlowScope.peopleFinderBean.ItemClick}</method>
+      <outcome id="__42">
+        <fixed-outcome>success</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="Confirmation">
+      <page>/Confirmation.jsff</page>
+    </view>
+    <method-call id="sendAdminEmail">
+      <method>#{pageFlowScope.peopleFinderBean.sendAdminEmail}</method>
+      <outcome id="__48">
+        <fixed-outcome>confirmation</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="IncorrectDetailsForm">
+      <page>/IncorrectDetailsForm.jspx</page>
+    </view>
+    <router id="CheckSearchText">
+      <case>
+        <expression>#{pageFlowScope.peopleFinderBean.simpleSearchCriteria!=null}</expression>
+        <outcome id="__75">PeopleSearch</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.peopleFinderBean.userNameParam !=null}</expression>
+        <outcome id="__50">searchDetail</outcome>
+      </case>
+      <default-outcome>emptySearchText</default-outcome>
+    </router>
+    <method-call id="SearchPeople">
+      <method>#{pageFlowScope.peopleFinderBean.simpleSearchPeople}</method>
+      <outcome id="__65">
+        <fixed-outcome>DisplayPeopleSearchResult</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SearchPersonDetails">
+      <method>#{pageFlowScope.peopleFinderBean.searchPersonDetails}</method>
+      <outcome id="__66">
+        <fixed-outcome>getClicked</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">PeopleFinderView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">persondetailview</from-outcome>
+        <to-activity-id id="__5">PersonDetailView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__39">
+        <from-outcome id="__41">getClicked</from-outcome>
+        <to-activity-id id="__40">ClickGetDetails</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__54">
+        <from-outcome id="__56">dialog:adminemail</from-outcome>
+        <to-activity-id id="__55">IncorrectDetailsForm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">PersonDetailView</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__19">return</from-outcome>
+        <to-activity-id id="__10">PeopleFinderView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome id="__28">getClicked</from-outcome>
+        <to-activity-id id="__26">ClickGetDetails</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome id="__31">dialog:adminemail</from-outcome>
+        <to-activity-id id="__22">IncorrectDetailsForm</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id id="__35">ClickGetDetails</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome id="__38">success</from-outcome>
+        <to-activity-id id="__37">PersonDetailView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__24">
+      <from-activity-id id="__25">sendAdminEmail</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome id="__47">confirmation</from-outcome>
+        <to-activity-id id="__30">Confirmation</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__33">
+      <from-activity-id id="__43">IncorrectDetailsForm</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome id="__46">submitEmail</from-outcome>
+        <to-activity-id id="__45">sendAdminEmail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__60">
+      <from-activity-id id="__61">CheckSearchText</from-activity-id>
+      <control-flow-case id="__63">
+        <from-outcome id="__64">emptySearchText</from-outcome>
+        <to-activity-id id="__62">PeopleFinderView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__71">
+        <from-outcome id="__73">PeopleSearch</from-outcome>
+        <to-activity-id id="__72">SearchPeople</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__57">
+        <from-outcome id="__53">searchDetail</from-outcome>
+        <to-activity-id id="__58">SearchPersonDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__76">
+      <from-activity-id id="__77">SearchPeople</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome id="__78">DisplayPeopleSearchResult</from-outcome>
+        <to-activity-id id="__80">PeopleFinderView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__32">SearchPersonDetails</from-activity-id>
+      <control-flow-case id="__49">
+        <from-outcome id="__51">getClicked</from-outcome>
+        <to-activity-id id="__52">PersonDetailView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

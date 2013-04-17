@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13"
+                id="MyrainingCategoryBy_TaskFlow_MyrainingCategoryBy_TaskFlow_deleteCoursePageDef"
+                Package="TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MyTrainingListCategoryVO1" RangeSize="25"
+              DataControl="MyTainingAppModuleDataControl"
+              id="MyTrainingListCategoryVO1Iterator"/>
+  </executables>
+  <bindings>
+    <methodAction IterBinding="MyTrainingListCategoryVO1Iterator"
+                  id="deleteCourse" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="deleteCourse"
+                  IsViewObjectMethod="false"
+                  DataControl="MyTainingAppModuleDataControl"
+                  InstanceName="bindings.MyTrainingListCategoryVO1Iterator.currentRow"
+                  IsLocalObjectReference="true">
+      <NamedData NDName="curseId" NDValue="#{pageFlowScope.CourseId}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

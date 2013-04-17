@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox text="Submitted Ideas List" id="pbIdeaRegisterPartialView">
+    <f:facet name="toolbar">
+      <af:group id="g1">
+        <af:commandButton text="Export Ideas To Excel" id="cb4">
+          <af:exportCollectionActionListener exportedId="tIdeas"
+                                             type="excelHTML"/>
+        </af:commandButton>
+        <af:commandButton text="Review Selected Idea" id="cbReviewSelectedIdea">
+          <af:showPopupBehavior popupId="::reviewIdeaPopup:reviewIdea"
+                                triggerType="action"/>
+        </af:commandButton>
+        <af:commandButton text="View Partial List" id="cbFullList"
+                          action="partial"/>
+      </af:group>
+    </f:facet>
+    <br/>
+    <af:panelGroupLayout id="pgl3" layout="vertical">
+      <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.filterBean.status}"
+                          label="Idea Status" id="soc6">
+        <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownIdeaStatusFilterList}"
+                       id="si8"/>
+      </af:selectOneChoice>
+      <af:selectOneChoice value="#{pageFlowScope.listHandlerBean.filterBean.division}"
+                          label="Division" id="soc7">
+        <f:selectItems value="#{pageFlowScope.listHandlerBean.dropDownDivisionsFilterList}"
+                       id="si9"/>
+      </af:selectOneChoice>
+      <af:inputDate value="#{pageFlowScope.listHandlerBean.filterBean.fromDate}"
+                    label="Date From" id="id2"></af:inputDate>
+      <af:inputDate value="#{pageFlowScope.listHandlerBean.filterBean.toDate}"
+                    label="Date To" id="id3"></af:inputDate>
+      <af:commandButton text="Filter"
+                        id="cb5"
+                        action="#{pageFlowScope.listHandlerBean.refreshIdeaList}"/>
+    </af:panelGroupLayout>
+    <br/>
+    <af:table value="#{pageFlowScope.listHandlerBean.fullIdeaList}"
+              var="row" rows="10" rowSelection="single" id="tIdeas"
+              summary="Partial Idea List" styleClass="AFStretchWidth"
+              selectionListener="#{pageFlowScope.listHandlerBean.selectedListener}"
+              rowBandingInterval="0">
+      <af:column sortProperty="id" headerText="Ref No." id="c5">
+        <af:outputText value="#{row.submittedId}" id="ot1"/>
+      </af:column>
+      <af:column sortProperty="submittedBy" sortable="true"
+                 headerText="Submitted By" id="c4">
+        <af:outputText value="#{row.submittedBy}" id="ot4"/>
+      </af:column>
+      <af:column sortProperty="originator" sortable="true"
+                 headerText="Idea Owner" id="c7">
+        <af:outputText value="#{row.originator}" id="ot14"/>
+      </af:column>
+      <af:column sortProperty="dateSubmitted" sortable="true"
+                 headerText="Submitted On" id="c8">
+        <af:outputText value="#{row.dateSubmitted}" id="ot17"/>
+      </af:column>
+      <af:column sortProperty="division" sortable="true" headerText="Division"
+                 id="c2">
+        <af:outputText value="#{row.division}" id="ot3"/>
+      </af:column>
+      <af:column sortProperty="idea" sortable="false" headerText="Idea" id="c3">
+        <af:outputText value="#{row.displayIdea}" id="ot5" escape="false"/>
+      </af:column>
+      <af:column sortProperty="businessValue" sortable="false"
+                 headerText="Business Value" id="c9">
+        <af:outputText value="#{row.displayBusinessValue}" id="ot18"
+                       escape="false"/>
+      </af:column>
+      <af:column sortProperty="status" sortable="true" headerText="Idea Status"
+                 id="c10">
+        <af:outputText value="#{row.status}" id="ot19"/>
+      </af:column>
+      <af:column sortProperty="contactDetails" sortable="false"
+                 headerText="Contact Detail" id="c6">
+        <af:outputText value="#{row.displayContactDetails}" id="ot6"
+                       escape="false"/>
+      </af:column>
+      <af:column sortProperty="comments" sortable="false" headerText="Comments"
+                 id="c11">
+        <af:outputText value="#{row.displayComments}" id="ot20" escape="false"/>
+      </af:column>
+    </af:table>
+    <f:subview id="reviewIdeaPopup">
+      <jsp:include page="reviewIdeaPopup.jsff"/>
+    </f:subview>
+  </af:panelBox>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:listHandler-->
+</jsp:root>

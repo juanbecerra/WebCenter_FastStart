@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="youtube">
+    <default-activity id="__1">invokeYouTubeService</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name id="__3">socialMediaManagedBean</managed-bean-name>
+      <managed-bean-class id="__2">au.com.leicon.socialmedia.view.SocialMediaManagedBean</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="invokeYouTubeService">
+      <method>#{pageFlowScope.socialMediaManagedBean.invokeYouTube}</method>
+      <outcome id="__6">
+        <fixed-outcome>youtube</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="youtubePage">
+      <page>/youtubePage.jsff</page>
+    </view>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">invokeYouTubeService</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__9">youtube</from-outcome>
+        <to-activity-id id="__10">youtubePage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+    <visibility id="__12"/>
+  </task-flow-definition>
+</adfc-config>

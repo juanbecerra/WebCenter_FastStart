@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelGroupLayout id="pgl3">
+  
+    <af:panelGroupLayout id="pgl1" layout="vertical" halign="center" partialTriggers="loadData">
+      <af:poll id="loadData" interval="#{pageFlowScope.myESSDetailsManagedBean.hasloaded == 0 ? 1000 : -1}"
+             pollListener="#{pageFlowScope.myESSDetailsManagedBean.loadLinks}"
+             immediate="true" rendered="true"/>
+      <af:spacer width="10" height="20" id="s1"/>
+      <af:switcher id="s2" 
+      facetName="#{pageFlowScope.myESSDetailsManagedBean.hasloaded == 0? 'Loading':
+                   pageFlowScope.myESSDetailsManagedBean.errorCode eq '1'?'GeneralError':
+                   pageFlowScope.myESSDetailsManagedBean.errorCode eq '2'? 'NoAccess':
+                   'Ok'}">
+        <f:facet name="GeneralError">
+          <af:outputText value="Error contacting the EBS, Please try again later"
+                         id="ot2"/>
+        </f:facet>
+        <f:facet name="NoAccess">
+          <af:group id="g1">
+            <af:outputText value="You don't have access to the ESS module in EBS"
+                           id="ot1"/>
+          </af:group>
+        </f:facet>
+        <f:facet name="Loading">
+          <af:group id="g2">
+            <af:outputText value="Loading ...."
+                           id="ot3"/>
+          </af:group>
+        </f:facet>
+        <f:facet name="Ok">
+          <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+            
+            <af:goLink text="Your current leave balance is #{pageFlowScope.myESSDetailsManagedBean.leaveBalance}"
+                           id="gl6"
+                           destination="#{pageFlowScope.myESSDetailsManagedBean.leaveBalanceFullURL}"
+                           targetFrame="_blank"
+                           rendered="#{pageFlowScope.myESSDetailsManagedBean.leaveBalance ne ''}"/>
+              
+                <af:goLink text="Manage Your Leave" id="gl7"
+                           destination="#{pageFlowScope.myESSDetailsManagedBean.leaveBalanceFullURL}"
+                           targetFrame="_blank"
+                           rendered="#{pageFlowScope.myESSDetailsManagedBean.leaveBalance eq ''}"/>
+             
+               <af:spacer width="10" height="10" id="s5"/>
+      <af:spacer width="280" height="1" id="s3"
+                 inlineStyle="background-color:Gray; border-width:1px; border-color:rgb(240,240,240); border-style:solid;"/>
+      <af:spacer width="10" height="10" id="s6"/>
+                <af:goLink text="Your last payslip was on #{pageFlowScope.myESSDetailsManagedBean.lastPayslipDate}"
+                           id="gl2"
+                           destination="#{pageFlowScope.myESSDetailsManagedBean.payslipFullURL}"
+                           targetFrame="_blank"
+                           rendered="#{not empty pageFlowScope.myESSDetailsManagedBean.lastPayslipDate}"/>
+              
+                <af:goLink text="Manage Your Leave" id="gl1"
+                           destination="#{pageFlowScope.myESSDetailsManagedBean.leaveBalanceFullURL}"
+                           targetFrame="_blank"
+                           rendered="#{empty pageFlowScope.myESSDetailsManagedBean.lastPayslipDate}"/>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:switcher>
+    </af:panelGroupLayout>
+    <af:spacer width="10" height="20" id="s4"/>
+  </af:panelGroupLayout>
+</jsp:root>

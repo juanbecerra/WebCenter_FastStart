@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MytrainingCourses_EO"
+  Version="11.1.1.60.13"
+  DBObjectType="table"
+  DBObjectName="MYTRAINING_COURSES"
+  AliasName="MytrainingCourses_EO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="CourseId"
+    IsNotNull="true"
+    ColumnName="COURSE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MYTRAINING_COURSES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="1500"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Url"
+    IsNotNull="true"
+    Precision="250"
+    ColumnName="URL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CategoryId"
+    IsNotNull="true"
+    ColumnName="CATEGORY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Mandatory"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="MANDATORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Enabled"
+    IsNotNull="true"
+    Precision="3"
+    ColumnName="ENABLED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedOn"
+    ColumnName="MODIFIED_ON"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MYTRAINING_COURSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="MytrainingCoursesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MYTRAINING_COURSES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.CourseId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010405">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010405"/>
+      <Attr Name="_checkCondition" Value='"COURSE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.CourseId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010406">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010406"/>
+      <Attr Name="_checkCondition" Value='"NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010407">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010407"/>
+      <Attr Name="_checkCondition" Value='"URL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.Url"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010408">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010408"/>
+      <Attr Name="_checkCondition" Value='"CATEGORY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.CategoryId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010409">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010409"/>
+      <Attr Name="_checkCondition" Value='"MANDATORY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.Mandatory"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010410">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010410"/>
+      <Attr Name="_checkCondition" Value='"ENABLED" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.mytrainings.model.entity.MytrainingCourses_EO.Enabled"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,52 @@
+<wsdl:definitions
+     name="PhoSearchLocations"
+     targetNamespace="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoSearchLocations!1.0/PhoSearchLocations.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="PhoSearchLocations">
+        <plnk:role name="PhoSearchLocationsProvider">
+            <plnk:portType name="client:PhoSearchLocations"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"
+                 schemaLocation="PhoSearchLocations.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="PhoSearchLocationsRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="PhoSearchLocationsResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="PhoSearchLocations">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:PhoSearchLocationsRequestMessage"/>
+            <wsdl:output message="client:PhoSearchLocationsResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PhoSearchLocationsBinding" type="client:PhoSearchLocations">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="phosearchlocations_client_ep">
+        <wsdl:port name="PhoSearchLocations_pt" binding="client:PhoSearchLocationsBinding">
+            <soap:address location="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoSearchLocations/phosearchlocations_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

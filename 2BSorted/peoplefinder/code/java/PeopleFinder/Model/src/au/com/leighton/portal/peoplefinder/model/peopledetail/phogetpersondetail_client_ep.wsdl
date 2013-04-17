@@ -1,0 +1,52 @@
+<wsdl:definitions
+     name="PhoGetPersonDetail"
+     targetNamespace="http://xmlns.oracle.com/Portal/PhoGetPersonDetail/PhoGetPersonDetail"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/Portal/PhoGetPersonDetail/PhoGetPersonDetail"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:documentation>
+        <abstractWSDL>http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoGetPersonDetail!1.0/PhoGetPersonDetail.wsdl</abstractWSDL>
+    </wsdl:documentation>
+    <plnk:partnerLinkType name="PhoGetPersonDetail">
+        <plnk:role name="PhoGetPersonDetailProvider">
+            <plnk:portType name="client:PhoGetPersonDetail"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/Portal/PhoGetPersonDetail/PhoGetPersonDetail"
+                 schemaLocation="PhoGetPersonDetail.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="PhoGetPersonDetailRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="PhoGetPersonDetailResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="PhoGetPersonDetail">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:PhoGetPersonDetailRequestMessage"/>
+            <wsdl:output message="client:PhoGetPersonDetailResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PhoGetPersonDetailBinding" type="client:PhoGetPersonDetail">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="process">
+            <soap:operation style="document" soapAction="process"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/Portal/PhoGetPersonDetail/PhoGetPersonDetail"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/Portal/PhoGetPersonDetail/PhoGetPersonDetail"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="phogetpersondetail_client_ep">
+        <wsdl:port name="PhoGetPersonDetail_pt" binding="client:PhoGetPersonDetailBinding">
+            <soap:address location="http://lclxsoa11gdev.lc.local:7001/soa-infra/services/default/PhoGetPersonDetail/phogetpersondetail_client_ep"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

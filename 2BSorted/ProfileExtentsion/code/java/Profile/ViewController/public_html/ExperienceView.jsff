@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:decorativeBox id="db1" styleClass="AFStretchWidth"
+                      inlineStyle="height:350.0px;">
+      <f:facet name="center">
+        <af:group id="g1">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td>
+                <af:outputText styleClass="WCCustomHead2"
+                               value="#{pageFlowScope.leightonProfileBean.experienceBean.sectionTitle}"
+                               id="ot8"/>
+              </td>
+              <td align="right">
+                <af:commandButton text="New" id="cb1"
+                                  rendered="#{pageFlowScope.username eq securityContext.userName}">
+                  <af:showPopupBehavior popupId="newPopup"/>
+                </af:commandButton>
+                 
+                <af:commandButton text="Delete" id="cb2"
+                                  rendered="#{pageFlowScope.username eq securityContext.userName}">
+                  <af:showPopupBehavior popupId="confirmDeletePopup"/>
+                </af:commandButton>
+                 
+                <af:commandButton text="Edit" id="cb3"
+                                  rendered="#{pageFlowScope.username eq securityContext.userName}">
+                  <af:showPopupBehavior popupId="editPopup"/>
+                </af:commandButton>
+              </td>
+            </tr>
+          </table>
+          <br/>
+          <div style="overflow:auto; height:300px; width:100.0%;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                   style="width:90%;">
+              <af:forEach items="#{pageFlowScope.leightonProfileBean.experienceBean.experienceItemBeans}"
+                          var="item">
+                <tr>
+                  <td valign="top" width="30px">
+                    <af:selectBooleanRadio group="ExperienceItems" id="sbr1"
+                                           rendered="#{pageFlowScope.username eq securityContext.userName}"
+                                           autoSubmit="true" selected="false"
+                                           label=" " value="#{item.selected}"
+                                           valueChangeListener="#{item.selectionChange}"/>
+                  </td>
+                  <td>
+                    <af:outputText value="#{item.title}" id="ot6"
+                                   styleClass="WCCustomHead2"/>
+                     
+                    <br/>
+                     
+                    <af:outputText value="#{item.viewExperienceDescription}"
+                                   id="ot2" escape="false"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">&amp;nbsp;</td>
+                </tr>
+              </af:forEach>
+            </table>
+          </div>
+        </af:group>
+      </f:facet>
+    </af:decorativeBox>
+    <af:popup id="confirmDeletePopup" contentDelivery="lazyUncached">
+      <af:dialog id="dDeleteConfirmation" title="Delete Employee Information"
+                 type="none">
+        <f:facet name="buttonBar">
+          <af:panelGroupLayout layout="horizontal" halign="end"
+                               styleClass="AFStretchWidth" id="pgl3">
+            <af:commandButton text="Yes" id="pbYes"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null)}"
+                              action="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem.delete}"/>
+            <af:commandButton text="No" id="pbNo"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null)}"/>
+            <af:commandButton text="Cancel" id="pbCancel"
+                              rendered="#{(pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null)}"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <af:panelBorderLayout id="pbl1"
+                              rendered="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null}">
+          <af:outputText value="Please select the employee information you wish to delete"
+                         id="ot1"/>
+        </af:panelBorderLayout>
+        <af:panelBorderLayout id="pbl2"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null)}">
+          <af:outputLabel value="Are you sure you want to delete employee information?"
+                          id="ol1"/>
+          <br/>
+          <br/>
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pflEdit"
+                                      inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText value="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem.title}"
+                                   id="ot5"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:100.0px;">
+                  <af:panelFormLayout id="pfl2" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:outputText escape="false"
+                                   value="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem.viewExperienceDescription}"
+                                   id="ot4"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="editPopup" contentDelivery="lazyUncached">
+      <af:dialog id="dEditExperience" title="Edit Employee Information"
+                 type="none">
+        <f:facet name="buttonBar">
+          <af:panelGroupLayout layout="horizontal" halign="end"
+                               styleClass="AFStretchWidth" id="pgl4">
+            <af:commandButton text="Save" id="pbEditSave"
+                              action="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem.saveEdit}"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null)}"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <af:panelBorderLayout id="pblEditNoSelection"
+                              rendered="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null}">
+          <af:outputText value="Please select the employee information you wish to edit"
+                         id="ot3"/>
+        </af:panelBorderLayout>
+        <af:panelBorderLayout id="pblEdit"
+                              rendered="#{not (pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem eq null)}">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl1" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Title" id="it1Edit"
+                                  value="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem.title}"
+                                  required="true" maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:100.0px;">
+                  <af:panelFormLayout id="pfl5" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText value="#{pageFlowScope.leightonProfileBean.experienceBean.selectedExperienceItem.experienceDescription}"
+                                  label="Description" required="true" rows="5"
+                                  id="it5" styleClass="AFStretchWidth"
+                                  maximumLength="2000"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+    <af:popup id="newPopup" contentDelivery="lazyUncached">
+      <af:dialog id="dNewExperience" title="New Employee Information"
+                 type="none">
+        <f:facet name="buttonBar">
+          <af:panelGroupLayout layout="horizontal" halign="end"
+                               styleClass="AFStretchWidth" id="pgl2">
+            <af:commandButton text="Save" id="pbNewSave"
+                              action="#{NewExperienceItemBean.saveNew}"/>
+            <af:commandButton text="Cancel" id="pbNewCancel" immediate="true"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        <af:panelBorderLayout id="pblNew">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:40.0px;">
+                  <af:panelFormLayout id="pfl3" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText label="Title" id="it1New"
+                                  value="#{NewExperienceItemBean.title}"
+                                  required="true" maximumLength="100"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+             
+            <tr>
+              <td>
+                <div style="overflow:auto;width:600px; height:100.0px;">
+                  <af:panelFormLayout id="pfl4" inlineStyle="text-align:left; "
+                                      fieldWidth="500" labelWidth="100">
+                    <af:inputText value="#{NewExperienceItemBean.experienceDescription}"
+                                  label="Description" required="true" rows="5"
+                                  id="it1" styleClass="AFStretchWidth"
+                                  maximumLength="2000"/>
+                  </af:panelFormLayout>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </af:panelBorderLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
+</jsp:root>

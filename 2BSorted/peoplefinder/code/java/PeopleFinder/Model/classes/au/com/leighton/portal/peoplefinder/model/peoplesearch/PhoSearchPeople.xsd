@@ -1,0 +1,42 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople"
+     xmlns="http://xmlns.oracle.com/Portal/PhoSearchPeople/PhoSearchPeople" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="process">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="SearchType" type="xs:string" minOccurs="1" nillable="false"/>
+                <xs:element name="SimpleSearch" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="LocationID" type="xs:decimal" minOccurs="0" nillable="true"/>
+                <xs:element name="Surname" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="FirstName" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Title" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Dept" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Location" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="BusUnit" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Division" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Phone" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Mobile" type="xs:string" minOccurs="0" nillable="true"/>
+                <xs:element name="Expertise" type="xs:string" minOccurs="0" nillable="true"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="processResponse" type="PhoSearchResultOutputCollection"/>
+    <xs:complexType name="PhoSearchResultOutputCollection">
+        <xs:sequence>
+            <xs:element name="NUMFOUND" type="xs:decimal" nillable="true"/>
+            <xs:element name="RESULT" type="xs:string" nillable="true"/>
+            <xs:element name="PhoSearchOutput" type="PhoSearchOutput" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PhoSearchOutput">
+        <xs:sequence>
+            <xs:element name="P_PERSON_ID" type="xs:decimal" nillable="true"/>
+            <xs:element name="P_FIRSTNAME" type="xs:string" nillable="true"/>
+            <xs:element name="P_SURNAME" type="xs:string" nillable="true"/>
+            <xs:element name="P_TITLE" type="xs:string" nillable="true"/>
+            <xs:element name="P_DEPT_ID" type="xs:string" nillable="true"/>
+            <xs:element name="P_DEPT_NAME" type="xs:string" nillable="true"/>
+            <xs:element name="L_LOCATION_ID" type="xs:decimal" nillable="true"/>
+            <xs:element name="L_NAME" type="xs:string" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

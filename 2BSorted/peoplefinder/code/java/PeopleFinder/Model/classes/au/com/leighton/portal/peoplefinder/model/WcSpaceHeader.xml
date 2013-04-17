@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WcSpaceHeader"
+  Version="11.1.1.59.23"
+  DBObjectType="table"
+  DBObjectName="WC_SPACE_HEADER"
+  AliasName="WcSpaceHeader"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderImpl"
+  DefClass="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderDefImpl"
+  CollClass="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderCollImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="ApplicationId"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="APPLICATION_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpaceGuid"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="SPACE_GUID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpaceId"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="SPACE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DisplayName"
+    IsNotNull="true"
+    Precision="200"
+    ColumnName="DISPLAY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="4000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpacePublic"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SPACE_PUBLIC"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpacesUser"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SPACES_USER"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Discoverable"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="DISCOVERABLE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpaceOffline"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SPACE_OFFLINE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Closed"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="CLOSED"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SelfSubEnabled"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SELF_SUB_ENABLED"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RssEnabled"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="RSS_ENABLED"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpacesType"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SPACES_TYPE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Version"
+    ColumnName="VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Icon"
+    Precision="4000"
+    ColumnName="ICON"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Logo"
+    Precision="4000"
+    ColumnName="LOGO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Keywords"
+    Precision="4000"
+    ColumnName="KEYWORDS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="200"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreateDate"
+    ColumnName="CREATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UpdatedBy"
+    Precision="200"
+    ColumnName="UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentGuid"
+    Precision="200"
+    ColumnName="PARENT_GUID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SecurityParentGuid"
+    Precision="200"
+    ColumnName="SECURITY_PARENT_GUID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AncestorPath"
+    Precision="4000"
+    ColumnName="ANCESTOR_PATH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsSeeded"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IS_SEEDED"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="WC_SPACE_HEADER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SubGsCount"
+    ColumnName="SUB_GS_COUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GsMemberCount"
+    ColumnName="GS_MEMBER_COUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EnterpriseId"
+    IsNotNull="true"
+    ColumnName="ENTERPRISE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WC_SPACE_HEADER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="WcSpaceHeader"
+    Association="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkAssoc"
+    AssociationEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkAssoc.WcSpaceHeader"
+    AssociationOtherEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkAssoc.WcSpaceHeader1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="WcSpaceHeader1"
+    Association="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkAssoc"
+    AssociationEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkAssoc.WcSpaceHeader1"
+    AssociationOtherEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderParentFkAssoc.WcSpaceHeader"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="WcSpaceHeader3"
+    Association="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkAssoc"
+    AssociationEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkAssoc.WcSpaceHeader3"
+    AssociationOtherEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkAssoc.WcSpaceHeader2"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="WcSpaceHeader2"
+    Association="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkAssoc"
+    AssociationEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkAssoc.WcSpaceHeader2"
+    AssociationOtherEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceHeaderSecParentFkAssoc.WcSpaceHeader3"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="WcSpaceUsrDetail"
+    Association="au.com.leighton.portal.peoplefinder.model.WcSpaceUsrDetailFkAssoc"
+    AssociationEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceUsrDetailFkAssoc.WcSpaceUsrDetail"
+    AssociationOtherEnd="au.com.leighton.portal.peoplefinder.model.WcSpaceUsrDetailFkAssoc.WcSpaceHeader"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="WcSpaceHeaderPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="WC_SPACE_HEADER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.SpaceGuid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WcSpaceHeaderParentFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="WC_SPACE_HEADER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WC_SPACE_HEADER_PARENT_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.ParentGuid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WcSpaceHeaderSecParentFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="WC_SPACE_HEADER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WC_SPACE_HEADER_SEC_PARENT_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.SecurityParentGuid"/>
+    </AttrArray>
+  </Key>
+</Entity>

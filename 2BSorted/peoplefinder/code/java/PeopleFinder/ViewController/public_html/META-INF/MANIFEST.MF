@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+bpmSpaces-Extension-Name: oracle.bpm.spaces
+Extension-Name: com.leighton.peoplefinder.custom.webcenter.spaces
+Implementation-Vendor: Leighton Contractors Pty Ltd
+Ant-Version: Apache Ant 1.7.0
+Extension-List: bpmSpaces
+Implementation-Title: Oracle WebCenter Spaces Application Extension
+Implementation-Version: 11.1.1.2.82
+Created-By: 10.0-b23 (Sun Microsystems Inc.)
+Specification-Version: 11.1.1

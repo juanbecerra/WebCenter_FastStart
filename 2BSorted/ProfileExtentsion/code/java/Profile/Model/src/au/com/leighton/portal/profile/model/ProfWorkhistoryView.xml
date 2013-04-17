@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProfWorkhistoryView"
+  Version="11.1.1.59.23"
+  SelectList="ProfWorkhistory.ID, 
+       ProfWorkhistory.USERNAME, 
+       ProfWorkhistory.ROLE, 
+       ProfWorkhistory.COMPANY, 
+       ProfWorkhistory.LOCATION, 
+       ProfWorkhistory.STARTDATE, 
+       ProfWorkhistory.ENDDATE, 
+       ProfWorkhistory.JOBDESCRIPTION, 
+       ProfWorkhistory.DELETED"
+  FromList="PROF_WORKHISTORY ProfWorkhistory"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="au.com.leighton.portal.profile.model.ProfWorkhistoryViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ProfWorkhistory"
+    Entity="au.com.leighton.portal.profile.model.ProfWorkhistory"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="ProfWorkhistory"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="Username"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="ProfWorkhistory"
+    AliasName="USERNAME"/>
+  <ViewAttribute
+    Name="Role"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Role"
+    EntityUsage="ProfWorkhistory"
+    AliasName="ROLE"/>
+  <ViewAttribute
+    Name="Company"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Company"
+    EntityUsage="ProfWorkhistory"
+    AliasName="COMPANY"/>
+  <ViewAttribute
+    Name="Location"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Location"
+    EntityUsage="ProfWorkhistory"
+    AliasName="LOCATION"/>
+  <ViewAttribute
+    Name="Startdate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Startdate"
+    EntityUsage="ProfWorkhistory"
+    AliasName="STARTDATE"/>
+  <ViewAttribute
+    Name="Enddate"
+    PrecisionRule="true"
+    EntityAttrName="Enddate"
+    EntityUsage="ProfWorkhistory"
+    AliasName="ENDDATE"/>
+  <ViewAttribute
+    Name="Jobdescription"
+    PrecisionRule="true"
+    EntityAttrName="Jobdescription"
+    EntityUsage="ProfWorkhistory"
+    AliasName="JOBDESCRIPTION"/>
+  <ViewAttribute
+    Name="Deleted"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Deleted"
+    EntityUsage="ProfWorkhistory"
+    AliasName="DELETED"/>
+</ViewObject>

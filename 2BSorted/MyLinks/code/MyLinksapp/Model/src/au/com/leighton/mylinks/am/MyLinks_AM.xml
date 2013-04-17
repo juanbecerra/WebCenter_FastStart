@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MyLinks_AM"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.mylinks.am.MyLinks_AM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="MyLinkList_VO1"
+    ViewObjectName="au.com.leighton.mylinks.model.view.MyLinkList_VO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.mylinks.model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

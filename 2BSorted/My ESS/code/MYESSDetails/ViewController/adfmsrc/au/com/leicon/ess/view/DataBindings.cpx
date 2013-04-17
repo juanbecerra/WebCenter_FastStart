@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.60.13" id="DataBindings" SeparateXMLFiles="false"
+             Package="au.com.leicon.ess.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/testMyESSDetails.jspx"
+          usageId="au_com_leicon_ess_view_testMyESSDetailsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="au_com_leicon_ess_view_testMyESSDetailsPageDef"
+          path="au.com.leicon.ess.view.pageDefs.testMyESSDetailsPageDef"/>
+  </pageDefinitionUsages>
+</Application>

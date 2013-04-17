@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="myTasks">
+    <default-activity id="__1">tasks</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">taskList</managed-bean-name>
+      <managed-bean-class id="__2">com.abhi.view.TaskList</managed-bean-class>
+      <managed-bean-scope id="__5">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="tasks">
+      <page>/tasks.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

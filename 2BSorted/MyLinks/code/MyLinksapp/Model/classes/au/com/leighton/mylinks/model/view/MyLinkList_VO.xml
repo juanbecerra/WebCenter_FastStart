@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MyLinkList_VO"
+  Version="11.1.1.60.13"
+  OrderBy="DISPLAYNAME"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.mylinks.model.view.MyLinkList_VO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="userName"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.securityContext.userName]]></TransientExpression>
+  </Variable>
+  <SQLQuery>
+    <![CDATA[SELECT Mylinks_EO.DISPLAYNAME, 
+       Mylinks_EO.MYLINKS_ID, 
+       Mylinks_EO.NEWPAGE, 
+       Mylinks_EO.URL, 
+       Mylinks_EO.USERNAME
+FROM MYLINKS Mylinks_EO
+WHERE  Mylinks_EO.USERNAME = :userName]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="Mylinks_EO"
+    Entity="au.com.leighton.mylinks.model.entity.Mylinks_EO"/>
+  <ViewAttribute
+    Name="Displayname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Displayname"
+    EntityUsage="Mylinks_EO"
+    AliasName="DISPLAYNAME"/>
+  <ViewAttribute
+    Name="MylinksId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MylinksId"
+    EntityUsage="Mylinks_EO"
+    AliasName="MYLINKS_ID"/>
+  <ViewAttribute
+    Name="Newpage"
+    PrecisionRule="true"
+    EntityAttrName="Newpage"
+    EntityUsage="Mylinks_EO"
+    AliasName="NEWPAGE"/>
+  <ViewAttribute
+    Name="Url"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Url"
+    EntityUsage="Mylinks_EO"
+    AliasName="URL"/>
+  <ViewAttribute
+    Name="Username"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="Mylinks_EO"
+    AliasName="USERNAME"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.mylinks.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

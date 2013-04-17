@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="scroll"
+                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                       id="pgl2" styleClass="AFStretchWidth" halign="center">
+    <af:table value="#{bindings.MySpacesListVO1.collectionModel}" var="row"
+              rows="#{bindings.MySpacesListVO1.rangeSize}"
+              emptyText="#{bindings.MySpacesListVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.MySpacesListVO1.rangeSize}"
+              rowBandingInterval="0" id="t1" 
+              
+              verticalGridVisible="false"
+              autoHeightRows="2" 
+              shortDesc="My Spaces"
+              columnStretching="last" width="97%" inlineStyle="border:0.0px;">
+              
+    <af:column sortProperty="Icon" inlineStyle="padding: 10px 10px; border-top: 1px solid #EDECEA;" width="102" sortable="false" id="c5">
+        <af:image source="//webcenter/webcenter-spaces-resources#{row.Logo}/LOGO75" shortDesc="#{row.Description}" inlineStyle="width:59px; height:59px; " id="i1"/>
+      
+      </af:column>
+      <af:column id="c6">
+        <af:column sortable="false" id="c4">
+          <af:outputText value="#{row.Description}" id="ot3" visible="false"/>
+          <af:goLink  text="#{row.DisplayName}"  destination="//webcenter/spaces/#{row.SpaceId}" id="ot2"/>
+          <af:outputText value="#{row.SpaceId}" id="ot5" visible="false"/>
+          <af:outputText value="#{row.memberCount}" id="ot4"/>
+          <af:outputText value="#{row.SpaceLastUpdate}" id="ot1"/>
+        </af:column>
+      </af:column>
+ 
+    </af:table>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:panelGroupLayout layout="horizontal"
+                           id="footeroptions" styleClass="AFStretchWidth"
+                         inlineStyle="padding-right:5px;">
+                           
+       <!--<af:panelGroupLayout layout="horizontal"
+                           id="pgleft"
+                           inlineStyle="padding:10.0px;" halign="left">
+                                                     
+        <af:commandLink id="cb1"
+                        text="Add/Remove" styleClass="icon-left add-icon">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandLink>
+        
+      </af:panelGroupLayout>-->
+      
+      <af:panelGroupLayout layout="horizontal"
+                           id="pgright"
+                         halign="right">
+        <af:goLink text="View My Spaces" id="gl2"
+                   destination="//webcenter/spaces/page/Spaces"
+                   styleClass="arrow-right-link"
+                   inlineStyle="white-space:nowrap;"/>
+       
+        
+      </af:panelGroupLayout>
+       </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

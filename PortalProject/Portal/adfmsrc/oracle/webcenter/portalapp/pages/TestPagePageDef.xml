@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="TestPagePageDef"
+                Package="oracle.webcenter.portalapp.pages">
+  <parameters>
+    <parameter id="page_parent"
+               value="/oracle/webcenter/portalapp/pagehierarchy/pages.xml"/>
+    <parameter id="page_info"
+               value="title=TestPage;desc=;keywords=;createdBy=weblogic;createDate=2012-12-04T19:00:21;lastUpdatedBy=weblogic;lastUpdateDate=2012-12-04T19:00:21;permissionClass=oracle.webcenter.security.auth.HierarchicalResourcePermission;target=serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/TestPage.jspx;excluded=false;style="/>
+    <parameter id="page_title" value="TestPage"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="oracle.webcenter.portalapp.pagetemplates.Oakton_MainPageDef"
+          id="pageTemplateBinding" Refresh="ifNeeded"/>
+    <taskFlow id="MySpacesQuickView1"
+              taskFlowId="/WEB-INF/TaskFlow/MySpaces-QuickView.xml#MySpaces-QuickView"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+  <permission permissionClass="oracle.webcenter.security.auth.HierarchicalResourcePermission"
+              target="serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/TestPage.jspx"
+              xmlns="http://xmlns.oracle.com/adf/security">
+    <privilege-map operation="create" privilege="create"/>
+    <privilege-map operation="delete" privilege="delete"/>
+    <privilege-map operation="edit" privilege="update"/>
+    <privilege-map operation="personalize" privilege="personalize"/>
+    <privilege-map operation="view" privilege="view"/>
+  </permission>
+</pageDefinition>

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
+    <af:outputLabel value="Advanced Search" id="ol1" styleClass="WCIntranetH3"/>
+    <af:spacer height="5" id="s1"/>
+    <af:panelGroupLayout id="pgl1" layout="horizontal" valign="top">
+      <af:subform id="subform7" defaultCommand="advancedSearchPeopleButton">
+        <af:panelFormLayout id="pfl1" labelWidth="80px" fieldWidth="200px"
+                            inlineStyle="border-style:solid; border-width:1px;">
+          <af:outputLabel value="People" id="ol3" styleClass="WCHead1Bold"/>
+          <af:inputText label="Surname" id="it1" columns="30" maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.surname}"/>
+          <af:inputText label="First Name" id="it2" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.firstName}"/>
+          <af:inputText label="Title" id="it3" columns="30" maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.title}"/>
+          <af:inputText label="Department" id="it6" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.department}"/>
+          <af:inputText label="Location" id="it11" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.location}"/>
+          <af:inputText label="Business Unit" id="it13" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.businessUnit}"
+                        rendered="false"/>
+          <af:inputText label="Division" id="it14" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.division}"
+                        rendered="false"/>
+          <af:inputText label="Phone" id="it4" columns="20" maximumLength="20"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.phone}"/>
+          <af:inputText label="Mobile" id="it5" columns="20" maximumLength="20"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.mobile}"/>
+          <af:inputText label="Experience" id="it17" columns="30"
+                        maximumLength="100"
+                        value="#{pageFlowScope.peopleFinderBean.peopleCriteria.experience}"/>
+          <af:spacer id="s3" height="5"/>
+          <af:panelGroupLayout id="pgl3" layout="horizontal">
+            <af:commandButton text="Reset" id="cb1"
+                              action="#{pageFlowScope.peopleFinderBean.resetAdvancedPeople}"/>
+            <af:spacer width="5" id="s5"/>
+            <af:commandButton text="Search" id="advancedSearchPeopleButton"
+                              action="#{pageFlowScope.peopleFinderBean.advancedSearchPeople}"/>
+          </af:panelGroupLayout>
+          <af:spacer id="s8" height="5"/>
+        </af:panelFormLayout>
+      </af:subform>
+      <af:spacer id="s2" width="20"/>
+      <af:subform id="subform8" defaultCommand="advancedSearchLocationButton">
+        <af:panelFormLayout id="pfl2" labelWidth="80px" fieldWidth="200px"
+                            inlineStyle="border-style:solid; border-width:1px;">
+          <af:outputLabel value="Location" id="ol2" styleClass="WCHead1Bold"/>
+          <af:inputText label="Name" id="it7" columns="30" maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.name}"/>
+          <af:inputText label="Business Unit" id="it15" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.businessUnit}"
+                        rendered="false"/>
+          <af:inputText label="Division" id="it16"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.division}"
+                        rendered="false"/>
+          <af:inputText label="Suburb/Town" id="it8" columns="30"
+                        maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.suburbTown}"/>
+          <af:inputText label="State" id="it10" columns="10" maximumLength="10"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.state}"/>
+          <af:inputText label="Phone" id="it9" columns="20" maximumLength="20"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.phone}"/>
+          <af:inputText label="Notes" id="it12" columns="30" maximumLength="50"
+                        value="#{pageFlowScope.peopleFinderBean.locationCriteria.notes}"/>
+          <af:spacer id="s4" height="5"/>
+          <af:panelGroupLayout id="pgl5" layout="horizontal">
+            <af:commandButton text="Reset" id="cb3"
+                              action="#{pageFlowScope.peopleFinderBean.resetAdvancedLocation}"/>
+            <af:spacer width="5" id="s7"/>
+            <af:commandButton text="Search" id="advancedSearchLocationButton"
+                              action="#{pageFlowScope.peopleFinderBean.advancedSearchLocation}"/>
+          </af:panelGroupLayout>
+          <af:spacer id="s9" height="5"/>
+        </af:panelFormLayout>
+      </af:subform>
+    </af:panelGroupLayout>
+    <af:spacer height="10" id="s6"/>
+  </af:panelGroupLayout>
+</jsp:root>

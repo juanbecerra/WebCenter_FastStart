@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname localpart="phosearchlocations_client_ep"
+                     namespaceURI="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"/>
+      <port-info>
+         <wsdl-port localpart="PhoSearchLocations_pt"
+                    namespaceURI="http://xmlns.oracle.com/Portal/PhoSearchLocations/PhoSearchLocations"/>
+         <runtime/>
+         <operations>
+            <operation name="process"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

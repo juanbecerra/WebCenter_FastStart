@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="au.com.leighton.mytrainingadmin.model.am.MyTrainingAdmin_AM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="au.com.leighton.mytrainingadmin.model.Model" name="MyTrainingAdmin_AMLocal" ApplicationName="au.com.leighton.mytrainingadmin.model.am.MyTrainingAdmin_AM" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.doconnectionpooling="true"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="au.com.leighton.mytrainingadmin.model.am.MyTrainingAdmin_AM"/>
+         <Custom JDBCDataSource="jdbc/WCS_CUSTOMDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="MyTrainingAdmin_AMShared" ApplicationName="au.com.leighton.mytrainingadmin.model.am.MyTrainingAdmin_AM" DeployPlatform="LOCAL" JDBCName="WCS_CUSTOMDS" jbo.project="au.com.leighton.mytrainingadmin.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Security AppModuleJndiName="au.com.leighton.mytrainingadmin.model.am.MyTrainingAdmin_AM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

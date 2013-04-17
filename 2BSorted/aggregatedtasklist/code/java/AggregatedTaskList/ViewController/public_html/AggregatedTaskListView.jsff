@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  
+    
+    <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth"
+                           partialTriggers="refreshButton systemFilterChoice refTable" inlineStyle="padding:10.0px;">
+      <f:facet name="center">
+        <af:panelGroupLayout id="taskList" layout="vertical">
+        
+        
+       <af:panelGroupLayout layout="horizontal" id="pgTop" styleClass="AFStretchWidth">
+                           
+        <af:panelGroupLayout layout="horizontal" id="pgleft"  halign="left"
+                             inlineStyle="width:250px;">
+                                                     
+            <af:selectOneChoice label="System Filter" id="systemFilterChoice"
+                              autoSubmit="true"
+                              valueChangeListener="#{pageFlowScope.taskListManagedBean.systemFilterChanged}"
+                              value="#{pageFlowScope.taskListManagedBean.systemFilterChoice}"
+                              binding="#{pageFlowScope.taskListManagedBean.systemFilterChoiceBinding}">
+            <af:selectItem label="All" value="All" id="si5"/>
+            <af:selectItem label="ARM" value="ARM" id="si4"/>
+            <af:selectItem label="EBS" value="EBS" id="si3"/>
+            <af:selectItem label="Our Way" value="Our Way" id="si2"/>
+            <af:selectItem label="WWS" value="WWS" id="si1"/>
+          </af:selectOneChoice>
+        
+      </af:panelGroupLayout>
+      
+      
+      <af:panelGroupLayout layout="horizontal" id="pgright" halign="right">
+                        <af:commandButton text="Refresh list" id="refreshButton"
+                              actionListener="#{pageFlowScope.taskListManagedBean.refreshTasks}"
+                              partialSubmit="true"/> 
+      </af:panelGroupLayout>
+  </af:panelGroupLayout>
+        
+  <af:spacer height="5" id="s3"/>
+  <af:outputText value="#{pageFlowScope.taskListManagedBean.errorMessage}"
+                 id="otWarningText" 
+                 styleClass="WCCustomHead4" 
+                 rendered="#{pageFlowScope.taskListManagedBean.errored}"/>
+          
+  <af:outputText value="Loading Tasks......"
+                 id="otLoading" 
+                 styleClass="WCCustomHead4" 
+                 rendered="#{pageFlowScope.taskListManagedBean.hasloaded == 0}"/>
+                 
+          
+  <af:spacer height="5" id="s1"/>
+  
+   <af:table value="#{pageFlowScope.taskListManagedBean.filteredTasks}"
+                      styleClass="AFStretchWidth" var="row"
+                      columnStretching="column:descol" rowBandingInterval="0"
+                      contentDelivery="immediate" id="MyTasks" autoHeightRows="5">
+              <af:column sortable="true" id="syscol" width="90"
+                         headerText="System" sortProperty="system">
+                <af:outputText value="#{row.system}" id="ot5"/>
+              </af:column>
+              <af:column sortable="true" sortProperty="subject"
+                         headerText="Description" id="descol">
+                <af:goLink text="#{row.subject}" id="gl1"
+                           destination="#{row.url}" targetFrame="taskSource"/>
+              </af:column>
+              <af:column sortable="true" headerText="Due Date" id="datecol"
+                         width="100" sortProperty="daysRemainingSort">
+                <af:outputText value="#{row.dueDate}" id="ot2">
+                  <af:convertDateTime pattern="dd/MM/yyyy"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortable="true" headerText="Days Remaining" id="drcol"
+                         width="120" sortProperty="daysRemainingSort">
+                <af:outputText value="#{row.daysRemaining}" id="ot4"
+                               rendered="#{row.dueDate != null}"/>
+              </af:column>
+            </af:table>
+     <af:poll id="refTable"
+             interval="#{pageFlowScope.taskListManagedBean.hasloaded == 0 ? 1000 : -1}"
+             pollListener="#{pageFlowScope.taskListManagedBean.loadTable}"
+             immediate="true" rendered="true"/>
+        </af:panelGroupLayout>
+      </f:facet>
+    </af:panelStretchLayout>
+</jsp:root>
+

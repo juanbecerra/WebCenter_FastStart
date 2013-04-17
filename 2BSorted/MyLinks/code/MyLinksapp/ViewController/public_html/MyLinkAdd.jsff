@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+          
+         
+     
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.Displayname.inputValue}"
+                    label="Display Name"
+                  required="#{bindings.Displayname.hints.mandatory}"
+                  maximumLength="#{bindings.Displayname.hints.precision}"
+                  shortDesc="#{bindings.Displayname.hints.tooltip}" id="it4">
+      <f:validator binding="#{bindings.Displayname.validator}"/>
+    </af:inputText>
+    
+    <af:panelLabelAndMessage id="plm1">
+    <f:facet name="end">
+      <af:goLink text="Set to Current Page" id="gl3" 
+                   destination="javascript:getparentURL();"/>
+    </f:facet>
+    <af:inputText value="#{bindings.Url.inputValue}" label="Link URL"
+                  required="#{bindings.Url.hints.mandatory}"
+                  maximumLength="#{bindings.Url.hints.precision}"
+                  shortDesc="#{bindings.Url.hints.tooltip}" id="it1">
+      <f:validator binding="#{bindings.Url.validator}"/>
+    </af:inputText>
+  </af:panelLabelAndMessage>
+    
+    
+    
+    
+    
+    <af:selectOneChoice value="#{bindings.Newpage.inputValue}" label="Open in New Window"
+                        required="#{bindings.Newpage.hints.mandatory}"
+                        shortDesc="#{bindings.Newpage.hints.tooltip}" id="soc1">
+      <af:selectItem  label="Yes" value="Y" id="si1"/>
+      <af:selectItem label="No" value="N" id="si2"/>
+    </af:selectOneChoice>
+    <f:facet name="footer">
+      <af:panelGroupLayout layout="horizontal" id="pgright1" halign="left">
+        <af:commandButton actionListener="#{bindings.Commit.execute}"
+                          action="listMylink" text="Save"
+                          id="cb2"/>
+        <af:commandButton actionListener="#{bindings.Rollback.execute}"
+                        action="listMylink" text="Cancel"
+                        immediate="true" id="cl1">
+          <af:resetActionListener/>
+        </af:commandButton>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelFormLayout>
+</jsp:root>

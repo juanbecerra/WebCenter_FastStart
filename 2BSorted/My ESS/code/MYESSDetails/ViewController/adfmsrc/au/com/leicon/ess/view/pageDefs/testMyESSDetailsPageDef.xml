@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.60.13" id="testMyESSDetailsPageDef"
+                Package="au.com.leicon.ess.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="myESSDetails1"
+              taskFlowId="/WEB-INF/taskflow/myESSDetails.xml#myESSDetails"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="myESSDetails2"
+              taskFlowId="/WEB-INF/taskflow/myESSDetails.xml#myESSDetails"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="username" value="DUPPILI"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="myESSDetails3"
+              taskFlowId="/WEB-INF/taskflow/myESSDetails.xml#myESSDetails"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

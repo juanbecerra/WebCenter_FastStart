@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/SubmitInnovation.xml" id="SubmitInnovation" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/IdeaRegister.xml" id="IdeaRegister" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/InnovationRegister.xml" id="InnovationRegister" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+</task-flow-registry>

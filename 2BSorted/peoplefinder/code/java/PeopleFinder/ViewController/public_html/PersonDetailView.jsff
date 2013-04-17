@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:trh="http://myfaces.apache.org/trinidad/html">
+  <af:resource type="javascript">
+    function showMailerPopup(actionEvent) {
+        actionEvent.cancel();
+        var eventSource = actionEvent.getSource();
+        var v_popup = eventSource.getProperty("v_popup");
+        var popup = eventSource.findComponent(v_popup);
+        popup.show( {
+            align : AdfRichPopup.ALIGN_AFTER_START, alignId : eventSource.getClientId()
+        });
+        popup.cancel();
+    }
+  </af:resource>
+  <af:panelGroupLayout id="pgl1" layout="vertical" styleClass="AFStretchWidth">
+    <af:switcher id="s14"
+                 facetName="#{pageFlowScope.peopleFinderBean.userNameParam eq null or pageFlowScope.peopleFinderBean.userNameParam eq '' ? 'normal' : ''}">
+    <f:facet name="normal">
+    <af:commandLink text="&lt;&lt; Back to Search Results" id="cl1"
+                    action="return"/>
+    </f:facet>
+    </af:switcher>
+    <af:panelGroupLayout id="pgl4" layout="horizontal" valign="top">
+      <af:panelGroupLayout id="pgl9" layout="horizontal" valign="top"
+                           inlineStyle="width:20.0%;">
+        <af:activeImage source="#{pageFlowScope.peopleFinderBean.selectedPerson.photoSource}"
+                        id="ai1" inlineStyle="height:180px"/>
+        <!--<af:outputText value="No Photo Available" id="ot20"
+                               rendered="#{not pageFlowScope.peopleFinderBean.selectedPerson.photoAvailable}"
+                               inlineStyle="font-style:italic;width:150px;"/>-->
+      </af:panelGroupLayout>
+      <af:spacer width="20" id="s2"/>
+      <af:panelGroupLayout id="pgl5" layout="vertical">
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.fullName}"
+                       id="ot2" styleClass="WCCustomHead1"/>
+        <br/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.title}"
+                       id="ot11" styleClass="WCHead2Bold"/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.department}"
+                       id="ot12" styleClass="WCHead2Bold"/>
+        <br/>
+        <af:panelLabelAndMessage label="Contact:" id="plam2"
+                                 visible="#{pageFlowScope.peopleFinderBean.selectedPerson.hasPersonalAssistant}">
+          <af:commandLink text="#{pageFlowScope.peopleFinderBean.selectedPerson.personalAssistantName}"
+                          id="cl2" action="getClicked">
+            <af:setPropertyListener from="#{pageFlowScope.peopleFinderBean.selectedPerson.personalAssistantId}"
+                                    to="#{pageFlowScope.peopleFinderBean.clickedPersonId}"
+                                    type="action"/>
+          </af:commandLink>
+        </af:panelLabelAndMessage>
+        <br/>
+        <af:panelLabelAndMessage label="Email:" id="plam5">
+          <af:commandLink text="#{pageFlowScope.peopleFinderBean.selectedPerson.email}"
+                          id="cl5">
+            <af:clientListener method="showMailerPopup" type="action"/>
+            <af:clientAttribute name="v_popup" value="mailer1"/>
+          </af:commandLink>
+          <af:popup id="mailer1" clientComponent="true">
+            Opening Outlook...
+            <af:inlineFrame id="if1" inlineStyle="width:2px; height:2px;"
+                            visible="false" shortDesc="mailer"
+                            source="#{'mailto:'} #{pageFlowScope.peopleFinderBean.selectedPerson.email}"
+                            clientComponent="true"/>
+          </af:popup>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="Desk Phone:" id="plam3">
+          <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.mainPhone}"
+                         id="ot14"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="Fax:" id="plam4">
+          <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationFax}"
+                         id="ot15"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="Mobile:" id="plam6">
+          <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.mobile}"
+                         id="ot17"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="Notes:" id="plam7">
+          <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.note}"
+                         id="ot1s"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="Username:" id="plam1"
+                                 rendered="#{pageFlowScope.peopleFinderBean.selectedPerson.userNameValid}">
+          <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.userName}"
+                         id="ot13"
+                         rendered="#{pageFlowScope.peopleFinderBean.selectedPerson.userNameValid}"/>
+        </af:panelLabelAndMessage>
+        <br/>
+        <af:commandLink text="If these details are incorrect click here"
+                        id="cl_adminemail" action="dialog:adminemail"
+                        useWindow="true" partialSubmit="true" windowHeight="300"
+                        windowWidth="400" windowEmbedStyle="inlineDocument"></af:commandLink>
+        <!--      <af:commandLink text="If these details are incorrect click here"
+                            id="cl3"
+                            visible="#{pageFlowScope.peopleFinderBean.selectedPerson.adminEmailAvailable}">
+                
+                       <af:clientListener method="showMailerPopup" type="action" />
+                       <af:clientAttribute name="v_popup" value="mailer2"/>
+                       
+              </af:commandLink>
+            
+            <af:popup id="mailer2" clientComponent="true">  Opening Outlook...
+              <af:inlineFrame id="if2"  inlineStyle="width:2px; height:2px;" visible="false" shortDesc="mailer" source="#{pageFlowScope.peopleFinderBean.selectedPerson.adminEmailUrl}" clientComponent="true"/>
+            </af:popup>
+            
+            -->
+      </af:panelGroupLayout>
+      <af:spacer width="45" id="s1"/>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:outputLabel value="Location:" id="ol1"/>
+        <br/>
+        <af:goLink text="Show map" id="gl1"
+                   destination="#{pageFlowScope.peopleFinderBean.selectedPerson.showMapUrl}"
+                   targetFrame="_blank"/>
+        <br/>
+        <br/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.location}"
+                       id="ot32" styleClass="WCHead1Bold"/>
+        <br/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationAddress1}"
+                       id="ot33"/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationAddress2}"
+                       id="ot16"/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationStatePostcode}"
+                       id="ot34"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+    <af:spacer width="30" height="20" id="s13"/>
+    <af:panelGroupLayout id="pgl2" layout="horizontal" valign="top">
+      <af:panelGroupLayout id="pgl3" layout="vertical"
+                           styleClass="AFStretchWidth" valign="top">
+        <!--**Reporting Line***-->
+        <af:outputLabel value="Reporting Line:" id="ol2"/>
+        <af:tree id="tree1" var="node"
+                 value="#{pageFlowScope.peopleFinderBean.selectedPersonTreeModel}"
+                 expandAllEnabled="false" contentDelivery="whenAvailable"
+                 initiallyExpanded="true" summary="Reporting Line"
+                 autoHeightRows="0" styleClass="AFStretchWidth" fetchSize="25">
+          <f:facet name="nodeStamp">
+            <af:group id="g2">
+              <af:commandLink text="#{node.displayName}" id="cl8"
+                              action="getClicked">
+                <af:setPropertyListener from="#{node.username}"
+                                        to="#{pageFlowScope.peopleFinderBean.clickedPersonUsername}"
+                                        type="action"/>
+              </af:commandLink>
+              <!--<af:outputText value="#{node.displayName}" id="ot5"/>-->
+            </af:group>
+          </f:facet>
+        </af:tree>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.clickedError}"
+                       id="ot1" inlineStyle="color:Red;"/>
+        <af:spacer width="10" height="10" id="s12"/>
+        <!--*****Connection Details****  -->
+        <af:outputLabel value="#{pageFlowScope.peopleFinderBean.selectedPerson.firstName}'s Connections:"
+                        id="ol3"/>
+        <af:outputText value="No connections available" id="pcot4"
+                       rendered="#{not pageFlowScope.peopleFinderBean.selectedPerson.hasWcsConnections}"/>
+        <af:table value="#{pageFlowScope.peopleFinderBean.selectedPerson.wcsConnectionRows}"
+                  var="row" rowSelection="none" id="tConn" summary="Connections"
+                  rowBandingInterval="0"
+                  rendered="#{pageFlowScope.peopleFinderBean.selectedPerson.hasWcsConnections}"
+                  autoHeightRows="3" immediate="true" fetchSize="30"
+                  horizontalGridVisible="false" verticalGridVisible="false"
+                  inlineStyle="width:250.0px; border-width:0.0px;">
+          <af:column id="cConnC1" align="center" width="70">
+            <af:activeImage source="#{row.connectionC1.connectionLogoImage}"
+                            id="a22i1"/>
+            <!-- <af:outputText value="#{row.connectionC1.connectionDisplayName}" id="ot221"
+                        styleClass="WCCustomHead7Grey"/>-->
+            <af:commandLink text="#{row.connectionC1.connectionDisplayName}"
+                            id="cl4" action="getClicked"
+                            rendered="#{row.connectionC1.connectionUsername ne null}">
+              <af:setPropertyListener from="#{row.connectionC1.connectionUsername}"
+                                      to="#{pageFlowScope.peopleFinderBean.clickedPersonUsername}"
+                                      type="action"/>
+            </af:commandLink>
+          </af:column>
+          <af:column id="cConnC2" align="center" width="70">
+            <af:activeImage source="#{row.connectionC2.connectionLogoImage}"
+                            id="a2322i1"
+                            rendered="#{row.connectionC2.connectionUsername ne null}"/>
+            <af:commandLink text="#{row.connectionC2.connectionDisplayName}"
+                            id="cl6" action="getClicked"
+                            rendered="#{row.connectionC2.connectionUsername ne null}">
+              <af:setPropertyListener from="#{row.connectionC2.connectionUsername}"
+                                      to="#{pageFlowScope.peopleFinderBean.clickedPersonUsername}"
+                                      type="action"/>
+            </af:commandLink>
+          </af:column>
+          <af:column id="cConnC3" align="center" width="70">
+            <af:activeImage source="#{row.connectionC3.connectionLogoImage}"
+                            id="a232i1"
+                            rendered="#{row.connectionC3.connectionUsername ne null}"/>
+            <af:commandLink text="#{row.connectionC3.connectionDisplayName}"
+                            id="cl7" action="getClicked"
+                            rendered="#{row.connectionC3.connectionUsername ne null}">
+              <af:setPropertyListener from="#{row.connectionC3.connectionUsername}"
+                                      to="#{pageFlowScope.peopleFinderBean.clickedPersonUsername}"
+                                      type="action"/>
+            </af:commandLink>
+          </af:column>
+        </af:table>
+        <!--***********************Spaces Moderated by**************-->
+        <af:spacer width="300px" height="20" id="s3"/>
+        <af:outputLabel value="Spaces Moderated By #{pageFlowScope.peopleFinderBean.selectedPerson.firstName}:"
+                        id="ol4"/>
+        <af:outputText value="No Spaces available" id="ot23"
+                       rendered="#{not pageFlowScope.peopleFinderBean.selectedPerson.hasWcsModeradedSpaces}"/>
+        <af:table value="#{pageFlowScope.peopleFinderBean.selectedPerson.wcsModeradedSpaces}"
+                  var="row" rowSelection="none" id="tSpaces"
+                  summary="Moderated Spaces"
+                  rendered="#{pageFlowScope.peopleFinderBean.selectedPerson.hasWcsModeradedSpaces}"
+                  styleClass="AFStretchWidth" rowBandingInterval="0"
+                  inlineStyle="border-width:0.0px;"
+                  horizontalGridVisible="false" verticalGridVisible="false"
+                  autoHeightRows="6">
+          <af:column id="c3" inlineStyle="width:50.0px;">
+            <af:image source="//webcenter/webcenter-spaces-resources#{row.spaceLogo}"
+                      shortDesc="#{row.spaceDisplayName}" id="i1"
+                      inlineStyle="width:50.0px; height:50.0px;"/>
+          </af:column>
+          <af:column id="c5" align="left">
+            <af:goLink text="#{row.spaceDisplayName}" id="gl2"
+                       destination="//webcenter/spaces/#{row.spaceId}"
+                       styleClass="WCCustomHead6BlueBold"/>
+            <af:outputText value="#{row.spaceMemberCount} Member(s)" id="ot21"/>
+            <af:outputText value="#{row.spaceLastUpdate}" id="ot22"
+                           styleClass="WCCustomHead6Grey"/>
+          </af:column>
+        </af:table>
+      </af:panelGroupLayout>
+      <af:spacer width="10" height="10" id="s5"/>
+      <af:panelGroupLayout id="pgl7" layout="vertical"
+                           styleClass="AFStretchWidth" valign="top">
+        <!--**********************Experience***********************-->
+        <af:outputLabel value="Experience:" id="ol5"/>
+        <af:spacer width="390px" height="20px" id="s11"/>
+        <af:forEach items="#{pageFlowScope.peopleFinderBean.selectedPerson.experience}"
+                    var="item">
+          <af:outputText value="#{item.role}" id="ot7"
+                         styleClass="WCCustomHead5"/>
+          <af:spacer width="10" height="10" id="s6"/>
+          <af:outputText value="#{item.company}" id="ot8"
+                         styleClass="WCCustomHead3"/>
+          <af:spacer width="10" height="10" id="s7"/>
+          <af:outputText value="#{item.location}" id="ot9"
+                         styleClass="WCCustomHead4"/>
+          <af:spacer width="10" height="10" id="s8"/>
+          <af:outputText value="#{item.timeframe}" id="ot19"
+                         styleClass="WCCustomHead4"/>
+          <af:spacer width="10" height="10" id="s9"/>
+          <af:outputText value="#{item.description}" escape="false" id="ot10"/>
+          <af:spacer width="10" height="20" id="s10"/>
+        </af:forEach>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+  <trh:script>
+    try {
+        document.getElementById('intranet_query').focus();
+
+    }
+    catch (e) {
+        null;
+    }
+  </trh:script>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:peopleFinderBean-->
+</jsp:root>

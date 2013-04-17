@@ -1,0 +1,35 @@
+Project: .../MySpacesQuickview/ViewController/ViewController.jpr
+Class-Path: 
+1.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F1.jar file%3A%2F1.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DJSP%2BRuntime
+2.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F2.jar file%3A%2F2.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BPage%2BFlow%2BRuntime
+3.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F3.jar file%3A%2F3.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BController%2BRuntime
+4.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F4.jar file%3A%2F4.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BController%2BSchema
+5.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F5.jar file%3A%2F5.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BFaces%2BRuntime%2B11
+6.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F6.jar file%3A%2F6.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BCommon%2BRuntime
+7.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F7.jar file%3A%2F7.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BWeb%2BRuntime
+8.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F8.jar file%3A%2F8.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DMDS%2BRuntime
+9.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F9.jar file%3A%2F9.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DMDS%2BRuntime%2BDependencies
+10.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F10.jar file%3A%2F10.jar%3Fd%3D1%26x%3D1%26e%3D1%26k%3D1%26i%3DCommons%2BBeanutils%2B1.6
+11.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F11.jar file%3A%2F11.jar%3Fd%3D1%26x%3D1%26e%3D1%26k%3D1%26i%3DCommons%2BLogging%2B1.0.4
+12.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F12.jar file%3A%2F12.jar%3Fd%3D1%26x%3D1%26e%3D1%26k%3D1%26i%3DCommons%2BCollections%2B3.1
+13.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F13.jar file%3A%2F13.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DJSF%2B1.2
+14.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F14.jar file%3A%2F14.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DJSTL%2B1.2
+15.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F15.jar file%3A%2F15.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BDVT%2BFaces%2BRuntime
+16.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F16.jar file%3A%2F16.jar%3Fd%3D1%26x%3D1%26e%3D1%26k%3D1%26i%3DADF%2BDVT%2BFaces%2BDatabinding%2BRuntime
+17.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F17.jar file%3A%2F17.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BDVT%2BFaces%2BDatabinding%2BMDS%2BRuntime
+18.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F18.jar file%3A%2F18.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BCommon%2BWeb%2BRuntime
+19.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F19.jar file%3A%2F19.jar%3Fd%3D1%26x%3D1%26e%3D1%26k%3D1%26i%3DADF%2BFaces%2BDatabinding%2BRuntime
+20.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F20.jar file%3A%2F20.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BFaces%2BChange%2BManager%2BRuntime%2B11
+21.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F21.jar file%3A%2F21.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DJPS%2BDesigntime
+22.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F22.jar file%3A%2F22.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DOracle%2BJEWT
+23.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F23.jar file%3A%2F23.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DOracle%2BXML%2BParser%2Bv2
+24.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F24.jar file%3A%2F24.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DJDeveloper%2BRuntime
+25.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F25.jar file%3A%2F25.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DSQLJ%2BRuntime
+26.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F26.jar file%3A%2F26.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DADF%2BModel%2BRuntime
+27.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F27.jar file%3A%2F27.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DBC4J%2BRuntime
+28.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F28.jar file%3A%2F28.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DOracle%2BJDBC
+29.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F29.jar file%3A%2F29.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DConnection%2BManager
+30.jar#.../MySpacesQuickview/ViewController/ViewController.jpr: %2F30.jar file%3A%2F30.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DBC4J%2BOracle%2BDomains
+31.jar#.../MySpacesQuickview/Model/Model.jpr: %2F31.jar file%3A%2F31.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DBC4J%2BSecurity
+32.jar#.../MySpacesQuickview/Model/Model.jpr: %2F32.jar file%3A%2F32.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DBC4J%2BTester
+33.jar#.../MySpacesQuickview/Model/Model.jpr: %2F33.jar file%3A%2F33.jar%3Fx%3D1%26e%3D1%26k%3D1%26i%3DResource%2BBundle%2BSupport

@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">dentsDisplay</property>
+      <property
+         name="page">/dentsDisplay.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>dentsDisplay&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">203.26562</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">249.0</property>
+   </View>
+   <UrlView
+      id="UrlView3">
+      <property
+         name="activityId">urlView1</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>urlView1&lt;/b>&lt;/p>&lt;p>Activity Type:  Url View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">200.07812</property>
+      <property
+         name="x">504.0</property>
+   </UrlView>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="UrlView3">
+      <property
+         name="fromOutcome">dobee</property>
+      <property
+         name="sdm:polyPoints">R50,290.0,203.28418,463.0,200.09668,L50</property>
+   </ControlFlowCase>
+</SDM>

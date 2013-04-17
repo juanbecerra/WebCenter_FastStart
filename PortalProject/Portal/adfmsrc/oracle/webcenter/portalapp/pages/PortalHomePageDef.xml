@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.61.92" id="PortalHomePageDef"
+                Package="oracle.webcenter.portalapp.pages">
+  <parameters>
+    <parameter id="page_parent"
+               value="/oracle/webcenter/portalapp/pagehierarchy/pages.xml"/>
+    <parameter id="page_info"
+               value="title=PortalHome;desc=;keywords=;createdBy=weblogic;createDate=2012-12-03T23:11:29;lastUpdatedBy=weblogic;lastUpdateDate=2012-12-03T23:11:29;permissionClass=oracle.webcenter.security.auth.HierarchicalResourcePermission;target=serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/PortalHome.jspx;excluded=false;style="/>
+    <parameter id="page_title" value="PortalHome"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="oracle.webcenter.portalapp.pagetemplates.Oakton_MainPageDef"
+          id="pageTemplateBinding" Refresh="ifNeeded"/>
+    <taskFlow id="pageeditorpanel"
+              taskFlowId="#{pageEditorBean.pageEditorPanel}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="publisher1"
+              taskFlowId="/oracle/webcenter/peopleconnections/wall/controller/taskflows/Publisher.xml#publisher"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="userName" value="#{securityContext.userName}"/>
+        <parameter id="isUpdateStatus" value="true"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="activitystreamingmainview1"
+              taskFlowId="/oracle/webcenter/activitystreaming/controller/taskflows/activity-streaming-mainview.xml#activity-streaming-mainview"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="connectionsminiviewtaskflow1"
+              taskFlowId="/oracle/webcenter/peopleconnections/connections/controller/taskflows/connections-mini-view-taskflow.xml#connections-mini-view-taskflow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="MySpacesQuickView1"
+              taskFlowId="/WEB-INF/TaskFlow/MySpaces-QuickView.xml#MySpaces-QuickView"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="EnterpriseAppTaskListView1"
+              taskFlowId="/WEB-INF/taskflow/EnterpriseAppTaskListView.xml#EnterpriseAppTaskListView"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="worklist1"
+              taskFlowId="/oracle/webcenter/worklist/view/jsf/taskFlowDefs/worklist.xml#worklist"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="MySpacesQuickView2"
+              taskFlowId="/WEB-INF/TaskFlow/MySpaces-QuickView.xml#MySpaces-QuickView"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="myTasks1" taskFlowId="/WEB-INF/myTasks.xml#myTasks"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="Twitter_JSON1"
+              taskFlowId="/WEB-INF/Twitter_JSON.xml#Twitter_JSON"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="twitter_query" value="telstra"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="YouTubeVideo2"
+              taskFlowId="/WEB-INF/YouTubeVideo.xml#YouTubeVideo"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="youtubeVideo"
+                   value="http://www.youtube.com/watch?v=PKVrbdC3YcM"/>
+        <parameter id="width" value="360"/>
+        <parameter id="heigth" value="230"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="LinkedIn_Profile1"
+              taskFlowId="/WEB-INF/LinkedIn_Plugin.xml#LinkedIn_Profile"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="LinkedIn_Username" value="becerraj"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+  <permission permissionClass="oracle.webcenter.security.auth.HierarchicalResourcePermission"
+              target="serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/PortalHome.jspx"
+              xmlns="http://xmlns.oracle.com/adf/security">
+    <privilege-map operation="create" privilege="create"/>
+    <privilege-map operation="delete" privilege="delete"/>
+    <privilege-map operation="edit" privilege="update"/>
+    <privilege-map operation="personalize" privilege="personalize"/>
+    <privilege-map operation="view" privilege="view"/>
+  </permission>
+</pageDefinition>

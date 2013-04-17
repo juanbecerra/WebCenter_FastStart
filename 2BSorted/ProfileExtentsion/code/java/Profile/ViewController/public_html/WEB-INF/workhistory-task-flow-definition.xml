@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="workhistory-flow-definition">
+    <default-activity id="__1">WorkHistoryView</default-activity>
+    <input-parameter-definition id="__7">
+      <name id="__6">username</name>
+      <value>#{pageFlowScope.username}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__12">
+      <name id="__13">title</name>
+      <value>#{pageFlowScope.title}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name id="__3">NewWorkHistoryItemBean</managed-bean-name>
+      <managed-bean-class id="__4">au.com.leighton.portal.profile.view.WorkHistoryItemBean</managed-bean-class>
+      <managed-bean-scope id="__2">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+      <managed-bean-name id="__11">leightonProfileBean</managed-bean-name>
+      <managed-bean-class id="__9">au.com.leighton.portal.profile.view.LeightonProfileBean</managed-bean-class>
+      <managed-bean-scope id="__10">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="WorkHistoryView">
+      <page>/WorkHistoryView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

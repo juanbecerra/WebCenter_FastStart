@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:resource type="javascript">
+    function showMailerPopup(actionEvent) {
+        actionEvent.cancel();
+        var eventSource = actionEvent.getSource();
+        var v_popup = eventSource.getProperty("v_popup");
+        var popup = eventSource.findComponent(v_popup);
+        popup.show( {
+            align : AdfRichPopup.ALIGN_AFTER_START, alignId : eventSource.getClientId()
+        });
+        popup.cancel();
+    }
+  </af:resource>
+  <af:panelGroupLayout layout="vertical" id="pgl2" styleClass="AFStretchWidth">
+    <af:panelBorderLayout id="pbl2" styleClass="AFStretchWidth">
+      <af:outputText value="#{pageFlowScope.peopleFinderBean.searchSummary}"
+                     id="ot10"/>
+      <af:spacer height="5" id="s1"/>
+      <af:panelGroupLayout layout="horizontal" id="pgl1" valign="top">
+        <!--
+            *******************************************************************************************
+            Person search results table
+            *******************************************************************************************
+            -->
+        <af:table visible="#{pageFlowScope.peopleFinderBean.peopleSearch and (not pageFlowScope.peopleFinderBean.errored)}"
+                  value="#{pageFlowScope.peopleFinderBean.peopleResult.results}"
+                  id="tResPeo" summary="People Search Results" var="item"
+                  inlineStyle="width:685px; height:550px; vertical-align:top;"
+                  selectionListener="#{pageFlowScope.peopleFinderBean.tableItemSelected}"
+                  rowBandingInterval="1" columnStretching="last"
+                  rowSelection="single">
+          <af:column sortable="true" headerText="First name" id="c1"
+                     sortProperty="firstName" align="left" width="70px">
+            <af:outputText value="#{item.firstName}" id="ot2"/>
+          </af:column>
+          <af:column sortable="true" headerText="Surname" id="c2" align="left"
+                     sortProperty="surname" width="70px">
+            <af:outputText value="#{item.surname}" id="ot3"/>
+          </af:column>
+          <af:column sortable="true" headerText="Title" id="c3" align="left"
+                     sortProperty="title" width="130">
+            <af:outputText value="#{item.title}" id="ot4"/>
+          </af:column>
+          <af:column sortable="true" headerText="Department" id="c4"
+                     sortProperty="department" align="left" width="180">
+            <af:outputText value="#{item.department}" id="ot5"/>
+          </af:column>
+          <af:column sortable="true" headerText="Location" id="c9"
+                     sortProperty="locationName" align="left">
+            <af:outputText value="#{item.locationName}" id="ot26"/>
+          </af:column>
+        </af:table>
+        <!--
+            *******************************************************************************************
+            Location search results table
+            *******************************************************************************************
+            -->
+        <af:table visible="#{pageFlowScope.peopleFinderBean.locationSearch and (not pageFlowScope.peopleFinderBean.errored)}"
+                  value="#{pageFlowScope.peopleFinderBean.locationResult.results}"
+                  id="tResLoc" summary="Location Search Results" var="item"
+                  inlineStyle="width:700px; height:550px; vertical-align:top;"
+                  rowSelection="single"
+                  selectionListener="#{pageFlowScope.peopleFinderBean.tableItemSelected}"
+                  rowBandingInterval="1" columnStretching="column:c5">
+          <af:column sortable="true" headerText="Location" id="c5"
+                     sortProperty="name" align="left">
+            <af:outputText value="#{item.name}" id="ot6"/>
+          </af:column>
+          <af:column sortable="true" headerText="Business Unit" id="c6"
+                     sortProperty="companyName" align="left" width="180px">
+            <af:outputText value="#{item.companyName}" id="ot7"/>
+          </af:column>
+          <af:column sortable="true" headerText="Phone" id="c7" align="left"
+                     sortProperty="publishedPhone" width="80px">
+            <af:outputText value="#{item.publishedPhone}" id="ot8"/>
+          </af:column>
+          <af:column sortable="true" headerText="Fax" id="c8" align="left"
+                     sortProperty="faxNo" width="80px">
+            <af:outputText value="#{item.faxNo}" id="ot9"/>
+          </af:column>
+        </af:table>
+        <!--
+            *******************************************************************************************
+            People Data displayed as people search results are selected
+            *******************************************************************************************
+            -->
+        <af:panelFormLayout id="pfl1"
+                            inlineStyle="vertical-align:top; width:200px; "
+                            visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                            rendered="#{pageFlowScope.peopleFinderBean.showPersonDetail}">
+          <af:panelGroupLayout id="pgPeopleData" layout="vertical"
+                               partialTriggers="tResPeo"
+                               inlineStyle="width:225px;"
+                               visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                               rendered="#{pageFlowScope.peopleFinderBean.showPersonDetail}">
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.errorMessage}"
+                           id="ot1"
+                           visible="#{pageFlowScope.peopleFinderBean.personSelected and pageFlowScope.peopleFinderBean.errored}"/>
+
+            <af:activeImage source="#{pageFlowScope.peopleFinderBean.selectedPerson.photoSource}"
+                            id="ai1"
+                            visible="#{pageFlowScope.peopleFinderBean.personSelected and (not pageFlowScope.peopleFinderBean.errored)}"
+                            inlineStyle="width:225px;"/>
+            <af:commandLink text="More about #{pageFlowScope.peopleFinderBean.selectedPerson.firstName} >>"
+                            id="cl1" action="persondetailview">
+              <af:setPropertyListener from=""
+                                      to="#{pageFlowScope.peopleFinderBean.selectedPerson.clickedError}"
+                                      type="action"/>
+            </af:commandLink>
+            <af:spacer height="5" id="s2"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.fullName}"
+                           id="ot27"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                           styleClass="WCCustomHead1"/>
+            <af:spacer height="5" id="s3"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.title}"
+                           id="ot11"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                           styleClass="WCHead2Bold"/>
+            <af:spacer height="5" id="s16b"
+                       visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:outputLabel value="Department:" id="ol1a"
+                            visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.department}"
+                           id="ot12"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                           styleClass="WCHead2Bold"/>
+            <af:spacer height="5" id="s16"
+                       visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:outputLabel value="Email:" id="ol1"
+                            visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:commandLink text="#{pageFlowScope.peopleFinderBean.selectedPerson.email}"
+                            id="cl4"
+                            visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                            partialTriggers="tResPeo">
+              <af:clientListener method="showMailerPopup" type="action"/>
+              <af:clientAttribute name="v_popup" value="mailer2"/>
+              <af:popup id="mailer2" clientComponent="true">
+                Opening Outlook...
+                <af:inlineFrame id="if2" inlineStyle="width:2px; height:2px;"
+                                visible="false" shortDesc="mailer"
+                                source="#{'mailto:'}#{pageFlowScope.peopleFinderBean.selectedPerson.email}"
+                                clientComponent="true"/>
+              </af:popup>
+            </af:commandLink>
+            <af:spacer height="5" id="s4"/>
+            <af:panelLabelAndMessage label="Contact:" id="plam2"
+                                     visible="#{pageFlowScope.peopleFinderBean.showPersonDetail and pageFlowScope.peopleFinderBean.selectedPerson.hasPersonalAssistant}">
+              <af:commandLink text="#{pageFlowScope.peopleFinderBean.selectedPerson.personalAssistantName}"
+                              id="cl2" action="getClicked">
+                <af:setPropertyListener from="#{pageFlowScope.peopleFinderBean.selectedPerson.personalAssistantId}"
+                                        to="#{pageFlowScope.peopleFinderBean.clickedPersonId}"
+                                        type="action"/>
+              </af:commandLink>
+            </af:panelLabelAndMessage>
+            <af:spacer height="5" id="s16a"
+                       visible="#{pageFlowScope.peopleFinderBean.showPersonDetail and pageFlowScope.peopleFinderBean.selectedPerson.hasPersonalAssistant}"/>
+            <af:panelLabelAndMessage label="Desk Phone:" id="plam3"
+                                     visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}">
+              <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.mainPhone}"
+                             id="ot14" partialTriggers="tResPeo"
+                             visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Fax:" id="plam4"
+                                     visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}">
+              <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationFax}"
+                             id="ot15"
+                             visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Notes:" id="plam5"
+                                     visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}">
+              <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.note}"
+                             id="ot16"
+                             visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="Mobile:" id="plam6"
+                                     visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}">
+              <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.mobile}"
+                             id="ot17"
+                             visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            </af:panelLabelAndMessage>
+            <af:spacer height="5" id="s5"/>
+            <af:outputLabel value="Location:" id="ol2"
+                            visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.location}"
+                           id="ot22" partialTriggers="tResPeo"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"
+                           styleClass="WCHead2Bold"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationAddress1}"
+                           id="ot32" partialTriggers="tResPeo"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationAddress2}"
+                           id="ot33" partialTriggers="tResPeo"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationStatePostcode}"
+                           id="ot34" partialTriggers="tResPeo"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedPerson.locationSuburb}"
+                           id="ot37" partialTriggers="tResPeo"
+                           visible="#{pageFlowScope.peopleFinderBean.showPersonDetail}"/>
+            <af:spacer height="5" id="s6"/>
+            <af:commandLink text="If these details are incorrect click here"
+                            id="cl_adminemail" action="dialog:adminemail"
+                            useWindow="true" partialSubmit="true"
+                            
+                            visible="#{pageFlowScope.peopleFinderBean.showPersonDetail and pageFlowScope.peopleFinderBean.selectedPerson.adminEmailAvailable}"
+                            partialTriggers="tResPeo" windowWidth="400" windowHeight="300"
+                            windowEmbedStyle="inlineDocument"></af:commandLink>
+          </af:panelGroupLayout>
+        </af:panelFormLayout>
+        <!--
+            *******************************************************************************************
+            Location Data displayed as location search results are selected
+            *******************************************************************************************
+            -->
+        <af:panelFormLayout id="pfl2"
+                            inlineStyle="vertical-align:top; width:215px;"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"
+                            rendered="#{pageFlowScope.peopleFinderBean.showLocationDetail}">
+          <af:panelGroupLayout id="pgLocationData" layout="vertical"
+                               partialTriggers="tResLoc"
+                               visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"
+                               rendered="#{pageFlowScope.peopleFinderBean.showLocationDetail}">
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.errorMessage}"
+                           id="ot36" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.locationSelected and pageFlowScope.peopleFinderBean.errored}"/>
+            <af:spacer height="5" id="s7"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.locationName}"
+                           id="ot18" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"
+                           styleClass="WCCustomHead1"/>
+            <af:spacer height="5" id="s8"/>
+            <af:commandLink text="People at this location"
+                            id="clPeopleAtLocation"
+                            action="#{pageFlowScope.peopleFinderBean.peopleAtSelectedLocation}"
+                            partialTriggers="tResLoc"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s9"/>
+            <af:outputLabel value="Address:" id="ol3"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.address1}"
+                           id="ot39" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.address2}"
+                           id="ot40" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.suburb}"
+                           id="ot41" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.statePostcode}"
+                           id="ot42" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s10"/>
+            <af:outputLabel value="PO Box:" id="ol4"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.poBoxAddress}"
+                           id="ot44" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.poBoxSuburb}"
+                           id="ot45" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.poBoxStatePostcode}"
+                           id="ot46" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s11"/>
+            <!--af:outputText value="VPN:" id="ot47" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"
+                           styleClass="WCHead2Bold"/-->
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.vpn}"
+                           id="ot48" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s12"/>
+            <af:outputLabel value="Phone:" id="ol5"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.publishedPhone}"
+                           id="ot50" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s13"/>
+            <af:outputLabel value="Fax:" id="ol6"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.faxNo}"
+                           id="ot52" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s14"/>
+            <af:outputLabel value="Notes:" id="ol7"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:outputText value="#{pageFlowScope.peopleFinderBean.selectedLocation.note}"
+                           id="ot54" partialTriggers="tResLoc"
+                           visible="#{pageFlowScope.peopleFinderBean.showLocationDetail}"/>
+            <af:spacer height="5" id="s15"/>
+            <af:commandLink text="If these details are incorrect click here"
+                            id="cl5"
+                            visible="#{pageFlowScope.peopleFinderBean.showLocationDetail and pageFlowScope.peopleFinderBean.selectedLocation.adminEmailAvailable}"
+                            partialTriggers="tResPeo">
+              <af:clientListener method="showMailerPopup" type="action"/>
+              <af:clientAttribute name="v_popup" value="mailer3"/>
+            </af:commandLink>
+            <af:popup id="mailer3" clientComponent="true">
+              Opening Outlook...
+              <af:inlineFrame id="if3" inlineStyle="width:2px; height:2px;"
+                              visible="false" shortDesc="mailer"
+                              source="#{pageFlowScope.peopleFinderBean.selectedLocation.adminEmailUrl}"
+                              clientComponent="true"/>
+            </af:popup>
+          </af:panelGroupLayout>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </af:panelBorderLayout>
+  </af:panelGroupLayout>
+  
+</jsp:root>

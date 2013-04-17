@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      
+<af:form id="f1">
+      
+  
+       <af:panelGroupLayout id="pt_pgl3" layout="scroll" styleClass="WCSiteTemplateRoot">
+         <af:panelGroupLayout id="pt_pgl5" layout="vertical" styleClass="">
+            <af:panelGroupLayout id="pt_pbl1" layout="vertical" inlineStyle="width:940px;margin:0px auto;padding-top:8px;">
+                  
+               <af:panelGroupLayout id="pt_pgl6" layout="vertical" styleClass="" inlineStyle="color:#ffffff;background-color:#ffffff;">
+                  <af:table var="row" rowBandingInterval="0" id="t1" inlineStyle="height:100.0px;" styleClass="AFStretchWidth">
+                    <af:column sortable="false" headerText="col1" id="c3">
+                      <af:outputText value="Empty Header" id="ot1"/>
+                      
+                    </af:column>
+                  </af:table>
+                  <input type="text" name="q" id="intranet_query"/>
+               </af:panelGroupLayout>
+               <panelGroupLayout id="pgl1843365342" layout="vertical" styleClass="ComposerSplitVert" xmlns="http://xmlns.oracle.com/adf/faces/rich">
+                   <af:table var="row" rowBandingInterval="0" id="t2"
+                          inlineStyle="height:50.0px;" styleClass="AFStretchWidth">
+                        <af:column sortable="false" headerText="col1" id="c1">
+                         <af:outputText value="Empty Header" id="ot2"/>
+                       </af:column>
+                     </af:table>
+                  <panelGroupLayout id="pgl87768492354" layout="horizontal" inlineStyle="" valign="top">
+                     <af:outputText value="breadcrumb" id="bcot1" inlineStyle="color:#F58426;" rendered="false"/>
+                  </panelGroupLayout>
+                  <attribute name="composer_split" value="true" xmlns="http://java.sun.com/jsf/core"/>
+               </panelGroupLayout>
+               <!--
+               <af:panelStretchLayout id="pt_psl1" dimensionsFrom="auto" startWidth="1px" inlineStyle="padding:0px 0px 0px" styleClass="WCContent">
+                  <f:facet name="start">
+                     <af:spacer width="1" height="2" id="pt_sa6"/>
+                  </f:facet>
+                  <f:facet name="center">
+                     <af:panelStretchLayout id="pt_psl2" dimensionsFrom="auto" topHeight="auto">
+                        <f:facet name="top">
+                           <af:panelGroupLayout id="pt_pgl2" layout="vertical" inlineStyle="margin-right:10.0px; margin-left:10.0px;">
+                              <af:region value="Header" id="wcSpcInd"/>
+                           </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="center">
+                           <af:skipLinkTarget/>
+                           
+                           -->
+                           <af:region value="#{bindings.PeopleFinder1.regionModel}" id="r1"
+                  inlineStyle="height:1200.0px;" />
+            
+                   <!--
+                   
+                   
+                        </f:facet>
+                     </af:panelStretchLayout>
+                  </f:facet>
+               </af:panelStretchLayout>-->
+               
+               <af:panelGroupLayout id="bottom_globalContainer" layout="vertical" inlineStyle="height:0.0px;">
+                   <af:table var="row" rowBandingInterval="0" id="t3"
+                            inlineStyle="height:50.0px;" styleClass="AFStretchWidth">
+                      <af:column sortable="false" headerText="col1" id="c2">
+                        <af:outputText value="Empty Footer" id="ot3"/>
+                      </af:column>
+                   </af:table>
+               </af:panelGroupLayout>
+            </af:panelGroupLayout>
+         </af:panelGroupLayout>
+      </af:panelGroupLayout>
+
+      
+      
+      
+      
+      
+      
+      
+      </af:form>
+      
+    </af:document>
+  </f:view>
+</jsp:root>

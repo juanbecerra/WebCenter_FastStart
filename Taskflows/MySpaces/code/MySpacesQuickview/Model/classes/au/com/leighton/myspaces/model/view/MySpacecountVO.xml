@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MySpacecountVO"
+  Version="11.1.1.60.13"
+  SelectList="WcSpaceUsrDetail.SPACE_ID, 
+       WcSpaceUsrDetail.APPLICATION_ID, 
+       WcSpaceUsrDetail.USER_GUID, 
+       WcSpaceUsrDetail.SPACE_GUID, 
+       WcSpaceUsrDetail.LAST_UPDATE_DATE"
+  FromList="WC_SPACE_USR_DETAIL WcSpaceUsrDetail"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="au.com.leighton.myspaces.model.view.MySpacecountVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="WcSpaceUsrDetail"
+    Entity="au.com.leighton.myspaces.model.entity.WcSpaceUsrDetail"/>
+  <ViewAttribute
+    Name="SpaceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SpaceId"
+    EntityUsage="WcSpaceUsrDetail"
+    AliasName="SPACE_ID"/>
+  <ViewAttribute
+    Name="ApplicationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ApplicationId"
+    EntityUsage="WcSpaceUsrDetail"
+    AliasName="APPLICATION_ID"/>
+  <ViewAttribute
+    Name="UserGuid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserGuid"
+    EntityUsage="WcSpaceUsrDetail"
+    AliasName="USER_GUID"/>
+  <ViewAttribute
+    Name="SpaceGuid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SpaceGuid"
+    EntityUsage="WcSpaceUsrDetail"
+    AliasName="SPACE_GUID"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="WcSpaceUsrDetail"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="au.com.leighton.myspaces.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

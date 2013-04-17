@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="au.com.leighton.portal.profile.model.AppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="au.com.leighton.profile.model.Model" name="AppModuleLocal" ApplicationName="au.com.leighton.portal.profile.model.AppModule">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="au.com.leighton.portal.profile.model.AppModule"/>
+         <Custom JDBCDataSource="jdbc/leightonPortalDSM"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="au.com.leighton.profile.model.Model" name="AppModuleShared" ApplicationName="au.com.leighton.portal.profile.model.AppModule">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="au.com.leighton.portal.profile.model.AppModule"/>
+         <Custom JDBCDataSource="jdbc/leightonPortalDSM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

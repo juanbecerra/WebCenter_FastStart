@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WcSpaceHeaderSecParentFkAssoc"
+  Version="11.1.1.59.23">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="WcSpaceHeader2"
+    Cardinality="1"
+    Source="true"
+    Owner="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="WcSpaceHeader2"/>
+      <Attr Name="_foreignKey"
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.WcSpaceHeaderPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.SpaceGuid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="WcSpaceHeader3"
+    Cardinality="-1"
+    Owner="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="WcSpaceHeader3"/>
+      <Attr Name="_foreignKey"
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.WcSpaceHeaderSecParentFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.ApplicationId"/>
+      <Item
+        Value="au.com.leighton.portal.peoplefinder.model.WcSpaceHeader.SecurityParentGuid"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+          
+ <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2" styleClass="AFStretchWidth"
+                      halign="center">
+
+      <af:table value="#{bindings.EAapplicationListVO.collectionModel}"
+                var="row" rows="#{bindings.EAapplicationListVO.rangeSize}"
+                emptyText="#{bindings.EAapplicationListVO.viewable ? 'No Applications Added, please click on the link bellow to personalise your list.' : 'Access Denied.'}"
+                fetchSize="#{bindings.EAapplicationListVO.rangeSize}"
+                rowBandingInterval="0" id="t1"
+                
+                verticalGridVisible="false" 
+                autoHeightRows="2"
+                shortDesc="My Favourite Applications"
+                columnStretching="last" width="97%"
+                inlineStyle="border:0.0px;">
+       
+        <af:column id="c1" sortable="false" width="102"
+                   inlineStyle="padding: 10px 10px; border-top: 1px solid #EDECEA;">
+          <af:image source="#{row.Logo}" id="i2"
+                    inlineStyle="width:69px; height:59px; "/>
+        </af:column>
+        <af:column id="c2" sortable="false">
+          <af:goLink text="#{row.Name}" id="gl1" destination="#{row.Url}"
+                     targetFrame="_blank"/>
+        </af:column>
+      </af:table>
+   
+      <af:panelGroupLayout layout="horizontal"
+                           id="pgl1"
+                           styleClass="AFStretchWidth">
+                           
+        <af:panelGroupLayout layout="horizontal"
+                           id="pgleft"
+                           inlineStyle="padding:10.0px;" halign="left">
+                                                     
+      <!--  <af:commandLink id="cb1"
+                        text="Add/Remove" styleClass="icon-left add-icon">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandLink>-->
+        
+      </af:panelGroupLayout>
+      
+      
+      <af:panelGroupLayout layout="horizontal"
+                           id="pgright"
+                         halign="right">
+                         <!--
+        <af:goLink text="View My Applications" id="gl2"
+                   destination="//LCPortal/faces/oracle/webcenter/portalapp/pages/MyApplications.jspx"
+                   styleClass="arrow-right-link"
+                   inlineStyle="white-space:nowrap;"/>
+       -->
+       <af:commandLink id="cb1" text="Add/Remove" styleClass="arrow-right-link">
+          <af:showPopupBehavior popupId="p1"/>
+        </af:commandLink>
+      </af:panelGroupLayout>
+       </af:panelGroupLayout>
+      
+   
+  </af:panelGroupLayout>
+  <af:popup id="p1" contentDelivery="immediate" eventContext="launcher">
+    <af:panelWindow id="pw1"
+                    
+                    modal="true" resize="off" title="Add/Remove Applications">
+    <af:panelBorderLayout id="pbl1" inlineStyle="width:400.0px;">
+          <f:facet name="bottom">
+           <af:panelGroupLayout layout="horizontal"
+                           id="pgright2"
+                           halign="right">
+            <af:commandLink text="Cancel" id="cb2"
+                            useWindow="false" styleClass="blue-btn"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:commandLink actionListener="#{bindings.createSelectedRow.execute}"
+                            text="Save &amp; Exit"
+                            styleClass="blue-btn"
+                            inlineStyle="white-space:nowrap;"
+                            disabled="#{!bindings.createSelectedRow.enabled}"
+                            id="cb3"/>
+          </af:panelGroupLayout>
+        </f:facet>
+        
+       <af:table value="#{bindings.EAapplicationEditVO1.collectionModel}"
+                  var="row" rows="#{bindings.EAapplicationEditVO1.rangeSize}"
+                  emptyText="#{bindings.EAapplicationEditVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.EAapplicationEditVO1.rangeSize}"
+                  rowBandingInterval="0" id="t2"
+                  inlineStyle=" background-color:White;"
+                  verticalGridVisible="false" partialTriggers="::cb3"
+                 autoHeightRows="8" width="100%">
+                 
+          <af:column sortProperty="markfordelete" sortable="false" id="c6"
+                     width="20">
+            <af:selectBooleanCheckbox value="#{row.bindings.markfordelete.inputValue}"
+                                      label="#{row.bindings.markfordelete.label}"
+                                      shortDesc="#{bindings.EAapplicationEditVO1.hints.markfordelete.tooltip}"
+                                      selected="#{row.bindings.markfordelete.inputValue}"
+                                      id="sbc1" autoSubmit="true"/>
+          </af:column>
+          <af:column sortProperty="Logo" sortable="false" id="c4" width="158">
+            <af:image source="#{row.Logo}" id="i1"
+                      inlineStyle="width:72px; height:60px;"/>
+          </af:column>
+          <af:column sortProperty="Name" sortable="false" id="c3" width="137">
+            <af:outputText value="#{row.Name}" id="ot4"/>
+          </af:column>
+        </af:table>
+        <af:separator id="s2" inlineStyle="height:12px;"/>
+      </af:panelBorderLayout>
+    </af:panelWindow>
+  </af:popup>
+</jsp:root>
