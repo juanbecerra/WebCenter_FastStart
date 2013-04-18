@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <f:verbatim>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'
+            rel='stylesheet' type='text/css'></link>
+      <link href="/WCPortal-Portal-context-root/static/bootstrap/css/innovation-external.css"
+            rel="stylesheet"></link>
+      <link href="/WCPortal-Portal-context-root/static/bootstrap/css/docs.css" rel="stylesheet"></link>
+
+        
+        <![CDATA[
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="/WCPortal-Portal-context-root/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/WCPortal-Portal-context-root/static/bootstrap/js/bootstrap-affix.js"></script>
+        
+        <script>
+        
+        /* JS here is only needed for the navigation on right hand side of pages, not needed in actual live template for project use */
+        
+        $(document).ready(function() {        
+            $('.bs-docs-sidenav').affix();
+        
+            function goToByScroll(id){
+                id = id.replace("link", "");
+                $('html,body').animate({
+                    scrollTop: $("#"+id).offset().top},
+                    'slow');
+            }
+            
+            $(".bs-docs-sidenav > li > div").click(function(e) { 
+                goToByScroll($(this).attr("id") + 'zone');           
+            });
+        });
+        
+        </script>
+        ]]>
+        
+    </f:verbatim>
+    <af:panelGroupLayout id="pt_pgl1">
+      <!-- Start CSS Nav - Place under decorative box -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+
+  <div class="navbar-inner">
+<div class="innocenter">
+      <ul class="nav">
+        <af:forEach var="menu" varStatus="vs"
+                        items="#{navigationContext.defaultNavigationModel.listModel['startNode=/, includeStartNode=false']}">
+            <c:choose>
+                <c:when test="${menu.selected == 'true'}">
+                <li class="active">
+                   <af:goLink id="pt_gl2" text="#{menu.title}"
+                   destination="#{menu.goLinkPrettyUrl}"
+                   targetFrame="#{menu.attributes['Target']}" />
+                </li>
+                </c:when>
+                <c:otherwise>
+                <li>
+                   <af:goLink id="pt_gl3" text="#{menu.title}"
+                   destination="#{menu.goLinkPrettyUrl}"
+                   targetFrame="#{menu.attributes['Target']}" />
+                   </li>
+                </c:otherwise>
+            </c:choose>
+        </af:forEach>
+      </ul>
+      </div>
+      </div>
+      </div>
+      <!-- End CSS Nav -->
+      
+
+<![CDATA[
+<header class="jumbotron subhead banner" id="overview">
+]]>
+  <div class="container">
+    <h1><c:out value="${attrs.headerText}" /></h1>
+    <p class="lead"><c:out value="${attrs.headerSub}" /></p>
+  </div>
+<![CDATA[
+</header>
+]]>
+
+
+<af:facetRef facetName="content"/>
+      
+<![CDATA[
+    <footer class="footer">
+      <div class="container">
+        <p>Many thanks to the <a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a> development team.</p>
+        <p>Twitter Bootstrap Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p>
+          <a href="http://www.johnbrunswick.com">John Brunswick</a>
+          |
+          <a href="http://twitter.com/johnbrunswick">Follow on Twitter</a>
+        </p>
+      </div>
+    </footer>
+]]>
+
+    </af:panelGroupLayout>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>WCInnovation</display-name>
+        <facet>
+          <description>Content for body of page</description>
+          <facet-name>content</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>headerText</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>Header Text Here</default-value>
+        </attribute>
+        <attribute>
+          <attribute-name>headerSub</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>Subheader text here</default-value>
+        </attribute>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>

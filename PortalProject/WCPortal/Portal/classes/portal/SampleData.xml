@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<ViewObject
+   xmlns="http://xmlns.oracle.com/placeholder"
+   Name="SampleData"
+   Version="11.1.1.62.29"
+   InheritPersonalization="true"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   UseGlueCode="false" >
+   <ViewAttribute
+      Name="Attribute1"
+      Type="java.lang.String"
+      PrimaryKey="true" >
+      <Properties >
+         <SchemaBasedProperties >
+            <CONTROLTYPE
+               xmlns="http://xmlns.oracle.com/bc4j"
+               Value="default" >
+            </CONTROLTYPE>
+         </SchemaBasedProperties>
+      </Properties>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute2"
+      Type="java.lang.String" >
+      <Properties >
+         <SchemaBasedProperties >
+            <CONTROLTYPE
+               xmlns="http://xmlns.oracle.com/bc4j"
+               Value="default" >
+            </CONTROLTYPE>
+         </SchemaBasedProperties>
+      </Properties>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Attribute3"
+      Type="java.lang.String" >
+      <Properties >
+         <SchemaBasedProperties >
+            <CONTROLTYPE
+               xmlns="http://xmlns.oracle.com/bc4j"
+               Value="default" >
+            </CONTROLTYPE>
+         </SchemaBasedProperties>
+      </Properties>
+   </ViewAttribute>
+   <AttrArray Name="KeyAttributes">
+      <Item Value="Attribute1" />
+   </AttrArray>
+   <StaticList
+      Name="SampleData"
+      Rows="5"
+      Columns="3" >
+   </StaticList>
+   <ResourceBundle >
+      <PropertiesBundle
+         xmlns="http://xmlns.oracle.com/bc4j"
+         PropertiesFile="portal.PortalBundle" >
+      </PropertiesBundle>
+   </ResourceBundle>
+</ViewObject>

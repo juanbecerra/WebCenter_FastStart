@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_layout.d1}">
+      <af:messages binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_layout.m1}"
+                   id="m1"/>
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_layout.f1}">
+        <af:pageTemplate viewId="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_innovation.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+                         <f:attribute name="headerText" value="Layout"/>
+                         <f:attribute name="headerSub" value="Style for decorative box and table ADF components"/>
+                         
+          <f:facet name="content">
+             <af:group binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_layout.g1}"
+                      id="g1">
+                      
+                      
+              
+<div class="container">
+<div class="row">
+ 
+      <div class="span4 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav" data-spy="affix" data-offset-top="300">
+          <li><div id="box" class="link">Decorative Box</div></li>
+          <li><div id="table" class="link">Table</div></li>
+        </ul>
+      </div>
+ 
+ 
+ 
+ <div class="span8">
+ <section id="boxzone">
+                      
+            <h2>Decorative Box</h2>
+            
+            
+            <div class="bs-docs-example">
+              <af:decorativeBox styleClass="innoherounit" >
+                <f:facet name="center">
+                  <af:panelGroupLayout layout="scroll"
+                                       xmlns:af="http://xmlns.oracle.com/adf/faces/rich" >
+                    <af:outputText value="This is a decorative box.  Nunc sit amet erat tellus. Donec mauris ligula, vehicula non porttitor nec, rhoncus id augue. In hac habitasse platea dictumst. Phasellus semper faucibus nunc vel faucibus. Pellentesque auctor libero a nibh placerat nec convallis metus aliquet. Sed accumsan venenatis justo, a suscipit orci adipiscing quis. Donec ac dolor libero." />
+                    <af:commandButton text="Some Awesome Button" styleClass="btn btn-primary"/>
+                  </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="top">
+                  <af:outputText value="Header Text Here" />
+                </f:facet>
+              </af:decorativeBox>
+              </div>    
+              <f:verbatim>
+<pre class="prettyprint linenums">
+<![CDATA[
+&lt;af:decorativeBox styleClass=&quot;innoherounit&quot;&gt;
+  &lt;f:facet name=&quot;center&quot;&gt;
+    &lt;af:panelGroupLayout layout=&quot;scroll&quot;
+           xmlns:af=&quot;http://xmlns.oracle.com/adf/faces/rich&quot; &gt;
+      &lt;af:outputText value=&quot;This is a decorative box.  Nunc sit amet erat tellus. Donec mauris ligula, vehicula non porttitor nec, rhoncus id augue. In hac habitasse platea dictumst. Phasellus semper faucibus nunc vel faucibus. Pellentesque auctor libero a nibh placerat nec convallis metus aliquet. Sed accumsan venenatis justo, a suscipit orci adipiscing quis. Donec ac dolor libero.&quot; /&gt;
+      &lt;af:commandButton text=&quot;Some Awesome Button&quot; styleClass=&quot;btn&quot;/&gt;
+    &lt;/af:panelGroupLayout&gt;
+  &lt;/f:facet&gt;
+  &lt;f:facet name=&quot;top&quot;&gt;
+    &lt;af:outputText value=&quot;Header Text Here&quot; /&gt;
+  &lt;/f:facet&gt;
+&lt;/af:decorativeBox&gt;
+]]>
+</pre>
+</f:verbatim>
+          
+</section>
+              
+
+
+ <section id="tablezone">              
+              <h2>Table</h2>
+              
+              <div class="bs-docs-example">
+              <af:table value="#{bindings.SampleData.collectionModel}" var="row"
+                        rows="#{bindings.SampleData.rangeSize}"
+                        emptyText="#{bindings.SampleData.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.SampleData.rangeSize}"
+                        rowBandingInterval="0"
+                        binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_layout.t1}"
+                        id="t1" styleClass="innotable">
+                <af:column sortProperty="Attribute1" sortable="false"
+                           headerText="#{bindings.SampleData.hints.Attribute1.label}"
+                           id="c3">
+                  <af:outputText value="#{row.Attribute1}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="Attribute2" sortable="false"
+                           headerText="#{bindings.SampleData.hints.Attribute2.label}"
+                           id="c2">
+                  <af:outputText value="#{row.Attribute2}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="Attribute3" sortable="false"
+                           headerText="#{bindings.SampleData.hints.Attribute3.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Attribute3}" id="ot1"/>
+                </af:column>
+              </af:table>
+    </div>
+
+<f:verbatim>
+<pre class="prettyprint linenums">
+<![CDATA[
+&lt;af:table value=&quot;&#35;{bindings.SampleData.collectionModel}&quot; var=&quot;row&quot;
+          rows=&quot;&#35;{bindings.SampleData.rangeSize}&quot;
+          emptyText=&quot;&#35;{bindings.SampleData.viewable ? &&#35;39;No data to display.&&#35;39; : &&#35;39;Access Denied.&&#35;39;}&quot;
+          fetchSize=&quot;&#35;{bindings.SampleData.rangeSize}&quot;
+          rowBandingInterval=&quot;0&quot;
+          binding=&quot;&#35;{backingBeanScope.backing_oracle_webcenter_portalapp_pages_layout.t1}&quot;
+          id=&quot;t1&quot; styleClass=&quot;innotable&quot;&gt;
+  &lt;af:column sortProperty=&quot;Attribute1&quot; sortable=&quot;false&quot;
+             headerText=&quot;&#35;{bindings.SampleData.hints.Attribute1.label}&quot;
+             id=&quot;c3&quot;&gt;
+    &lt;af:outputText value=&quot;&#35;{row.Attribute1}&quot; id=&quot;ot2&quot;/&gt;
+  &lt;/af:column&gt;
+  &lt;af:column sortProperty=&quot;Attribute2&quot; sortable=&quot;false&quot;
+             headerText=&quot;&#35;{bindings.SampleData.hints.Attribute2.label}&quot;
+             id=&quot;c2&quot;&gt;
+    &lt;af:outputText value=&quot;&#35;{row.Attribute2}&quot; id=&quot;ot5&quot;/&gt;
+  &lt;/af:column&gt;
+  &lt;af:column sortProperty=&quot;Attribute3&quot; sortable=&quot;false&quot;
+             headerText=&quot;&#35;{bindings.SampleData.hints.Attribute3.label}&quot;
+             id=&quot;c1&quot;&gt;
+    &lt;af:outputText value=&quot;&#35;{row.Attribute3}&quot; id=&quot;ot1&quot;/&gt;
+  &lt;/af:column&gt;
+&lt;/af:table&gt;
+]]>
+</pre>
+</f:verbatim>
+</section>
+
+           </div>
+           </div>
+    </div>
+            </af:group>
+            
+ 
+            
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_oracle_webcenter_portalapp_pages_layout-->
+</jsp:root>

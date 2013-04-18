@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.d1}">
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.f1}">
+        <af:pageTemplate viewId="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_innovation.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+                         <f:attribute name="headerText" value="Dialogues"/>
+                         <f:attribute name="headerSub" value="Simple dialogue style"/>
+                         
+          <f:facet name="content">
+          
+          
+          
+          
+          
+                       <af:group >
+                      
+                      
+              
+<div class="container">
+<div class="row">
+ 
+      <div class="span4 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav" data-spy="affix" data-offset-top="300">
+                    <li><div id="basic" class="link">Basic Dialogue</div></li>
+        </ul>
+      </div>
+ 
+ 
+ 
+ <div class="span8">
+
+<section id="basiczone">
+            
+                <h2>Basic Dialogue</h2>
+            
+                      <div class="bs-docs-example">
+                
+          
+            <af:group binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.g1}"
+                      id="g1">
+              <af:messages binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.m1}"
+                           id="m1" text="Title of Box"
+                           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet ullamcorper congue. Phasellus ullamcorper elit eu tortor consequat non commodo lectus pellentesque."
+                           styleClass="alert" inline="true" globalOnly="true"
+                           attributeChangeListener="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.m1_attributeChangeListener}"/>
+              <af:commandButton text="Click me to Show Message"
+                                binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.cb1}"
+                                id="cb1"
+                                action="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.cb1_action}"
+                                styleClass="btn btn-primary"/>
+            </af:group>
+  
+
+
+          
+                                    </div>  <f:verbatim>
+      <pre class="prettyprint linenums">
+      <![CDATA[
+&lt;af:messages binding=&quot;&#35;{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.m1}&quot;
+    id=&quot;m1&quot; text=&quot;Title of Box&quot;
+    message=&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet ullamcorper congue. Phasellus ullamcorper elit eu tortor consequat non commodo lectus pellentesque.&quot;
+    styleClass=&quot;alert&quot;
+    inline=&quot;true&quot;
+    globalOnly=&quot;true&quot;
+    attributeChangeListener=&quot;&#35;{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.m1_attributeChangeListener}&quot;/&gt;
+&lt;af:commandButton text=&quot;Click me to Show Message&quot;
+    binding=&quot;&#35;{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.cb1}&quot;
+    id=&quot;cb1&quot;
+    action=&quot;&#35;{backingBeanScope.backing_oracle_webcenter_portalapp_pages_dialogues.cb1_action}&quot;
+styleClass=&quot;btn btn-primary&quot;/&gt;
+]]>
+      </pre>
+      </f:verbatim>
+
+
+</section>
+
+          </div>
+          </div>
+          </div>
+          </af:group>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_oracle_webcenter_portalapp_pages_dialogues-->
+</jsp:root>

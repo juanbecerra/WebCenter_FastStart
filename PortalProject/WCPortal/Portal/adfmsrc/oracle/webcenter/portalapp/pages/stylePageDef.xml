@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="stylePageDef"
+                Package="oracle.webcenter.portalapp.pages">
+  <parameters>
+    <parameter id="page_info"
+               value="title=Buttons;desc=;keywords=;createdBy=weblogic;createDate=2013-01-02T18:17:17;lastUpdatedBy=weblogic;lastUpdateDate=2013-01-07T00:29:50;permissionClass=oracle.webcenter.security.auth.HierarchicalResourcePermission;target=serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/style.jspx;excluded=false;style="/>
+    <parameter id="page_title" value="Buttons"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="oracle.webcenter.portalapp.pagetemplates.pageTemplate_innovationPageDef"
+          id="pageTemplateBinding" Refresh="ifNeeded"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

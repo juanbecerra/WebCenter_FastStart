@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_forms.d1}">
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_forms.f1}">
+        <af:pageTemplate viewId="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_innovation.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+                         <f:attribute name="headerText" value="Basic Form Fields"/>
+                         <f:attribute name="headerSub" value="A few basic form field types"/>
+          <f:facet name="content">
+          
+          
+ 
+             <af:group >
+                      
+                      
+              
+<div class="container">
+<div class="row">
+ 
+      <div class="span4 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav" data-spy="affix" data-offset-top="300">
+          <li><div id="single" class="link">Input Text Single Line</div></li>
+          <li><div id="multiple" class="link">Input Text Mult Line</div></li>
+        </ul>
+      </div>
+ 
+ 
+ 
+ <div class="span8">
+            
+          
+<section id="singlezone">          
+          
+                                <h2>Input Text Single Line</h2>
+                      
+                      <div class="bs-docs-example">
+                  <af:inputText label="Label 1"/>
+                
+
+          
+                                    </div>  <f:verbatim>
+      <pre class="prettyprint linenums">
+      <![CDATA[
+&lt;af:inputText label=&quot;Label 1&quot;/&gt;
+]]>
+      </pre>
+      </f:verbatim>
+
+
+</section>
+                                
+
+<section id="multiplezone">          
+          
+                                <h2>Input Text Multiple Line</h2>
+
+
+                      <div class="bs-docs-example">
+                
+                <af:inputText label="Label 2"  rows="3"/>
+          
+                                    </div>  <f:verbatim>
+      <pre class="prettyprint linenums">
+      <![CDATA[
+&lt;af:inputText label=&quot;Label 2&quot;  rows=&quot;3&quot;/&gt;
+]]>
+      </pre>
+      </f:verbatim>
+
+
+</section>
+
+          </div>
+          </div>
+          </div>
+          </af:group>
+                   
+          
+          
+          
+          
+          
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_oracle_webcenter_portalapp_pages_forms-->
+</jsp:root>

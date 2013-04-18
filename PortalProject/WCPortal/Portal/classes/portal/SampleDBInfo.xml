@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<AppModule
+   xmlns="http://xmlns.oracle.com/placeholder"
+   Name="SampleDBInfo"
+   Version="11.1.1.62.29"
+   InheritPersonalization="true" >
+   <ViewUsage
+      Name="SampleData"
+      ViewObjectName="portal.SampleData" >
+   </ViewUsage>
+</AppModule>

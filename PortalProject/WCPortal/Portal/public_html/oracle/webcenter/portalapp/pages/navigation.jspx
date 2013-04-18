@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_navigation.d1}">
+      <af:form id="f1"
+               binding="#{backingBeanScope.backing_oracle_webcenter_portalapp_pages_navigation.f1}">
+        <af:pageTemplate viewId="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_innovation.jspx"
+                         value="#{bindings.pageTemplateBinding}" id="pt1">
+                         <f:attribute name="headerText" value="Navigation"/>
+                         <f:attribute name="headerSub" value="A CSS based navigation from a WebCenter Navigation Model and a panel tabbed component"/>
+                         
+          <f:facet name="content">
+            <af:panelGroupLayout>
+
+<div class="container">
+<div class="row">
+ 
+      <div class="span4 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav"  data-spy="affix" data-offset-top="300">
+            <li><div id="cssnav" class="link">CSS Navigation via goLinks</div></li>
+            <li><div id="paneltabbed" class="link">Panel Tabbed</div></li>
+        </ul>
+      </div>
+ 
+ 
+ 
+ <div class="span8">
+                      
+<section id="cssnavzone">
+                      
+              <h2>CSS Navigation via goLinks</h2>
+
+   
+            <div class="bs-docs-example">
+          <div class="navbar">
+  <div class="navbar-inner">
+      <ul class="nav">
+        <af:forEach var="menu" varStatus="vs"
+                        items="#{navigationContext.defaultNavigationModel.listModel['startNode=/, includeStartNode=false']}">
+            <c:choose>
+                <c:when test="${menu.selected == 'true'}">
+                <li class="active">
+                   <af:goLink  text="#{menu.title}"
+                   destination="#{menu.goLinkPrettyUrl}"
+                   targetFrame="#{menu.attributes['Target']}" />
+                </li>
+                </c:when>
+                <c:otherwise>
+                <li>
+                   <af:goLink  text="#{menu.title}"
+                   destination="#{menu.goLinkPrettyUrl}"
+                   targetFrame="#{menu.attributes['Target']}" />
+                   </li>
+                </c:otherwise>
+            </c:choose>
+        </af:forEach>
+      </ul>
+      </div>
+      </div>
+      </div>
+      
+      <f:verbatim>
+      <pre class="prettyprint linenums">
+      <![CDATA[
+&lt;div class=&quot;bs-docs-example&quot;&gt;
+    &lt;div class=&quot;navbar&quot;&gt;
+      &lt;div class=&quot;navbar-inner&quot;&gt;
+          &lt;ul class=&quot;nav&quot;&gt;
+            &lt;af:forEach var=&quot;menu&quot; varStatus=&quot;vs&quot;
+                            items=&quot;&#35;{navigationContext.defaultNavigationModel.listModel['startNode=/, includeStartNode=false']}&quot;&gt;
+                &lt;c:choose&gt;
+                    &lt;c:when test=&quot;${menu.selected == 'true'}&quot;&gt;
+                    &lt;li class=&quot;active&quot;&gt;
+                       &lt;af:goLink  text=&quot;&#35;{menu.title}&quot;
+                       destination=&quot;&#35;{menu.goLinkPrettyUrl}&quot;
+                       targetFrame=&quot;&#35;{menu.attributes['Target']}&quot; /&gt;
+                    &lt;/li&gt;
+                    &lt;/c:when&gt;
+                    &lt;c:otherwise&gt;
+                    &lt;li&gt;
+                       &lt;af:goLink  text=&quot;&#35;{menu.title}&quot;
+                       destination=&quot;&#35;{menu.goLinkPrettyUrl}&quot;
+                       targetFrame=&quot;&#35;{menu.attributes['Target']}&quot; /&gt;
+                       &lt;/li&gt;
+                    &lt;/c:otherwise&gt;
+                &lt;/c:choose&gt;
+            &lt;/af:forEach&gt;
+          &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+]]>
+      </pre>
+      </f:verbatim>
+
+</section>
+
+<section id="paneltabbedzone">
+
+              <h2>Panel Tabbed</h2>
+
+              <af:panelTabbed styleClass="innotabbed" tabRemoval="none" >
+  <af:showDetailItem text="ADF Faces"  inflexibleHeight="0" styleClass="innotabbeditem" >
+      Auto   - component attributes use the correct default value given the value of their
+                 parent component. For example, with this setting, the panelStretchLayout
+                 will use "auto" as the default value for its "dimensionsFrom" attribute
+                 instead of "parent".
+  </af:showDetailItem>
+  <af:showDetailItem text="Middle" inflexibleHeight="0" styleClass="innotabbeditem">
+        legacy - component attributes use the default values as specified for the attributes
+                 in the tag documentation (default value)
+  </af:showDetailItem>
+  <af:showDetailItem text="Release" inflexibleHeight="0" styleClass="innotabbeditem">
+      This parameter controls the default value for component geometry on the page.
+      Supported values are:
+        legacy - component attributes use the default values as specified for the attributes
+                 in the tag documentation (default value)
+        auto   - component attributes use the correct default value given the value of their
+                 parent component. For example, with this setting, the panelStretchLayout
+                 will use "auto" as the default value for its "dimensionsFrom" attribute
+                 instead of "parent".
+  </af:showDetailItem>
+</af:panelTabbed>
+
+      <f:verbatim>
+      <pre class="prettyprint linenums">
+      <![CDATA[
+&lt;af:panelTabbed styleClass=&quot;innotabbed&quot; tabRemoval=&quot;none&quot; &gt;
+  &lt;af:showDetailItem text=&quot;ADF Faces&quot;  inflexibleHeight=&quot;0&quot; styleClass=&quot;innotabbeditem&quot; &gt;
+      Auto   - component attributes use the correct default value given the value of their
+                 parent component. For example, with this setting, the panelStretchLayout
+                 will use &quot;auto&quot; as the default value for its &quot;dimensionsFrom&quot; attribute
+                 instead of &quot;parent&quot;.
+  &lt;/af:showDetailItem&gt;
+  &lt;af:showDetailItem text=&quot;Middle&quot; inflexibleHeight=&quot;0&quot; styleClass=&quot;innotabbeditem&quot;&gt;
+        legacy - component attributes use the default values as specified for the attributes
+                 in the tag documentation (default value)
+  &lt;/af:showDetailItem&gt;
+  &lt;af:showDetailItem text=&quot;Release&quot; inflexibleHeight=&quot;0&quot; styleClass=&quot;innotabbeditem&quot;&gt;
+      This parameter controls the default value for component geometry on the page.
+      Supported values are:
+        legacy - component attributes use the default values as specified for the attributes
+                 in the tag documentation (default value)
+        auto   - component attributes use the correct default value given the value of their
+                 parent component. For example, with this setting, the panelStretchLayout
+                 will use &quot;auto&quot; as the default value for its &quot;dimensionsFrom&quot; attribute
+                 instead of &quot;parent&quot;.
+  &lt;/af:showDetailItem&gt;
+&lt;/af:panelTabbed&gt;
+]]>
+      </pre>
+      </f:verbatim>
+      </section>
+      
+      </div>
+      </div>
+      </div>
+      
+</af:panelGroupLayout>
+
+          
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_oracle_webcenter_portalapp_pages_navigation-->
+</jsp:root>

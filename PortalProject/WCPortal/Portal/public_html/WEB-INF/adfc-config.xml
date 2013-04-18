@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__4">
+    <managed-bean-name id="__3">backing_oracle_webcenter_portalapp_pages_style</managed-bean-name>
+    <managed-bean-class id="__2">portal.backing.oracle.webcenter.portalapp.pages.Style</managed-bean-class>
+    <managed-bean-scope id="__1">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/style.jspx-->
+  </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name id="__7">backing_oracle_webcenter_portalapp_pages_dialogues</managed-bean-name>
+    <managed-bean-class id="__6">portal.backing.oracle.webcenter.portalapp.pages.Dialogues</managed-bean-class>
+    <managed-bean-scope id="__5">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/dialogues.jspx-->
+  </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name id="__11">backing_oracle_webcenter_portalapp_pages_layout</managed-bean-name>
+    <managed-bean-class id="__10">portal.backing.oracle.webcenter.portalapp.pages.Layout</managed-bean-class>
+    <managed-bean-scope id="__12">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/layout.jspx-->
+  </managed-bean>
+  <managed-bean id="__16">
+    <managed-bean-name id="__15">backing_oracle_webcenter_portalapp_pages_navigation</managed-bean-name>
+    <managed-bean-class id="__13">portal.backing.oracle.webcenter.portalapp.pages.Navigation</managed-bean-class>
+    <managed-bean-scope id="__14">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/navigation.jspx-->
+  </managed-bean>
+  <managed-bean id="__26">
+    <managed-bean-name id="__28">backing_oracle_webcenter_portalapp_pages_forms</managed-bean-name>
+    <managed-bean-class id="__27">portal.backing.oracle.webcenter.portalapp.pages.Forms3</managed-bean-class>
+    <managed-bean-scope id="__25">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/forms.jspx-->
+  </managed-bean>
+  <managed-bean id="__20">
+    <managed-bean-name id="__19">backing_oracle_webcenter_portalapp_pages_pageTemplate_innovationHeader</managed-bean-name>
+    <managed-bean-class id="__17">portal.backing.oracle.webcenter.portalapp.pages.PageTemplate_innovationHeader</managed-bean-class>
+    <managed-bean-scope id="__18">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/pageTemplate_innovationHeader.jspx-->
+  </managed-bean>
+  <managed-bean id="__23">
+    <managed-bean-name id="__24">backing_oracle_webcenter_portalapp_pages_buttons</managed-bean-name>
+    <managed-bean-class id="__21">portal.backing.oracle.webcenter.portalapp.pages.Buttons</managed-bean-class>
+    <managed-bean-scope id="__22">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1oracle/webcenter/portalapp/pages/buttons.jspx-->
+  </managed-bean>
+</adfc-config>

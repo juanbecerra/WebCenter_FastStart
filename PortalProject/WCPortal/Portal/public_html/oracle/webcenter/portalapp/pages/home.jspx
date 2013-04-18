@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:pe="http://xmlns.oracle.com/adf/pageeditor"
+          xmlns:cust="http://xmlns.oracle.com/adf/faces/customizable">
+  <f:loadBundle basename="oracle.webcenter.portalframework.sitestructure.resource.PortalAppPageResource"
+                var="portalResource"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="#{portalResource['home_title']}">
+      <af:form id="f1">    
+	<af:pageTemplate value="#{bindings.pageTemplateBinding.templateModel}" id="pt1">
+                         <f:attribute name="headerText" value="WebCenter ADF Twitter Bootstrap"/>
+                         <f:attribute name="headerSub" value="Sample Concept Theme / Template v0.1"/>
+                         
+          <f:facet name="content">
+            <af:group id="g1">
+              
+              
+              <af:panelGroupLayout id="pgl1">
+
+<div class="container">
+<div class="row">
+ 
+ 
+
+<div class="page-header">
+            
+    <h1>Welcome - Theme Overview</h1>
+</div>
+   <p>Welcome to the WebCenter ADF Twitter Bootstrap Theme v0.1 template.  This template is an alpha proof to apply formatting based on Twitter's Bootstrap template to ADF components.  The theme also includes some sample code to generate navigation based on CSS3 style and ADF components.</p>
+    <p>This theme makes usage of the tr-inhibit value for various portions of the ADF generated CSS, esentially leaving clean component visualizations from the ADF rendering engine.  Due to this, it is possible to apply traditional styling more easily than attempting to use exclusively pure ADF skinning (Trinidad Skinning).</p>
+    <p>WebCenter ADF Twitter Bootstrap Theme is meant to showcase some contemporary skinning styles, but is by no means exhaustive.  The various pages within this WebCenter Portal deployment will showcase the following components.</p>
+</div>              
+
+<div class="row">
+
+    <h4>Included Sample ADF Components</h4>
+    
+    
+      <div class="row homehero">
+        <div class="span4">
+          <ul>
+            <li>CSS Navigation via goLinks</li>
+            <li>Input Text</li>
+            <li>Message Box</li>
+          </ul>
+        </div>
+        <div class="span4">
+          <ul>
+          <li>Table</li>
+          <li>Panel Box</li>
+          <li>Command Button</li>
+          </ul>
+       </div>
+        <div class="span4">
+          <ul>
+          <li>Decorative Box</li>
+          <li>Panel Tabbed</li>
+          <li>Button Groups</li>
+          </ul>
+        </div>
+      </div>
+
+</div>
+
+
+<div class="row">
+
+    <h4>Key Files</h4>
+
+
+      <div class="row homehero">
+        <div class="span6">
+          <ul>
+            <li><strong>pageTemplate_innovation.jspx - </strong> page template that implements the required supporting files for the WebCenter ADF Twitter Bootstrap Theme</li>
+            <li><strong>innovation-external.css - </strong> CSS file that is not processed by the ADF engine, but is server to apply standard CSS on top of what is provided by ADF.  This enabled verbatim use of the Bootstrap styles in some cases.  In other cases, custom CSS was created to emulate the look and feel provided by Twitter Bootstrap.</li>
+          </ul>
+        </div>
+        <div class="span6">
+          <ul>
+          <li><strong>JSPX site pages - </strong> variety of pages with ADF components to showcase how the Twitter Bootstrap styling can be applied.  Please note that this is not fully tested, but acts as a good strating point for your own projects.</li>
+          <li><strong>innovation.css - </strong> skin that is processed by the ADF engine and implements the tr-inhibit attribute for a variety of the potential selectors that are leveraged for ADF component styling.</li>
+          </ul>
+        </div>
+      </div>
+    
+</div>
+              
+
+    <div class="row">
+        <div class="span12">
+            <h3>Need More Design Awesomeness?</h3>
+            <p>The following are some excellent design resources to stay on top of the latest trends and technical approaches to implement contemporary web solutions</p>
+        </div>
+        <div class="span4 homefeature">
+        <a href="http://www.smashingmagazine.com/" class="thumbnail home">
+          <af:image source="../images/smashing_sm.png" />
+          </a>
+        </div>
+        <div class="span4 homefeature">
+          <a href="http://net.tutsplus.com/" class="thumbnail home">
+          <af:image source="../images/nettuts_sm.png" />
+        </a>
+       </div>
+        <div class="span4 homefeature">
+        <a href="http://tympanus.net/codrops/" class="thumbnail home">
+          <af:image source="../images/codrops_sm.png" />
+          </a>
+        </div>
+      </div>
+      
+      </div>
+      
+              </af:panelGroupLayout>
+              
+              
+              <pe:pageCustomizable id="hm_pgc1">
+                <cust:panelCustomizable id="hm_pnc1" layout="scroll"/>
+                <f:facet name="editor">
+                  <pe:pageEditorPanel id="pep1"/>
+                </f:facet>
+              </pe:pageCustomizable>
+            </af:group>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
